@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "hall.h": "c",
+        "variable.h": "c",
+        "bldc.h": "c",
+        "btn.h": "c"
+    }
+}
