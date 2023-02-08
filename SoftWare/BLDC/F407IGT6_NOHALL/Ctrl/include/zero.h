@@ -27,7 +27,7 @@ typedef struct
     uint16_t queueState[3];       // 三相滤波
     uint16_t queueFilterState[3]; // 三相滤波后的状态
     uint16_t filterEdge;          // 滤波后边沿检测
-    int16_t speedRpm;             // 电机转速
+    int speedRpm;             // 电机转速
     uint16_t filterFailedCount;   // 不稳定计数
     uint16_t filterDelay;         // 延迟换向的时间
     uint8_t hallLessValue;        // 三相反电势状态组合值

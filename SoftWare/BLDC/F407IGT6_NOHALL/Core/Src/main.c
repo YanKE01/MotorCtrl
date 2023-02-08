@@ -179,7 +179,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   if (htim->Instance == htim1.Instance)
   {
-	  SimpleOpenLoopSixStepLoop();
+    SimpleOpenLoopSixStepLoop();
   }
   else if (htim->Instance == htim2.Instance)
   {

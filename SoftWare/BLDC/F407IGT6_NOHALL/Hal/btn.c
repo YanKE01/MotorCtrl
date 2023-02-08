@@ -2,8 +2,8 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-02-07 14:30:05
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-02-07 15:04:38
- * @FilePath: \F407IGT6_HALL\Hal\btn.c
+ * @LastEditTime: 2023-02-08 11:14:02
+ * @FilePath: \F407IGT6_NOHALL\Hal\btn.c
  */
 #include "btn.h"
 #include "main.h"
@@ -43,26 +43,10 @@ void Key0_CB(void *btn)
     switch (btn_event_val)
     {
     case PRESS_DOWN:
-        tempDuty += 500;
-        if (tempDuty >= maxDuty)
-        {
-            tempDuty = maxDuty / 2;
-        }
-
-        if (tempDuty >= 0)
-        {
-            // 顺时针转
-            motorParameter.pwmDuty = tempDuty;
-            motorParameter.dir = CW;
-        }
-        else
-        {
-            motorParameter.pwmDuty = -tempDuty;
-            motorParameter.dir = CCW;
-        }
-
-        printf("Key0 down,pwm duty:%d\n", motorParameter.pwmDuty);
+        motorParameter.dir = CCW;
+        motorParameter.isStart = START;
         StartMotor();
+        printf("KEY0 DOWN\n");
         break;
     default:
         break;
@@ -78,26 +62,10 @@ void Key1_CB(void *btn)
     switch (btn_event_val)
     {
     case PRESS_DOWN:
-        tempDuty -= 500;
-        if (tempDuty <= -maxDuty)
-        {
-            tempDuty = -maxDuty / 2;
-        }
-
-        if (tempDuty >= 0)
-        {
-            // 顺时针转
-            motorParameter.pwmDuty = tempDuty;
-            motorParameter.dir = CW;
-        }
-        else
-        {
-            motorParameter.pwmDuty = -tempDuty;
-            motorParameter.dir = CCW;
-        }
-
-        printf("1 down,pwm duty:%d\n", motorParameter.pwmDuty);
+        motorParameter.dir = CW;
+        motorParameter.isStart = START;
         StartMotor();
+        printf("KEY1 DOWN");
         break;
     default:
         break;
@@ -113,9 +81,9 @@ void Key2_CB(void *btn)
     switch (btn_event_val)
     {
     case PRESS_DOWN:
+        motorParameter.isStart = STOP;
         StopMotor();
-        motorParameter.pwmDuty = 0;
-        printf("key2 down\n");
+        printf("KEY2 DOWN\n");
         break;
     default:
         break;

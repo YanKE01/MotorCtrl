@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-02-07 15:47:53
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-02-08 10:19:28
+ * @LastEditTime: 2023-02-08 11:10:11
  * @FilePath: \F407IGT6_NOHALL\Ctrl\zero.c
  */
 #include "zero.h"
@@ -11,12 +11,26 @@
 #include "main.h"
 
 SimpleOpen simpleOpen = {0, 0, 0, 0, 0};
-HallLessParameter hallLessParameter = {0, 0};
-int speedCount = 0;         // 用于统计高电平次数,计算速度
-int zeroStableFlag = 0;     // 过零点稳定标志位
-uint8_t switchHallLess = 0; // 切换至过零检测
+HallLessParameter hallLessParameter = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+int speedCount = 0;     // 用于统计高电平次数,计算速度
+int zeroStableFlag = 0; // 过零点稳定标志位
 
 uint8_t HallLessOperation(void);
+
+/**
+ * @brief 低通滤波器
+ *
+ * @param valueLpf
+ * @param value
+ */
+void Lpf(int *valueLpf, int value)
+{
+    static int valuePrev = 0;
+
+    *valueLpf = (int)(0.9 * valuePrev + 0.1 * value);
+
+    valuePrev = *valueLpf;
+}
 
 /**
  * @brief 简单六步换相,没有涉及到过零检测，只是简单的把电机固定在一项后拖动起来
@@ -24,65 +38,73 @@ uint8_t HallLessOperation(void);
  */
 void SimpleOpenLoopSixStepLoop()
 {
-    switch (simpleOpen.runStep)
+    if (motorParameter.isStart == START)
     {
-    case 0:
-        motorParameter.pwmDuty = motorParameter.maxDuty / 8;
-        UphaseH_VphaseL(); // 先固定到这一项
-        simpleOpen.delayCount = 0;
-        simpleOpen.nextPhaseTime = 1200; // 假设值(需要调试),相与相之间切换的时间
-        simpleOpen.runStep = 1;
-        simpleOpen.voltageChangeCount = 0; // 用于开环调节电压
-        zeroStableFlag = 0;                // 清除过零标志位
-        switchHallLess = 0;                // 不切换至过零检测,先以开环拖动为主
-        break;
-
-    case 1:
-        // 此环节为延迟计数，以达到换向时间的要求
-        simpleOpen.delayCount++;
-        if (simpleOpen.delayCount >= simpleOpen.nextPhaseTime)
+        switch (simpleOpen.runStep)
         {
-            // 达到换向时间
+        case 0:
+            motorParameter.pwmDuty = motorParameter.maxDuty / 8;
+            UphaseH_VphaseL(); // 先固定到这一项
             simpleOpen.delayCount = 0;
-            simpleOpen.runStep = 2;
+            simpleOpen.nextPhaseTime = 1200; // 假设值(需要调试),相与相之间切换的时间
+            simpleOpen.runStep = 1;
+            simpleOpen.voltageChangeCount = 0; // 用于开环调节电压
+            zeroStableFlag = 0;                // 清除过零标志位
+            break;
+
+        case 1:
+            // 此环节为延迟计数，以达到换向时间的要求
+            simpleOpen.delayCount++;
+            if (simpleOpen.delayCount >= simpleOpen.nextPhaseTime)
+            {
+                // 达到换向时间
+                simpleOpen.delayCount = 0;
+                simpleOpen.runStep = 2;
+            }
+
+            if (HallLessOperation() == 1)
+            {
+                simpleOpen.runStep = 3; // 直接进入过零控制
+            }
+            break;
+
+        case 2:
+            // 若达到换向时间，则按照顺序换相即可，同时缩短换相时间
+            simpleOpen.nextPhaseTime -= simpleOpen.nextPhaseTime / 15 + 1;
+            simpleOpen.voltageChangeCount++;
+            SimpleOpenChangeVoltage(); // 尝试增大占空比
+
+            if (simpleOpen.nextPhaseTime < 180)
+            {
+                simpleOpen.nextPhaseTime = 180;
+            }
+
+            simpleOpen.runStep = 1;
+
+            simpleOpen.nextPhaseCount++; // 标记即将进入下一项 六步换相的顺序
+
+            if (simpleOpen.nextPhaseCount == 6)
+            {
+                simpleOpen.nextPhaseCount = 0; // 新的一轮六步换相
+            }
+            SimpleOpenSixStepOperation();
+            break;
+
+        case 3:
+            HallLessOperation();
+            break;
+
+        default:
+            break;
         }
-
-        //switchHallLess = HallLessOperation();
-
-//        if (switchHallLess == 1)
-//        {
-//            simpleOpen.runStep = 3; // 直接进入过零控制
-//        }
-        break;
-
-    case 2:
-        // 若达到换向时间，则按照顺序换相即可，同时缩短换相时间
-        simpleOpen.nextPhaseTime -= simpleOpen.nextPhaseTime / 15 + 1;
-        simpleOpen.voltageChangeCount++;
-        SimpleOpenChangeVoltage(); // 尝试增大占空比
-
-        if (simpleOpen.nextPhaseTime < 180)
-        {
-            simpleOpen.nextPhaseTime = 180;
-        }
-
-        simpleOpen.runStep = 1;
-
-        simpleOpen.nextPhaseCount++; // 标记即将进入下一项 六步换相的顺序
-
-        if (simpleOpen.nextPhaseCount == 6)
-        {
-            simpleOpen.nextPhaseCount = 0; // 新的一轮六步换相
-        }
-        SimpleOpenSixStepOperation();
-        break;
-
-    case 3:
-        HallLessOperation();
-        break;
-
-    default:
-        break;
+    }
+    else
+    {
+        // 清空无感标志位
+        simpleOpen.runStep = 0;
+        simpleOpen.delayCount = 0;
+        simpleOpen.nextPhaseCount = 0;
+        simpleOpen.voltageChangeCount = 0;
     }
 }
 
@@ -145,34 +167,65 @@ void SimpleOpenChangeVoltage()
 }
 
 /**
- * @brief 六步换相的实现
+ * @brief 六步换相的实现 参考正点DMF407电机开发 P477
  *
  */
 void SimpleOpenSixStepOperation()
 {
-    switch (simpleOpen.nextPhaseCount)
-    {
-    case 0:
-        UphaseH_VphaseL();
-        break;
-    case 1:
-        UphaseH_WphaseL();
-        break;
-    case 2:
-        VphaseH_WphaseL();
-        break;
-    case 3:
-        VphaseH_UphaseL();
-        break;
-    case 4:
-        WphaseH_UphaseL();
-        break;
-    case 5:
-        WphaseH_VpahseL();
-        break;
 
-    default:
-        break;
+    if (motorParameter.dir == CCW)
+    {
+        switch (simpleOpen.nextPhaseCount)
+        {
+        case 0:
+            UphaseH_VphaseL();
+            break;
+        case 1:
+            UphaseH_WphaseL();
+            break;
+        case 2:
+            VphaseH_WphaseL();
+            break;
+        case 3:
+            VphaseH_UphaseL();
+            break;
+        case 4:
+            WphaseH_UphaseL();
+            break;
+        case 5:
+            WphaseH_VpahseL();
+            break;
+
+        default:
+            break;
+        }
+    }
+    else
+    {
+        switch (simpleOpen.nextPhaseCount)
+        {
+        case 0:
+            UphaseH_VphaseL();
+            break;
+        case 1:
+            WphaseH_VpahseL();
+            break;
+        case 2:
+            WphaseH_UphaseL();
+            break;
+        case 3:
+            VphaseH_UphaseL();
+            break;
+        case 4:
+            VphaseH_WphaseL();
+            break;
+        case 5:
+            UphaseH_WphaseL();
+            break;
+
+        default:
+            break;
+        }
     }
 }
 
@@ -254,6 +307,8 @@ uint8_t HallLessOperation(void)
             {
                 hallLessParameter.speedRpm = -(uint32_t)(((20 * 1000) / (2 * 2 * speedCount)) * 60); // 2极对
             }
+
+            Lpf(&hallLessParameter.speedRpm, hallLessParameter.speedRpm);
         }
         hallLessParameter.filterDelay = speedCount / 6; // 高电平时间记为180度,滞后30度，除以6即可
         hallLessParameter.filterFailedCount = 0;
@@ -272,7 +327,7 @@ uint8_t HallLessOperation(void)
         // 反电动势没有变化,没有检测到过零信号
         hallLessParameter.filterFailedCount++;
 
-        if (hallLessParameter.filterFailedCount >= 15000)
+        if (hallLessParameter.filterFailedCount > 15000)
         {
             // 一直没有变化，说明速度为0
             hallLessParameter.filterFailedCount = 0;
@@ -313,9 +368,8 @@ uint8_t HallLessOperation(void)
                         ccwArray[hallLessParameter.hallLessValue - 1]();
                     }
                 }
+                hallLessParameter.hallLessValuePrev = hallLessParameter.hallLessValue;
             }
-
-            hallLessParameter.hallLessValuePrev = hallLessParameter.hallLessValue;
         }
 
         return 1;
