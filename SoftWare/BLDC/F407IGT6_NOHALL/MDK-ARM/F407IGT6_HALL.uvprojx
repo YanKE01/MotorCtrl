@@ -537,6 +537,11 @@
               <FileType>1</FileType>
               <FilePath>..\Ctrl\zero.c</FilePath>
             </File>
+            <File>
+              <FileName>pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Ctrl\pid.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

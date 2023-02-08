@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-02-07 15:48:02
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-02-07 21:34:48
+ * @LastEditTime: 2023-02-08 13:55:45
  * @FilePath: \F407IGT6_NOHALL\Ctrl\include\zero.h
  */
 #ifndef _ZERO_H
@@ -27,12 +27,15 @@ typedef struct
     uint16_t queueState[3];       // 三相滤波
     uint16_t queueFilterState[3]; // 三相滤波后的状态
     uint16_t filterEdge;          // 滤波后边沿检测
-    int speedRpm;             // 电机转速
+    int speedRpm;                 // 电机转速
     uint16_t filterFailedCount;   // 不稳定计数
     uint16_t filterDelay;         // 延迟换向的时间
     uint8_t hallLessValue;        // 三相反电势状态组合值
     uint8_t hallLessValuePrev;    // 三相反电势状态组合值,前一时刻
 } HallLessParameter;
+
+extern SimpleOpen simpleOpen;
+extern HallLessParameter hallLessParameter;
 
 void SimpleOpenLoopSixStepLoop(void);
 void SimpleOpenChangeVoltage(void);

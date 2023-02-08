@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-02-07 15:47:53
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-02-08 11:10:11
+ * @LastEditTime: 2023-02-08 13:14:25
  * @FilePath: \F407IGT6_NOHALL\Ctrl\zero.c
  */
 #include "zero.h"
@@ -310,7 +310,7 @@ uint8_t HallLessOperation(void)
 
             Lpf(&hallLessParameter.speedRpm, hallLessParameter.speedRpm);
         }
-        hallLessParameter.filterDelay = speedCount / 6; // 高电平时间记为180度,滞后30度，除以6即可
+        hallLessParameter.filterDelay = speedCount / 10; // 高电平时间记为180度,滞后30度，除以6即可，可以让延迟时间更短,避免硬件问题
         hallLessParameter.filterFailedCount = 0;
         speedCount = 0;
         zeroStableFlag++;
@@ -347,6 +347,11 @@ uint8_t HallLessOperation(void)
         {
             edgeFlag = 2; // 只有第一次进入过零控制才有,进入完成直接进入
             hallLessParameter.hallLessValue = (hallLessParameter.queueFilterState[0]) | (hallLessParameter.queueFilterState[1] << 1) | (hallLessParameter.queueFilterState[2] << 2);
+
+            if (hallLessParameter.hallLessValue <= 0 || hallLessParameter.hallLessValue > 6)
+            {
+                return 0;
+            }
 
             if (hallLessParameter.hallLessValue != hallLessParameter.hallLessValuePrev)
             {

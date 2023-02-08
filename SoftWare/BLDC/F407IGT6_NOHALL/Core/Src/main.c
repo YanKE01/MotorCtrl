@@ -30,6 +30,7 @@
 #include "bldc.h"
 #include "btn.h"
 #include "zero.h"
+#include "pid.h"
 #include "multi_button.h"
 /* USER CODE END Includes */
 
@@ -71,7 +72,7 @@ int fputc(int c, FILE *stream) // 重写fputc函数
   return 1;
 }
 
-int count = 0;
+int pwm = 0;
 /* USER CODE END 0 */
 
 /**
@@ -108,7 +109,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   VariableInit();
   BtnInit();
-  StartMotor();
+  PidInit();
   HAL_TIM_Base_Start_IT(&htim2); // 定时器2
   HAL_TIM_Base_Start_IT(&htim1); // 后开中断
   /* USER CODE END 2 */
@@ -180,6 +181,24 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   if (htim->Instance == htim1.Instance)
   {
     SimpleOpenLoopSixStepLoop();
+
+    if (motorParameter.isStart == START && simpleOpen.runStep == 3)
+    {
+      // 当前已经进入过零控制环节
+      int motor_pwm_s = PidOperation(&speedPid, hallLessParameter.speedRpm);
+
+      /* 最低速度限制 */
+      if (motor_pwm_s > -600 && motor_pwm_s <= 0)
+      {
+        motor_pwm_s = -600;
+      }
+      else if (motor_pwm_s < 600 && motor_pwm_s > 0)
+      {
+        motor_pwm_s = 600;
+      }
+	  
+	  motorParameter.pwmDuty=motor_pwm_s;
+    }
   }
   else if (htim->Instance == htim2.Instance)
   {
@@ -189,6 +208,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
       count = 0;
       HAL_GPIO_TogglePin(FLASH_LED_GPIO_Port, FLASH_LED_Pin);
     }
+
     button_ticks();
   }
 }

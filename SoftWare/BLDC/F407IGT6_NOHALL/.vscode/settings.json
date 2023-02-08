@@ -5,6 +5,7 @@
         "bldc.h": "c",
         "btn.h": "c",
         "stdint.h": "c",
-        "zero.h": "c"
+        "zero.h": "c",
+        "pid.h": "c"
     }
 }
