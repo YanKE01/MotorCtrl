@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "hal.h": "c",
+        "stdint.h": "c",
+        "softiic.h": "c",
+        "foc.h": "c",
+        "variable.h": "c",
+        "pid.h": "c"
+    }
+}

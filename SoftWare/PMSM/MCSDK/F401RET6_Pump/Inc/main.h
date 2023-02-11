@@ -74,6 +74,8 @@ void Error_Handler(void);
 #define Start_Stop_EXTI_IRQn EXTI4_IRQn
 #define M1_PWM_UL_Pin GPIO_PIN_7
 #define M1_PWM_UL_GPIO_Port GPIOA
+#define FLASH_LED_Pin GPIO_PIN_4
+#define FLASH_LED_GPIO_Port GPIOC
 #define M1_PWM_VL_Pin GPIO_PIN_0
 #define M1_PWM_VL_GPIO_Port GPIOB
 #define M1_PWM_WL_Pin GPIO_PIN_1

@@ -301,11 +301,11 @@ uint8_t HallLessOperation(void)
             if (motorParameter.dir == CCW)
             {
                 // ft/(2*n*c) * 60; 其中ft为计数频率,就是周期中断的频率，n为极对数,c是记的次数
-                hallLessParameter.speedRpm = (uint32_t)(((20 * 1000) / (2 * 2 * speedCount)) * 60); // 2极对
+                hallLessParameter.speedRpm = (uint32_t)(((20 * 1000) / (2 * 5 * speedCount)) * 60); // 5极对
             }
             else
             {
-                hallLessParameter.speedRpm = -(uint32_t)(((20 * 1000) / (2 * 2 * speedCount)) * 60); // 2极对
+                hallLessParameter.speedRpm = -(uint32_t)(((20 * 1000) / (2 * 5 * speedCount)) * 60); // 5极对
             }
 
             Lpf(&hallLessParameter.speedRpm, hallLessParameter.speedRpm);

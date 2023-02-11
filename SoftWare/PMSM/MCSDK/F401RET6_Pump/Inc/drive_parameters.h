@@ -43,16 +43,16 @@
                                                             estimates (percentage) */
 /* State observer scaling factors F1 */
 #define F1                               16384
-#define F2                               8192
+#define F2                               4096
 #define F1_LOG                           LOG2((16384))
-#define F2_LOG                           LOG2((8192))
+#define F2_LOG                           LOG2((4096))
 
 /* State observer constants */
-#define GAIN1                            -24205
-#define GAIN2                            27305
+#define GAIN1                            -24387
+#define GAIN2                            20622
 /*Only in case PLL is used, PLL gains */
-#define PLL_KP_GAIN                      499
-#define PLL_KI_GAIN                      22
+#define PLL_KP_GAIN                      299
+#define PLL_KI_GAIN                      13
 #define PLL_KPDIV     16384
 #define PLL_KPDIV_LOG LOG2((PLL_KPDIV))
 #define PLL_KIDIV     65535
@@ -94,11 +94,11 @@
 #define REGULATION_EXECUTION_RATE     1    /*!< FOC execution rate in
                                                            number of PWM cycles */
 /* Gains values for torque and flux control loops */
-#define PID_TORQUE_KP_DEFAULT         2628
-#define PID_TORQUE_KI_DEFAULT         317
+#define PID_TORQUE_KP_DEFAULT         3989
+#define PID_TORQUE_KI_DEFAULT         246
 #define PID_TORQUE_KD_DEFAULT         100
-#define PID_FLUX_KP_DEFAULT           2628
-#define PID_FLUX_KI_DEFAULT           317
+#define PID_FLUX_KP_DEFAULT           3989
+#define PID_FLUX_KI_DEFAULT           246
 #define PID_FLUX_KD_DEFAULT           100
 
 /* Torque/Flux control loop gains dividers*/
@@ -173,29 +173,29 @@
 #define PHASE1_FINAL_SPEED_UNIT         (0*SPEED_UNIT/U_RPM)
 #define PHASE1_FINAL_CURRENT           0
 /* Phase 2 */
-#define PHASE2_DURATION                700 /*milliseconds */
+#define PHASE2_DURATION                1000 /*milliseconds */
 #define PHASE2_FINAL_SPEED_UNIT         (0*SPEED_UNIT/U_RPM)
-#define PHASE2_FINAL_CURRENT           1429
+#define PHASE2_FINAL_CURRENT           2383
 /* Phase 3 */
 #define PHASE3_DURATION                350 /*milliseconds */
 #define PHASE3_FINAL_SPEED_UNIT         (630*SPEED_UNIT/U_RPM)
-#define PHASE3_FINAL_CURRENT           1668
+#define PHASE3_FINAL_CURRENT           2383
 /* Phase 4 */
 #define PHASE4_DURATION                1150 /*milliseconds */
 #define PHASE4_FINAL_SPEED_UNIT         (2700*SPEED_UNIT/U_RPM)
-#define PHASE4_FINAL_CURRENT           1668
+#define PHASE4_FINAL_CURRENT           2383
 /* Phase 5 */
 #define PHASE5_DURATION                0 /* milliseconds */
 #define PHASE5_FINAL_SPEED_UNIT         (2700*SPEED_UNIT/U_RPM)
-#define PHASE5_FINAL_CURRENT           1668
+#define PHASE5_FINAL_CURRENT           2383
 
 #define ENABLE_SL_ALGO_FROM_PHASE      3
 /* Sensor-less rev-up sequence */
 #define STARTING_ANGLE_DEG             90  /*!< degrees [0...359] */
 /* Observer start-up output conditions  */
-#define OBS_MINIMUM_SPEED_RPM          580
+#define OBS_MINIMUM_SPEED_RPM          700
 
-#define NB_CONSECUTIVE_TESTS           2 /* corresponding to
+#define NB_CONSECUTIVE_TESTS           5 /* corresponding to
                                                          former NB_CONSECUTIVE_TESTS/
                                                          (TF_REGULATION_RATE/
                                                          MEDIUM_FREQUENCY_TASK_RATE) */

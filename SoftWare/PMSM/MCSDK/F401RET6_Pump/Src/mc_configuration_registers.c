@@ -51,11 +51,11 @@ static const ApplicationConfig_reg_t M1_ApplicationConfig_reg =
 
 const MotorConfig_reg_t M1_MotorConfig_reg =
 {
-  .polePairs = 5,
+  .polePairs = 3,
   .ratedFlux = 7.0,
-  .rs = 0.27,
-  .ls = 0.000560*1.000,
-  .ld = 0.000560,
+  .rs = 0.21,
+  .ls = 0.000850*1.000,
+  .ld = 0.000850,
   .maxCurrent = 26213,
   .name = "No Name M1"
 };
