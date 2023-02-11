@@ -28,5 +28,5 @@ SoftWare：KEIL V5, CUBEMX
 
 ## 开源支持
 
-STM32 MCSDK: [STM32d电机库官网](https://www.st.com/content/st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-mcsdk.html)
+STM32 MCSDK: [STM32电机库官网](https://www.st.com/content/st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-mcsdk.html)
 
