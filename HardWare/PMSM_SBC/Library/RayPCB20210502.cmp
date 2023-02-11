@@ -1,0 +1,20 @@
+Component Name : 6N136
+
+Part Count : 2
+
+Part : U?
+     Pins - (Normal) : 0
+          Hidden Pins : 
+
+Part : U?
+     Pins - (Normal) : 8
+          NC             1              Passive
+          A              2              Passive
+          K              3              Passive
+          NC             4              Passive
+          GND            5              Passive
+          OUT            6              Passive
+          BASE           7              Passive
+          VCC            8              Passive
+          Hidden Pins : 
+
