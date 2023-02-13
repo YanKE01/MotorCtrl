@@ -43,7 +43,7 @@
 
 #define NOMINAL_CURRENT         26213
 #define MOTOR_MAX_SPEED_RPM     3000 /*!< Maximum rated speed  */
-#define MOTOR_VOLTAGE_CONSTANT  7.0 /*!< Volts RMS ph-ph /kRPM */
+#define MOTOR_VOLTAGE_CONSTANT  8.0 /*!< Volts RMS ph-ph /kRPM */
 #define ID_DEMAG                -26213 /*!< Demagnetization current */
 /***************** MOTOR SENSORS PARAMETERS  ******************************/
 /* Motor sensors parameters are always generated but really meaningful only

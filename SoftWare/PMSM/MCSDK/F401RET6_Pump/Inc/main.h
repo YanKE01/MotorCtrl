@@ -82,6 +82,8 @@ void Error_Handler(void);
 #define M1_PWM_WL_GPIO_Port GPIOB
 #define M1_OCP_Pin GPIO_PIN_12
 #define M1_OCP_GPIO_Port GPIOB
+#define SPI2_SNSS_Pin GPIO_PIN_15
+#define SPI2_SNSS_GPIO_Port GPIOB
 #define M1_PWM_UH_Pin GPIO_PIN_8
 #define M1_PWM_UH_GPIO_Port GPIOA
 #define M1_PWM_VH_Pin GPIO_PIN_9

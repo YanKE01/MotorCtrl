@@ -6,7 +6,7 @@
 		<define key="LS" value="0.000850" />
 		<define key="NOMINAL_CURRENT" value="26213" />
 		<define key="MOTOR_MAX_SPEED_RPM" value="3000" />
-		<define key="MOTOR_VOLTAGE_CONSTANT" value="7.0" />
+		<define key="MOTOR_VOLTAGE_CONSTANT" value="8.0" />
 		<define key="ID_DEMAG" value="-26213" />
 		<define key="HALL_SENSORS_PLACEMENT" value="DEGREES_120" />
 		<define key="HALL_PHASE_SHIFT" value="300" />
@@ -68,7 +68,7 @@
 		<define key="F1" value="16384" />
 		<define key="F2" value="4096" />
 		<define key="GAIN1" value="-24387" />
-		<define key="GAIN2" value="20622" />
+		<define key="GAIN2" value="18044" />
 		<define key="PLL_KP_GAIN" value="299" />
 		<define key="PLL_KI_GAIN" value="13" />
 		<define key="OBS_MEAS_ERRORS_BEFORE_FAULTS" value="5" />
@@ -82,7 +82,7 @@
 		<define key="CORD_F1" value="16384" />
 		<define key="CORD_F2" value="4096" />
 		<define key="CORD_GAIN1" value="-24387" />
-		<define key="CORD_GAIN2" value="20622" />
+		<define key="CORD_GAIN2" value="18044" />
 		<define key="CORD_MEAS_ERRORS_BEFORE_FAULTS" value="5" />
 		<define key="CORD_FIFO_DEPTH_DPP" value="64" />
 		<define key="CORD_FIFO_DEPTH_01HZ" value="64" />
@@ -170,22 +170,22 @@
 		<define key="PHASE1_DURATION" value="0" />
 		<define key="PHASE1_FINAL_SPEED_RPM" value="0" />
 		<define key="PHASE1_FINAL_CURRENT" value="0" />
-		<define key="PHASE2_DURATION" value="1000" />
+		<define key="PHASE2_DURATION" value="1500" />
 		<define key="PHASE2_FINAL_SPEED_RPM" value="0" />
-		<define key="PHASE2_FINAL_CURRENT" value="2383" />
+		<define key="PHASE2_FINAL_CURRENT" value="4766" />
 		<define key="PHASE3_DURATION" value="350" />
 		<define key="PHASE3_FINAL_SPEED_RPM" value="630" />
-		<define key="PHASE3_FINAL_CURRENT" value="2383" />
+		<define key="PHASE3_FINAL_CURRENT" value="4766" />
 		<define key="PHASE4_DURATION" value="1150" />
 		<define key="PHASE4_FINAL_SPEED_RPM" value="2700" />
-		<define key="PHASE4_FINAL_CURRENT" value="2383" />
+		<define key="PHASE4_FINAL_CURRENT" value="4766" />
 		<define key="PHASE5_DURATION" value="0" />
 		<define key="PHASE5_FINAL_SPEED_RPM" value="2700" />
-		<define key="PHASE5_FINAL_CURRENT" value="2383" />
+		<define key="PHASE5_FINAL_CURRENT" value="4766" />
 		<define key="ENABLE_SL_ALGO_FROM_PHASE" value="3" />
 		<define key="TRANSITION_DURATION" value="25" />
 		<define key="OBS_MINIMUM_SPEED_RPM" value="700" />
-		<define key="NB_CONSECUTIVE_TESTS" value="5" />
+		<define key="NB_CONSECUTIVE_TESTS" value="6" />
 		<define key="SPEED_BAND_UPPER_LIMIT" value="17" />
 		<define key="SPEED_BAND_LOWER_LIMIT" value="15" />
 		<define key="BUS_VOLTAGE_READING" value="ENABLE" />
@@ -201,7 +201,7 @@
 		<define key="DISCONTINUOUS_PWM" value="FALSE" />
 		<define key="CONSTANT1_Q" value="233339" />
 		<define key="CONSTANT1_D" value="233339" />
-		<define key="CONSTANT2_QD" value="45402" />
+		<define key="CONSTANT2_QD" value="51888" />
 		<define key="IQMAX" value="26213" />
 		<define key="SEGDIV" value="0" />
 		<define key="ANGC" value="{0,0,0,0,0,0,0,0}" />

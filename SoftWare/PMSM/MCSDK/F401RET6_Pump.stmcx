@@ -34,7 +34,7 @@
 						<var version="1.0" type="MC_Double" name="Lq" enable="true" visible="true" readonly="false" value="0.6" />
 						<var version="1.0" type="MC_Double" name="Ls" enable="true" visible="true" readonly="false" value="0.85" />
 						<var version="1.0" type="MC_Double" name="ld_lq_ratio" enable="true" visible="true" readonly="false" value="1" />
-						<var version="1.0" type="MC_Double" name="B-EmfConstant" enable="true" visible="true" readonly="false" value="7" />
+						<var version="1.0" type="MC_Double" name="B-EmfConstant" enable="true" visible="true" readonly="false" value="8" />
 						<var version="1.0" type="MC_Double" name="inertia" enable="true" visible="true" readonly="false" value="5" />
 						<var version="1.0" type="MC_Double" name="friction" enable="true" visible="true" readonly="false" value="14" />
 						<var version="1.0" type="MC_Bool" name="Hall sensors" enable="true" visible="true" readonly="false" value="false" />
@@ -289,7 +289,7 @@
 						<var version="1.0" type="MC_Int" name="Main - ObsPLL - F1" enable="false" visible="true" readonly="false" value="16384" />
 						<var version="1.0" type="MC_Int" name="Main - ObsPLL - F2" enable="false" visible="true" readonly="false" value="4096" />
 						<var version="1.0" type="MC_Int" name="Main - ObsPLL - G1" enable="false" visible="true" readonly="false" value="-24387" />
-						<var version="1.0" type="MC_Int" name="Main - ObsPLL - G2" enable="false" visible="true" readonly="false" value="20622" />
+						<var version="1.0" type="MC_Int" name="Main - ObsPLL - G2" enable="false" visible="true" readonly="false" value="18044" />
 						<var version="1.0" type="MC_Int" name="Main - ObsPLL - K1" enable="false" visible="true" readonly="false" value="-23815" />
 						<var version="1.0" type="MC_Int" name="Main - ObsPLL - K2" enable="false" visible="true" readonly="false" value="123030" />
 						<var version="1.0" type="MC_Int" name="Main - ObsPLL - Average speed FIFO depth for speed loop" enable="true" visible="true" readonly="false" value="64" />
@@ -306,7 +306,7 @@
 						<var version="1.0" type="MC_Int" name="Main - ObsCRD - F1" enable="false" visible="true" readonly="false" value="16384" />
 						<var version="1.0" type="MC_Int" name="Main - ObsCRD - F2" enable="false" visible="true" readonly="false" value="4096" />
 						<var version="1.0" type="MC_Int" name="Main - ObsCRD - G1" enable="false" visible="true" readonly="false" value="-24387" />
-						<var version="1.0" type="MC_Int" name="Main - ObsCRD - G2" enable="false" visible="true" readonly="false" value="20622" />
+						<var version="1.0" type="MC_Int" name="Main - ObsCRD - G2" enable="false" visible="true" readonly="false" value="18044" />
 						<var version="1.0" type="MC_Int" name="Main - ObsCRD - K1" enable="false" visible="true" readonly="false" value="-23815" />
 						<var version="1.0" type="MC_Int" name="Main - ObsCRD - K2" enable="false" visible="true" readonly="false" value="123030" />
 						<var version="1.0" type="MC_Int" name="Main - ObsCRD - Average speed FIFO depth for speed loop" enable="false" visible="true" readonly="false" value="64" />
@@ -363,7 +363,7 @@
 						<var version="1.0" type="MC_Int" name="Aux - ObsPLL - F1" enable="false" visible="true" readonly="false" value="16384" />
 						<var version="1.0" type="MC_Int" name="Aux - ObsPLL - F2" enable="false" visible="true" readonly="false" value="4096" />
 						<var version="1.0" type="MC_Int" name="Aux - ObsPLL - G1" enable="false" visible="true" readonly="false" value="-24387" />
-						<var version="1.0" type="MC_Int" name="Aux - ObsPLL - G2" enable="false" visible="true" readonly="false" value="20622" />
+						<var version="1.0" type="MC_Int" name="Aux - ObsPLL - G2" enable="false" visible="true" readonly="false" value="18044" />
 						<var version="1.0" type="MC_Int" name="Aux - ObsPLL - K1" enable="false" visible="true" readonly="false" value="-23815" />
 						<var version="1.0" type="MC_Int" name="Aux - ObsPLL - K2" enable="false" visible="true" readonly="false" value="123030" />
 						<var version="1.0" type="MC_Int" name="Aux - ObsPLL - Average speed FIFO depth for speed loop" enable="false" visible="true" readonly="false" value="64" />
@@ -380,7 +380,7 @@
 						<var version="1.0" type="MC_Int" name="Aux - ObsCRD - F1" enable="false" visible="true" readonly="false" value="16384" />
 						<var version="1.0" type="MC_Int" name="Aux - ObsCRD - F2" enable="false" visible="true" readonly="false" value="4096" />
 						<var version="1.0" type="MC_Int" name="Aux - ObsCRD - G1" enable="false" visible="true" readonly="false" value="-24387" />
-						<var version="1.0" type="MC_Int" name="Aux - ObsCRD - G2" enable="false" visible="true" readonly="false" value="20622" />
+						<var version="1.0" type="MC_Int" name="Aux - ObsCRD - G2" enable="false" visible="true" readonly="false" value="18044" />
 						<var version="1.0" type="MC_Int" name="Aux - ObsCRD - K1" enable="false" visible="true" readonly="false" value="-23815" />
 						<var version="1.0" type="MC_Int" name="Aux - ObsCRD - K2" enable="false" visible="true" readonly="false" value="123030" />
 						<var version="1.0" type="MC_Int" name="Aux - ObsCRD - Average speed FIFO depth for speed loop" enable="true" visible="true" readonly="false" value="64" />
@@ -474,13 +474,13 @@
 						<var version="1.0" type="MC_Bool" name="SL - Basic profile" enable="true" visible="true" readonly="false" value="true" />
 						<var version="1.0" type="MC_Int" name="SL - BP - Speed ramp duration" enable="true" visible="true" readonly="false" value="1500" />
 						<var version="1.0" type="MC_Int" name="SL - BP - Speed ramp final value" enable="true" visible="true" readonly="false" value="2700" />
-						<var version="1.0" type="MC_Double" name="SL - BP - Current ramp initial value" enable="false" visible="true" readonly="false" value="1" />
-						<var version="1.0" type="MC_Double" name="SL - BP - Current ramp final value" enable="true" visible="true" readonly="false" value="1" />
+						<var version="1.0" type="MC_Double" name="SL - BP - Current ramp initial value" enable="false" visible="true" readonly="false" value="2" />
+						<var version="1.0" type="MC_Double" name="SL - BP - Current ramp final value" enable="true" visible="true" readonly="false" value="2" />
 						<var version="1.0" type="MC_Int" name="SL - BP - Current ramp duration" enable="true" visible="true" readonly="false" value="350" />
 						<var version="1.0" type="MC_Bool" name="SL - BP - Include alignment before ramp-up" enable="true" visible="true" readonly="false" value="true" />
-						<var version="1.0" type="MC_Int" name="SL - BP - Duration" enable="true" visible="true" readonly="false" value="1000" />
+						<var version="1.0" type="MC_Int" name="SL - BP - Duration" enable="true" visible="true" readonly="false" value="1500" />
 						<var version="1.0" type="MC_Int" name="SL - BP - Alignment electrical angle" enable="true" visible="true" readonly="false" value="90" />
-						<var version="1.0" type="MC_Double" name="SL - BP - Final current ramp value" enable="true" visible="true" readonly="false" value="1" />
+						<var version="1.0" type="MC_Double" name="SL - BP - Final current ramp value" enable="true" visible="true" readonly="false" value="2" />
 						<var version="1.0" type="MC_Int" name="SL - ACP - Initial electrical angle" enable="false" visible="true" readonly="false" value="90" />
 						<var version="1.0" type="MC_Int" name="SL - ACP - Phase1 - Duration" enable="false" visible="true" readonly="false" value="700" />
 						<var version="1.0" type="MC_Int" name="SL - ACP - Phase1 - Final speed" enable="false" visible="true" readonly="false" value="2000" />
@@ -506,7 +506,7 @@
 								<item tag="5" text="5" />
 							</items>
 						</var>
-						<var version="1.0" type="MC_Int" name="SL - Consecutive succesful start-up output tests" enable="true" visible="true" readonly="false" value="5" />
+						<var version="1.0" type="MC_Int" name="SL - Consecutive succesful start-up output tests" enable="true" visible="true" readonly="false" value="6" />
 						<var version="1.0" type="MC_Int" name="SL - Minimum start-up output speed" enable="true" visible="true" readonly="false" value="700" />
 						<var version="1.0" type="MC_Double" name="SL - Estimated speed Band tolerance upper limit" enable="true" visible="true" readonly="false" value="106.25" />
 						<var version="1.0" type="MC_Double" name="SL - Estimated speed Band tolerance lower limit" enable="true" visible="true" readonly="false" value="93.75" />

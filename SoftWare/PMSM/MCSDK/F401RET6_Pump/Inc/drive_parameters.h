@@ -49,7 +49,7 @@
 
 /* State observer constants */
 #define GAIN1                            -24387
-#define GAIN2                            20622
+#define GAIN2                            18044
 /*Only in case PLL is used, PLL gains */
 #define PLL_KP_GAIN                      299
 #define PLL_KI_GAIN                      13
@@ -173,21 +173,21 @@
 #define PHASE1_FINAL_SPEED_UNIT         (0*SPEED_UNIT/U_RPM)
 #define PHASE1_FINAL_CURRENT           0
 /* Phase 2 */
-#define PHASE2_DURATION                1000 /*milliseconds */
+#define PHASE2_DURATION                1500 /*milliseconds */
 #define PHASE2_FINAL_SPEED_UNIT         (0*SPEED_UNIT/U_RPM)
-#define PHASE2_FINAL_CURRENT           2383
+#define PHASE2_FINAL_CURRENT           4766
 /* Phase 3 */
 #define PHASE3_DURATION                350 /*milliseconds */
 #define PHASE3_FINAL_SPEED_UNIT         (630*SPEED_UNIT/U_RPM)
-#define PHASE3_FINAL_CURRENT           2383
+#define PHASE3_FINAL_CURRENT           4766
 /* Phase 4 */
 #define PHASE4_DURATION                1150 /*milliseconds */
 #define PHASE4_FINAL_SPEED_UNIT         (2700*SPEED_UNIT/U_RPM)
-#define PHASE4_FINAL_CURRENT           2383
+#define PHASE4_FINAL_CURRENT           4766
 /* Phase 5 */
 #define PHASE5_DURATION                0 /* milliseconds */
 #define PHASE5_FINAL_SPEED_UNIT         (2700*SPEED_UNIT/U_RPM)
-#define PHASE5_FINAL_CURRENT           2383
+#define PHASE5_FINAL_CURRENT           4766
 
 #define ENABLE_SL_ALGO_FROM_PHASE      3
 /* Sensor-less rev-up sequence */
@@ -195,7 +195,7 @@
 /* Observer start-up output conditions  */
 #define OBS_MINIMUM_SPEED_RPM          700
 
-#define NB_CONSECUTIVE_TESTS           5 /* corresponding to
+#define NB_CONSECUTIVE_TESTS           6 /* corresponding to
                                                          former NB_CONSECUTIVE_TESTS/
                                                          (TF_REGULATION_RATE/
                                                          MEDIUM_FREQUENCY_TASK_RATE) */
