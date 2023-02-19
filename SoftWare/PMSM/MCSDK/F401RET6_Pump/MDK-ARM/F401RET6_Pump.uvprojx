@@ -188,7 +188,7 @@
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>ARM_MATH_CM4,USE_HAL_DRIVER,STM32F401xE</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../MCSDK_v5.Y.4-Full/MotorControl/MCSDK/MCLib/Any/Inc;../MCSDK_v5.Y.4-Full/MotorControl/MCSDK/MCLib/F4xx/Inc;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Drivers/CMSIS/DSP/Include</IncludePath>
+              <IncludePath>../Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../MCSDK_v5.Y.4-Full/MotorControl/MCSDK/MCLib/Any/Inc;../MCSDK_v5.Y.4-Full/MotorControl/MCSDK/MCLib/F4xx/Inc;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Drivers/CMSIS/DSP/Include;..\Hal\include;..\Application\include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -929,6 +929,31 @@
               <FileName>mcpa.c</FileName>
               <FileType>1</FileType>
               <FilePath>../MCSDK_v5.Y.4-Full/MotorControl/MCSDK/MCLib/Any/Src/mcpa.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Hal</GroupName>
+          <Files>
+            <File>
+              <FileName>at24cxx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hal\at24cxx.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MyApplication</GroupName>
+          <Files>
+            <File>
+              <FileName>variable.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\variable.c</FilePath>
+            </File>
+            <File>
+              <FileName>version.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\version.c</FilePath>
             </File>
           </Files>
         </Group>
