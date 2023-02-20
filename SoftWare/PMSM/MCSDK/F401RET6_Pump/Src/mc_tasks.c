@@ -37,7 +37,7 @@
 #include "mcp_config.h"
 
 /* USER CODE BEGIN Includes */
-
+#include "stdio.h"
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN Private define */
@@ -47,18 +47,18 @@
    braking action on over voltage */
 /* #define  MC.SMOOTH_BRAKING_ACTION_ON_OVERVOLTAGE */
 
-  #define CHARGE_BOOT_CAP_MS  ((uint16_t)10)
-  #define CHARGE_BOOT_CAP_MS2 ((uint16_t)10)
-  #define OFFCALIBRWAIT_MS    ((uint16_t)0)
-  #define OFFCALIBRWAIT_MS2   ((uint16_t)0)
-  #define STOPPERMANENCY_MS   ((uint16_t)400)
-  #define STOPPERMANENCY_MS2  ((uint16_t)400)
-  #define CHARGE_BOOT_CAP_TICKS  (uint16_t)((SYS_TICK_FREQUENCY * CHARGE_BOOT_CAP_MS) / ((uint16_t)1000))
-  #define CHARGE_BOOT_CAP_TICKS2 (uint16_t)((SYS_TICK_FREQUENCY * CHARGE_BOOT_CAP_MS2)/ ((uint16_t)1000))
-  #define OFFCALIBRWAITTICKS     (uint16_t)((SYS_TICK_FREQUENCY * OFFCALIBRWAIT_MS)   / ((uint16_t)1000))
-  #define OFFCALIBRWAITTICKS2    (uint16_t)((SYS_TICK_FREQUENCY * OFFCALIBRWAIT_MS2)  / ((uint16_t)1000))
-  #define STOPPERMANENCY_TICKS   (uint16_t)((SYS_TICK_FREQUENCY * STOPPERMANENCY_MS)  / ((uint16_t)1000))
-  #define STOPPERMANENCY_TICKS2  (uint16_t)((SYS_TICK_FREQUENCY * STOPPERMANENCY_MS2) / ((uint16_t)1000))
+#define CHARGE_BOOT_CAP_MS ((uint16_t)10)
+#define CHARGE_BOOT_CAP_MS2 ((uint16_t)10)
+#define OFFCALIBRWAIT_MS ((uint16_t)0)
+#define OFFCALIBRWAIT_MS2 ((uint16_t)0)
+#define STOPPERMANENCY_MS ((uint16_t)400)
+#define STOPPERMANENCY_MS2 ((uint16_t)400)
+#define CHARGE_BOOT_CAP_TICKS (uint16_t)((SYS_TICK_FREQUENCY * CHARGE_BOOT_CAP_MS) / ((uint16_t)1000))
+#define CHARGE_BOOT_CAP_TICKS2 (uint16_t)((SYS_TICK_FREQUENCY * CHARGE_BOOT_CAP_MS2) / ((uint16_t)1000))
+#define OFFCALIBRWAITTICKS (uint16_t)((SYS_TICK_FREQUENCY * OFFCALIBRWAIT_MS) / ((uint16_t)1000))
+#define OFFCALIBRWAITTICKS2 (uint16_t)((SYS_TICK_FREQUENCY * OFFCALIBRWAIT_MS2) / ((uint16_t)1000))
+#define STOPPERMANENCY_TICKS (uint16_t)((SYS_TICK_FREQUENCY * STOPPERMANENCY_MS) / ((uint16_t)1000))
+#define STOPPERMANENCY_TICKS2 (uint16_t)((SYS_TICK_FREQUENCY * STOPPERMANENCY_MS2) / ((uint16_t)1000))
 
 /* USER CODE END Private define */
 #define VBUS_TEMP_ERR_MASK ~(0 | 0 | MC_OVER_TEMP)
@@ -1016,7 +1016,7 @@ void startMediumFrequencyTask(void const * argument)
 {
   /* USER CODE BEGIN MF task 1 */
   /* Infinite loop */
-  for(;;)
+  for (;;)
   {
     /* delay of 500us */
     vTaskDelay(1);
@@ -1030,7 +1030,7 @@ void StartSafetyTask(void const * argument)
 {
   /* USER CODE BEGIN SF task 1 */
   /* Infinite loop */
-  for(;;)
+  for (;;)
   {
     /* delay of 500us */
     vTaskDelay(1);

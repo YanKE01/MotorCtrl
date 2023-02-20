@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-02-19 20:48:08
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-02-20 12:39:40
+ * @LastEditTime: 2023-02-20 21:28:22
  * @FilePath: \F401RET6_Pump\Application\system.c
  */
 #include "system.h"
@@ -49,6 +49,7 @@ static inline void LimitSpeed(int *speed, int min, int max)
 void QuerySystemState(void)
 {
     motor.motorState = MC_GetSTMStateMotor1(); // 获取当前电机状态
+    motor.current = MC_GetIabMotor1().a;       // 获取A轴电流
     systemState.keyState = Read74HC165D();     // 读取当前按键状态
     PanelKeyProcess();                         // 处理按键
     GetVbusVoltage();                          // 获取当前电机电压状态
@@ -78,12 +79,12 @@ void PanelKeyProcess(void)
             motor.isMotorStart = 0;
             break;
 
-        case 0x3C:
+        case 0x3D:
             printf("Mode\n");
             ModePageProcess();
             break;
 
-        case 0x20:
+        case 0x2F:
             printf("Set\n");
             break;
         case 0x3B:
@@ -183,21 +184,23 @@ void MotorCtrl()
     {
     case FAULT_OVER:
         printf("Motor Fault Over\n");
-        MC_StopMotor1();             // 关闭电机
+        // MC_StopMotor1(); // 关闭电机
         MC_AcknowledgeFaultMotor1(); // 关闭错误
         break;
     case IDLE:
-        MC_ProgramSpeedRampMotor1_F(motor.targetSpeed, systemInfo.motorParameter.speedDuration); // 设置初始转速
         if (motor.isMotorStart)
         {
-            MC_StartMotor1(); // 在启动状态+空闲下启动电机
+            MC_ProgramSpeedRampMotor1(motor.targetSpeed, 10); // 设置初始转速
+            Mci[M1].DirectCommand = MCI_START;                 // 设置电机状态为启动
+            // MC_StartMotor1();                                  // 在启动状态+空闲下启动电机
         }
         break;
 
     case RUN:
         if (!motor.isMotorStart)
         {
-            MC_StopMotor1(); // 正常运行状态下 关闭电机
+            Mci[M1].State = STOP;
+            ; // 正常运行状态下 关闭电机
         }
 
         // 更新电机转速
@@ -207,4 +210,20 @@ void MotorCtrl()
     default:
         break;
     }
+
+    // if (motor.isMotorStart)
+    // {
+    //     if (motor.motorState == IDLE)
+    //     {
+    //         Mci[M1].DirectCommand = MCI_START;
+    //     }
+    //     else if (motor.motorState == FAULT_OVER)
+    //     {
+    //         Mci[M1].DirectCommand = OFFSET_CALIB;
+    //     }
+    // }
+    // else
+    // {
+    //     Mci[M1].State = STOP;
+    // }
 }

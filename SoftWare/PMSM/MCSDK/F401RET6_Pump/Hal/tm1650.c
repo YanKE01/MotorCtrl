@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-02-19 15:37:33
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-02-20 09:47:44
+ * @LastEditTime: 2023-02-20 15:19:05
  * @FilePath: \F401RET6_Pump\Hal\tm1650.c
  */
 #include "tm1650.h"
@@ -129,4 +129,81 @@ void TM1650_SetNumber(uint16_t num)
         index--;
         num /= 10;
     }
+}
+
+/**
+ * @brief 显示字符
+ *
+ * @param index
+ * @param letter
+ */
+void TM1650_SetIndexLetter(uint8_t index, char letter)
+{
+    uint8_t indexAddr = 0;
+
+    if (index == 0)
+    {
+        indexAddr = 0x68;
+    }
+    else if (index == 1)
+    {
+        indexAddr = 0x6A;
+    }
+    else if (index == 2)
+    {
+        indexAddr = 0x6C;
+    }
+    else if (index == 3)
+    {
+        indexAddr = 0x6E;
+    }
+
+    if (letter == 'P')
+    {
+        TM1650_Write(indexAddr, 0X73);
+    }
+    else if (letter == 'F')
+    {
+        TM1650_Write(indexAddr, 0X71);
+    }
+    else if (letter == '.')
+    {
+        TM1650_Write(indexAddr, 0X80);
+    }
+}
+
+/**
+ * @brief 默认只保留一位小数
+ *
+ * @param num
+ */
+void TM1650_SetFloat(float num)
+{
+    TM1650_Clear();
+    int integer = (int)(num);
+    int decimal = (int)((num - integer) * 10); // 只保留一位小数
+
+    if (integer > 999)
+    {
+        return; // 超出范围，不显示
+    }
+
+    uint8_t index = 2;
+    // 显示整数
+    while (integer)
+    {
+        if (index != 2)
+        {
+            TM1650_SetIndexNumber(index, 7, integer % 10);
+        }
+        else
+        {
+            // 最后一位，追加小数点
+            TM1650_Write(0x6C, s_7number[integer % 10] | 0x80);
+        }
+
+        index--;
+        integer /= 10;
+    }
+    TM1650_SetIndexNumber(3, 7, decimal); // 显示小数
 }

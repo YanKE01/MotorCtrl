@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2022-11-09 19:07:31
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-02-20 11:00:13
+ * @LastEditTime: 2023-02-20 14:52:51
  * @FilePath: \F401RET6_Pump\Application\include\variable.h
  */
 #ifndef _VARIABLE_H
@@ -37,6 +37,7 @@ typedef struct _Motor
     uint8_t isMotorStart;  // 电机启动标志位
     uint8_t motorState;    // 电机当前状态
     uint16_t motorVoltage; // 当前电机电压
+    float current;         // 电流
 } Motor;
 
 typedef struct _SystemInfo
