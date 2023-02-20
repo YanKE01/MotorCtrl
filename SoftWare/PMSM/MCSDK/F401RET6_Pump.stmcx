@@ -613,8 +613,8 @@
 					</additional_features>
 					<freertos version="1.0">
 						<item name="use_it" value="true" />
-						<item name="RTOS_USE_IRQ" value="false" />
-						<item name="timer" value="TIM5" />
+						<item name="RTOS_USE_IRQ" value="true" />
+						<item name="timer" value="TIM3" />
 					</freertos>
 					<joystic_lcd version="1.0">
 						<vars>

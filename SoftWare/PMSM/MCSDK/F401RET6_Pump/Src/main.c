@@ -23,8 +23,10 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stdio.h"
-#include "at24cxx.h"
+#include "hal.h"
 #include "version.h"
+#include "system.h"
+#include "FreeRTOS.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,9 +47,6 @@
 ADC_HandleTypeDef hadc1;
 
 I2C_HandleTypeDef hi2c1;
-I2C_HandleTypeDef hi2c2;
-
-SPI_HandleTypeDef hspi2;
 
 TIM_HandleTypeDef htim1;
 
@@ -60,6 +59,11 @@ DMA_HandleTypeDef hdma_usart1_tx;
 osThreadId mediumFrequencyHandle;
 osThreadId safetyHandle;
 osThreadId heartTaskHandle;
+uint32_t heartTaskBuffer[128];
+osStaticThreadDef_t heartTaskControlBlock;
+osThreadId halTaskHandle;
+uint32_t halTaskBuffer[128];
+osStaticThreadDef_t halTaskControlBlock;
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -72,13 +76,12 @@ static void MX_ADC1_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_I2C1_Init(void);
-static void MX_I2C2_Init(void);
-static void MX_SPI2_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_USART6_UART_Init(void);
 void startMediumFrequencyTask(void const *argument);
 extern void StartSafetyTask(void const *argument);
 void heartTaskEntry(void const *argument);
+void halTaskEntry(void const *argument);
 
 static void MX_NVIC_Init(void);
 /* USER CODE BEGIN PFP */
@@ -91,11 +94,13 @@ int fputc(int c, FILE *stream) // 重写fputc函数
 {
   /*
      huart1是工具生成代码定义的UART1结构体，
-     如果以后要使用其他串口打印，只需要把这个结构体改成其他UART结构体。
+     如果以后要使用其他串口打印，只需要把这个结构体改成其他UART结构体�??
  */
   HAL_UART_Transmit(&huart2, (unsigned char *)&c, 1, 1000);
   return 1;
 }
+
+uint16_t data = 0;
 /* USER CODE END 0 */
 
 /**
@@ -132,16 +137,16 @@ int main(void)
   MX_USART1_UART_Init();
   MX_MotorControl_Init();
   MX_I2C1_Init();
-  MX_I2C2_Init();
-  MX_SPI2_Init();
   MX_USART2_UART_Init();
   MX_USART6_UART_Init();
 
   /* Initialize interrupts */
   MX_NVIC_Init();
   /* USER CODE BEGIN 2 */
-  QuerySystemInfo();
-  UpdateSystemVersion(0, 1, 2);
+  HalInit();                    // 硬件外设初始化
+  VariableInit();               // 系统变量初始化
+  QuerySystemInfo();            // 查询系统信息
+  UpdateSystemVersion(0, 1, 2); // 更新系统版本
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -170,8 +175,12 @@ int main(void)
   safetyHandle = osThreadCreate(osThread(safety), NULL);
 
   /* definition and creation of heartTask */
-  osThreadDef(heartTask, heartTaskEntry, osPriorityBelowNormal, 0, 128);
+  osThreadStaticDef(heartTask, heartTaskEntry, osPriorityBelowNormal, 0, 128, heartTaskBuffer, &heartTaskControlBlock);
   heartTaskHandle = osThreadCreate(osThread(heartTask), NULL);
+
+  /* definition and creation of halTask */
+  osThreadStaticDef(halTask, halTaskEntry, osPriorityBelowNormal, 0, 128, halTaskBuffer, &halTaskControlBlock);
+  halTaskHandle = osThreadCreate(osThread(halTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -234,10 +243,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-
-  /** Enables the Clock Security System
-   */
-  HAL_RCC_EnableCSS();
 }
 
 /**
@@ -385,76 +390,6 @@ static void MX_I2C1_Init(void)
   /* USER CODE BEGIN I2C1_Init 2 */
 
   /* USER CODE END I2C1_Init 2 */
-}
-
-/**
- * @brief I2C2 Initialization Function
- * @param None
- * @retval None
- */
-static void MX_I2C2_Init(void)
-{
-
-  /* USER CODE BEGIN I2C2_Init 0 */
-
-  /* USER CODE END I2C2_Init 0 */
-
-  /* USER CODE BEGIN I2C2_Init 1 */
-
-  /* USER CODE END I2C2_Init 1 */
-  hi2c2.Instance = I2C2;
-  hi2c2.Init.ClockSpeed = 100000;
-  hi2c2.Init.DutyCycle = I2C_DUTYCYCLE_2;
-  hi2c2.Init.OwnAddress1 = 0;
-  hi2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
-  hi2c2.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
-  hi2c2.Init.OwnAddress2 = 0;
-  hi2c2.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
-  hi2c2.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
-  if (HAL_I2C_Init(&hi2c2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN I2C2_Init 2 */
-
-  /* USER CODE END I2C2_Init 2 */
-}
-
-/**
- * @brief SPI2 Initialization Function
- * @param None
- * @retval None
- */
-static void MX_SPI2_Init(void)
-{
-
-  /* USER CODE BEGIN SPI2_Init 0 */
-
-  /* USER CODE END SPI2_Init 0 */
-
-  /* USER CODE BEGIN SPI2_Init 1 */
-
-  /* USER CODE END SPI2_Init 1 */
-  /* SPI2 parameter configuration*/
-  hspi2.Instance = SPI2;
-  hspi2.Init.Mode = SPI_MODE_MASTER;
-  hspi2.Init.Direction = SPI_DIRECTION_2LINES_RXONLY;
-  hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
-  hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi2.Init.NSS = SPI_NSS_SOFT;
-  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
-  hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
-  hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
-  hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
-  hspi2.Init.CRCPolynomial = 10;
-  if (HAL_SPI_Init(&hspi2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN SPI2_Init 2 */
-
-  /* USER CODE END SPI2_Init 2 */
 }
 
 /**
@@ -671,7 +606,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(FLASH_LED_GPIO_Port, FLASH_LED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(SPI2_SNSS_GPIO_Port, SPI2_SNSS_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, TM1650_CLK_Pin | CLK_Pin | SL_Pin | TM1650_DIO_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : Start_Stop_Pin */
   GPIO_InitStruct.Pin = Start_Stop_Pin;
@@ -686,12 +621,32 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(FLASH_LED_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : SPI2_SNSS_Pin */
-  GPIO_InitStruct.Pin = SPI2_SNSS_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  /*Configure GPIO pins : TM1650_CLK_Pin TM1650_DIO_Pin */
+  GPIO_InitStruct.Pin = TM1650_CLK_Pin | TM1650_DIO_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(SPI2_SNSS_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : CLK_Pin */
+  GPIO_InitStruct.Pin = CLK_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(CLK_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : DATA_Pin */
+  GPIO_InitStruct.Pin = DATA_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(DATA_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : SL_Pin */
+  GPIO_InitStruct.Pin = SL_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(SL_GPIO_Port, &GPIO_InitStruct);
 }
 
 /* USER CODE BEGIN 4 */
@@ -729,15 +684,36 @@ void heartTaskEntry(void const *argument)
   /* Infinite loop */
   for (;;)
   {
+
     HAL_GPIO_TogglePin(FLASH_LED_GPIO_Port, FLASH_LED_Pin);
     osDelay(1000);
   }
   /* USER CODE END heartTaskEntry */
 }
 
+/* USER CODE BEGIN Header_halTaskEntry */
+/**
+ * @brief Function implementing the halTask thread.
+ * @param argument: Not used
+ * @retval None
+ */
+/* USER CODE END Header_halTaskEntry */
+void halTaskEntry(void const *argument)
+{
+  /* USER CODE BEGIN halTaskEntry */
+  /* Infinite loop */
+  for (;;)
+  {
+    QuerySystemState(); // 刷新系统状�??
+
+    osDelay(500);
+  }
+  /* USER CODE END halTaskEntry */
+}
+
 /**
  * @brief  Period elapsed callback in non blocking mode
- * @note   This function is called  when TIM5 interrupt took place, inside
+ * @note   This function is called  when TIM3 interrupt took place, inside
  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
  * a global variable "uwTick" used as application time base.
  * @param  htim : TIM handle
@@ -748,7 +724,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE BEGIN Callback 0 */
 
   /* USER CODE END Callback 0 */
-  if (htim->Instance == TIM5)
+  if (htim->Instance == TIM3)
   {
     HAL_IncTick();
   }
