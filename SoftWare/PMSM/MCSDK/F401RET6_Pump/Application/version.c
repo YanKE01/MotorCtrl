@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2022-11-10 11:26:16
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-02-20 11:16:24
+ * @LastEditTime: 2023-02-21 19:58:18
  * @FilePath: \F401RET6_Pump\Application\version.c
  * @other: 本文件用于获取配置在EEPROM的数据
  */
@@ -29,6 +29,7 @@ SystemInfo FirstUpadteVersionInfo()
     info.motorParameter.maxSpeed = 3000;       // 最大 3000rpm转速
     info.motorParameter.speedDuration = 2000;  // 速度调节时长 2000ms
     info.motorParameter.speedChangeStep = 100; // 每次按100转速来调节
+    info.motorParameter.maxStartUp = 5;        // 最大启动次数为5
     strcpy(info.developer, "Yanke");
 
     return info;
@@ -73,6 +74,7 @@ void UpdateSystemVersion(uint8_t majorVersion, uint8_t minorVersion, uint8_t pat
         .motorParameter.maxSpeed = 3000,       // 最大 3000rpm转速
         .motorParameter.speedDuration = 2000,  // 速度调节时长 2000ms
         .motorParameter.speedChangeStep = 100, // 每次按100转速来调节
+        .motorParameter.maxStartUp = 5,        // 最大启动次数为5
     };
     strcpy(info.developer, "Yanke");
     sprintf(info.lastCompileTime, "%s,%s", __DATE__, __TIME__);

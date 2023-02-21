@@ -2,13 +2,14 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-02-19 15:37:33
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-02-20 15:19:05
+ * @LastEditTime: 2023-02-21 15:51:11
  * @FilePath: \F401RET6_Pump\Hal\tm1650.c
  */
 #include "tm1650.h"
 #include "cmsis_os.h"
 #include "main.h"
 #include "softiic.h"
+#include "variable.h"
 
 static uint8_t s_7number[11] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F, 0x00}; // 7段显示方式0~9 第10位为不显示位
 static uint8_t s_8number[11] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xEF, 0x00}; // 8段显示方式0~9
@@ -170,6 +171,10 @@ void TM1650_SetIndexLetter(uint8_t index, char letter)
     {
         TM1650_Write(indexAddr, 0X80);
     }
+    else if (letter == 'E')
+    {
+        TM1650_Write(indexAddr, 0X79);
+    }
 }
 
 /**
@@ -206,4 +211,45 @@ void TM1650_SetFloat(float num)
         integer /= 10;
     }
     TM1650_SetIndexNumber(3, 7, decimal); // 显示小数
+}
+
+/**
+ * @brief 显示故障码
+ *
+ * @param state
+ */
+void TM1650_ShowFaultCode(uint16_t state)
+{
+    TM1650_Clear();
+
+    switch (state)
+    {
+    case MC_OVER_VOLT:
+        TM1650_SetIndexLetter(0, 'E');
+        TM1650_SetIndexNumber(1, 7, 0);
+        TM1650_SetIndexNumber(2, 7, 1);
+        break;
+
+    case MC_UNDER_VOLT:
+        TM1650_SetIndexLetter(0, 'E');
+        TM1650_SetIndexNumber(1, 7, 0);
+        TM1650_SetIndexNumber(2, 7, 2);
+        break;
+    case MC_START_UP:
+        TM1650_SetIndexLetter(0, 'E');
+        TM1650_SetIndexNumber(1, 7, 0);
+        TM1650_SetIndexNumber(2, 7, 3);
+        break;
+    case MC_SPEED_FDBK:
+        TM1650_SetIndexLetter(0, 'E');
+        TM1650_SetIndexNumber(1, 7, 0);
+        TM1650_SetIndexNumber(2, 7, 4);
+        break;
+
+    default:
+        TM1650_SetIndexLetter(0, 'E');
+        TM1650_SetIndexNumber(1, 7, 0);
+        TM1650_SetIndexNumber(2, 7, 5);
+        break;
+    }
 }
