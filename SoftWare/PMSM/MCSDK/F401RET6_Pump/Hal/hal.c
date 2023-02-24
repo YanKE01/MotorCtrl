@@ -6,6 +6,7 @@
  * @FilePath: \F401RET6_Pump\Hal\hal.c
  */
 #include "hal.h"
+#include "main.h"
 
 /**
  * @brief 硬件外设初始化
@@ -13,6 +14,7 @@
  */
 void HalInit(void)
 {
+	HAL_Delay(500);
     TM1650_SetDisplay(1, 7, 1);
     TM1650_Clear();
 }
