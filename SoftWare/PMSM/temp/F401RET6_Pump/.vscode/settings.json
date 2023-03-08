@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "tm1650.h": "c",
+        "hal.h": "c",
+        "cmsis_os.h": "c",
+        "74hc165d.h": "c",
+        "string.h": "c",
+        "variable.h": "c",
+        "system.h": "c",
+        "mc_api.h": "c",
+        "mc_config.h": "c",
+        "bus_voltage_sensor.h": "c"
+    }
+}
