@@ -71,7 +71,7 @@ void UpdateSystemVersion(uint8_t majorVersion, uint8_t minorVersion, uint8_t pat
         .minorVersion = minorVersion,
         .pathVersion = pathVersion,
         .motorParameter.minSpeed = 600,        // 最小600转速
-        .motorParameter.maxSpeed = 3000,       // 最大 3000rpm转速
+        .motorParameter.maxSpeed = 5000,       // 最大 3000rpm转速
         .motorParameter.speedDuration = 2000,  // 速度调节时长 2000ms
         .motorParameter.speedChangeStep = 100, // 每次按100转速来调节
         .motorParameter.maxStartUp = 5,        // 最大启动次数为5

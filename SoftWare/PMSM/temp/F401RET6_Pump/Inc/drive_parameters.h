@@ -31,7 +31,7 @@
 /******** MAIN AND AUXILIARY SPEED/POSITION SENSOR(S) SETTINGS SECTION ********/
 
 /*** Speed measurement settings ***/
-#define MAX_APPLICATION_SPEED_RPM       3000 /*!< rpm, mechanical */
+#define MAX_APPLICATION_SPEED_RPM       6000 /*!< rpm, mechanical */
 #define MIN_APPLICATION_SPEED_RPM       0 /*!< rpm, mechanical,
                                                            absolute value */
 #define MEAS_ERRORS_BEFORE_FAULTS       5 /*!< Number of speed
@@ -43,16 +43,16 @@
                                                             estimates (percentage) */
 /* State observer scaling factors F1 */
 #define F1                               16384
-#define F2                               4096
+#define F2                               16384
 #define F1_LOG                           LOG2((16384))
-#define F2_LOG                           LOG2((4096))
+#define F2_LOG                           LOG2((16384))
 
 /* State observer constants */
-#define GAIN1                            -24387
-#define GAIN2                            18044
+#define GAIN1                            -24064
+#define GAIN2                            16060
 /*Only in case PLL is used, PLL gains */
-#define PLL_KP_GAIN                      299
-#define PLL_KI_GAIN                      13
+#define PLL_KP_GAIN                      638
+#define PLL_KI_GAIN                      30
 #define PLL_KPDIV     16384
 #define PLL_KPDIV_LOG LOG2((PLL_KPDIV))
 #define PLL_KIDIV     65535
@@ -82,11 +82,11 @@
 /**************************    DRIVE SETTINGS SECTION   **********************/
 /* PWM generation and current reading */
 
-#define PWM_FREQUENCY   16000
+#define PWM_FREQUENCY   15000
 #define PWM_FREQ_SCALING 1
 
 #define LOW_SIDE_SIGNALS_ENABLING        LS_PWM_TIMER
-#define SW_DEADTIME_NS                   800 /*!< Dead-time to be inserted
+#define SW_DEADTIME_NS                   300 /*!< Dead-time to be inserted
                                                            by FW, only if low side
                                                            signals are enabled */
 
@@ -94,18 +94,18 @@
 #define REGULATION_EXECUTION_RATE     1    /*!< FOC execution rate in
                                                            number of PWM cycles */
 /* Gains values for torque and flux control loops */
-#define PID_TORQUE_KP_DEFAULT         3989
-#define PID_TORQUE_KI_DEFAULT         246
+#define PID_TORQUE_KP_DEFAULT         3755
+#define PID_TORQUE_KI_DEFAULT         313
 #define PID_TORQUE_KD_DEFAULT         100
-#define PID_FLUX_KP_DEFAULT           3989
-#define PID_FLUX_KI_DEFAULT           246
+#define PID_FLUX_KP_DEFAULT           3755
+#define PID_FLUX_KI_DEFAULT           313
 #define PID_FLUX_KD_DEFAULT           100
 
 /* Torque/Flux control loop gains dividers*/
-#define TF_KPDIV                      4096
+#define TF_KPDIV                      8192
 #define TF_KIDIV                      16384
 #define TF_KDDIV                      8192
-#define TF_KPDIV_LOG                  LOG2((4096))
+#define TF_KPDIV_LOG                  LOG2((8192))
 #define TF_KIDIV_LOG                  LOG2((16384))
 #define TF_KDDIV_LOG                  LOG2((8192))
 #define TFDIFFERENTIAL_TERM_ENABLING  DISABLE
@@ -114,15 +114,15 @@
 #define SPEED_LOOP_FREQUENCY_HZ       ( uint16_t )1000 /*!<Execution rate of speed
                                                       regulation loop (Hz) */
 
-#define PID_SPEED_KP_DEFAULT          1000/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
-#define PID_SPEED_KI_DEFAULT          700/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
+#define PID_SPEED_KP_DEFAULT          2518/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
+#define PID_SPEED_KI_DEFAULT          451/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
 #define PID_SPEED_KD_DEFAULT          0/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
 /* Speed PID parameter dividers */
-#define SP_KPDIV                      16
-#define SP_KIDIV                      256
+#define SP_KPDIV                      256
+#define SP_KIDIV                      16384
 #define SP_KDDIV                      16
-#define SP_KPDIV_LOG                  LOG2((16))
-#define SP_KIDIV_LOG                  LOG2((256))
+#define SP_KPDIV_LOG                  LOG2((256))
+#define SP_KIDIV_LOG                  LOG2((16384))
 #define SP_KDDIV_LOG                  LOG2((16))
 
 /* USER CODE BEGIN PID_SPEED_INTEGRAL_INIT_DIV */
@@ -130,7 +130,7 @@
 /* USER CODE END PID_SPEED_INTEGRAL_INIT_DIV */
 
 #define SPD_DIFFERENTIAL_TERM_ENABLING DISABLE
-#define IQMAX                          26213
+#define IQMAX                          28596
 
 /* Default settings */
 #define DEFAULT_CONTROL_MODE           STC_SPEED_MODE /*!< STC_TORQUE_MODE or
@@ -141,9 +141,9 @@
 #define DEFAULT_FLUX_COMPONENT         0
 
 /**************************    FIRMWARE PROTECTIONS SECTION   *****************/
-#define OV_VOLTAGE_THRESHOLD_V          52 /*!< Over-voltage
+#define OV_VOLTAGE_THRESHOLD_V          60 /*!< Over-voltage
                                                          threshold */
-#define UD_VOLTAGE_THRESHOLD_V          45 /*!< Under-voltage
+#define UD_VOLTAGE_THRESHOLD_V          42 /*!< Under-voltage
                                                           threshold */
 #ifdef NOT_IMPLEMENTED
 #define ON_OVER_VOLTAGE                 TURN_OFF_PWM /*!< TURN_OFF_PWM,
@@ -214,7 +214,7 @@
 /******************************   BUS VOLTAGE Motor 1  **********************/
 #define  M1_VBUS_SAMPLING_TIME  LL_ADC_SAMPLING_CYCLE(56)
 /******************************   Current sensing Motor 1   **********************/
-#define ADC_SAMPLING_CYCLES (56 + SAMPLING_CYCLE_CORRECTION)
+#define ADC_SAMPLING_CYCLES (3 + SAMPLING_CYCLE_CORRECTION)
 
 /******************************   ADDITIONAL FEATURES   **********************/
 

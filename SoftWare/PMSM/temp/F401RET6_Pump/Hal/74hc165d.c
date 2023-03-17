@@ -35,7 +35,8 @@ uint8_t Read74HC165D(void)
         HAL_GPIO_WritePin(SL_GPIO_Port, SL_Pin, GPIO_PIN_RESET);
         osDelay(1);
         HAL_GPIO_WritePin(SL_GPIO_Port, SL_Pin, GPIO_PIN_SET);
-        osDelay(1);
+        //osDelay(1);
+		delay();
 
         for (uint8_t i = 0; i < 8; i++)
         {
@@ -48,6 +49,7 @@ uint8_t Read74HC165D(void)
 
             HAL_GPIO_WritePin(CLK_GPIO_Port, CLK_Pin, GPIO_PIN_RESET);
             osDelay(1);
+			//delay();
             HAL_GPIO_WritePin(CLK_GPIO_Port, CLK_Pin, GPIO_PIN_SET);
         }
 

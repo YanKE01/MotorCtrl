@@ -188,8 +188,8 @@
 #define DOUT_ACTIVE_LOW    DOutputActiveLow
 
 #define LPF_FILT_CONST ((int16_t)(32767 * 0.5))
-/* MMI Table Motor 1 MAX_MODULATION_81_PER_CENT */
-#define MAX_MODULE 26541
+/* MMI Table Motor 1 MAX_MODULATION_98_PER_CENT */
+#define MAX_MODULE 32111
 
 #define  SAMPLING_CYCLE_CORRECTION 0 /* STM32F401RETx ADC sampling time is an integer number */
 

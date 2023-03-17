@@ -14,7 +14,7 @@
  */
 void HalInit(void)
 {
-	HAL_Delay(2000);
+	HAL_Delay(1000);
     TM1650_SetDisplay(1, 7, 1);
     TM1650_Clear();
 }
