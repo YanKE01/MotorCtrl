@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp
+--cpu=Cortex-M4.fp.sp
 "f401ret6_pump_nortos\startup_stm32f401xe.o"
 "f401ret6_pump_nortos\main.o"
 "f401ret6_pump_nortos\motorcontrol.o"
