@@ -29,6 +29,7 @@ void MotorControlInit(void);
 void main(void)
 {
     uint16 PowerUpCnt = 0;
+		int i=0;
 
     /* -----上电等待电源稳定 ----- */
     for (PowerUpCnt = 0; PowerUpCnt < SystemPowerUpTime; PowerUpCnt++)
@@ -41,10 +42,12 @@ void main(void)
     /* -----调试模式设置--内部变量查询；CMP输出查询；ADC触发信号查询----- */
     DebugSet();
     TempPower = 0; // 功率值清零
+
     SetBit(TIM234_CTRL, MDU_EN_N);
 
     while (1)
     {
+
         /* -----电流偏置的获取----- */
         GetCurrentOffset();
         /* -----主控函数，状态扫描 2.6k----- */
@@ -58,6 +61,8 @@ void main(void)
 
         mcSpeedRamp.Value_UD = FOC__UD; //  FOC__ID  FOC__UD
         mcSpeedRamp.Value_UQ = FOC__UQ; //  FOC__IQ  FOC__UQ
+				
+
     }
 }
 

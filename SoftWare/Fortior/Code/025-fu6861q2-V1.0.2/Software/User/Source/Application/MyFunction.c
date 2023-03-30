@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-03-26 13:09:19
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-03-27 20:44:17
+ * @LastEditTime: 2023-03-30 21:02:41
  * @FilePath: \Software\User\Source\Application\MyFunction.c
  */
 
@@ -12,6 +12,9 @@
 #include <Myproject.h>
 
 int count = 0;
+int state = 0;
+
+sbit FLASH_LED = P3 ^ 6;
 
 /**
  * @description: 50Ms的任务
@@ -35,9 +38,9 @@ void MyTask_100Ms_Entry()
  */
 void MyTask_1S_Entry()
 {
-    count++;
-    SetNumber1650(count);
-    count %= 9999;
+	count++;
+	count%=9999;
+	SetNumber1650(count);
 }
 
 /**

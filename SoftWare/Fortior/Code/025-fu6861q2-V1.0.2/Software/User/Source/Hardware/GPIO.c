@@ -56,11 +56,12 @@ void GPIO_Init(void)
     P3_OE = P36 | P37;
     P0_OE = P07;
     P0_PU = P01;
-    GP36 = 0;
-    GP37 = 0;
+
     // LED灯IO口初始化
     P4_OE = P42;
     GP42 = 0;
+//		GP36=1;
+//		GP37=0;
 
     // TM1650 IO
     P0_OE = P04 | P05;

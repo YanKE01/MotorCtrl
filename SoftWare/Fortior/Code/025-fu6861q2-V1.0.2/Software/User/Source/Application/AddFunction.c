@@ -934,10 +934,10 @@ void TickCycle_1ms(void)
     }
 #elif (SPEED_MODE == NONEMODE) // 直接上电运行模式
     {
-        mcSpeedRamp.FlagONOFF = 0; // 手动设置为0
+        mcSpeedRamp.FlagONOFF = 1; // 手动设置为0
 #if (Motor_Control_Mode == SPEED_LOOP_CONTROL)
         {
-            mcSpeedRamp.TargetValue = _Q15(2500.0 / MOTOR_SPEED_BASE); // Motor_Min_Speed
+            mcSpeedRamp.TargetValue = _Q15(1000.0 / MOTOR_SPEED_BASE); // Motor_Min_Speed
         }
 #elif (Motor_Control_Mode == POWER_LOOP_CONTROL)
         {
