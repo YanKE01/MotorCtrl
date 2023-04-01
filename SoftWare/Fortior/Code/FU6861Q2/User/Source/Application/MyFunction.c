@@ -151,7 +151,7 @@ void IncreaseSpeed()
         // 只允许在速度设置页设置转速
         ui.isSetSpeed = 1; // ACK后置为0
         motor.targetSpeedTemp += motor.speedChangeStep;
-        LimitSpeed(&motor.targetSpeed, motor.minSpeed, motor.maxSpeed);
+        LimitSpeed(&motor.targetSpeedTemp, motor.minSpeed, motor.maxSpeed);
     }
 }
 
@@ -166,7 +166,7 @@ void ReduceSpeed()
         // 只允许在速度设置页设置转速
         ui.isSetSpeed = 1; // ACK后置为0
         motor.targetSpeedTemp -= motor.speedChangeStep;
-        LimitSpeed(&motor.targetSpeed, motor.minSpeed, motor.maxSpeed);
+        LimitSpeed(&motor.targetSpeedTemp, motor.minSpeed, motor.maxSpeed);
     }
 }
 
