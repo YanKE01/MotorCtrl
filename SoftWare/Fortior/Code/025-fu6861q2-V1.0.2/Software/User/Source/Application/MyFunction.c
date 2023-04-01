@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-03-26 13:09:19
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-03-30 21:02:41
+ * @LastEditTime: 2023-04-01 10:52:46
  * @FilePath: \Software\User\Source\Application\MyFunction.c
  */
 
@@ -11,10 +11,6 @@
 #include <FU68xx_2.h>
 #include <Myproject.h>
 
-int count = 0;
-int state = 0;
-
-sbit FLASH_LED = P3 ^ 6;
 
 /**
  * @description: 50Ms的任务
@@ -38,9 +34,13 @@ void MyTask_100Ms_Entry()
  */
 void MyTask_1S_Entry()
 {
+	static int count=0;
+	static uint8 state=0;
 	count++;
 	count%=9999;
 	SetNumber1650(count);
+	state=!state;
+	GP36=state;
 }
 
 /**

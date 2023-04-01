@@ -40,7 +40,7 @@ void main(void)
     /* -----硬件模块初始化----- */
     HardwareInit();
     /* -----调试模式设置--内部变量查询；CMP输出查询；ADC触发信号查询----- */
-    DebugSet();
+    //DebugSet();
     TempPower = 0; // 功率值清零
 
     SetBit(TIM234_CTRL, MDU_EN_N);
@@ -136,5 +136,5 @@ void HardwareInit(void)
     TIM1ms_Init(); // 采用1ms定时器中断作为常见中断,处理故障保护等附加功能
 
     /*-----TM1650初始化----*/
-    SetDisplay1650(3, 7, 1);
+    SetDisplay1650(7, 7, 1);
 }

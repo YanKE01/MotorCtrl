@@ -268,7 +268,7 @@
  * @param (Disable)      禁止
  * @param (Enable)       使能
  */
-#define FG_Enable                       (Enable)                      ///< FG输出使能
+#define FG_Enable                       (Disable)                      ///< FG输出使能 YK 2023年4月1日10:44:12 Enable
 
 #define FG_K                            (1)                           ///< FG频率输出倍数
 

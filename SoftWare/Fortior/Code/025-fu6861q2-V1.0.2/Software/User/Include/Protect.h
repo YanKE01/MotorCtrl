@@ -21,8 +21,8 @@
 /* -------------------------------------保护参数值---------------------------------------------------- */
 /* -----硬件过流保护比较值来源----- */
 #define Compare_Mode                   (Compare_DAC)                            ///< 硬件过流值的来源
-#define OverHardcurrentValue           (40.0)                                   ///< (A) DAC模式下的硬件过流值 Imax = VHALF / HW_RSHUNT / HW_AMPGAIN    
-
+#define OverHardcurrentValue           (50.0)                                   ///< (A) DAC模式下的硬件过流值 Imax = VHALF / HW_RSHUNT / HW_AMPGAIN    
+//YK 2023年4月1日13:11:36 OverHardcurrentValue=40
 /* -----软件过流保护----- */
 #define OverSoftCurrentValue           I_Value(30.0)                            ///< (A) 软件过流值 
 #define OverSoftCurrentTime            (10)                                     ///< 软件过流检测次数，初步设定值10

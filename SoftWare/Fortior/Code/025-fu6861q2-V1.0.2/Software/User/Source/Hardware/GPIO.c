@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-03-20 21:07:44
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-03-26 14:19:40
+ * @LastEditTime: 2023-04-01 19:22:16
  * @FilePath: \Software\User\Source\Hardware\GPIO.c
  */
 /**
@@ -36,7 +36,7 @@ void GPIO_Default_Init(void)
 
 /**
  * @brief      GPIO初始化配置,可将I/O口配置成输入或输出模式，上拉还是不上拉，模拟输出还是数字输出
- */
+ */ 
 void GPIO_Init(void)
 {
     // P1_OE = P15 ;
@@ -55,14 +55,13 @@ void GPIO_Init(void)
     P1_OE = P15;
     P3_OE = P36 | P37;
     P0_OE = P07;
-    P0_PU = P01;
+    //P0_PU = P01;
 
     // LED灯IO口初始化
     P4_OE = P42;
     GP42 = 0;
-//		GP36=1;
-//		GP37=0;
+
 
     // TM1650 IO
-    P0_OE = P04 | P05;
+    P0_OE = P00 | P01;
 }

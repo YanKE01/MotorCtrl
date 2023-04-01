@@ -2,13 +2,13 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-03-26 13:59:03
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-03-27 20:40:36
+ * @LastEditTime: 2023-04-01 10:29:52
  * @FilePath: \Software\User\Source\Hardware\TM1650.c
  */
 #include "TM1650.h"
 
-sbit CLK = P0 ^ 4;
-sbit DIO = P0 ^ 5;
+sbit CLK = P0 ^ 1;
+sbit DIO = P0 ^ 0;
 
 static uint8 s_7number[11] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F, 0x00}; // 7段显示方式0~9 第10位为不显示位
 static uint8 s_8number[11] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xEF, 0x00}; // 8段显示方式0~9
