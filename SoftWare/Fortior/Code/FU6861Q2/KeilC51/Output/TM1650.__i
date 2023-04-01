@@ -1,0 +1,1 @@
+"..\User\Source\Hardware\TM1650.c" LARGE OMF2 WARNINGLEVEL (0) BROWSE INCDIR(..\User\Include;..\FU68xx_Hardware_Driver\Include) DEBUG PRINT(.\Listing\TM1650.lst) TABS (2) OBJECT(.\Output\TM1650.obj)

@@ -1,0 +1,111 @@
+C51 COMPILER V9.52.0.0   DRIVER                                                            04/01/2023 22:13:44 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE DRIVER
+OBJECT MODULE PLACED IN .\Output\Driver.obj
+COMPILER INVOKED BY: D:\IDE\keil\C51\BIN\C51.EXE ..\User\Source\Hardware\Driver.c LARGE OMF2 WARNINGLEVEL(0) BROWSE INCD
+                    -IR(..\User\Include;..\FU68xx_Hardware_Driver\Include) DEBUG PRINT(.\Listing\Driver.lst) TABS(2) OBJECT(.\Output\Driver.o
+                    -bj)
+
+line level    source
+
+   1          /**
+   2           * @copyright (C) COPYRIGHT 2022 Fortiortech Shenzhen
+   3           * @file      CMPInit.c
+   4           * @author    Fortiortech  Appliction Team
+   5           * @since     Create:2021-05-14
+   6           * @date      Last modify:2022-07-14
+   7           * @brief     This file contains driver initial function used for Motor Control.
+   8           */ 
+   9           
+  10          #include <FU68xx_2.h>
+  11          #include <Myproject.h>
+  12          
+  13          /**
+  14           * @brief      Driver初始化配置
+  15           */
+  16          void Driver_Init(void)
+  17          {
+  18   1          /* -----配置PWM周期值和死区时间----- */
+  19   1          DRV_ARR             = PWM_VALUE_LOAD;                                           // 载波频率的周�
+             -��值
+  20   1          DRV_DTR             = PWM_LOAD_DEADTIME;                                        // 死区时间
+  21   1          /*  -------------------------------------------------------------------------------------------------
+  22   1              1、配置ME模块工作模式
+  23   1              2、MESEL为0，ME模块工作在BLDC模式
+  24   1              3、MESEL为1，ME模块工作在FOC/SVPWM/SPWM模式
+  25   1              -------------------------------------------------------------------------------------------------*
+             -/
+  26   1          SetBit(DRV_CR, MESEL);
+  27   1          /* -----驱动有效电平和空闲电平----- */
+  28   1          #if (PWM_Level_Mode == High_Level)
+                  {
+                      DRV_CMR &= 0x003f;
+                      DRV_OUT &= 0xC0;
+                  }
+                  #elif (PWM_Level_Mode == Low_Level)
+                  {
+                      DRV_CMR |= 0x0fc0;
+                      DRV_OUT = 0x3F;
+                  }
+                  #elif (PWM_Level_Mode == UP_H_DOWN_L)
+  39   1          {
+  40   2              DRV_CMR = 0x0540;
+  41   2              DRV_OUT = 0x2A;
+  42   2          }
+  43   1          #elif (PWM_Level_Mode == UP_L_DOWN_H)
+                  {
+                      DRV_CMR &= 0x0a80;
+                      DRV_OUT = 0x15;
+                  }
+                  #endif //end PWM_Level_Mode
+  49   1          /* -----清中断标志位，使能中断，配置比较值，设置中断优先级----- */
+  50   1          ClrBit(DRV_SR, DCIF);                                                           // 清除DRV中断标�
+             -��位
+C51 COMPILER V9.52.0.0   DRIVER                                                            04/01/2023 22:13:44 PAGE 2   
+
+  51   1          /*  -------------------------------------------------------------------------------------------------
+  52   1              1、配置DRV比较匹配中断模式
+  53   1              2、当计数值等于DRV_COMR时，根据DCIM的设置判断是否产生中断标记
+  54   1              3、00：不产生中断
+  55   1              4、01：上升方向
+  56   1              5、10：下降方向
+  57   1              6、11：上下沿
+  58   1              -------------------------------------------------------------------------------------------------*
+             -/
+  59   1          SetReg(DRV_SR, DCIM0 | DCIM1, DCIM1);
+  60   1          /* -----设置DRV计数器的比较匹配值，当DRV计数值与COMR相等时，根据DRV_SR寄存器
+             -的DCIM是否产生比较匹配事件----- */
+  61   1          DRV_COMR = (PWM_VALUE_LOAD >> 1);
+  62   1          /* -----中断优先级配置，优先级低于FO硬件过流----- */
+  63   1          PDRV1 = 1;
+  64   1          PDRV0 = 1;
+  65   1          /* -----配置1个/2个载波周期执行一次FOC终端，0--1个，1-2个----- */
+  66   1          SetBit(DRV_SR, DCIP);
+  67   1          /* -----DRV计数器使能，0-禁止，1-使能----- */
+  68   1          SetBit(DRV_CR, DRVEN);
+  69   1          /* -----DRV计数器比较值预装载使能，0-禁止，1-使能----- */
+  70   1          ClrBit(DRV_CR, DRPE);
+  71   1          /* -----Driver 输出使能，0-禁止，1-使能----- */
+  72   1          SetBit(DRV_CR, DRVOE);
+  73   1      }
+  74          
+  75          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     81    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,185 @@
+C51 COMPILER V9.52.0.0   AMP                                                               04/01/2023 22:13:43 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE AMP
+OBJECT MODULE PLACED IN .\Output\AMP.obj
+COMPILER INVOKED BY: D:\IDE\keil\C51\BIN\C51.EXE ..\User\Source\Hardware\AMP.c LARGE OMF2 WARNINGLEVEL(0) BROWSE INCDIR(
+                    -..\User\Include;..\FU68xx_Hardware_Driver\Include) DEBUG PRINT(.\Listing\AMP.lst) TABS(2) OBJECT(.\Output\AMP.obj)
+
+line level    source
+
+   1          /**
+   2           * @copyright (C) COPYRIGHT 2022 Fortiortech Shenzhen
+   3           * @file      AMPInit.c
+   4           * @author    Fortiortech  Appliction Team
+   5           * @since     Create:2021-05-14
+   6           * @date      Last modify:2022-07-14
+   7           * @brief     This file contains AMP initial function used for Motor Control.
+   8           */ 
+   9           
+  10          #include <FU68xx_2.h>
+  11          #include <Myproject.h>
+  12          
+  13          /**
+  14           * @brief      AMP初始化配置
+  15           */
+  16          void AMP_Init(void)
+  17          {
+  18   1          /* -----使能VHALF电压----- */
+  19   1          SetBit(VREF_VHALF_CR, VHALFEN);                         // 使能VHALF
+  20   1           
+  21   1          /* -----运放使能----- */
+  22   1          #if (Shunt_Resistor_Mode == Single_Resistor)            // 单电阻电流采样
+  23   1          {
+  24   2              #if (HW_AMP_MODE == AMP_NOMAL) //外部放大
+  25   2              {
+  26   3                  SetBit(P3_AN, P31);             //AMP0 Pin设置为模拟模式  +
+  27   3                  SetBit(P3_AN, P30);             //AMP0 Pin设置为模拟模式  -
+  28   3                  SetBit(P2_AN, P27);             //AMP0 Pin设置为模拟模式  O
+  29   3                  SetBit(AMP_CR, AMP0EN);         //使能AMP0 
+  30   3                  ClrBit(CMP_AMP, AMP0_GAIN2);
+  31   3                  ClrBit(CMP_AMP, AMP0_GAIN1);
+  32   3                  ClrBit(CMP_AMP, AMP0_GAIN0);
+  33   3              }
+  34   2              #else       // 内部PGA双端差分输入
+                      {
+                          SetBit(P3_AN, P31);             //AMP0 Pin设置为模拟模式  +
+                          SetBit(P3_AN, P30);             //AMP0 Pin设置为模拟模式  -
+                          SetBit(P2_AN, P27);             //AMP0 Pin设置为模拟模式  O
+                          
+                          ClrBit(AMP_CR0, AMP0M_GND);     // 禁止运放反向输入端内部接地
+                          SetBit(AMP_CR0, AMP0EN);        // 使能AMP0 
+                          
+                          #if (HW_AMPGAIN == AMP2x)
+                          {
+                              ClrBit(CMP_AMP, AMP0_GAIN2);
+                              ClrBit(CMP_AMP, AMP0_GAIN1);
+                              SetBit(CMP_AMP, AMP0_GAIN0);
+                          }
+                          #elif (HW_AMPGAIN == AMP4x)
+                          {
+                              ClrBit(CMP_AMP, AMP0_GAIN2);
+                              SetBit(CMP_AMP, AMP0_GAIN1);
+                              ClrBit(CMP_AMP, AMP0_GAIN0);
+                          }
+C51 COMPILER V9.52.0.0   AMP                                                               04/01/2023 22:13:43 PAGE 2   
+
+                          #elif (HW_AMPGAIN == AMP8x)
+                          {
+                              ClrBit(CMP_AMP, AMP0_GAIN2);
+                              SetBit(CMP_AMP, AMP0_GAIN1);
+                              SetBit(CMP_AMP, AMP0_GAIN0);
+                          }
+                          #elif (HW_AMPGAIN == AMP16x)
+                          {
+                              SetBit(CMP_AMP, AMP0_GAIN2);
+                              ClrBit(CMP_AMP, AMP0_GAIN1);
+                              ClrBit(CMP_AMP, AMP0_GAIN0);
+                          }
+                          #endif
+                      }
+                      #endif      
+  70   2              
+  71   2              
+  72   2              
+  73   2             
+  74   2          }
+  75   1          #else                                                   // 双/三电阻电流采样
+                  {
+                      SetBit(P1_AN, P16);             //AMP1 Pin设置为模拟模式  +
+                      SetBit(P1_AN, P17);             //AMP1 Pin设置为模拟模式  -
+                      SetBit(P2_AN, P20);             //AMP1 Pin设置为模拟模式  O
+              
+                      SetBit(P2_AN, P21);             //AMP2 Pin设置为模拟模式  +
+                      SetBit(P2_AN, P22);             //AMP2 Pin设置为模拟模式  -
+                      SetBit(P2_AN, P23);             //AMP2 Pin设置为模拟模式  O
+                      ClrBit(P2_OE, P23);             //P23_OE需要强制为0，禁止DA1输出至PAD
+              
+                      SetBit(P3_AN, P31);             //AMP0 Pin设置为模拟模式  +
+                      SetBit(P3_AN, P30);             //AMP0 Pin设置为模拟模式  -
+                      SetBit(P2_AN, P27);             //AMP0 Pin设置为模拟模式  O
+                      
+                      ClrBit(TSD_ADJ, AMP0M_GND);     // 禁止运放0反向输入端内部接地
+                      ClrBit(TSD_ADJ, AMP12M_GND);    // 禁止运放1,2反向输入端内部接地
+                      SetBit(AMP_CR, AMP0EN);         //使能AMP0  
+                      SetBit(AMP_CR, AMP1EN);         //使能AMP1  
+                      SetBit(AMP_CR, AMP2EN);         //使能AMP2  
+                      
+                      #if (HW_AMP_MODE == AMP_NOMAL)  //外部放大
+                      {
+                          ClrBit(CMP_AMP, AMP0_GAIN2);
+                          ClrBit(CMP_AMP, AMP0_GAIN1);
+                          ClrBit(CMP_AMP, AMP0_GAIN0);
+                  
+                          ClrBit(CMP_AMP, AMP_PH_GAIN2);
+                          ClrBit(CMP_AMP, AMP_PH_GAIN1);
+                          ClrBit(CMP_AMP, AMP_PH_GAIN0);
+                      }
+                      #else
+                      {
+                          #if (HW_AMPGAIN == AMP2x)
+                          {
+                              ClrBit(CMP_AMP, AMP0_GAIN2);
+                              ClrBit(CMP_AMP, AMP0_GAIN1);
+                              SetBit(CMP_AMP, AMP0_GAIN0);
+                  
+                              ClrBit(CMP_AMP, AMP_PH_GAIN2);
+                              ClrBit(CMP_AMP, AMP_PH_GAIN1);
+                              SetBit(CMP_AMP, AMP_PH_GAIN0);
+C51 COMPILER V9.52.0.0   AMP                                                               04/01/2023 22:13:43 PAGE 3   
+
+                          }
+                          #elif (HW_AMPGAIN == AMP4x)
+                          {
+                              ClrBit(CMP_AMP, AMP0_GAIN2);
+                              SetBit(CMP_AMP, AMP0_GAIN1);
+                              ClrBit(CMP_AMP, AMP0_GAIN0);
+                  
+                              ClrBit(CMP_AMP, AMP_PH_GAIN2);
+                              SetBit(CMP_AMP, AMP_PH_GAIN1);
+                              ClrBit(CMP_AMP, AMP_PH_GAIN0);
+                          }
+                          #elif (HW_AMPGAIN == AMP8x)
+                          {
+                              ClrBit(CMP_AMP, AMP0_GAIN2);
+                              SetBit(CMP_AMP, AMP0_GAIN1);
+                              SetBit(CMP_AMP, AMP0_GAIN0);
+                  
+                              ClrBit(CMP_AMP, AMP_PH_GAIN2);
+                              SetBit(CMP_AMP, AMP_PH_GAIN1);
+                              SetBit(CMP_AMP, AMP_PH_GAIN0);
+                          }
+                          #elif (HW_AMPGAIN == AMP16x)
+                          {
+                              SetBit(CMP_AMP, AMP0_GAIN2);
+                              ClrBit(CMP_AMP, AMP0_GAIN1);
+                              ClrBit(CMP_AMP, AMP0_GAIN0);
+                  
+                              SetBit(CMP_AMP, AMP_PH_GAIN2);
+                              ClrBit(CMP_AMP, AMP_PH_GAIN1);
+                              ClrBit(CMP_AMP, AMP_PH_GAIN0);
+                          }
+                          #endif
+                      }
+                      #endif     
+                  }
+                  #endif
+ 153   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     48    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

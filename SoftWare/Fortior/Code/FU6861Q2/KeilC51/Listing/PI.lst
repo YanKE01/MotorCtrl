@@ -1,0 +1,64 @@
+C51 COMPILER V9.52.0.0   PI                                                                04/01/2023 22:13:44 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE PI
+OBJECT MODULE PLACED IN .\Output\PI.obj
+COMPILER INVOKED BY: D:\IDE\keil\C51\BIN\C51.EXE ..\User\Source\Hardware\PI.c LARGE OMF2 WARNINGLEVEL(0) BROWSE INCDIR(.
+                    -.\User\Include;..\FU68xx_Hardware_Driver\Include) DEBUG PRINT(.\Listing\PI.lst) TABS(2) OBJECT(.\Output\PI.obj)
+
+line level    source
+
+   1          /**
+   2           * @copyright (C) COPYRIGHT 2022 Fortiortech Shenzhen
+   3           * @file      PIInit.c
+   4           * @author    Fortiortech  Appliction Team
+   5           * @since     Create:2021-05-14
+   6           * @date      Last modify:2022-07-14
+   7           * @brief     This file contains PI initial function used for Motor Control.
+   8           */       
+   9              
+  10          #include <FU68xx_2.h>
+  11          #include <Myproject.h>
+  12          
+  13          /**
+  14           * @brief      PI初始化
+  15           */
+  16          void PI_Init(void)
+  17          {
+  18   1          PI1_KP = SKP;
+  19   1          PI1_KI = SKI;
+  20   1          PI1_UKMAX = SOUTMAX;
+  21   1          PI1_UKMIN = SOUTMIN;
+  22   1        
+  23   1          PI2_KP = DQKP;
+  24   1          PI2_KI = DQKI;
+  25   1          PI2_UKMAX = DOUTMAX;
+  26   1          PI2_UKMIN = DOUTMIN;
+  27   1        
+  28   1          PI3_KP = DQKP;
+  29   1          PI3_KI = DQKI;
+  30   1          PI3_UKMAX = QOUTMAX;
+  31   1          PI3_UKMIN = QOUTMIN;
+  32   1        
+  33   1        PI1_UKH = 0;
+  34   1          PI2_UKH = 0;
+  35   1          PI3_UKH = 0;
+  36   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    130    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

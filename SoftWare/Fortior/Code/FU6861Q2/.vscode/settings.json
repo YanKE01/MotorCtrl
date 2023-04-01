@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "myfunction.h": "c",
+        "tm1650.h": "c",
+        "myvariable.h": "c"
+    }
+}

@@ -1,0 +1,1 @@
+"..\FU68xx_Hardware_Driver\Source\STARTUP_FU6802.A51" SET (LARGE) DEBUG PRINT(.\Listing\STARTUP_FU6802.lst) OBJECT(.\Output\STARTUP_FU6802.obj) EP

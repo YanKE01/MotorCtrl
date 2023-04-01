@@ -1,0 +1,1 @@
+"..\User\Source\Hardware\Driver.c" LARGE OMF2 WARNINGLEVEL (0) BROWSE INCDIR(..\User\Include;..\FU68xx_Hardware_Driver\Include) DEBUG PRINT(.\Listing\Driver.lst) TABS (2) OBJECT(.\Output\Driver.obj)

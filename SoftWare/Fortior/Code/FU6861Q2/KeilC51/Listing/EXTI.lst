@@ -1,0 +1,96 @@
+C51 COMPILER V9.52.0.0   EXTI                                                              04/01/2023 22:13:44 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE EXTI
+OBJECT MODULE PLACED IN .\Output\EXTI.obj
+COMPILER INVOKED BY: D:\IDE\keil\C51\BIN\C51.EXE ..\User\Source\Hardware\EXTI.c LARGE OMF2 WARNINGLEVEL(0) BROWSE INCDIR
+                    -(..\User\Include;..\FU68xx_Hardware_Driver\Include) DEBUG PRINT(.\Listing\EXTI.lst) TABS(2) OBJECT(.\Output\EXTI.obj)
+
+line level    source
+
+   1          /**
+   2           * @copyright (C) COPYRIGHT 2022 Fortiortech Shenzhen
+   3           * @file      EXTIInit.c
+   4           * @author    Fortiortech  Appliction Team
+   5           * @since     Create:2021-05-14
+   6           * @date      Last modify:2022-07-14
+   7           * @brief     This file contains EXTI init function used for Motor Control.
+   8           */ 
+   9          #include <FU68xx_2.h>
+  10          #include <Myproject.h>
+  11          
+  12          /**
+  13           * @brief      外部中断配置
+  14           */
+  15          void EXTI_Init(void)
+  16          {
+  17   1          /* -----EXTI Input Pin 配置----- */
+  18   1          ClrBit(P0_OE, P00);                     // config P00 as input，配置P0.0为硬件过流FO端口
+  19   1          ClrBit(P0_PU, P00);                     // 0:disable pull up, 1:enable P10 pull up
+  20   1          /*  -------------------------------------------------------------------------------------------------
+  21   1              1、外部中断模式配置
+  22   1              2、IT01/IT00 = 00: 上升沿产生中断
+  23   1              3、IT01/IT00 = 01: 下降沿产生中断
+  24   1              4、IT01/IT00 = 1x: 上升/下降沿产生中断
+  25   1              -------------------------------------------------------------------------------------------------*
+             -/
+  26   1          IF0  = 0;                               // clear P00 interrupt flag
+  27   1          IT01 = 0;
+  28   1          IT00 = 1;                               // 00: rising edge interrupt，01: failing edge interrupt，1x
+             -: edge-change mode interrupt
+  29   1          /*  -------------------------------------------------------------------------------------------------
+  30   1              1、外部中断优先级配置及芯片中断总使能
+  31   1              2、PX01/PX00，中断优先级控制值从0-3依次表示优先级从最低到最高，共4级优
+             -化级控制
+  32   1              3、EX0，外部中断0使能
+  33   1              4、EA,芯片中断总使能
+  34   1              5、外部中断是否有滤波的配置，决定于选择硬件保护触发信号源，外部中�
+             -��0或者比较器3中断
+  35   1              6、若选择了比较器3中断，则外部中断无法进行滤波配置
+  36   1              -------------------------------------------------------------------------------------------------*
+             -/
+  37   1          PX01 = 1;
+  38   1          PX00 = 1;                               // 中断优先级别3，中断优先级最高,
+  39   1          EX0 = 1;                                // 使能外部中断0, POO位外部中断输入硬件
+  40   1          EA = 1;                                 // 使能全局中断
+  41   1      }
+  42          
+  43          
+  44          /**
+  45           * @brief      睡眠模式初始化
+  46           */
+  47          void Sleepmode_Init(void)
+  48          {
+  49   1          ClrBit(P1_OE, P11);                     // config   P11 as input
+C51 COMPILER V9.52.0.0   EXTI                                                              04/01/2023 22:13:44 PAGE 2   
+
+  50   1          ClrBit(P1_PU, P11);                     // diasable P11 Pull Up
+  51   1          // ClrBit(P1_AN, P11);                  // diasable P11 analog function
+  52   1          ClrBit(P1_IF, P11);                     // clear        P11 interrupt flag
+  53   1          ClrBit(P1_IE, P11);                     // config   P11 as the source of EXTI1
+  54   1          IT11 = 1;
+  55   1          IT10 = 0;                               // 00: posedge mode interrupt，01: negedge mode interrupt，1
+             -x: edge-change mode interrupt
+  56   1          PX11 = 0;
+  57   1          PX10 = 0;                               // 中断优先级别0，中断优先级最高
+  58   1          EX1 = 1;                                // 使能外部中断1, P11位外部中断输入硬件
+  59   1          EA = 1;                                 // 使能全局中断
+  60   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     54    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

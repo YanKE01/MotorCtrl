@@ -1,0 +1,134 @@
+C51 COMPILER V9.52.0.0   SPI                                                               04/01/2023 22:13:44 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE SPI
+OBJECT MODULE PLACED IN .\Output\SPI.obj
+COMPILER INVOKED BY: D:\IDE\keil\C51\BIN\C51.EXE ..\User\Source\Hardware\SPI.c LARGE OMF2 WARNINGLEVEL(0) BROWSE INCDIR(
+                    -..\User\Include;..\FU68xx_Hardware_Driver\Include) DEBUG PRINT(.\Listing\SPI.lst) TABS(2) OBJECT(.\Output\SPI.obj)
+
+line level    source
+
+   1          /**
+   2           * @copyright (C) COPYRIGHT 2022 Fortiortech Shenzhen
+   3           * @file      SPIInit.c
+   4           * @author    Fortiortech  Appliction Team
+   5           * @since     Create:2021-05-14
+   6           * @date      Last modify:2022-07-14
+   7           * @brief    This file contains SPI initial function used for Motor Control.
+   8           */   
+   9              
+  10          #include <FU68xx_2.h>
+  11          #include <Myproject.h>
+  12          
+  13          /**
+  14           * @brief      SPI相关参数初始化
+  15           */
+  16          void SPI_Init(void)
+  17          {
+  18   1          ClrBit(SPI_CR1, SPIEN);                                            // 0：disable SPI; 1：enable
+  19   1          /*  -------------------------------------------------------------------------------------------------
+  20   1              SPI管脚配置
+  21   1              1、禁止UART复用，P06配置为MISO，P05配置为MOSI
+  22   1              2、禁止比较器输出复用，P07配置为SCLK
+  23   1              -------------------------------------------------------------------------------------------------*
+             -/
+  24   1          ClrBit(PH_SEL, UARTEN);                                             // 0,P06 as GPIO or SPI_MISO,P05 a
+             -s GPIO or SPI_MOSI;1,P06 and p07 as USART
+  25   1          /*  -------------------------------------------------------------------------------------------------
+  26   1              1、SPI时钟相位/极性配置
+  27   1              2、CPHA = 0, CPOL = 0:上升沿接收，下降沿发送，空闲电平为低
+  28   1              3、CPHA = 0, CPOL = 1:上升沿发送，下降沿接收，空闲电平为高
+  29   1              4、CPHA = 1, CPOL = 0:上升沿发送，下降沿接收，空闲电平为低
+  30   1              5、CPHA = 1, CPOL = 1:上升沿接收，下降沿发送，空闲电平为高
+  31   1              -------------------------------------------------------------------------------------------------*
+             -/
+  32   1          SetReg(SPI_CR0, CPHA | CPOL, CPOL);
+  33   1          /*  -------------------------------------------------------------------------------------------------
+  34   1              1、SPI从方式选择配置
+  35   1              2、00：3线从方式或3线主方式，NSS信号不连到端口管脚
+  36   1              3、01：4线从方式或4线多主方式，NSS配置为输入
+  37   1              4、1x：4线单主方式，NSS配置为输出，NSS信号输出x电平
+  38   1              -------------------------------------------------------------------------------------------------*
+             -/
+  39   1      //    SetReg(SPI_CR1, NSSMOD0 | NSSMOD1, NSSMOD0 | NSSMOD1);//4线模拟 
+  40   1          SetReg(SPI_CR1, NSSMOD0 | NSSMOD1, NSSMOD0);//单线模式 
+  41   1          SetBit(SPI_CR0, SPIMS);                                             // 0:Slave, 1:Master
+  42   1          /*  -------------------------------------------------------------------------------------------------
+  43   1              1、SPI中断配置
+  44   1              2、SPIF：SPI字节传输完成中断标志，硬件置位，软件清零
+  45   1              3、WCOL：SPI写冲突中断（发送缓冲器非空时写操作），硬件置位，软件清零
+  46   1              4、MODF：SPI方式错误中断（多主方式NSS被拉低，MSTEN和SPIEN被清零）硬件置�
+             -�，软件清零
+  47   1              5、RXOVRN：SPI接收溢出中断（SPI接收缓冲器接收溢出），硬件置位，软件清�
+             -��
+  48   1              -------------------------------------------------------------------------------------------------*
+C51 COMPILER V9.52.0.0   SPI                                                               04/01/2023 22:13:44 PAGE 2   
+
+             -/
+  49   1          SetReg(SPI_CR1, SPIIF | WCOL | MODF | RXOVR, 0x00);                 // SPI所有中断清除
+  50   1          SPIIE = 0;                                                          // SPI中断使能
+  51   1          SPI_CLK = 0;                                                        // Fspi = Fcpu / (2*(SPI_CLK + 1))
+             - = 6MHz
+  52   1          SetBit(SPI_CR1, SPIEN);                                             // enable SPI
+  53   1      }
+  54          
+  55          
+  56          /** 
+  57           * @brief        SPI传输数据
+  58           * @param[in]    Data  传输数据，uint16格式
+  59           * @param[in]    Channel  传输通道，取值0~3
+  60           */
+  61          void SPI_SendData(uint16 Data, uint8 Channel)
+  62          {
+  63   1          if (!ReadBit(SPI_CR0, SPIBSY))
+  64   1          {
+  65   2              Data = ((Data >> 4) + (0x1000));
+  66   2              
+  67   2              switch (Channel)
+  68   2              {
+  69   3                  case 0:
+  70   3                      Data &= 0x3fff;
+  71   3                      break;
+  72   3                      
+  73   3                  case 1:
+  74   3                      Data |= 0x4000;
+  75   3                      break;
+  76   3                      
+  77   3                  case 2:
+  78   3                      Data |= 0x8000;
+  79   3                      break;
+  80   3                      
+  81   3                  case 3:
+  82   3                      Data |= 0xc000;
+  83   3                      break;
+  84   3                      
+  85   3                  default:
+  86   3                      break;
+  87   3              }
+  88   2              
+  89   2              ClrBit(SPI_CR1, NSSMOD0);
+  90   2              SPI_DR = Data >> 8;
+  91   2              SPI_DR = Data;
+  92   2              SetBit(SPI_CR1, NSSMOD0);
+  93   2          }
+  94   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    148    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+C51 COMPILER V9.52.0.0   SPI                                                               04/01/2023 22:13:44 PAGE 3   
+
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

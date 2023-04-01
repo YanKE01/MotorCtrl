@@ -1,0 +1,178 @@
+C51 COMPILER V9.52.0.0   MAIN                                                              04/01/2023 22:13:41 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Output\main.obj
+COMPILER INVOKED BY: D:\IDE\keil\C51\BIN\C51.EXE ..\User\Source\Application\main.c LARGE OMF2 WARNINGLEVEL(0) BROWSE INC
+                    -DIR(..\User\Include;..\FU68xx_Hardware_Driver\Include) DEBUG PRINT(.\Listing\main.lst) TABS(2) OBJECT(.\Output\main.obj)
+
+line level    source
+
+   1          /**
+   2           * @copyright (C) COPYRIGHT 2022 Fortiortech Shenzhen
+   3           * @file      main.c
+   4           * @author    Fortiortech  Appliction Team
+   5           * @since     Create:2021-05-14
+   6           * @date      Last modify:2022-07-14
+   7           * @brief     包含主函数，软硬件初始化函数，VRER配置函数,Debug小工具
+   8           */
+   9          
+  10          #include <FU68xx_2.h>
+  11          #include <Myproject.h>
+  12          #include <SanityCheck.h>
+  13          #include "TM1650.h"
+  14          #include "MyVariable.h"
+  15          /*  ------------------------------------------------------------------------------------
+  16              Internal Routine Prototypes
+  17              ------------------------------------------------------------------------------------ */
+  18          void SoftwareInit(void);
+  19          void HardwareInit(void);
+  20          void DebugSet(void);
+  21          void MotorControlInit(void);
+  22          
+  23          /**
+  24           * @brief        主函数主要功能是初始化，
+  25                               1、包括上电等待，软件初始化，硬件初始化，调试模式设置，主
+             -循环扫描。
+  26                               2、软件初始化--初始化所有定义的变量
+  27                               3、硬件初始化--初始化硬件设备配置
+  28                               4、大循环运行偏置电流采集函数，电机状态机控制函数，以及环
+             -路响应函数
+  29           */
+  30          void main(void)
+  31          {
+  32   1          uint16 PowerUpCnt = 0;
+  33   1          int i=0;
+  34   1      
+  35   1          /* -----上电等待电源稳定 ----- */
+  36   1          for (PowerUpCnt = 0; PowerUpCnt < SystemPowerUpTime; PowerUpCnt++)
+  37   1              ;
+  38   1      
+  39   1          /* -----软件参数初始化 ----- */
+  40   1          SoftwareInit();
+  41   1          /* -----硬件模块初始化----- */
+  42   1          HardwareInit();
+  43   1          /* -----调试模式设置--内部变量查询；CMP输出查询；ADC触发信号查询----- */
+  44   1          //DebugSet();
+  45   1          TempPower = 0; // 功率值清零
+  46   1          MyVariableInit();
+  47   1          SetBit(TIM234_CTRL, MDU_EN_N);
+  48   1      
+  49   1          while (1)
+  50   1          {
+  51   2      
+  52   2              /* -----电流偏置的获取----- */
+C51 COMPILER V9.52.0.0   MAIN                                                              04/01/2023 22:13:41 PAGE 2   
+
+  53   2              GetCurrentOffset();
+  54   2              /* -----主控函数，状态扫描 2.6k----- */
+  55   2              MC_Control();
+  56   2      
+  57   2              if (VariableFlag.g_1msTick)
+  58   2              {
+  59   3                  TickCycle_1ms();
+  60   3                  VariableFlag.g_1msTick = 0;
+  61   3              }
+  62   2      
+  63   2              mcSpeedRamp.Value_UD = FOC__UD; //  FOC__ID  FOC__UD
+  64   2              mcSpeedRamp.Value_UQ = FOC__UQ; //  FOC__IQ  FOC__UQ
+  65   2              
+  66   2      
+  67   2          }
+  68   1      }
+  69          
+  70          /**
+  71           * @brief        SPI Debug调试小工具
+  72           */
+  73          void DebugSet(void)
+  74          {
+  75   1      #if defined(SPI_DBG_HW) // 硬件调试模式
+                  Set_DBG_DMA(&HARD_SPIDATA);
+              #elif defined(SPI_DBG_SW) // 软件调试模式
+                  Set_DBG_DMA(spidebug);
+              #endif
+  80   1      #if defined(SPI_DBG_HW) && defined(SPI_DBG_SW)
+              #error Only one DBG mode can be selected
+              #endif
+  83   1          /* -----Debug信号配置----- */
+  84   1          SetReg(CMP_CR3, DBGSEL0 | DBGSEL1, GP01_DBG_Conf);
+  85   1          SetReg(CMP_CR3, CMPSEL0 | CMPSEL1 | CMPSEL2, GP07_DBG_Conf);
+  86   1      }
+  87          
+  88          /**
+  89           * @brief        软件初始化，部分变量初始化，上电运行一次
+  90           */
+  91          void SoftwareInit(void)
+  92          {
+  93   1          /* -----初始化所有定义的参数变量----- */
+  94   1          MotorcontrolInit();
+  95   1          /* -----电机初始状态为mcReady，故障保护为无故障----- */
+  96   1          mcState = mcReady;
+  97   1          mcFaultSource = 0;
+  98   1      }
+  99          
+ 100          /**
+ 101           * @brief     硬件初始化，初始化需要使用的硬件设备配置，FOC必须配置的是运放�
+             -�压、运放初始化、ADC初始化、Driver初始化
+ 102           *            其他的可根据实际需求加。
+ 103           */
+ 104          void HardwareInit(void)
+ 105          {
+ 106   1          /* -----为提高芯片的抗干扰能力，降低芯片功耗，请在具体项目时，将不需要�
+             -��的GPIO默认都配置为输入上拉----- */
+ 107   1          /* -----具体配置可在GPIO_Default_Init设置----- */
+ 108   1          GPIO_Default_Init();
+ 109   1          /* -----比较器初始化，用于硬件过流比较保护----- */
+ 110   1          CMP3_Init();
+ 111   1          /* -----休眠模式初始化----- */
+ 112   1          //    Sleepmode_Init();
+C51 COMPILER V9.52.0.0   MAIN                                                              04/01/2023 22:13:41 PAGE 3   
+
+ 113   1          /* -----功能IO初始化----- */
+ 114   1          GPIO_Init();
+ 115   1          /* -----运算放大器初始化----- */
+ 116   1          AMP_Init();
+ 117   1          /* -----ADC初始化----- */
+ 118   1          ADC_Init();
+ 119   1          /* -----比较器中断配置----- */
+ 120   1          CMP3_Inter_Init(); // 建议和比较器初始化间隔一段时间
+ 121   1          /* -----Driver初始化----- */
+ 122   1          Driver_Init();
+ 123   1      /* -----UART初始化----- */
+ 124   1      //    UART_Init();//未配置
+ 125   1      /* -----SPI调试初始化----- */
+ 126   1      #if defined(SPI_DBG_SW) | defined(SPI_DBG_HW) // 调试模式
+              //        SPI_Init();                                       //调试模式下，占用SPI端口的NSS(GP04
+             -),MOSI(GP05),SCK(GP06)
+              #endif
+ 129   1      /* -----Timer初始化----- */
+ 130   1      //    TIM2_Init();                                          //端口GP07 & GP10
+ 131   1      #if (SPEED_MODE == PWMMODE)
+                  TIM3_Init(); // 端口GP11,采样定时器3中断作为PWM捕获中断
+              #endif
+ 134   1      #if (FG_Enable == 1)
+                  TIM4_Init(); // 端口GP01
+              #endif
+ 137   1          TIM1ms_Init(); // 采用1ms定时器中断作为常见中断,处理故障保护等附加功能
+ 138   1      
+ 139   1          /*-----TM1650初始化----*/
+ 140   1          SetDisplay1650(7, 7, 1);
+ 141   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    159    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----       2
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

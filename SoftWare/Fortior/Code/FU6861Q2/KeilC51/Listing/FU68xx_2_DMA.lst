@@ -1,0 +1,112 @@
+C51 COMPILER V9.52.0.0   FU68XX_2_DMA                                                      04/01/2023 22:13:45 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE FU68XX_2_DMA
+OBJECT MODULE PLACED IN .\Output\FU68xx_2_DMA.obj
+COMPILER INVOKED BY: D:\IDE\keil\C51\BIN\C51.EXE ..\FU68xx_Hardware_Driver\Source\FU68xx_2_DMA.c LARGE OMF2 WARNINGLEVEL
+                    -(0) BROWSE INCDIR(..\User\Include;..\FU68xx_Hardware_Driver\Include) DEBUG PRINT(.\Listing\FU68xx_2_DMA.lst) TABS(2) OBJ
+                    -ECT(.\Output\FU68xx_2_DMA.obj)
+
+line level    source
+
+   1          /**
+   2           * @copyright (C) COPYRIGHT 2022 Fortiortech Shenzhen
+   3           * @file      FU68xx_2_DMA.c
+   4           * @author    Fortiortech  Appliction Team
+   5           * @since     Create:2021-05-14
+   6           * @date      Last modify:2022-07-14
+   7           * @brief     This file contains FU68xx_2_DMA function used for Motor Control.
+   8           */
+   9          
+  10          #include <FU68xx_2_DMA.h>
+  11          #include <FU68xx_2_MCU.h>
+  12          
+  13          /* -------------------------------------------------------------------------------------------------
+  14              Function Name  : Init_DMA
+  15              Description    :  
+  16          *   DMA模块的配置（DMA0/1通用）
+  17          *
+  18          *   @param IEMod  DMA中断配置，可用参数如下
+  19          *                   ENIE     启用DMA中断
+  20          *                   DISIE    禁用DMA中断
+  21          *   @param ENDIAN DMA传输顺序（发送十六位数据时适用）
+  22          *                   FLSB     低8位先发（发送8位数据时必须选用该项）
+  23          *                   FMSB     高8位先发（发送8位数据时必须选用该项）
+  24              Date           : 2020-08-07
+  25              Parameter      : IEMod   : [输入] 
+  26          **               FirstMod: [输入] 
+  27          ------------------------------------------------------------------------------------------------- */
+  28          void Init_DMA(uint8 IEMod, uint8 FirstMod)
+  29          {
+  30   1          DMA0_CR0 = IEMod | FirstMod;
+  31   1      }
+  32          
+  33          /* -------------------------------------------------------------------------------------------------
+  34              Function Name  : Set_DMA
+  35              Description    : 
+  36          
+  37           *  DMA设置
+  38           *
+  39           *  @param   Ch         DMA通道
+  40           *  @param   Pipe       DMA管道，可选参数如下
+  41           *                         UART_XDATA    UART->XDATA
+  42           *                         XDATA_UART    UART<-XDATA
+  43           *                         I2C_XDATA     I2C ->XDATA
+  44           *                         XDATA_I2C     I2C <-XDATA
+  45           *                         SPI_XDATA     SPI ->XDATA
+  46           *                         XDATA_SPI     SPI <-XDATA
+  47           *  @param   Addr       传输首地址，可取地址范围：0x0000~0x0317
+  48           *  @param   Len        数据包大小(1~64)
+  49           
+  50              Date           : 2020-08-07
+  51              Parameter      : Ch:    [输入] 
+  52           **              Pipe:  [输入] 
+  53           **              Addr:  [输入] 
+C51 COMPILER V9.52.0.0   FU68XX_2_DMA                                                      04/01/2023 22:13:45 PAGE 2   
+
+  54           **              Len:   [输入] 
+  55          ------------------------------------------------------------------------------------------------- */
+  56          void Set_DMA(uint8 Ch, uint8 Pipe, uint16* Addr, uint8 Len)
+  57          {
+  58   1          Wait_DMA(Ch);
+  59   1          ClrBit(*(&DMA0_CR0 + Ch), DMAEN);
+  60   1      
+  61   1          SetReg(*(&DMA0_CR0 + Ch), DMACFG0 | DMACFG1 | DMACFG2, Pipe);
+  62   1      
+  63   1          *(&DMA0_CR1 + Ch) = ((uint16)(Len - 1) << 10) | ((uint16)Addr & 0x03ff);
+  64   1      }
+  65          
+  66          /* -------------------------------------------------------------------------------------------------
+  67              Function Name  : Set_DBG_DMA
+  68              Description    : 设置DMA1的DBG模式,Addr 要DBG输出的地址
+  69              Date           : 2020-08-07
+  70              Parameter      : Addr: [输入/出] 
+  71          ------------------------------------------------------------------------------------------------- */
+  72          void Set_DBG_DMA(uint16* Addr)
+  73          {
+  74   1          ClrBit(DMA1_CR0, DMAEN);
+  75   1          DMA1_CR0 = DBGEN | XDATA_SPI;
+  76   1          if (!ReadBit((uint16)Addr, 0x4000)) DMA1_CR0 |= DBGSW;
+  77   1      
+  78   1          DMA1_CR1 = 0x1c00 | ((uint16)Addr & 0x03fff);
+  79   1      
+  80   1          Switch_DMA(1);
+  81   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    167    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----       6
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

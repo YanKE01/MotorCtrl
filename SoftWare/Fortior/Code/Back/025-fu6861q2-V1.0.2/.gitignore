@@ -1,0 +1,13 @@
+~$*.doc*
+~$*.xls*
+~$*.ppt*
+*.bak
+*.uvgui.*
+**/Listing
+**/Listings
+**/Objects/*
+**/Output/*
+*.*Preview
+**/Hardware/*.html
+**/Hardware/History
+!**.bin

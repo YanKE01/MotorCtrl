@@ -1,0 +1,305 @@
+C51 COMPILER V9.52.0.0   TM1650                                                            04/01/2023 22:13:45 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE TM1650
+OBJECT MODULE PLACED IN .\Output\TM1650.obj
+COMPILER INVOKED BY: D:\IDE\keil\C51\BIN\C51.EXE ..\User\Source\Hardware\TM1650.c LARGE OMF2 WARNINGLEVEL(0) BROWSE INCD
+                    -IR(..\User\Include;..\FU68xx_Hardware_Driver\Include) DEBUG PRINT(.\Listing\TM1650.lst) TABS(2) OBJECT(.\Output\TM1650.o
+                    -bj)
+
+line level    source
+
+   1          /*
+   2           * @Author: Yanke@zjut.edu.cn
+   3           * @Date: 2023-03-26 13:59:03
+   4           * @LastEditors: LINKEEE 1435020085@qq.com
+   5           * @LastEditTime: 2023-04-01 20:05:49
+   6           * @FilePath: \Software\User\Source\Hardware\TM1650.c
+   7           */
+   8          #include "TM1650.h"
+   9          
+  10          sbit CLK = P0 ^ 1;
+  11          sbit DIO = P0 ^ 0;
+  12          
+  13          static uint8 s_7number[11] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F, 0x00}; // 7段�
+             -�示方式0~9 第10位为不显示位
+  14          static uint8 s_8number[11] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xEF, 0x00}; // 8段�
+             -�示方式0~9
+  15          
+  16          /**
+  17           * @description: 微秒延迟
+  18           * @param {int} i
+  19           * @return {*}
+  20           */
+  21          void Delay_us(int i)
+  22          {
+  23   1          for (; i > 0; i--)
+  24   1          {
+  25   2              _nop_();
+  26   2              _nop_();
+  27   2              _nop_();
+  28   2              _nop_();
+  29   2              _nop_();
+  30   2          }
+  31   1      }
+  32          
+  33          /**
+  34           * @description: 管脚测试
+  35           * @param {uint8} state
+  36           * @return {*}
+  37           */
+  38          void TM1650_IOTest(uint8 state)
+  39          {
+  40   1          CLK = state;
+  41   1          DIO = state;
+  42   1      }
+  43          
+  44          /**
+  45           * @description: TM1650的起始
+  46           * @return {*}
+  47           */
+  48          void Start1650(void)
+  49          {
+  50   1          CLK = 1;
+  51   1          DIO = 1;
+C51 COMPILER V9.52.0.0   TM1650                                                            04/01/2023 22:13:45 PAGE 2   
+
+  52   1          Delay_us(5);
+  53   1          DIO = 0;
+  54   1      }
+  55          
+  56          /**
+  57           * @description: TM1650的停止
+  58           * @return {*}
+  59           */
+  60          void Stop1650(void)
+  61          {
+  62   1          CLK = 1;
+  63   1          DIO = 0;
+  64   1          Delay_us(5);
+  65   1          DIO = 1;
+  66   1      }
+  67          
+  68          /**
+  69           * @description: TM1650写一个byte
+  70           * @param {uint8_t} oneByte
+  71           * @return {*}
+  72           */
+  73          void WriteByte1650(uint8 oneByte)
+  74          {
+  75   1          uint8 i = 0;
+  76   1          CLK = 0;
+  77   1          Delay_us(1);
+  78   1      
+  79   1          for (i = 0; i < 8; i++)
+  80   1          {
+  81   2              if (oneByte & 0x80)
+  82   2              {
+  83   3                  DIO = 1;
+  84   3              }
+  85   2              else
+  86   2              {
+  87   3                  DIO = 0;
+  88   3              }
+  89   2      
+  90   2              oneByte <<= 1;
+  91   2              // 高电平期间稳定
+  92   2              CLK = 0;
+  93   2              Delay_us(5);
+  94   2              CLK = 1;
+  95   2              Delay_us(5);
+  96   2              CLK = 0;
+  97   2          }
+  98   1      }
+  99          
+ 100          /**
+ 101           * @description: ACK信号
+ 102           * @return {*}
+ 103           */
+ 104          void Ask1650()
+ 105          {
+ 106   1          uint8 timeout = 0;
+ 107   1          CLK = 1;
+ 108   1          Delay_us(5);
+ 109   1          CLK = 0;
+ 110   1          while ((DIO) && (timeout <= 100))
+ 111   1          {
+ 112   2              timeout++;
+ 113   2          }
+C51 COMPILER V9.52.0.0   TM1650                                                            04/01/2023 22:13:45 PAGE 3   
+
+ 114   1          Delay_us(5);
+ 115   1          CLK = 0;
+ 116   1      }
+ 117          
+ 118          /**
+ 119           * @description: 设置数码管
+ 120           * @param {uchar} add
+ 121           * @param {uchar} dat
+ 122           * @return {*}
+ 123           */
+ 124          void Set1650(uint8 add, uint8 dat)
+ 125          {
+ 126   1      
+ 127   1          Start1650();
+ 128   1          WriteByte1650(add); // 第一个显存地址
+ 129   1          Ask1650();
+ 130   1          WriteByte1650(dat);
+ 131   1          Ask1650();
+ 132   1          Stop1650();
+ 133   1      }
+ 134          
+ 135          /**
+ 136           * @description: 设置显示模式
+ 137           * @param {uint8} brightness
+ 138           * @param {uint8} mode
+ 139           * @param {uint8} state
+ 140           * @return {*}
+ 141           */
+ 142          void SetDisplay1650(uint8 brightness, uint8 mode, uint8 state)
+ 143          {
+ 144   1          if (state)
+ 145   1          {
+ 146   2              if (mode == 7) // 7段显示方式
+ 147   2              {
+ 148   3                  Set1650(0x48, brightness * 16 + 1 * 4 + 1);
+ 149   3              }
+ 150   2              else if (mode == 8) // 8段显示方式
+ 151   2              {
+ 152   3                  Set1650(0x48, brightness * 16 + 1);
+ 153   3              }
+ 154   2          }
+ 155   1          else
+ 156   1          {
+ 157   2              Set1650(0x48, 0x00); // 关闭显示
+ 158   2          }
+ 159   1      }
+ 160          
+ 161          /**
+ 162           * @description: 在对应的INDEX显示数字
+ 163           * @param {uint8} index
+ 164           * @param {uint8} mode
+ 165           * @param {uint8} num
+ 166           * @return {*}
+ 167           */
+ 168          void SetIndexNumber1650(uint8 index, uint8 mode, uint8 num)
+ 169          {
+ 170   1          uint8 indexAddr = 0;
+ 171   1          uint8 numValue = 0;
+ 172   1      
+ 173   1          if (mode == 7) // 7段显示方式
+ 174   1          {
+ 175   2              numValue = s_7number[num];
+C51 COMPILER V9.52.0.0   TM1650                                                            04/01/2023 22:13:45 PAGE 4   
+
+ 176   2          }
+ 177   1          else if (mode == 8) // 8段显示方式
+ 178   1          {
+ 179   2              numValue = s_8number[num];
+ 180   2          }
+ 181   1      
+ 182   1          if (index == 0)
+ 183   1          {
+ 184   2              indexAddr = 0x68;
+ 185   2          }
+ 186   1          else if (index == 1)
+ 187   1          {
+ 188   2              indexAddr = 0x6A;
+ 189   2          }
+ 190   1          else if (index == 2)
+ 191   1          {
+ 192   2              indexAddr = 0x6C;
+ 193   2          }
+ 194   1          else if (index == 3)
+ 195   1          {
+ 196   2              indexAddr = 0x6E;
+ 197   2          }
+ 198   1      
+ 199   1          Set1650(indexAddr, numValue);
+ 200   1      }
+ 201          
+ 202          /**
+ 203           * @description: 清空TM1650
+ 204           * @return {*}
+ 205           */
+ 206          void Clear1650(void)
+ 207          {
+ 208   1          uint8 j = 0;
+ 209   1          for (j = 0; j < 4; j++)
+ 210   1          {
+ 211   2              SetIndexNumber1650(j, 7, 10);
+ 212   2          }
+ 213   1      }
+ 214          
+ 215          /**
+ 216           * @description: 4位数码管直接显示数字
+ 217           * @param {uint16_t} num
+ 218           * @return {*}
+ 219           */
+ 220          void SetNumber1650(uint16 num)
+ 221          {
+ 222   1          uint8 index = 3;
+ 223   1          Clear1650();
+ 224   1          if (num > 9999)
+ 225   1          {
+ 226   2              return;
+ 227   2          }
+ 228   1      
+ 229   1          // 拆分位数
+ 230   1          while (num)
+ 231   1          {
+ 232   2              SetIndexNumber1650(index, 7, num % 10);
+ 233   2              index--;
+ 234   2              num /= 10;
+ 235   2          }
+ 236   1      }
+ 237          
+C51 COMPILER V9.52.0.0   TM1650                                                            04/01/2023 22:13:45 PAGE 5   
+
+ 238          /**
+ 239           * @description: 扫描TM1650按键
+ 240           * @return {*}
+ 241           */
+ 242          uint8 ScanKey1650(void)
+ 243          {
+ 244   1          uint8 i;
+ 245   1          uint8 rekey;
+ 246   1          Start1650();
+ 247   1          WriteByte1650(0x49);
+ 248   1          Ask1650();
+ 249   1      
+ 250   1          for (i = 0; i < 8; i++)
+ 251   1          {
+ 252   2              CLK = 1;
+ 253   2              rekey = rekey << 1;
+ 254   2              if (DIO)
+ 255   2              {
+ 256   3                  rekey++;
+ 257   3              }
+ 258   2              Delay_us(5);
+ 259   2              CLK = 0;
+ 260   2          }
+ 261   1      
+ 262   1          Ask1650();
+ 263   1          Stop1650();
+ 264   1      
+ 265   1          return rekey;
+ 266   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    415    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     22       3
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
