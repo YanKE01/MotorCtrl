@@ -20,7 +20,7 @@ void MyVariableInit(void)
     /*电机相关设置*/
     motor.state = 0;                           // 默认为停止状态
     motor.maxSpeed = 3900;                     // 最大转速
-    motor.minSpeed = 100;                      // 最低转速
+    motor.minSpeed = 600;                      // 最低转速
     motor.targetSpeed = 1000;                  // 默认启动转速
     motor.speedChangeStep = 100;               // 速度默认按照100为步距调节
     motor.targetSpeedTemp = motor.targetSpeed; // 设置临时转速

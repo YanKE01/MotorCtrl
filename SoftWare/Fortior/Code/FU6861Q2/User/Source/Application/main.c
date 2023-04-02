@@ -137,5 +137,5 @@ void HardwareInit(void)
     TIM1ms_Init(); // 采用1ms定时器中断作为常见中断,处理故障保护等附加功能
 
     /*-----TM1650初始化----*/
-    SetDisplay1650(7, 7, 1);
+    SetDisplay1650(1, 7, 1);
 }

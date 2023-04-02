@@ -2,8 +2,8 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-03-26 13:09:19
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-04-01 22:03:34
- * @FilePath: \Software\User\Source\Application\MyFunction.c
+ * @LastEditTime: 2023-04-02 13:15:32
+ * @FilePath: \FU6861Q2\User\Source\Application\MyFunction.c
  */
 
 #include "MyFunction.h"
@@ -46,20 +46,6 @@ static void LimitSpeed(uint16 *speed, uint16 min, uint16 max)
  */
 void MyTask_50Ms_Entry()
 {
-}
-
-/***
- *   KEY1:0X44    KEY2:0X45   KEY3:0X46
- *
- *   KEY4:0X47    KEY5:0X4C   KEY6:0X4D
- *
- */
-/**
- * @description: 100Ms的任务
- * @return {*}
- */
-void MyTask_100Ms_Entry()
-{
     uint8 i = 0;
     keyValue = ScanKey1650();
 
@@ -101,6 +87,21 @@ void MyTask_100Ms_Entry()
 
     keyValuePrev = keyValue;
     ModeUi(); // 刷新UI
+}
+
+/***
+ *   KEY1:0X44    KEY2:0X45   KEY3:0X46
+ *
+ *   KEY4:0X47    KEY5:0X4C   KEY6:0X4D
+ *
+ */
+/**
+ * @description: 100Ms的任务
+ * @return {*}
+ */
+void MyTask_100Ms_Entry()
+{
+
 }
 
 /**
@@ -187,12 +188,12 @@ void ModeUi()
     {
         // 当前为转速设置页面 闪烁提示
         flashCount++;
-        if (flashCount % 10 == 0)
+        if (flashCount % 40 == 0)
         {
             flashCount = 0;
             Clear1650();
         }
-        else if (flashCount % 5 == 0)
+        else if (flashCount % 10 == 0)
         {
 
             SetNumber1650(motor.targetSpeedTemp); // 显示的临时转速
