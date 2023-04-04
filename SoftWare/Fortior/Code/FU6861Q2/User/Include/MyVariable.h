@@ -2,8 +2,8 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-04-01 20:30:33
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-04-01 21:29:00
- * @FilePath: \Software\User\Include\MyVariable.h
+ * @LastEditTime: 2023-04-04 20:50:45
+ * @FilePath: \FU6861Q2\User\Include\MyVariable.h
  */
 #ifndef _MY_VARIABLE_H
 #define _MY_VARIABLE_H
@@ -20,6 +20,7 @@ typedef struct _Motor
     uint16 targetSpeed;     // 目标转速,需要限制在最低与最高转速
     uint16 targetSpeedTemp; // 临时转速
     uint16 speedChangeStep; // 速度调节步距
+    uint16 currentVbus;     // 当前总线电压
 } Motor;
 
 typedef struct _UI
@@ -31,8 +32,8 @@ typedef struct _UI
 enum ModePage
 {
     SpeedPage = 0,
-    CurrentPage,
     VbusPage,
+    CurrentPage,
 };
 
 extern Motor motor;

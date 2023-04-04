@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-04-01 20:30:06
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-04-03 20:23:44
+ * @LastEditTime: 2023-04-04 20:16:43
  * @FilePath: \FU6861Q2\User\Source\Application\MyVariable.c
  */
 #include "MyVariable.h"
@@ -24,6 +24,7 @@ void MyVariableInit(void)
     motor.targetSpeed = 1000;                  // 默认启动转速
     motor.speedChangeStep = 100;               // 速度默认按照100为步距调节
     motor.targetSpeedTemp = motor.targetSpeed; // 设置临时转速
+    motor.currentVbus = 0;                     // 初始值为0
 
     /*UI*/
     ui.modePage = 0;   // 速度,电流,故障灯页面

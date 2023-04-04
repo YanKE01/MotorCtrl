@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-03-26 13:09:19
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-04-02 13:15:32
+ * @LastEditTime: 2023-04-04 20:51:03
  * @FilePath: \FU6861Q2\User\Source\Application\MyFunction.c
  */
 
@@ -17,9 +17,10 @@ uint8 keyValuePrev = 0;
 
 extern MCRAMP xdata mcSpeedRamp; ///< 控制指令爬坡结构体相关变量
 
-void IncreaseSpeed(); // 增速
-void ReduceSpeed();   // 减速
-void ModeUi();        // 界面刷新
+void IncreaseSpeed();     // 增速
+void ReduceSpeed();       // 减速
+void ModeUi();            // 界面刷新
+void ModeUiPageProcess(); // 页面切换
 /**
  * @description: 限制转速
  * @param {int} *speed
@@ -66,6 +67,7 @@ void MyTask_50Ms_Entry()
             break;
         case 0x45:
             // 菜单
+            ModeUiPageProcess();
             break;
         case 0x4C:
             // ACK
@@ -101,7 +103,6 @@ void MyTask_50Ms_Entry()
  */
 void MyTask_100Ms_Entry()
 {
-
 }
 
 /**
@@ -110,9 +111,13 @@ void MyTask_100Ms_Entry()
  */
 void MyTask_1S_Entry()
 {
+    /*呼吸灯*/
     static uint8 state = 0;
     state = !state;
     GP36 = state;
+
+    /*获取母线电压*/
+    motor.currentVbus = (uint16)((1.0 * (mcFocCtrl.mcDcbusFlt / 32767.0) * HW_BOARD_VOLT_MAX));
 }
 
 /**
@@ -181,8 +186,19 @@ void ModeUi()
 
     if (ui.isSetSpeed == 0)
     {
+        switch (ui.modePage)
+        {
+        case SpeedPage:
+            /* code */
+            SetNumber1650(motor.targetSpeed); // 显示速度
+            break;
+        case VbusPage:
+            SetNumber1650(motor.currentVbus); // 显示当前电压
+            break;
+        default:
+            break;
+        }
         // 当前不在转速设置页面,正常显示转速
-        SetNumber1650(motor.targetSpeed);
     }
     else
     {
@@ -199,4 +215,14 @@ void ModeUi()
             SetNumber1650(motor.targetSpeedTemp); // 显示的临时转速
         }
     }
+}
+
+/**
+ * @description: UI界面切换
+ * @return {*}
+ */
+void ModeUiPageProcess()
+{
+    ui.modePage++;
+    ui.modePage %= 2;
 }
