@@ -37,10 +37,10 @@
                                              2.电机参数                                                 
 ---------------------------------------------------------------------------------------------------------------------------- */
 #define Pole_Pairs                      (3.0)                         ///< 极对数
-#define LD                              (0.0004*1.0)                ///< (H) D轴电感
-#define LQ                              (0.0004*1.0)                ///< (H) Q轴电感
-#define RS                             	(0.25*1.0)                   ///< (Ω) 相电阻
-#define Ke                              (8.2*1.0)	              ///< (V/KRPM)反电动势常数
+#define LD                              (0.0004*1.0)                ///< (H) D轴电感 48V:0.0004*1.0  72V:0.0009*1.0
+#define LQ                              (0.0004*1.0)                ///< (H) Q轴电感 48V:0.0004*1.0	 72V:0.0009*1.0
+#define RS                             	(0.25*1.0)                   ///< (Ω) 相电阻 48V:0.25*1.0   72V:0.3*1.0
+#define Ke                              (8.2 *1.0)	              ///< (V/KRPM)反电动势常数 48V:8.2*1.0 72V:11.9*1.0
 #define MOTOR_SPEED_BASE                (16000.0)                    ///< (RPM) 速度基准
 
 /* ----------------------------------------------------------------------------------------------------------------------------
@@ -154,13 +154,13 @@
  * @param (Omega_Start)       Omega启动，吸尘器Omega启动
  * @param (Open_Omega_Start)  先开环启，后Omega启动
  */
-#define Open_Start_Mode                (Omega_Start)
+#define Open_Start_Mode                (Omega_Start) //YK 2023-4-2 Open_Omega_Start
 
 /* -----启动电流----- */
 #define ID_Start_CURRENT               I_Value(0.0)                   ///< (A) D轴启动电流，常用设置为0
-#define IQ_Start_CURRENT               I_Value(6.0)                  ///< (A) Q轴启动电流，根据电机实际调整
+#define IQ_Start_CURRENT               I_Value(1.0)                  ///< (A) Q轴启动电流，根据电机实际调整
 
-#define IQ_RUN_CURRENT                 I_Value(8.0)                   ///< (A) 切mode1时刻电流值
+#define IQ_RUN_CURRENT                 I_Value(1.0)                   ///< (A) 切mode1时刻电流值
 
 /* -----启动的ATO参数设置----- */
 #define ATO_BW                         (10.0)                         ///< (Hz) ATO的带宽设置，经典值为1.0-200.0，AO观测器，第一个ATO会小一点
@@ -181,7 +181,7 @@
 #define MOTOR_OMEGA_ACC_END            (500.0)                        ///< (RPM) 强制转速的最大转速
 
 /* -----mode0切mode1转速----- */
-#define MOTOR_LOOP_RPM                 (2000.0)                       ///< (RPM) 由mode 0到mode1切换转速，即闭环切换转速
+#define MOTOR_LOOP_RPM                 (400.0)                       ///< (RPM) 由mode 0到mode1切换转速，即闭环切换转速 //YK 2000.0
 
 /* -----启动时候的电流环KPKI设置值----- */
 #define DQKPStart                      _Q12(1.0)                      ///< 启动时DQ轴KP

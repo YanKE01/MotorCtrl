@@ -23,7 +23,7 @@
 #define _Q16                            (65535.0)                                                                        ///< Q16 format value
 
 /* -----Private define----- */
-#define SystemPowerUpTime               (10000)                                                                          ///< 上电等待时间，cpu计数时钟
+#define SystemPowerUpTime               (50000)                                                                          ///< 上电等待时间，cpu计数时钟
 
 #define I_ValueX(Curr_Value)            ((Curr_Value) * (HW_RSHUNT) * (HW_AMPGAIN) / (HW_ADC_REF))
 #define I_Value(Curr_Value)             _Q15(I_ValueX(Curr_Value))

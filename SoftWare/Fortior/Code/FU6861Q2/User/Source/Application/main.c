@@ -29,7 +29,7 @@ void MotorControlInit(void);
  */
 void main(void)
 {
-    uint16 PowerUpCnt = 0;
+			uint16 PowerUpCnt = 0;
 		int i=0;
 
     /* -----上电等待电源稳定 ----- */

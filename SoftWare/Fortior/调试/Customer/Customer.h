@@ -158,7 +158,7 @@
 
 /* -----启动电流----- */
 #define ID_Start_CURRENT               I_Value(0.0)                   ///< (A) D轴启动电流，常用设置为0
-#define IQ_Start_CURRENT               I_Value(5.0)                  ///< (A) Q轴启动电流，根据电机实际调整
+#define IQ_Start_CURRENT               I_Value(6.0)                  ///< (A) Q轴启动电流，根据电机实际调整
 
 #define IQ_RUN_CURRENT                 I_Value(8.0)                   ///< (A) 切mode1时刻电流值
 
@@ -268,7 +268,7 @@
  * @param (Disable)      禁止
  * @param (Enable)       使能
  */
-#define FG_Enable                       (Enable)                      ///< FG输出使能
+#define FG_Enable                       (Disable)                      ///< FG输出使能 YK 2023年4月1日10:44:12 Enable
 
 #define FG_K                            (1)                           ///< FG频率输出倍数
 

@@ -2,8 +2,8 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-04-01 20:30:06
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-04-01 21:33:51
- * @FilePath: \Software\User\Source\Application\MyVariable.c
+ * @LastEditTime: 2023-04-03 20:23:44
+ * @FilePath: \FU6861Q2\User\Source\Application\MyVariable.c
  */
 #include "MyVariable.h"
 
