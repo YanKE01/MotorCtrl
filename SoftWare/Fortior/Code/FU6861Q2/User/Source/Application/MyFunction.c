@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-03-26 13:09:19
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-04-04 20:51:03
+ * @LastEditTime: 2023-04-05 17:16:32
  * @FilePath: \FU6861Q2\User\Source\Application\MyFunction.c
  */
 
@@ -207,7 +207,10 @@ void ModeUi()
         if (flashCount % 40 == 0)
         {
             flashCount = 0;
+            
             Clear1650();
+            SetDisplay1650(1, 7, 1);
+
         }
         else if (flashCount % 10 == 0)
         {
