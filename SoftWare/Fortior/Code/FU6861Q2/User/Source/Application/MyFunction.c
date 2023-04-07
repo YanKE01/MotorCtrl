@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-03-26 13:09:19
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-04-07 21:43:35
+ * @LastEditTime: 2023-04-07 23:46:59
  * @FilePath: \FU6861Q2\User\Source\Application\MyFunction.c
  */
 
@@ -11,9 +11,6 @@
 #include <FU68xx_2.h>
 #include <Myproject.h>
 #include "MyVariable.h"
-
-uint8 keyValue = 0;
-uint8 keyValuePrev = 0;
 
 extern MCRAMP xdata mcSpeedRamp; ///< 控制指令爬坡结构体相关变量
 
@@ -48,6 +45,8 @@ static void LimitSpeed(uint16 *speed, uint16 min, uint16 max)
 void MyTask_50Ms_Entry()
 {
     uint8 i = 0;
+    static uint8 keyValue = 0;
+    static uint8 keyValuePrev = 0;
     keyValue = ScanKey1650();
 
     if (keyValue != keyValuePrev)
@@ -221,7 +220,6 @@ void ModeUi()
             }
             else if (flashCount % 10 == 0)
             {
-
                 SetNumber1650(motor.targetSpeedTemp); // 显示的临时转速
             }
         }
@@ -231,7 +229,7 @@ void ModeUi()
         // 有故障状态
         faultCount++;
         ShowFaultCode1650(mcFaultSource);
-        motor.state = 0; // 取消驱动
+        motor.state = 0; // 强制电机恢复到停机状态
         if (faultCount == 20)
         {
             faultCount = 0;

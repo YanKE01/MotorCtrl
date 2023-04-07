@@ -230,7 +230,7 @@
 #define SKI                            _Q15(0.002)                    ///< 外环KI  
 
 /* -----外环PI最大最小输出幅值限制----- */
-#define SOUTMAX                        I_Value(18.0)                  ///< (A) 外环最大限幅值
+#define SOUTMAX                        I_Value(40.0)                  ///< (A) 外环最大限幅值 18.0在 之前给小了
 #define SOUTMIN                        I_Value(0.00)                  ///< (A) 外环最小限幅值
 
 /* -----电流控制模式下速度曲线的最大最小值----- */
