@@ -1,6 +1,6 @@
-# 无刷电机开发
+# 光伏水泵评估套件
 
-![image-20230407221436286](https://pic-1256068477.cos.ap-shanghai.myqcloud.com/img/image-20230407221436286.png)![image-20230407221909922](https://pic-1256068477.cos.ap-shanghai.myqcloud.com/img/image-20230407221909922.png)
+![image-20230407221436286](https://pic-1256068477.cos.ap-shanghai.myqcloud.com/img/image-20230407221436286.png)![image-20230407221909922](https://pic-1256068477.cos.ap-shanghai.myqcloud.com/img/image-20230407221909922.png)  
 
 **愿天堂再无电机**。
 
