@@ -16,5 +16,7 @@ void SetIndexNumber1650(uint8 index, uint8 mode, uint8 num);
 void SetNumber1650(uint16 num);
 uint8 ScanKey1650(void);
 void Clear1650(void);
+void SetIndexLetter1650(uint8 index, char letter);
+void ShowFaultCode1650(uint16 state);
 
 #endif

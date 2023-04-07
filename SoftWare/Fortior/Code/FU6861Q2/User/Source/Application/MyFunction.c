@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-03-26 13:09:19
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-04-05 17:16:32
+ * @LastEditTime: 2023-04-07 21:43:35
  * @FilePath: \FU6861Q2\User\Source\Application\MyFunction.c
  */
 
@@ -56,8 +56,12 @@ void MyTask_50Ms_Entry()
         {
         case 0x44:
             // 启动
-            GP37 = 1;
-            motor.state = 1;
+            // 只有无故障状态下支持启动
+            if (mcFaultSource == FaultNoSource)
+            {
+                GP37 = 1;
+                motor.state = 1;
+            }
             break;
 
         case 0x47:
@@ -73,6 +77,7 @@ void MyTask_50Ms_Entry()
             // ACK
             ui.isSetSpeed = 0;                         // 转速设置结束
             motor.targetSpeed = motor.targetSpeedTemp; // 确认转速
+            mcFaultSource = FaultNoSource;             // 尝试取消错误,只针对缺相
             break;
         case 0x46:
             // 增速
@@ -183,39 +188,54 @@ void ReduceSpeed()
 void ModeUi()
 {
     static int flashCount = 0; // UI闪烁切换
-
-    if (ui.isSetSpeed == 0)
+    static int faultCount = 0;
+    if (mcFaultSource == FaultNoSource)
     {
-        switch (ui.modePage)
+        // 无故障状态下
+        if (ui.isSetSpeed == 0)
         {
-        case SpeedPage:
-            /* code */
-            SetNumber1650(motor.targetSpeed); // 显示速度
-            break;
-        case VbusPage:
-            SetNumber1650(motor.currentVbus); // 显示当前电压
-            break;
-        default:
-            break;
+            switch (ui.modePage)
+            {
+            case SpeedPage:
+                /* code */
+                SetNumber1650(motor.targetSpeed); // 显示速度
+                break;
+            case VbusPage:
+                SetNumber1650(motor.currentVbus); // 显示当前电压
+                break;
+            default:
+                break;
+            }
+            // 当前不在转速设置页面,正常显示转速
         }
-        // 当前不在转速设置页面,正常显示转速
+        else
+        {
+            // 当前为转速设置页面 闪烁提示
+            flashCount++;
+            if (flashCount % 40 == 0)
+            {
+                flashCount = 0;
+
+                Clear1650();
+                SetDisplay1650(1, 7, 1);
+            }
+            else if (flashCount % 10 == 0)
+            {
+
+                SetNumber1650(motor.targetSpeedTemp); // 显示的临时转速
+            }
+        }
     }
     else
     {
-        // 当前为转速设置页面 闪烁提示
-        flashCount++;
-        if (flashCount % 40 == 0)
+        // 有故障状态
+        faultCount++;
+        ShowFaultCode1650(mcFaultSource);
+        motor.state = 0; // 取消驱动
+        if (faultCount == 20)
         {
-            flashCount = 0;
-            
+            faultCount = 0;
             Clear1650();
-            SetDisplay1650(1, 7, 1);
-
-        }
-        else if (flashCount % 10 == 0)
-        {
-
-            SetNumber1650(motor.targetSpeedTemp); // 显示的临时转速
         }
     }
 }

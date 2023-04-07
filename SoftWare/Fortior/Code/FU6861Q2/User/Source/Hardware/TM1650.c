@@ -2,11 +2,10 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-03-26 13:59:03
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-04-01 20:05:49
- * @FilePath: \Software\User\Source\Hardware\TM1650.c
+ * @LastEditTime: 2023-04-07 21:51:46
+ * @FilePath: \FU6861Q2\User\Source\Hardware\TM1650.c
  */
 #include "TM1650.h"
-
 sbit CLK = P0 ^ 1;
 sbit DIO = P0 ^ 0;
 
@@ -263,4 +262,62 @@ uint8 ScanKey1650(void)
     Stop1650();
 
     return rekey;
+}
+
+/**
+ * @description:
+ * @param {uint8_t} index
+ * @param {char} letter
+ * @return {*}
+ */
+void SetIndexLetter1650(uint8 index, char letter)
+{
+    uint8 indexAddr = 0;
+
+    if (index == 0)
+    {
+        indexAddr = 0x68;
+    }
+    else if (index == 1)
+    {
+        indexAddr = 0x6A;
+    }
+    else if (index == 2)
+    {
+        indexAddr = 0x6C;
+    }
+    else if (index == 3)
+    {
+        indexAddr = 0x6E;
+    }
+
+    if (letter == 'P')
+    {
+        Set1650(indexAddr, 0X73);
+    }
+    else if (letter == 'F')
+    {
+        Set1650(indexAddr, 0X71);
+    }
+    else if (letter == '.')
+    {
+        Set1650(indexAddr, 0X80);
+    }
+    else if (letter == 'E')
+    {
+        Set1650(indexAddr, 0X79);
+    }
+}
+
+/**
+ * @description:
+ * @param {uint16_t} state
+ * @return {*}
+ */
+void ShowFaultCode1650(uint16 state)
+{
+    Clear1650();
+
+    SetNumber1650(state);
+    SetIndexLetter1650(0, 'E');
 }

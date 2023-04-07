@@ -13,7 +13,7 @@
 /* -------------------------------------保护使能设置---------------------------------------------------- */
 #define VoltageProtectEnable           (1)                                      ///< 电压保护，0,不使能；1，使能
 #define StallProtectEnable             (0)                                      ///< 堵转保护，0,不使能；1，使能
-#define PhaseLossProtectEnable         (0)                                      ///< 缺相保护，0,不使能；1，使能
+#define PhaseLossProtectEnable         (1)                                      ///< 缺相保护，0,不使能；1，使能
 #define GetCurrentOffsetEnable         (0)                                      ///< 偏置电压保护，0,不使能；1，使能
 #define TemperatureProtectEnable	   (0)									    ///< 温度保护使能
 #define OverSpeedProtectEnable		   (0)	                                    ///< 超速保护使能
@@ -21,7 +21,7 @@
 /* -------------------------------------保护参数值---------------------------------------------------- */
 /* -----硬件过流保护比较值来源----- */
 #define Compare_Mode                   (Compare_DAC)                            ///< 硬件过流值的来源
-#define OverHardcurrentValue           (50.0)                                   ///< (A) DAC模式下的硬件过流值 Imax = VHALF / HW_RSHUNT / HW_AMPGAIN    
+#define OverHardcurrentValue           (80.0)                                   ///< (A) DAC模式下的硬件过流值 Imax = VHALF / HW_RSHUNT / HW_AMPGAIN    
 //YK 2023年4月1日13:11:36 OverHardcurrentValue=40
 /* -----软件过流保护----- */
 #define OverSoftCurrentValue           I_Value(30.0)                            ///< (A) 软件过流值 
@@ -52,8 +52,8 @@
 #define FOCMode_DectTime                (3000)                                  ///< (ms) 判断处在mode0的持续时间
 
 /* -----缺相保护----- */
-#define PhaseLossCurrentValue           I_Value(1.8)                            ///< (A) 缺相电流值
-#define PhaseLossTimes                 (3)                                      ///< 缺相时电流倍数
+#define PhaseLossCurrentValue           I_Value(1.8)                            ///< (A) 缺相电流值 1.8
+#define PhaseLossTimes                 (1.6)                                      ///< 缺相时电流倍数 3
 
 /* -----NTC过温保护----- */
 #define TemperatureProtectTime 			(100)									///< (ms) 温度保护检测时间
