@@ -13,7 +13,7 @@
 /* -------------------------------------保护使能设置---------------------------------------------------- */
 #define VoltageProtectEnable           (1)                                      ///< 电压保护，0,不使能；1，使能
 #define StallProtectEnable             (0)                                      ///< 堵转保护，0,不使能；1，使能
-#define PhaseLossProtectEnable         (1)                                      ///< 缺相保护，0,不使能；1，使能
+#define PhaseLossProtectEnable         (0)                                      ///< 缺相保护，0,不使能；1，使能
 #define GetCurrentOffsetEnable         (0)                                      ///< 偏置电压保护，0,不使能；1，使能
 #define TemperatureProtectEnable	   (0)									    ///< 温度保护使能
 #define OverSpeedProtectEnable		   (0)	                                    ///< 超速保护使能

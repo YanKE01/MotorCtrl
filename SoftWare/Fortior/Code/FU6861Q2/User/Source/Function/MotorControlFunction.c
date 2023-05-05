@@ -108,7 +108,8 @@ void FOC_Init(void)
     #if (Shunt_Resistor_Mode == Single_Resistor)
     {
         SetReg(FOC_CR1, CSM0 | CSM1, 0x00);
-        FOC_TRGDLY = 9;                                                                             // 0x0c表示延迟12个clock，提前用反码形式，如0x84表示提前12个clock。
+        //YK FOC_TRGDLY = 9
+        FOC_TRGDLY = 0X06;                                                                             // 0x0c表示延迟12个clock，提前用反码形式，如0x84表示提前12个clock。
         ClrBit(FOC_CR2, F5SEG);                                                                     // 7段式
         SetReg(CMP_CR1, CMP3MOD0 | CMP3MOD1, 0x00);
         /* -----最小窗口设置，防止溢出处理----- */

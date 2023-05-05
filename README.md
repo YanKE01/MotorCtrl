@@ -2,9 +2,7 @@
 
 ![image-20230407221436286](https://pic-1256068477.cos.ap-shanghai.myqcloud.com/img/image-20230407221436286.png)![image-20230407221909922](https://pic-1256068477.cos.ap-shanghai.myqcloud.com/img/image-20230407221909922.png)  
 
-**愿天堂再无电机**。
 
-<img src="https://pic-1256068477.cos.ap-shanghai.myqcloud.com/img/1a229265ac5f847c8765b5e5ef118b0.jpg" alt="1a229265ac5f847c8765b5e5ef118b0" style="zoom: 15%;" />
 
 ## 开发环境
 

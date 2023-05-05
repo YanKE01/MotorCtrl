@@ -237,6 +237,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>mcCurVarible.Max_ic</ItemText>
         </Ww>
+        <Ww>
+          <count>18</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>mcCurOffset.Iw_busOffset,0x0A</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
