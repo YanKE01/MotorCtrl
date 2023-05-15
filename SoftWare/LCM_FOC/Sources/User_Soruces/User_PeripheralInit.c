@@ -15,13 +15,13 @@ void UP_vDeviceInit(void)
 	u32 i; 
 	chipctrl_access();
 	CHIPCTRL->PWR_CFG |= (5<<1)|(1<<0);
-	for(i=0;i<10000;i++);	
+	for(i=0;i<1000000;i++);	
 	SystemInit();	//主频从72M升到96M，时间从50.4us降到38.4us;电流环从IQ24降到IQ12，时间减少到35.2us,obs 16bit 30us,进一步做了简化22.6us	
 	SetSysClock();
 	UP_vPeriphClockCmdInit();
 	SysTick_Config(UPDS_SYS_TICK_PERIOD);
 	#if (UPDS_DEBUG_MODE == UPDS_SOFTTOOL_DEBUG) 
-	UU_vFlashRead(FLASH_START_PAGE_ADDRESS,UPDS_UART_REC_COMMAND1_HALFWOED_LENGTH);
+//	UU_vFlashRead(FLASH_START_PAGE_ADDRESS,UPDS_UART_REC_COMMAND1_HALFWOED_LENGTH);
 	MDS_vMotorParaReadFromFlash(&UG_sSystemControllers.sMotorPara,UG_sUsartData.u16FlashReadData);
 	#elif (UPDS_DEBUG_MODE == UPDS_KEIL_DEBUG)
 	MDS_vMotorParaReadFromHfile(&UG_sSystemControllers.sMotorPara);
@@ -31,7 +31,7 @@ void UP_vDeviceInit(void)
 	UP_vGPIOConfiguration();
 	UP_vOPA012Config();
 	UP_vADCConfiguration();
-	UP_vUART_Config();
+//	UP_vUART_Config();
 	UP_vDAC1_5_Config();
 	UP_vACMPconfiguration();
 	UP_vTimerConfiguration();

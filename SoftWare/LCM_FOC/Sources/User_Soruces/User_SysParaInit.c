@@ -28,9 +28,9 @@ void US_vSystParaInitPowerup(void)
 	#endif 
 
 		MDS_vMotorParaCalc(&UG_sSystemControllers.sMotorPara);
-		UD_vDataTransformInit(&UG_sUsartData.sFlashReadDataUpdata);
+//		UD_vDataTransformInit(&UG_sUsartData.sFlashReadDataUpdata);
 		MDS_vCurLimitInit(&UG_sSystemControllers.sCurLimit);
-		UU_vUsartDataInit(&UG_sUsartData);
+//		UU_vUsartDataInit(&UG_sUsartData);
 		US_vHardwareOverCurCalcAMP();	
 }
 

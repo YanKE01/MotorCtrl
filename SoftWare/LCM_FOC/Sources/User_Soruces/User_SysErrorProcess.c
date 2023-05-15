@@ -161,26 +161,26 @@ if (UG_sSysStateErr.sSystemState >= UGT_E_SS_START_D)
 	}
 
 //Over IGBT Temperature		
-	if(UG_sADSampleAll.s16IGBTTempLPF < UG_sSystemControllers.sMotorPara.s16IPMOverTemp)
-	{	
-		UG_sSysStateErr.sSysTime.OTIPMCount++;
-		if(UG_sSysStateErr.sSysTime.OTIPMCount > UG_sSystemControllers.sMotorPara.s32IPMOTJudgeTimeTotal)
-		{
-			UG_sSysStateErr.sSysTime.OTIPMCount = 0;	
-//			UG_sSysStateErr.uSystemError.Bits.OverTempIGBT = TRUE;
-			UG_sSysStateErr.sSystemStatePre = UG_sSysStateErr.sSystemState;
-			UG_sSysStateErr.sSystemState = UGT_E_SS_FAULT_L;
-		}			
-	}
-	else
-	{
-		UG_sSysStateErr.sSysTime.OTIPMCount--;
-		if (UG_sSysStateErr.sSysTime.OTIPMCount < 0)
-		{
-			UG_sSysStateErr.sSysTime.OTIPMCount = 0;	
-			UG_sSysStateErr.uSystemError.Bits.OverTempIGBT = FALSE;	
-		}	
-	}	
+//	if(UG_sADSampleAll.s16IGBTTempLPF < UG_sSystemControllers.sMotorPara.s16IPMOverTemp)
+//	{	
+//		UG_sSysStateErr.sSysTime.OTIPMCount++;
+//		if(UG_sSysStateErr.sSysTime.OTIPMCount > UG_sSystemControllers.sMotorPara.s32IPMOTJudgeTimeTotal)
+//		{
+//			UG_sSysStateErr.sSysTime.OTIPMCount = 0;	
+////			UG_sSysStateErr.uSystemError.Bits.OverTempIGBT = TRUE;
+//			UG_sSysStateErr.sSystemStatePre = UG_sSysStateErr.sSystemState;
+//			UG_sSysStateErr.sSystemState = UGT_E_SS_FAULT_L;
+//		}			
+//	}
+//	else
+//	{
+//		UG_sSysStateErr.sSysTime.OTIPMCount--;
+//		if (UG_sSysStateErr.sSysTime.OTIPMCount < 0)
+//		{
+//			UG_sSysStateErr.sSysTime.OTIPMCount = 0;	
+//			UG_sSysStateErr.uSystemError.Bits.OverTempIGBT = FALSE;	
+//		}	
+//	}	
 }
 	
 if (UG_sSysStateErr.sSystemState == UGT_E_SS_CLOSEDLOOP_J)
@@ -285,24 +285,24 @@ if (UG_sSysStateErr.sSystemState == UGT_E_SS_CLOSEDLOOP_J)
 		UG_sSysStateErr.sSystemState = UGT_E_SS_FAULT_L;	
 	}
 
-	if(UG_sVoltageAll.sVoltageAbc.s16UdcMeas < (UG_sSystemControllers.sMotorPara.s16UnderVoltageFlashWrite))
-	{
-		UG_sSysStateErr.sSysTime.UVFlashWriteCount ++;
-		if (UG_sSysStateErr.sSysTime.UVFlashWriteCount > UPDS_UV_FLASHWRITE_10MS)
-		{
-			UG_sSysStateErr.sSystemStatePre = UG_sSysStateErr.sSystemState;
-			UG_sSysStateErr.sSystemState 		= UGT_E_SS_WRITE_FLASH;
-			UG_sSysStateErr.sSysTime.UVFlashWriteCount = 0;
-		}
-	}
-	else
-	{
-		UG_sSysStateErr.sSysTime.UVFlashWriteCount --;
-		if (UG_sSysStateErr.sSysTime.UVFlashWriteCount < 0)
-		{
-			UG_sSysStateErr.sSysTime.UVFlashWriteCount = 0;
-		}
-	}		
+//	if(UG_sVoltageAll.sVoltageAbc.s16UdcMeas < (UG_sSystemControllers.sMotorPara.s16UnderVoltageFlashWrite))
+//	{
+//		UG_sSysStateErr.sSysTime.UVFlashWriteCount ++;
+//		if (UG_sSysStateErr.sSysTime.UVFlashWriteCount > UPDS_UV_FLASHWRITE_10MS)
+//		{
+//			UG_sSysStateErr.sSystemStatePre = UG_sSysStateErr.sSystemState;
+//			UG_sSysStateErr.sSystemState 		= UGT_E_SS_WRITE_FLASH;
+//			UG_sSysStateErr.sSysTime.UVFlashWriteCount = 0;
+//		}
+//	}
+//	else
+//	{
+//		UG_sSysStateErr.sSysTime.UVFlashWriteCount --;
+//		if (UG_sSysStateErr.sSysTime.UVFlashWriteCount < 0)
+//		{
+//			UG_sSysStateErr.sSysTime.UVFlashWriteCount = 0;
+//		}
+//	}		
 }
 
 //system fault process in the case FAULT
@@ -368,7 +368,12 @@ void US_vSysFaultProcess(void)
 		UG_sSysStateErr.sSystemStatePre = UG_sSysStateErr.sSystemState;
 		UG_sSysStateErr.sSystemState = UGT_E_SS_WAIT_M;	
 		UG_sSysStateErr.sSysTime.ReStartTime = US_IPM_FAULT_RECOVERY_TIME_S32;
-	}		
+	}	
+	else
+	{
+		UG_sSysStateErr.sSystemStatePre = UG_sSysStateErr.sSystemState;
+		UG_sSysStateErr.sSystemState = UGT_E_SS_INIT_B;	
+	}
 }
 
 void US_vHardwareOverCurCalcAMP(void)

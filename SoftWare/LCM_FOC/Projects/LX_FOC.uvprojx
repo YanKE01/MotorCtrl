@@ -935,6 +935,36 @@
             </File>
           </Files>
         </Group>
+        <Group>
+          <GroupName>HY</GroupName>
+          <Files>
+            <File>
+              <FileName>HY_Application.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Sources\User_Soruces\HY_Application.c</FilePath>
+            </File>
+            <File>
+              <FileName>HY_Variable.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Sources\User_Soruces\HY_Variable.c</FilePath>
+            </File>
+            <File>
+              <FileName>HY_SoftIIC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Sources\User_Soruces\HY_SoftIIC.c</FilePath>
+            </File>
+            <File>
+              <FileName>HY_Hal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Sources\User_Soruces\HY_Hal.c</FilePath>
+            </File>
+            <File>
+              <FileName>HY_Display.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Sources\User_Soruces\HY_Display.c</FilePath>
+            </File>
+          </Files>
+        </Group>
       </Groups>
     </Target>
   </Targets>
