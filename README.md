@@ -20,6 +20,18 @@ SoftWare：KEIL V5/4, CUBEMX , VsCode
 
 
 
+## 目录说明
+
+Doc：存放文档
+
+HardWare：存放硬件图纸
+
+Record：存放项目记录
+
+SoftWare：存放软件控制方案
+
+
+
 
 
 ## 开源项目支持

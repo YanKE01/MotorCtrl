@@ -1,0 +1,23 @@
+/******************** (C) COPYRIGHT 2020 LCM MotorControl Lab
+*Update History
+ ******************************************************************************
+* File Name         	: Version History.txt
+* Author             	: LCM MotorControl Team
+* Version            	: V2.1
+* Date               	: 11/26/2021
+* Description        	: 1)update sdk to v1.0.7；
+		  2)add ACMP_BRK Block
+*******************************************************************************/
+ ******************************************************************************
+* File Name	: Version History.txt
+* Author             	: LCM MotorControl Team
+* Version            	: V3.2
+* Date               	: 12/29/2021
+* Description        	: 1)add Idc measurement
+	             	  2)add hardware overcurrent protection
+*******************************************************************************/
+
+******************* (C) COPYRIGHT 2020 LCM MotorControl Lab ********************
+20221011  增加上电检测
+20221021  MTPA
+20230325  GPIO 修改，硬件版本修改
