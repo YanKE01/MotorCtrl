@@ -63,10 +63,10 @@ void DMAC_CH1_2_Handler(void)
 		break;
 	}
 
-//	//============DAC module========================================================================
-//	DAC_SetDac_10B_Data(DAC0, DAC_Align_10B_R, (UG_sCurrentAll.sCurrentAbc.s16As + _IQ15(1.0)) >> 6); // UG_sPositionAll.PosStateObserver>>6);//
-//	DAC_SoftwareTriggerCmd(DAC0, ENABLE);
-//	//===========end DAC module======================================================================
+	//	//============DAC module========================================================================
+	//	DAC_SetDac_10B_Data(DAC0, DAC_Align_10B_R, (UG_sCurrentAll.sCurrentAbc.s16As + _IQ15(1.0)) >> 6); // UG_sPositionAll.PosStateObserver>>6);//
+	//	DAC_SoftwareTriggerCmd(DAC0, ENABLE);
+	//	//===========end DAC module======================================================================
 
 	DMA_ClearITPendingBit(DMA1_FLAG_TC1);
 }
@@ -113,8 +113,8 @@ void SysTick_Handler(void)
 	{
 		if (UG_sUsartData.sUsartEvent.Bits.WriteFlashing == 0)
 		{
-//			UU_vUartData1Prepare();
-//			UU_vSendDataDMA(DMA1_Channel0, (uint32_t)&UG_sUsartData.u8SendData1, UPDS_UART_SIZE);
+			//			UU_vUartData1Prepare();
+			//			UU_vSendDataDMA(DMA1_Channel0, (uint32_t)&UG_sUsartData.u8SendData1, UPDS_UART_SIZE);
 		}
 		break;
 	}
@@ -137,7 +137,7 @@ void SysTick_Handler(void)
 	}
 	case TASK5:
 	{
-		HY_TaskLoop();
+		//HY_TaskLoop();
 		break;
 	}
 	case TASK4:
@@ -231,8 +231,8 @@ void SysTick_Handler(void)
 		}
 		if (UG_sUsartData.sUsartEvent.Bits.WriteFlashing == 0)
 		{
-//			UU_vUartData2Prepare();
-//			UU_vSendDataDMA(DMA1_Channel0, (uint32_t)&UG_sUsartData.u8SendData2, UPDS_UART_SIZE);
+			//			UU_vUartData2Prepare();
+			//			UU_vSendDataDMA(DMA1_Channel0, (uint32_t)&UG_sUsartData.u8SendData2, UPDS_UART_SIZE);
 		}
 		break;
 	}
@@ -240,8 +240,8 @@ void SysTick_Handler(void)
 		break;
 	}
 
-//	if (UPDS_FG_SEL == UPDS_FG_ENABLE)
-//		MDS_vFGRPM();
+	//	if (UPDS_FG_SEL == UPDS_FG_ENABLE)
+	//		MDS_vFGRPM();
 
 	UG_sSystemControllers.sSPD.u16LoopIndex--;
 	if (UG_sSystemControllers.sSPD.u16LoopIndex == 0)
@@ -250,11 +250,11 @@ void SysTick_Handler(void)
 	{
 		if ((UG_sSysStateErr.sSystemState != UGT_E_SS_WAIT_M) && (UG_sSysStateErr.sSystemState != UGT_E_SS_FAULT_L) && (UG_sSysStateErr.sSystemState >= UGT_E_SS_INIT_B))
 		{
-			US_vSysErrorCheck(); 
+			US_vSysErrorCheck(); // µç»ú¹ÊÕÏ¼ì²â
 		}
 	}
 
-
+	HY_TaskLoop();
 }
 /*******************************************************************************
  * Function Name  : TIM1_BRK_IRQHandler
@@ -308,66 +308,66 @@ void TIM1_NON_CC_Handler(void)
 u8 guartreceivetimes = 0;
 void UART0_Handler(void)
 {
-//	if (UART_GetITStatus(UART0, UART_IT_RX) == SET)
-//	{
-//		guartreceivetimes++;
-//		UG_sUsartData.u8ReceiveData[UG_sUsartData.u8UartRecIndex++] = UART_ReceiveData(UART0);
-//		if (UG_sUsartData.u8UartMode == 0)
-//		{
-//			if (UG_sUsartData.u8ReceiveData[0] == 0x11)
-//			{
-//				UG_sUsartData.u8UartMode = UART_SET;
-//				UG_sUsartData.u8UartRecCountNum = UPDS_UART_REC_COMMAND1_LENGTH;
-//				UG_sUsartData.eCommand = UGT_E_UC_COMMAND1;
-//			}
-//			else if (UG_sUsartData.u8ReceiveData[0] == 0x22)
-//			{
-//				UG_sUsartData.u8UartMode = UART_START;
-//				UG_sUsartData.u8UartRecCountNum = UPDS_UART_REC_COMMAND2_LENGTH;
-//				UG_sUsartData.eCommand = UGT_E_UC_COMMAND2;
-//			}
-//			else
-//			{
-//				UG_sUsartData.u8UartRecIndex = 0;
-//			}
-//		}
+	//	if (UART_GetITStatus(UART0, UART_IT_RX) == SET)
+	//	{
+	//		guartreceivetimes++;
+	//		UG_sUsartData.u8ReceiveData[UG_sUsartData.u8UartRecIndex++] = UART_ReceiveData(UART0);
+	//		if (UG_sUsartData.u8UartMode == 0)
+	//		{
+	//			if (UG_sUsartData.u8ReceiveData[0] == 0x11)
+	//			{
+	//				UG_sUsartData.u8UartMode = UART_SET;
+	//				UG_sUsartData.u8UartRecCountNum = UPDS_UART_REC_COMMAND1_LENGTH;
+	//				UG_sUsartData.eCommand = UGT_E_UC_COMMAND1;
+	//			}
+	//			else if (UG_sUsartData.u8ReceiveData[0] == 0x22)
+	//			{
+	//				UG_sUsartData.u8UartMode = UART_START;
+	//				UG_sUsartData.u8UartRecCountNum = UPDS_UART_REC_COMMAND2_LENGTH;
+	//				UG_sUsartData.eCommand = UGT_E_UC_COMMAND2;
+	//			}
+	//			else
+	//			{
+	//				UG_sUsartData.u8UartRecIndex = 0;
+	//			}
+	//		}
 
-//		if (UG_sUsartData.u8UartMode != 0)
-//		{
-//			if (UG_sUsartData.u8UartRecIndex == UG_sUsartData.u8UartRecCountNum)
-//			{
-//				if (UU_u8UARTRecCheck())
-//				{
-//					UG_sUsartData.sUsartEvent.Bits.ReceiceFinish = 1;
-//					if (UG_sUsartData.eCommand == UGT_E_UC_COMMAND2)
-//					{
-//						if (UG_sUsartData.u8ReceiveData[1] == 0x01)
-//						{
-//							UG_sUsartData.s16UartTargetValue = (s16)UG_sUsartData.u8ReceiveData[4] * 327;
-//						}
-//						else
-//						{
-//							UG_sUsartData.s16UartTargetValue = (s16)UG_sUsartData.u8ReceiveData[4] * 0;
-//						}
-//						UG_sUsartData.u8ScopeSelect[0] = (UG_sUsartData.u8ReceiveData[5] >> 4) & 0x0F;
-//						UG_sUsartData.u8ScopeSelect[1] = (UG_sUsartData.u8ReceiveData[5]) & 0x0F;
-//						UG_sUsartData.u8ScopeSelect[2] = (UG_sUsartData.u8ReceiveData[6] >> 4) & 0x0F;
-//						UG_sUsartData.u8ScopeSelect[3] = (UG_sUsartData.u8ReceiveData[6]) & 0x0F;
-//					}
-//					else if (UG_sUsartData.eCommand == UGT_E_UC_COMMAND1)
-//					{
-//						UG_sUsartData.sUsartEvent.Bits.UpdateSetPara = 1;
-//					}
-//				}
-//				else
-//				{
-//					UG_sUsartData.sUsartEvent.Bits.ReceiceFinish = 0;
-//				}
-//				UG_sUsartData.u8UartRecCountNum = 0;
-//				UG_sUsartData.u8UartRecIndex = 0;
-//				UG_sUsartData.u8UartMode = 0;
-//			}
-//		}
-//		UART_ClearITPendingBit(UART0, UART_IT_RX);
-//	}
+	//		if (UG_sUsartData.u8UartMode != 0)
+	//		{
+	//			if (UG_sUsartData.u8UartRecIndex == UG_sUsartData.u8UartRecCountNum)
+	//			{
+	//				if (UU_u8UARTRecCheck())
+	//				{
+	//					UG_sUsartData.sUsartEvent.Bits.ReceiceFinish = 1;
+	//					if (UG_sUsartData.eCommand == UGT_E_UC_COMMAND2)
+	//					{
+	//						if (UG_sUsartData.u8ReceiveData[1] == 0x01)
+	//						{
+	//							UG_sUsartData.s16UartTargetValue = (s16)UG_sUsartData.u8ReceiveData[4] * 327;
+	//						}
+	//						else
+	//						{
+	//							UG_sUsartData.s16UartTargetValue = (s16)UG_sUsartData.u8ReceiveData[4] * 0;
+	//						}
+	//						UG_sUsartData.u8ScopeSelect[0] = (UG_sUsartData.u8ReceiveData[5] >> 4) & 0x0F;
+	//						UG_sUsartData.u8ScopeSelect[1] = (UG_sUsartData.u8ReceiveData[5]) & 0x0F;
+	//						UG_sUsartData.u8ScopeSelect[2] = (UG_sUsartData.u8ReceiveData[6] >> 4) & 0x0F;
+	//						UG_sUsartData.u8ScopeSelect[3] = (UG_sUsartData.u8ReceiveData[6]) & 0x0F;
+	//					}
+	//					else if (UG_sUsartData.eCommand == UGT_E_UC_COMMAND1)
+	//					{
+	//						UG_sUsartData.sUsartEvent.Bits.UpdateSetPara = 1;
+	//					}
+	//				}
+	//				else
+	//				{
+	//					UG_sUsartData.sUsartEvent.Bits.ReceiceFinish = 0;
+	//				}
+	//				UG_sUsartData.u8UartRecCountNum = 0;
+	//				UG_sUsartData.u8UartRecIndex = 0;
+	//				UG_sUsartData.u8UartMode = 0;
+	//			}
+	//		}
+	//		UART_ClearITPendingBit(UART0, UART_IT_RX);
+	//	}
 }

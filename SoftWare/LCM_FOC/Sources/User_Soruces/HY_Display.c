@@ -2,10 +2,11 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-05-16 09:56:38
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-05-16 19:33:01
+ * @LastEditTime: 2023-05-17 14:44:09
  * @FilePath: \LCM_FOC\Sources\User_Soruces\HY_Display.c
  */
 #include "HY_Display.h"
+#include "HY_Variable.h"
 #include "HY_SoftIIC.h"
 
 static uint8_t s_7number[11] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F, 0x00}; // 7段显示方式0~9 第10位为不显示位
@@ -36,12 +37,12 @@ void HY_TM1650_Write(uint8_t addr, uint8_t data)
  */
 uint8_t HY_TM1650_Read(uint8_t addr)
 {
-    uint8_t rekey=0;
+    uint8_t rekey = 0;
     iic_start();        // 发送起始信号
     iic_sendByte(addr); // 写地址
     iic_waitAck();      // 等待应答
     rekey = iic_readByte();
-	  iic_waitAck();          // 发送应答
+    iic_waitAck(); // 发送应答
     iic_stop();    // 发送停止信号
     return rekey;
 }
@@ -134,7 +135,7 @@ void HY_TM1650_SetIndexNumber(uint8_t index, uint8_t mode, uint8_t num)
 void HY_TM1650_SetNumber(uint16_t num)
 {
     uint8_t index = 3;
-    //HY_TM1650_Clear();
+    // HY_TM1650_Clear();
 
     if (num > 9999)
     {
@@ -202,33 +203,44 @@ void HY_TM1650_SetIndexLetter(uint8_t index, char letter)
  */
 void HY_TM1650_SetFloat(float num)
 {
+
     int integer = (int)(num);
     int decimal = (int)((num - integer) * 10); // 只保留一位小数
     uint8_t index = 2;
 
-    HY_TM1650_Clear();
+    // HY_TM1650_Clear();
 
     if (integer > 999)
     {
         return; // 超出范围，不显示
     }
 
-    // 显示整数
-    while (integer)
+    // 显示整数部分需要判断是否为0
+    if (integer != 0)
     {
-        if (index != 2)
+        // 显示整数
+        while (integer)
         {
-            HY_TM1650_SetIndexNumber(index, 7, integer % 10);
-        }
-        else
-        {
-            // 最后一位，追加小数点
-            HY_TM1650_Write(0x6C, s_7number[integer % 10] | 0x80);
-        }
+            if (index != 2)
+            {
+                HY_TM1650_SetIndexNumber(index, 7, integer % 10);
+            }
+            else
+            {
+                // 最后一位，追加小数点
+                HY_TM1650_Write(0x6C, s_7number[integer % 10] | 0x80);
+            }
 
-        index--;
-        integer /= 10;
+            index--;
+            integer /= 10;
+        }
     }
+    else
+    {
+        // HY_TM1650_SetIndexNumber(2, 7, 0);
+        HY_TM1650_Write(0x6C, s_7number[0] | 0x80);
+    }
+
     HY_TM1650_SetIndexNumber(3, 7, decimal); // 显示小数
 }
 
@@ -239,4 +251,41 @@ void HY_TM1650_SetFloat(float num)
 uint8_t HY_TM1650_ScanKey()
 {
     return HY_TM1650_Read(0x49);
+}
+
+/**
+ * @description: 显示故障码
+ * @return {*}
+ */
+void HY_TM1650_ShowFault(UGT_S_SYSTEMSTATE_STRU fault)
+{
+    if (fault.uSystemError.Bits.OverVoltage)
+    {
+        // 过压为E01
+        HY_TM1650_SetIndexLetter(0, 'E');
+        HY_TM1650_SetNumber(1);
+    }
+    else if (fault.uSystemError.Bits.UnderVoltage)
+    {
+        // 欠压E02
+        HY_TM1650_SetIndexLetter(0, 'E');
+        HY_TM1650_SetNumber(2);
+    }
+    else if (fault.uSystemError.Bits.StartupFailContious)
+    {
+        // 连续驱动失败E03
+        HY_TM1650_SetIndexLetter(0, 'E');
+        HY_TM1650_SetNumber(3);
+    }
+    else if (fault.uSystemError.Bits.HardOverCurrent)
+    {
+        // 硬件过流E04
+        HY_TM1650_SetIndexLetter(0, 'E');
+        HY_TM1650_SetNumber(4);
+    }
+    else
+    {
+        // 说明底层已经检测到错误消失了，可以解锁用户错误标志位
+        motor.fault = 0;
+    }
 }

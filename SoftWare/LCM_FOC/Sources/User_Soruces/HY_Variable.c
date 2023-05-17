@@ -24,8 +24,9 @@ void HY_VariableInit(void)
     motor.speedChangeStep = 100;                   // 速度默认按照100为步距调节
     motor.targetSpeedTemp = motor.targetSpeed;     // 设置临时转速
     motor.currentVbus = 0;                         // 初始值为0
-	
-	  /*UI*/
+    motor.fault = 0;                               // 无故障状态
+
+    /*UI*/
     ui.modePage = 0;   // 速度,电流,故障灯页面
     ui.isSetSpeed = 0; // 按下增减速成立
 }

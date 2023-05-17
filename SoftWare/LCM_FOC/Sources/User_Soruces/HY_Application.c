@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-05-15 22:57:24
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-05-17 11:07:48
+ * @LastEditTime: 2023-05-17 15:06:37
  * @FilePath: \LCM_FOC\Sources\User_Soruces\HY_Application.c
  */
 #include "HY_Application.h"
@@ -36,6 +36,7 @@ static void LimitSpeed(uint16_t *speed, uint16_t min, uint16_t max)
     }
 }
 
+/****************************状态设置*************************************/
 /**
  * @description: 设置水泵机械转速
  * @param {uint16_t} target
@@ -44,13 +45,6 @@ static void LimitSpeed(uint16_t *speed, uint16_t min, uint16_t max)
 s32 HY_SetPumpMechanicalSpeed(uint16_t target)
 {
     double ratio = 0.0f;
-
-    // 判断当前电机状态
-    // if (!motor.state)
-    // {
-    //     return 0; // 停止状态下,速度直接设置为0
-    // }
-
     // 判断是否超过限制
     target = LIMIT(target, motor.minSpeed, motor.maxSpeed);
 
@@ -120,7 +114,7 @@ void ModeUiPageProcess()
 {
     HY_TM1650_Clear();
     ui.modePage++;
-    ui.modePage %= 2;
+    ui.modePage %= 3;
 }
 
 /**
@@ -131,9 +125,9 @@ void ModeUi()
 {
     static int flashCount = 0; // UI闪烁切换
     static int faultCount = 0;
-    if (UG_sSysStateErr.uSystemError.All == 0x00)
+    if (UG_sSysStateErr.uSystemError.All == 0x00 && motor.fault == 0)
     {
-        // 无故障状态下
+        // 无故障状态下,且不再转速设置页面
         if (ui.isSetSpeed == 0)
         {
             switch (ui.modePage)
@@ -145,10 +139,12 @@ void ModeUi()
             case VbusPage:
                 HY_TM1650_SetNumber(motor.currentVbus); // 显示当前电压
                 break;
+            case CurrentPage:
+                HY_TM1650_SetFloat(motor.busCurrent); // 显示母线电压
+                break;
             default:
                 break;
             }
-            // 当前不在转速设置页面,正常显示转速
         }
         else
         {
@@ -169,15 +165,21 @@ void ModeUi()
     }
     else
     {
-        // 有故障状态
-               faultCount++;
-               HY_TM1650_SetNumber(9999);
-               motor.state = 0; // 强制电机恢复到停机状态
-               if (faultCount == 20)
-               {
-                   faultCount = 0;
-                   HY_TM1650_Clear();
-               }
+        // 有故障状态 UG_sSysStateErr.uSystemError.All底层会自动处理，如果此时恢复到正常的话，错误标志位就会消失，或许考虑一个临时的来暂存一下
+        faultCount++;
+        if (faultCount % 20 == 0)
+        {
+            faultCount = 0;
+
+            HY_TM1650_Clear();
+            HY_TM1650_SetDisplay(1, 7, 1);
+        }
+        else if (faultCount % 15 == 0)
+        {
+            HY_TM1650_ShowFault(UG_sSysStateErr); // 显示故障
+        }
+
+        motor.state = 0;//发生错误后，电机应该处于停机状态
     }
 }
 
@@ -189,7 +191,7 @@ int key_test = 0;
  */
 static void HY_Task_50MS_Entry()
 {
-		keyValue=HY_TM1650_ScanKey();
+    keyValue = HY_TM1650_ScanKey();
 
     if (keyValue != keyValuePrev)
     {
@@ -216,7 +218,7 @@ static void HY_Task_50MS_Entry()
             // ACK
             ui.isSetSpeed = 0;                         // 转速设置结束
             motor.targetSpeed = motor.targetSpeedTemp; // 确认转速
-            //UG_sSysStateErr.uSystemError.All = 0x00;   // 尝试取消错误,只针对缺相
+            motor.fault = 0;                           // 手动置0，区分 UG_sSysStateErr.uSystemError.All
             break;
         case 0x46:
             // 增速
@@ -230,10 +232,9 @@ static void HY_Task_50MS_Entry()
             break;
         }
     }
+    ModeUi();
 
     keyValuePrev = keyValue;
-		ModeUi();
-
 }
 
 /**
@@ -250,8 +251,8 @@ static void HY_Task_100MS_Entry()
  */
 static void HY_Task_1S_Entry()
 {
-    motor.currentVbus = (uint16_t)((1.0 * ADCConvertedRawData[0] / 4096.0) * 4.1 * 25.0 + 1.0);
-	motor.current= 1.0*UG_sADSampleAll.s16IdcLPFTem/4096.0*UPDS_IB;
+    motor.currentVbus = (uint16_t)((1.0 * ADCConvertedRawData[0] / 4096.0) * 4.1 * 25.0 + 1.0); // 采集当前母线电压，ADC基准为4.0V，但是校准是在4.1V下进行，1.0为手动偏移母线压降
+    motor.busCurrent = 1.0 * UG_sADSampleAll.s16IdcLPFTem / 4096.0 * UPDS_IB;                   // 采集当前母线电流
 }
 
 /**
@@ -263,17 +264,17 @@ void HY_TaskLoop()
     static int count = 0;
     count++;
 
-    if (count % 50 == 0)
+    if (count % 500 == 0)
     {
         HY_Task_50MS_Entry();
     }
 
-    if (count % 100 == 0)
+    if (count % 1000 == 0)
     {
         HY_Task_100MS_Entry();
     }
 
-    if (count % 1000 == 0)
+    if (count % 10000 == 0)
     {
         HY_Task_1S_Entry();
         count = 0;

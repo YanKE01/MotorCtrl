@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-05-16 08:59:03
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-05-16 17:03:55
+ * @LastEditTime: 2023-05-17 14:11:31
  * @FilePath: \LCM_FOC\Headers\User_Sources\HY_Variable.h
  */
 #ifndef _HY_VARIABLE_H
@@ -12,30 +12,32 @@
 
 typedef struct _Motor
 {
-    /* data */
-    uint8_t state;            // 电机运行状态 0:停止 1:启动
-    uint16_t minSpeed;        // 最低转速
-    uint16_t maxSpeed;        // 最高转速
-    uint16_t targetSpeed;     // 目标转速,需要限制在最低与最高转速
-    uint16_t targetSpeedTemp; // 临时转速
-    uint16_t speedChangeStep; // 速度调节步距
-    uint16_t currentVbus;     // 当前总线电压
-		float current;//当前母线电流
+  /* data */
+  uint8_t state;            // 电机运行状态 0:停止 1:启动
+  uint8_t fault;            // 电机故障状态 用户状态，需手动置位清零
+  uint16_t minSpeed;        // 最低转速
+  uint16_t maxSpeed;        // 最高转速
+  uint16_t targetSpeed;     // 目标转速,需要限制在最低与最高转速
+  uint16_t targetSpeedTemp; // 临时转速
+  uint16_t speedChangeStep; // 速度调节步距
+  uint16_t currentVbus;     // 当前总线电压
+  float busCurrent;         // 当前母线电流
+
 } Motor;
 
 typedef struct _UI
 {
-    uint8_t modePage;   // 当前模式设置页
-    uint8_t isSetSpeed; // 当前是否处于设置速度状态
-		uint8_t keyValue;
-		uint8_t keyValue_Prev;
+  uint8_t modePage;   // 当前模式设置页
+  uint8_t isSetSpeed; // 当前是否处于设置速度状态
+  uint8_t keyValue;
+  uint8_t keyValue_Prev;
 } UI;
 
 enum ModePage
 {
-    SpeedPage = 0,
-    VbusPage,
-    CurrentPage,
+  SpeedPage = 0,
+  VbusPage,
+  CurrentPage,
 };
 
 extern Motor motor;

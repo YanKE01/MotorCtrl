@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-05-16 10:10:40
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-05-16 17:33:12
+ * @LastEditTime: 2023-05-17 14:34:29
  * @FilePath: \LCM_FOC\Sources\User_Soruces\HY_SoftIIC.c
  */
 #include "HY_SoftIIC.h"
@@ -17,7 +17,7 @@
  */
 void iic_delay(void)
 {
-    uint16_t j = 500;
+    uint16_t j = 300; //500
     while (j--)
     {
     }
