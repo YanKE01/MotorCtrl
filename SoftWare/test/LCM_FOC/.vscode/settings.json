@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "hy_driver.h": "c",
+        "lcm32f037_rcc.h": "c",
+        "lcm32f037_conf.h": "c",
+        "hy_application.h": "c",
+        "userparasetdefine.h": "c",
+        "hy_variable.h": "c",
+        "hy_display.h": "c",
+        "hy_softiic.h": "c",
+        "hy_hal.h": "c",
+        "lcm32f037_tim.h": "c",
+        "user_syserrorprocess.h": "c"
+    }
+}

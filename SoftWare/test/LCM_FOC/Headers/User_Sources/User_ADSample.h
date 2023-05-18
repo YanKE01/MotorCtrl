@@ -1,0 +1,44 @@
+#ifndef SOURCE_USER_ADSAMPLE_H_
+#define SOURCE_USER_ADSAMPLE_H_
+
+#include "lcm32f037_lib.h"
+#include "UserIncludes.h"
+
+#if defined(EXPORT_USER_ADSAMPLE_H_)
+  #define EXTERN
+#else
+  #define EXTERN extern
+#endif
+//user set here	
+#define UA_AD_OFFSET_SAMP_TIME_MS (u16)(500)
+#define UA_OFFEST_LPF_BAND  		  (300.0*UPDS_2PI)		//Unit:rad/s
+
+	
+	
+//derive from above, don't modify
+#define UA_AD_OFFSET_SAMP_TIME_NUM (u16)(UA_AD_OFFSET_SAMP_TIME_MS*UPDS_CURR_FREQ/1000.0)	
+#define UA_UDC_LPF_BAND_GAIN_IQ12  _IQ12(UPDS_UDC_LPF_BAND_HZ*UPDS_2PI*UPDS_CURR_TS /( 1.0f + UPDS_UDC_LPF_BAND_HZ*UPDS_2PI*UPDS_CURR_TS))	
+#define UA_IQ15_MAX   			(s16)(0x7FFF)
+#define UA_IQ15_MIN   			(s16)(-0x8000)	
+#define UA_SAMPLE_A_B_C			(u16)(0x0007) //111b(ABC) 
+#define UA_SAMPLE_A_B_NC		(u16)(0x0006) //110b(ABC)
+#define UA_SAMPLE_A_NB_C		(u16)(0x0005) //101b(ABC) 
+#define UA_SAMPLE_NA_B_C		(u16)(0x0003) //011b(ABC)
+#define UA_SAMPLE_A_NB_NC		(u16)(0x0004) //100b(ABC)
+#define UA_SAMPLE_NA_B_NC		(u16)(0x0002) //010b(ABC) 
+#define UA_SAMPLE_NA_NB_C		(u16)(0x0001) //001b(ABC)
+#define UA_SAMPLE_NA_NB_NC	(u16)(0x0000) //000b(ABC)
+#define UA_VSP_LPF_GAIN_IQ15	  	_IQ15(UPDS_VSP_LPF_BAND_HZ*UPDS_2PI*UPDS_CURR_TS /( 1.0f + UPDS_VSP_LPF_BAND_HZ*UPDS_2PI*UPDS_CURR_TS))
+#define UA_SAMPLE_WINDOW_TIME_US 	(u16)(UPDS_SAMPLE_WINDOW_TIME_US/UPDS_PWM_TS*UP_PWM_PERIOD)
+#define UA_OFFEST_LPF_GAIN_IQ15  	_IQ15(UA_OFFEST_LPF_BAND*UPDS_CURR_TS /( 1.0f + UA_OFFEST_LPF_BAND*UPDS_CURR_TS))
+
+
+EXTERN u8 UA_u8CurrSampleOffest(UGT_S_ADSAMPLEALL_STRU *v, UGT_S_CURRABC_STRU *Curr, UGT_S_VOLTABC_STRU *Volt);
+EXTERN void UA_vADSampleAll(UGT_S_ADSAMPLEALL_STRU *v);
+EXTERN void UA_vVoltageConstruct(UGT_S_ADSAMPLEALL_STRU *v, UGT_S_VOLTABC_STRU *Volt);
+EXTERN void UA_vIABCConstruct(UGT_S_ADSAMPLEALL_STRU *v, UGT_S_CURRABC_STRU *Curr);
+EXTERN void UA_vDAPWM(void);
+	
+#undef EXTERN
+#endif
+	

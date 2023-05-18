@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-05-15 22:57:24
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-05-17 15:06:37
+ * @LastEditTime: 2023-05-18 11:20:22
  * @FilePath: \LCM_FOC\Sources\User_Soruces\HY_Application.c
  */
 #include "HY_Application.h"
@@ -114,7 +114,7 @@ void ModeUiPageProcess()
 {
     HY_TM1650_Clear();
     ui.modePage++;
-    ui.modePage %= 3;
+    ui.modePage %= 2;
 }
 
 /**
@@ -179,7 +179,7 @@ void ModeUi()
             HY_TM1650_ShowFault(UG_sSysStateErr); // 显示故障
         }
 
-        motor.state = 0;//发生错误后，电机应该处于停机状态
+        motor.state = 0; // 发生错误后，电机应该处于停机状态
     }
 }
 
@@ -219,6 +219,9 @@ static void HY_Task_50MS_Entry()
             ui.isSetSpeed = 0;                         // 转速设置结束
             motor.targetSpeed = motor.targetSpeedTemp; // 确认转速
             motor.fault = 0;                           // 手动置0，区分 UG_sSysStateErr.uSystemError.All
+            // UG_sSysStateErr.uSystemError.Bits.HardOverCurrent = 0;
+            // UG_sSysStateErr.uSystemError.Bits.LosePhase = 0;
+            UG_sSysStateErr.uSystemError.All=0X00;
             break;
         case 0x46:
             // 增速
@@ -264,17 +267,17 @@ void HY_TaskLoop()
     static int count = 0;
     count++;
 
-    if (count % 500 == 0)
+    if (count % 50 == 0)
     {
         HY_Task_50MS_Entry();
     }
 
-    if (count % 1000 == 0)
+    if (count % 100 == 0)
     {
         HY_Task_100MS_Entry();
     }
 
-    if (count % 10000 == 0)
+    if (count % 1000 == 0)
     {
         HY_Task_1S_Entry();
         count = 0;

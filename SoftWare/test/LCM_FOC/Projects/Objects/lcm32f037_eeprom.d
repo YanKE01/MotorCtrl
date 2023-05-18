@@ -1,0 +1,10 @@
+.\objects\lcm32f037_eeprom.o: ..\Sources\LCM32F03x_Drivers\lcm32f037_eeprom.c
+.\objects\lcm32f037_eeprom.o: ..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h
+.\objects\lcm32f037_eeprom.o: ..\Headers\ARM_Include\LCM32F037.h
+.\objects\lcm32f037_eeprom.o: ..\Headers\ARM_Include\core_cm0.h
+.\objects\lcm32f037_eeprom.o: D:\IDE\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\lcm32f037_eeprom.o: ..\Headers\ARM_Include\core_cmInstr.h
+.\objects\lcm32f037_eeprom.o: ..\Headers\ARM_Include\cmsis_armcc.h
+.\objects\lcm32f037_eeprom.o: ..\Headers\ARM_Include\core_cmFunc.h
+.\objects\lcm32f037_eeprom.o: ..\Headers\ARM_Include\lcm32f037_conf.h
+.\objects\lcm32f037_eeprom.o: ..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h
