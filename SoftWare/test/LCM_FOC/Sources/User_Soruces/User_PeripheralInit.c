@@ -33,7 +33,7 @@ void UP_vDeviceInit(void)
 	UP_vADCConfiguration();
 //	UP_vUART_Config();
 	UP_vDAC1_5_Config();
-	UP_vACMPconfiguration();
+	//UP_vACMPconfiguration(); //close hardware yk 2023-6-9	
 	UP_vTimerConfiguration();
 	User_vNVICConfiguration();
 	
@@ -329,7 +329,7 @@ void UP_vOpa1_config()
 
 	OPA_InitStruct.OPA_Oppselect 		= OPA1_Oppselect_PF0;
 	OPA_InitStruct.OPA_Opnselect 		= OPA1_Opnselect_PF1;
-	OPA_InitStruct.OPA_Gain 				= OPA_Gain_6;
+	OPA_InitStruct.OPA_Gain 				= OPA_Gain_2;
 	OPA_InitStruct.OPA_BiasVoltage 	= OPA_BiasVoltage_EN;
 	OPA_InitStruct.OPA_FeedbackRes 	= OPA_FeedbackRes_EN;
 	OPA_InitStruct.OPA_Opoto_Gpio 	= OPA_OPOEX_EN;
@@ -406,8 +406,8 @@ void UP_vOPA012Config()
 	#if (UPDS_CHIP_TYPE_SEL	== UPDS_LCM037_24PIN)	
 	ANACTRL->ANA_CSR &= (~0X0300);	//00 :VSS; 01 :PA8(YA2);10 :PF1(YA1);11 :PA6
 	#elif (UPDS_CHIP_TYPE_SEL	== UPDS_LCM037_32PIN) 
-	ANACTRL->ANA_CSR &= (~0X0300);	//00 :VSS; 01 :PA8(YA2);10 :PF1(YA1);11 :PA6
-	ANACTRL->ANA_CSR |= (0X0300);		//00 :VSS; 01 :PA8(YA2);10 :PF1(YA1);11 :PA6
+//	ANACTRL->ANA_CSR &= (~0X0300);	//00 :VSS; 01 :PA8(YA2);10 :PF1(YA1);11 :PA6
+//	ANACTRL->ANA_CSR |= (0X0300);		//00 :VSS; 01 :PA8(YA2);10 :PF1(YA1);11 :PA6
 	#endif	
 }
 
@@ -507,13 +507,13 @@ void UP_vGPIOConfiguration(void)
   GPIO_InitStruct.GPIO_PuPd 	= GPIO_PuPd_NOPULL;
 	GPIO_Init(GPIOA,&GPIO_InitStruct);
 
-//	GPIO_PinAFConfig(GPIOB,GPIO_PinSource1, GPIO_AF_1);  //PB1 Idc ´óÂË²¨
-//	GPIO_InitStruct.GPIO_Pin  	= GPIO_Pin_1;
-//  GPIO_InitStruct.GPIO_Mode 	= GPIO_Mode_AN;
-//  GPIO_InitStruct.GPIO_Speed 	= GPIO_Speed_Level_2;
-//  GPIO_InitStruct.GPIO_OType 	= GPIO_OType_PP;
-//  GPIO_InitStruct.GPIO_PuPd 	= GPIO_PuPd_NOPULL;
-//	GPIO_Init(GPIOB,&GPIO_InitStruct);
+	GPIO_PinAFConfig(GPIOB,GPIO_PinSource1, GPIO_AF_1);  //PB1 Idc ´óÂË²¨
+	GPIO_InitStruct.GPIO_Pin  	= GPIO_Pin_1;
+  GPIO_InitStruct.GPIO_Mode 	= GPIO_Mode_AN;
+  GPIO_InitStruct.GPIO_Speed 	= GPIO_Speed_Level_2;
+  GPIO_InitStruct.GPIO_OType 	= GPIO_OType_PP;
+  GPIO_InitStruct.GPIO_PuPd 	= GPIO_PuPd_NOPULL;
+	GPIO_Init(GPIOB,&GPIO_InitStruct);
 	
 	GPIO_PinAFConfig(GPIOA,GPIO_PinSource3, GPIO_AF_1);  //PA3 MosTemp
 	GPIO_InitStruct.GPIO_Pin  	= GPIO_Pin_3;
@@ -523,17 +523,17 @@ void UP_vGPIOConfiguration(void)
   GPIO_InitStruct.GPIO_PuPd 	= GPIO_PuPd_NOPULL;
 	GPIO_Init(GPIOA,&GPIO_InitStruct);
 	
-//	GPIO_PinAFConfig(GPIOA,GPIO_PinSource7, GPIO_AF_2);  //OPA1 Out Idc
-//	GPIO_InitStruct.GPIO_Pin  	= GPIO_Pin_7;
-//  GPIO_InitStruct.GPIO_Mode 	= GPIO_Mode_AN;
-//  GPIO_InitStruct.GPIO_Speed 	= GPIO_Speed_Level_2;
-//  GPIO_InitStruct.GPIO_OType 	= GPIO_OType_PP;
-//  GPIO_InitStruct.GPIO_PuPd 	= GPIO_PuPd_NOPULL;
-//	GPIO_Init(GPIOA,&GPIO_InitStruct);
+	GPIO_PinAFConfig(GPIOA,GPIO_PinSource7, GPIO_AF_1);  //PA7  EX_ADC1
+	GPIO_InitStruct.GPIO_Pin  	= GPIO_Pin_7;
+  GPIO_InitStruct.GPIO_Mode 	= GPIO_Mode_AN;
+  GPIO_InitStruct.GPIO_Speed 	= GPIO_Speed_Level_2;
+  GPIO_InitStruct.GPIO_OType 	= GPIO_OType_PP;
+  GPIO_InitStruct.GPIO_PuPd 	= GPIO_PuPd_NOPULL;
+	GPIO_Init(GPIOA,&GPIO_InitStruct);
 
-	GPIO_PinAFConfig(GPIOB,GPIO_PinSource0, GPIO_AF_1);  //PB0 PWM 
+	GPIO_PinAFConfig(GPIOB,GPIO_PinSource0, GPIO_AF_2);  //PB0   EX_ADC2
 	GPIO_InitStruct.GPIO_Pin  	= GPIO_Pin_0;
-  GPIO_InitStruct.GPIO_Mode 	= GPIO_Mode_AF;
+  GPIO_InitStruct.GPIO_Mode 	= GPIO_Mode_AN;
   GPIO_InitStruct.GPIO_Speed 	= GPIO_Speed_Level_2;
   GPIO_InitStruct.GPIO_OType 	= GPIO_OType_PP;
   GPIO_InitStruct.GPIO_PuPd 	= GPIO_PuPd_NOPULL;
@@ -542,6 +542,8 @@ void UP_vGPIOConfiguration(void)
 #endif
 }
 
+
+//ADC set here
 void UP_vADCConfiguration(void)
 {
 		ADC_InitTypeDef	ADC_InitStructure;
@@ -580,12 +582,20 @@ void UP_vADCConfiguration(void)
 		ADC_ChannelConfig(ADC,ADC_Channel_12,7,1,1); 	//OP1,Iu  
 		#elif (UPDS_CHIP_TYPE_SEL	== UPDS_LCM037_32PIN)
 			#if(UPDS_UABC_MEAS_SEL == UPDS_UABC_MEAS_DISABLE)
-
+/*********************************************
+HYADC
+A     7     4     2     X
+DATA  0     2     4     6
+B     12    11    9     8
+DATA  1     3     5     7
+********************************************/
 			ADC_ChannelConfig(ADC,ADC_Channel_2,7,1,1);		//OP2,Iv	
-//			ADC_ChannelConfig(ADC,ADC_Channel_3,7,1,1); 	//NTC			
-			ADC_ChannelConfig(ADC,ADC_Channel_4,7,1,1);		//Udc	
+//			ADC_ChannelConfig(ADC,ADC_Channel_3,7,1,1); //NTC			
+			ADC_ChannelConfig(ADC,ADC_Channel_4,7,1,1);		//Udc		
+			ADC_ChannelConfig(ADC,ADC_Channel_7,7,1,1); 	//PA7
 			
-//			ADC_ChannelConfig(ADC,ADC_Channel_9,7,1,1); 	//Idc ´óÂË²¨			
+			ADC_ChannelConfig(ADC,ADC_Channel_8,7,1,1); 	//PB0			
+			ADC_ChannelConfig(ADC,ADC_Channel_9,7,1,1); 	//Idc ´óÂË²¨			
 			ADC_ChannelConfig(ADC,ADC_Channel_11,7,1,1); 	//OPA0£¬Iu
 			ADC_ChannelConfig(ADC,ADC_Channel_12,7,1,1); 	//OP1£¬Idc
 //			ADC_ChannelConfig(ADC,ADC_Channel_13,7,1,1); 	//EMPTY		

@@ -91,7 +91,6 @@ Section Cross References
     user_peripheralinit.o(i.UP_vDeviceInit) refers to user_peripheralinit.o(i.UP_vOPA012Config) for UP_vOPA012Config
     user_peripheralinit.o(i.UP_vDeviceInit) refers to user_peripheralinit.o(i.UP_vADCConfiguration) for UP_vADCConfiguration
     user_peripheralinit.o(i.UP_vDeviceInit) refers to user_peripheralinit.o(i.UP_vDAC1_5_Config) for UP_vDAC1_5_Config
-    user_peripheralinit.o(i.UP_vDeviceInit) refers to user_peripheralinit.o(i.UP_vACMPconfiguration) for UP_vACMPconfiguration
     user_peripheralinit.o(i.UP_vDeviceInit) refers to user_peripheralinit.o(i.UP_vTimerConfiguration) for UP_vTimerConfiguration
     user_peripheralinit.o(i.UP_vDeviceInit) refers to user_nvic.o(i.User_vNVICConfiguration) for User_vNVICConfiguration
     user_peripheralinit.o(i.UP_vDeviceInit) refers to user_peripheralinit.o(.data) for .data
@@ -713,10 +712,9 @@ Section Cross References
     hy_application.o(i.HY_Task_1S_Entry) refers to dmul.o(.text) for __aeabi_dmul
     hy_application.o(i.HY_Task_1S_Entry) refers to daddsub.o(.text) for __aeabi_dadd
     hy_application.o(i.HY_Task_1S_Entry) refers to dfixui.o(.text) for __aeabi_d2uiz
-    hy_application.o(i.HY_Task_1S_Entry) refers to d2f.o(.text) for __aeabi_d2f
     hy_application.o(i.HY_Task_1S_Entry) refers to user_peripheralinit.o(.bss) for ADCConvertedRawData
     hy_application.o(i.HY_Task_1S_Entry) refers to hy_variable.o(.bss) for motor
-    hy_application.o(i.HY_Task_1S_Entry) refers to user_main.o(.bss) for UG_sADSampleAll
+    hy_application.o(i.HY_Task_1S_Entry) refers to hy_variable.o(.bss) for mpptAdc
     hy_application.o(i.HY_Task_50MS_Entry) refers to hy_display.o(i.HY_TM1650_ScanKey) for HY_TM1650_ScanKey
     hy_application.o(i.HY_Task_50MS_Entry) refers to user_interrupt.o(i.__ARM_common_switch8) for __ARM_common_switch8
     hy_application.o(i.HY_Task_50MS_Entry) refers to hy_application.o(i.ModeUiPageProcess) for ModeUiPageProcess
@@ -988,6 +986,7 @@ Removing Unused input sections from the image.
     Removing user_interrupt.o(.data), (1 bytes).
     Removing user_peripheralinit.o(.rev16_text), (4 bytes).
     Removing user_peripheralinit.o(.revsh_text), (4 bytes).
+    Removing user_peripheralinit.o(i.UP_vACMPconfiguration), (66 bytes).
     Removing user_peripheralinit.o(i.UP_vBreakDisable), (16 bytes).
     Removing user_peripheralinit.o(i.UP_vUART_Config), (216 bytes).
     Removing user_peripheralinit.o(.bss), (12 bytes).
@@ -1221,6 +1220,9 @@ Removing Unused input sections from the image.
     Removing lcm32f037_acmp.o(i.ACMP0_FREN_Cmd), (28 bytes).
     Removing lcm32f037_acmp.o(i.ACMP0_Init), (136 bytes).
     Removing lcm32f037_acmp.o(i.ACMP0_SEQ_INPUT_SELECT), (48 bytes).
+    Removing lcm32f037_acmp.o(i.ACMP1_Cmd), (32 bytes).
+    Removing lcm32f037_acmp.o(i.ACMP1_Init), (136 bytes).
+    Removing lcm32f037_acmp.o(i.ACMP1_SEQ_INPUT_SELECT), (48 bytes).
     Removing lcm32f037_acmp.o(i.ACMP2_Cmd), (32 bytes).
     Removing lcm32f037_acmp.o(i.ACMP2_Init), (136 bytes).
     Removing lcm32f037_acmp.o(i.ACMP2_SEQ_INPUT_SELECT), (48 bytes).
@@ -1437,7 +1439,7 @@ Removing Unused input sections from the image.
     Removing mds_observer.o(.revsh_text), (4 bytes).
     Removing mds_observer.o(i.MDS_vOBPosObserverShort), (214 bytes).
 
-461 unused section(s) (total 18863 bytes) removed from the image.
+465 unused section(s) (total 19145 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1447,35 +1449,35 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_div0.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0_sigfpe.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_idiv0.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0_sigfpe.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_div0.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_idiv0.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_idiv0_sigfpe.o ABSOLUTE
     ../clib/angel/scatterp.s                 0x00000000   Number         0  __scatter.o ABSOLUTE
     ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  tempstk.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
-    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
-    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
     ../clib/division.c                       0x00000000   Number         0  lludiv.o ABSOLUTE
     ../clib/division.s                       0x00000000   Number         0  aeabi_sdiv.o ABSOLUTE
@@ -1483,28 +1485,28 @@ Image Symbol Table
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
     ../clib/longlong.c                       0x00000000   Number         0  llmul.o ABSOLUTE
     ../clib/memcpset.c                       0x00000000   Number         0  rt_memcpy.o ABSOLUTE
     ../clib/memcpset.c                       0x00000000   Number         0  rt_memcpy.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_formal.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../fplib/cfplib/d2f.c                    0x00000000   Number         0  d2f.o ABSOLUTE
@@ -1513,12 +1515,12 @@ Image Symbol Table
     ../fplib/cfplib/dmul.c                   0x00000000   Number         0  dmul.o ABSOLUTE
     ../fplib/cfplib/f2d.c                    0x00000000   Number         0  f2d.o ABSOLUTE
     ../fplib/cfplib/fdiv.c                   0x00000000   Number         0  fdiv.o ABSOLUTE
+    ../fplib/cfplib/ffix.c                   0x00000000   Number         0  ffixui.o ABSOLUTE
+    ../fplib/cfplib/ffix.c                   0x00000000   Number         0  ffixi.o ABSOLUTE
     ../fplib/cfplib/ffix.c                   0x00000000   Number         0  dfixui.o ABSOLUTE
     ../fplib/cfplib/ffix.c                   0x00000000   Number         0  dfixi.o ABSOLUTE
-    ../fplib/cfplib/ffix.c                   0x00000000   Number         0  ffixi.o ABSOLUTE
-    ../fplib/cfplib/ffix.c                   0x00000000   Number         0  ffixui.o ABSOLUTE
-    ../fplib/cfplib/fflt.c                   0x00000000   Number         0  dflti.o ABSOLUTE
     ../fplib/cfplib/fflt.c                   0x00000000   Number         0  fflti.o ABSOLUTE
+    ../fplib/cfplib/fflt.c                   0x00000000   Number         0  dflti.o ABSOLUTE
     ../fplib/cfplib/fpinit.c                 0x00000000   Number         0  fpinit.o ABSOLUTE
     ../fplib/cfplib/scalbn.c                 0x00000000   Number         0  fscalbn.o ABSOLUTE
     ../fplib/cfplib/scalbn.c                 0x00000000   Number         0  dscalbn.o ABSOLUTE
@@ -1683,221 +1685,217 @@ Image Symbol Table
     .text                                    0x08001364   Section        0  sys_exit.o(.text)
     .text                                    0x08001370   Section        2  use_no_semi.o(.text)
     .text                                    0x08001372   Section        0  indicate_semi.o(.text)
-    i.ACMP1_Cmd                              0x08001374   Section        0  lcm32f037_acmp.o(i.ACMP1_Cmd)
-    i.ACMP1_Init                             0x08001394   Section        0  lcm32f037_acmp.o(i.ACMP1_Init)
-    i.ACMP1_SEQ_INPUT_SELECT                 0x0800141c   Section        0  lcm32f037_acmp.o(i.ACMP1_SEQ_INPUT_SELECT)
-    i.ADC_ChannelConfig                      0x0800144c   Section        0  lcm32f037_adc.o(i.ADC_ChannelConfig)
-    i.ADC_Cmd                                0x08001468   Section        0  lcm32f037_adc.o(i.ADC_Cmd)
-    i.ADC_Init                               0x080014c0   Section        0  lcm32f037_adc.o(i.ADC_Init)
-    i.ADC_StartOfConversion                  0x0800160c   Section        0  lcm32f037_adc.o(i.ADC_StartOfConversion)
-    i.ADC_StructInit                         0x0800162c   Section        0  lcm32f037_adc.o(i.ADC_StructInit)
-    i.ADC_VrefintSelect                      0x08001650   Section        0  lcm32f037_adc.o(i.ADC_VrefintSelect)
-    i.DAC_Cmd                                0x080016fc   Section        0  lcm32f037_dac.o(i.DAC_Cmd)
-    i.DAC_Init                               0x08001714   Section        0  lcm32f037_dac.o(i.DAC_Init)
-    i.DAC_SetDac_10B_Data                    0x08001834   Section        0  lcm32f037_dac.o(i.DAC_SetDac_10B_Data)
-    i.DAC_SoftwareTriggerCmd                 0x0800184e   Section        0  lcm32f037_dac.o(i.DAC_SoftwareTriggerCmd)
-    i.DMAC_CH1_2_Handler                     0x08001868   Section        0  user_interrupt.o(i.DMAC_CH1_2_Handler)
-    i.DMA_ClearITPendingBit                  0x080018f0   Section        0  lcm32f037_dma.o(i.DMA_ClearITPendingBit)
-    i.DMA_Cmd                                0x08001914   Section        0  lcm32f037_dma.o(i.DMA_Cmd)
-    i.DMA_DeInit                             0x08001980   Section        0  lcm32f037_dma.o(i.DMA_DeInit)
-    i.DMA_ITConfig                           0x08001a48   Section        0  lcm32f037_dma.o(i.DMA_ITConfig)
-    i.DMA_Init                               0x08001a88   Section        0  lcm32f037_dma.o(i.DMA_Init)
-    i.DMA_RemapConfig                        0x08001b70   Section        0  lcm32f037_dma.o(i.DMA_RemapConfig)
-    i.DMA_SetCurrDataCounter                 0x08001bcc   Section        0  lcm32f037_dma.o(i.DMA_SetCurrDataCounter)
-    i.FLASH_LATENCY                          0x08001bd4   Section        0  lcm32f037_rcc.o(i.FLASH_LATENCY)
-    i.GPIO_Init                              0x08001bf8   Section        0  lcm32f037_gpio.o(i.GPIO_Init)
-    i.GPIO_PinAFConfig                       0x08001cc6   Section        0  lcm32f037_gpio.o(i.GPIO_PinAFConfig)
-    i.GPIO_ReadInputDataBit                  0x08001cf0   Section        0  lcm32f037_gpio.o(i.GPIO_ReadInputDataBit)
-    i.GPIO_ResetBits                         0x08001cfe   Section        0  lcm32f037_gpio.o(i.GPIO_ResetBits)
-    i.GPIO_SetBits                           0x08001d04   Section        0  lcm32f037_gpio.o(i.GPIO_SetBits)
-    i.HSI_SetSysClockTo96                    0x08001d08   Section        0  lcm32f037_rcc.o(i.HSI_SetSysClockTo96)
-    i.HY_GpioInit                            0x08001d98   Section        0  hy_hal.o(i.HY_GpioInit)
-    HY_GpioInit                              0x08001d99   Thumb Code    62  hy_hal.o(i.HY_GpioInit)
-    i.HY_HalInit                             0x08001dd6   Section        0  hy_hal.o(i.HY_HalInit)
-    i.HY_SetPumpMechanicalSpeed              0x08001de8   Section        0  hy_application.o(i.HY_SetPumpMechanicalSpeed)
-    i.HY_TM1650_Clear                        0x08001e28   Section        0  hy_display.o(i.HY_TM1650_Clear)
-    i.HY_TM1650_Read                         0x08001e40   Section        0  hy_display.o(i.HY_TM1650_Read)
-    i.HY_TM1650_ScanKey                      0x08001e64   Section        0  hy_display.o(i.HY_TM1650_ScanKey)
-    i.HY_TM1650_SetDisplay                   0x08001e6e   Section        0  hy_display.o(i.HY_TM1650_SetDisplay)
-    i.HY_TM1650_SetFloat                     0x08001ea0   Section        0  hy_display.o(i.HY_TM1650_SetFloat)
-    i.HY_TM1650_SetIndexLetter               0x08001f38   Section        0  hy_display.o(i.HY_TM1650_SetIndexLetter)
-    i.HY_TM1650_SetIndexNumber               0x08001f90   Section        0  hy_display.o(i.HY_TM1650_SetIndexNumber)
-    i.HY_TM1650_SetNumber                    0x08001fdc   Section        0  hy_display.o(i.HY_TM1650_SetNumber)
-    i.HY_TM1650_ShowFault                    0x0800200c   Section        0  hy_display.o(i.HY_TM1650_ShowFault)
-    i.HY_TM1650_Write                        0x080020a0   Section        0  hy_display.o(i.HY_TM1650_Write)
-    i.HY_TaskLoop                            0x080020c4   Section        0  hy_application.o(i.HY_TaskLoop)
-    i.HY_Task_100MS_Entry                    0x08002108   Section        0  hy_application.o(i.HY_Task_100MS_Entry)
-    HY_Task_100MS_Entry                      0x08002109   Thumb Code     2  hy_application.o(i.HY_Task_100MS_Entry)
-    i.HY_Task_1S_Entry                       0x0800210c   Section        0  hy_application.o(i.HY_Task_1S_Entry)
-    HY_Task_1S_Entry                         0x0800210d   Thumb Code    84  hy_application.o(i.HY_Task_1S_Entry)
-    i.HY_Task_50MS_Entry                     0x08002180   Section        0  hy_application.o(i.HY_Task_50MS_Entry)
-    HY_Task_50MS_Entry                       0x08002181   Thumb Code   100  hy_application.o(i.HY_Task_50MS_Entry)
-    i.HY_VariableInit                        0x080021f4   Section        0  hy_variable.o(i.HY_VariableInit)
-    i.IncreaseSpeed                          0x08002224   Section        0  hy_application.o(i.IncreaseSpeed)
-    i.LimitSpeed                             0x08002250   Section        0  hy_application.o(i.LimitSpeed)
-    LimitSpeed                               0x08002251   Thumb Code    18  hy_application.o(i.LimitSpeed)
-    i.MDS_s32Atan2                           0x08002264   Section        0  mds_cordic.o(i.MDS_s32Atan2)
-    i.MDS_vAlignment                         0x080022e8   Section        0  mds_motorcontrol.o(i.MDS_vAlignment)
-    i.MDS_vBreak                             0x080022ec   Section        0  mds_motorcontrol.o(i.MDS_vBreak)
-    i.MDS_vClosedloop                        0x0800234c   Section        0  mds_motorcontrol.o(i.MDS_vClosedloop)
-    i.MDS_vConstantPowerDQ                   0x0800250c   Section        0  mds_fluxweakeningpowercontrol.o(i.MDS_vConstantPowerDQ)
-    i.MDS_vConstantPowerInit                 0x0800254c   Section        0  mds_fluxweakeningpowercontrol.o(i.MDS_vConstantPowerInit)
-    i.MDS_vCurLimit                          0x080025d8   Section        0  mds_observer.o(i.MDS_vCurLimit)
-    i.MDS_vCurLimitInit                      0x08002634   Section        0  user_sysparainit.o(i.MDS_vCurLimitInit)
-    i.MDS_vCurPIRegulatorIQ24Init            0x08002658   Section        0  mds_pidregulators.o(i.MDS_vCurPIRegulatorIQ24Init)
-    i.MDS_vCurrClarke                        0x080026b0   Section        0  mds_clarkpark.o(i.MDS_vCurrClarke)
-    i.MDS_vCurrPark                          0x080026d4   Section        0  mds_clarkpark.o(i.MDS_vCurrPark)
-    i.MDS_vCurrentControllerCalc             0x0800270c   Section        0  mds_observer.o(i.MDS_vCurrentControllerCalc)
-    i.MDS_vDeadTimeComp                      0x08002800   Section        0  mds_observer.o(i.MDS_vDeadTimeComp)
-    i.MDS_vFOC                               0x080028f0   Section        0  mds_svpwm.o(i.MDS_vFOC)
-    i.MDS_vFault                             0x08002a6c   Section        0  mds_motorcontrol.o(i.MDS_vFault)
-    i.MDS_vFluxWeakening                     0x08002a84   Section        0  mds_fluxweakeningpowercontrol.o(i.MDS_vFluxWeakening)
-    i.MDS_vFluxWeakeningInit                 0x08002aec   Section        0  mds_fluxweakeningpowercontrol.o(i.MDS_vFluxWeakeningInit)
-    i.MDS_vIPDInit                           0x08002b78   Section        0  user_sysparainit.o(i.MDS_vIPDInit)
-    i.MDS_vIdentify                          0x08002bbc   Section        0  mds_motorcontrol.o(i.MDS_vIdentify)
-    i.MDS_vIdle                              0x08002d50   Section        0  mds_motorcontrol.o(i.MDS_vIdle)
-    i.MDS_vInit                              0x08002d64   Section        0  mds_motorcontrol.o(i.MDS_vInit)
-    i.MDS_vInitPosDeter                      0x08002d7c   Section        0  mds_observer.o(i.MDS_vInitPosDeter)
-    i.MDS_vMTPAInit                          0x08002f60   Section        0  mds_fluxweakeningpowercontrol.o(i.MDS_vMTPAInit)
-    i.MDS_vMotorAppCommand                   0x08002f7c   Section        0  mds_motorcontrol.o(i.MDS_vMotorAppCommand)
-    i.MDS_vMotorControlState                 0x08002fec   Section        0  mds_motorcontrol.o(i.MDS_vMotorControlState)
-    i.MDS_vMotorParaCalc                     0x08003034   Section        0  user_sysparainit.o(i.MDS_vMotorParaCalc)
-    i.MDS_vMotorParaReadFromHfile            0x08003420   Section        0  user_sysparainit.o(i.MDS_vMotorParaReadFromHfile)
-    i.MDS_vNoWaterCal                        0x08003594   Section        0  mds_fluxweakeningpowercontrol.o(i.MDS_vNoWaterCal)
-    i.MDS_vOBPosObserver                     0x080035e4   Section        0  mds_observer.o(i.MDS_vOBPosObserver)
-    i.MDS_vOBPosObserverInit                 0x0800370c   Section        0  user_sysparainit.o(i.MDS_vOBPosObserverInit)
-    i.MDS_vOBRestarting                      0x08003774   Section        0  mds_observer.o(i.MDS_vOBRestarting)
-    i.MDS_vOpenloop                          0x08003c48   Section        0  mds_motorcontrol.o(i.MDS_vOpenloop)
-    i.MDS_vOtherInitFromUserSetting          0x08003e1c   Section        0  user_sysparainit.o(i.MDS_vOtherInitFromUserSetting)
-    i.MDS_vPIRegulatorIQ24                   0x080041c0   Section        0  mds_pidregulators.o(i.MDS_vPIRegulatorIQ24)
-    i.MDS_vPWMSwitchImmediate                0x08004244   Section        0  mds_motorcontrol.o(i.MDS_vPWMSwitchImmediate)
-    i.MDS_vPWMSwitchNextPeriod               0x080042ac   Section        0  mds_motorcontrol.o(i.MDS_vPWMSwitchNextPeriod)
-    i.MDS_vPWMUpdate                         0x08004344   Section        0  mds_svpwm.o(i.MDS_vPWMUpdate)
-    i.MDS_vPrecharge                         0x080043a0   Section        0  mds_motorcontrol.o(i.MDS_vPrecharge)
-    i.MDS_vRampGen                           0x080043a2   Section        0  mds_thetagenerate.o(i.MDS_vRampGen)
-    i.MDS_vRampInit                          0x080043ec   Section        0  mds_thetagenerate.o(i.MDS_vRampInit)
-    i.MDS_vSVPWM                             0x08004420   Section        0  mds_observer.o(i.MDS_vSVPWM)
-    i.MDS_vSpdPIRegulatorIQ24Init            0x08004538   Section        0  mds_pidregulators.o(i.MDS_vSpdPIRegulatorIQ24Init)
-    i.MDS_vStart                             0x080045a4   Section        0  mds_motorcontrol.o(i.MDS_vStart)
-    i.MDS_vStop                              0x08004650   Section        0  mds_motorcontrol.o(i.MDS_vStop)
-    i.MDS_vTIMInit                           0x0800468c   Section        0  user_sysparainit.o(i.MDS_vTIMInit)
-    i.MDS_vThetaGen                          0x080046b4   Section        0  mds_thetagenerate.o(i.MDS_vThetaGen)
-    i.MDS_vThetaInit                         0x080046e8   Section        0  mds_thetagenerate.o(i.MDS_vThetaInit)
-    i.MDS_vTrack                             0x0800470c   Section        0  mds_motorcontrol.o(i.MDS_vTrack)
-    i.MDS_vTrigFunctions                     0x08004730   Section        0  mds_clarkpark.o(i.MDS_vTrigFunctions)
-    i.MDS_vUdcPIRegulatorIQ24Init            0x080047a0   Section        0  mds_pidregulators.o(i.MDS_vUdcPIRegulatorIQ24Init)
-    i.MDS_vUdcSwitchCheck                    0x080047d4   Section        0  mds_motorcontrol.o(i.MDS_vUdcSwitchCheck)
-    i.MDS_vVSPCheck                          0x08004888   Section        0  mds_motorcontrol.o(i.MDS_vVSPCheck)
-    i.MDS_vVoltClarke                        0x08004958   Section        0  mds_clarkpark.o(i.MDS_vVoltClarke)
-    i.MDS_vVoltPark                          0x0800497c   Section        0  mds_clarkpark.o(i.MDS_vVoltPark)
-    i.MDS_vVoltRevParkCircleLimit            0x080049b4   Section        0  mds_clarkpark.o(i.MDS_vVoltRevParkCircleLimit)
-    i.MDS_vVoltageCalc                       0x080049ec   Section        0  mds_calcvoltage.o(i.MDS_vVoltageCalc)
-    i.MDS_vWait                              0x08004a30   Section        0  mds_motorcontrol.o(i.MDS_vWait)
-    i.MDS_vWriteFlash                        0x08004a5c   Section        0  mds_motorcontrol.o(i.MDS_vWriteFlash)
-    i.ModeUi                                 0x08004a60   Section        0  hy_application.o(i.ModeUi)
-    i.ModeUiPageProcess                      0x08004b38   Section        0  hy_application.o(i.ModeUiPageProcess)
-    i.NVIC_Init                              0x08004b54   Section        0  lcm32f037_tim.o(i.NVIC_Init)
-    i.OPA0_TRIM                              0x08004ba4   Section        0  lcm32f037_opa.o(i.OPA0_TRIM)
-    i.OPA1_TRIM                              0x08004c40   Section        0  lcm32f037_opa.o(i.OPA1_TRIM)
-    i.OPA2_TRIM                              0x08004cdc   Section        0  lcm32f037_opa.o(i.OPA2_TRIM)
-    i.OPA_Cmd                                0x08004d78   Section        0  lcm32f037_opa.o(i.OPA_Cmd)
-    i.OPA_Init                               0x08004d90   Section        0  lcm32f037_opa.o(i.OPA_Init)
-    i.PWR_LDODriverLevel                     0x08004dfc   Section        0  lcm32f037_pwr.o(i.PWR_LDODriverLevel)
-    i.PWR_LVRCmd                             0x08004e30   Section        0  lcm32f037_pwr.o(i.PWR_LVRCmd)
-    i.RCC_AHBPeriphClockCmd                  0x08004e78   Section        0  lcm32f037_rcc.o(i.RCC_AHBPeriphClockCmd)
-    i.RCC_APB1PeriphClockCmd                 0x08004ec4   Section        0  lcm32f037_rcc.o(i.RCC_APB1PeriphClockCmd)
-    i.RCC_DeInit                             0x08004f4c   Section        0  lcm32f037_rcc.o(i.RCC_DeInit)
-    i.RCC_GetClockFreq                       0x08004ff8   Section        0  lcm32f037_rcc.o(i.RCC_GetClockFreq)
-    i.ReduceSpeed                            0x080051a0   Section        0  hy_application.o(i.ReduceSpeed)
-    i.SATRT_OFACMP1                          0x080051cc   Section        0  lcm32f037_acmp.o(i.SATRT_OFACMP1)
-    i.SetSysClock                            0x080051dc   Section        0  lcm32f037_rcc.o(i.SetSysClock)
-    i.SysTick_Handler                        0x080051f4   Section        0  user_interrupt.o(i.SysTick_Handler)
-    i.SystemInit                             0x080053f8   Section        0  lcm32f037_rcc.o(i.SystemInit)
-    i.TIM1_NON_CC_Handler                    0x08005400   Section        0  user_interrupt.o(i.TIM1_NON_CC_Handler)
-    i.TIM_ARRPreloadConfig                   0x0800543c   Section        0  lcm32f037_tim.o(i.TIM_ARRPreloadConfig)
-    i.TIM_BDTRConfig                         0x08005458   Section        0  lcm32f037_tim.o(i.TIM_BDTRConfig)
-    i.TIM_CCxCmd                             0x0800547c   Section        0  lcm32f037_tim.o(i.TIM_CCxCmd)
-    i.TIM_CCxNCmd                            0x08005498   Section        0  lcm32f037_tim.o(i.TIM_CCxNCmd)
-    i.TIM_ClearITPendingBit                  0x080054b4   Section        0  lcm32f037_tim.o(i.TIM_ClearITPendingBit)
-    i.TIM_Cmd                                0x080054c0   Section        0  lcm32f037_tim.o(i.TIM_Cmd)
-    i.TIM_CtrlPWMOutputs                     0x080054dc   Section        0  lcm32f037_tim.o(i.TIM_CtrlPWMOutputs)
-    i.TIM_ITConfig                           0x080054f6   Section        0  lcm32f037_tim.o(i.TIM_ITConfig)
-    i.TIM_OC1Init                            0x08005510   Section        0  lcm32f037_tim.o(i.TIM_OC1Init)
-    i.TIM_OC1PreloadConfig                   0x0800559c   Section        0  lcm32f037_tim.o(i.TIM_OC1PreloadConfig)
-    i.TIM_OC2Init                            0x080055ac   Section        0  lcm32f037_tim.o(i.TIM_OC2Init)
-    i.TIM_OC2PreloadConfig                   0x08005654   Section        0  lcm32f037_tim.o(i.TIM_OC2PreloadConfig)
-    i.TIM_OC3Init                            0x0800566c   Section        0  lcm32f037_tim.o(i.TIM_OC3Init)
-    i.TIM_OC3PreloadConfig                   0x08005700   Section        0  lcm32f037_tim.o(i.TIM_OC3PreloadConfig)
-    i.TIM_OC4Init                            0x08005710   Section        0  lcm32f037_tim.o(i.TIM_OC4Init)
-    i.TIM_OC4PreloadConfig                   0x08005780   Section        0  lcm32f037_tim.o(i.TIM_OC4PreloadConfig)
-    i.TIM_TimeBaseInit                       0x08005798   Section        0  lcm32f037_tim.o(i.TIM_TimeBaseInit)
-    i.UART0_Handler                          0x08005808   Section        0  user_interrupt.o(i.UART0_Handler)
-    i.UA_u8CurrSampleOffest                  0x0800580c   Section        0  user_adsample.o(i.UA_u8CurrSampleOffest)
-    i.UA_vADSampleAll                        0x08005924   Section        0  user_adsample.o(i.UA_vADSampleAll)
-    i.UA_vIABCConstruct                      0x08005a14   Section        0  user_adsample.o(i.UA_vIABCConstruct)
-    i.UA_vVoltageConstruct                   0x08005a30   Section        0  user_adsample.o(i.UA_vVoltageConstruct)
-    i.UP_vACMPconfiguration                  0x08005a98   Section        0  user_peripheralinit.o(i.UP_vACMPconfiguration)
-    i.UP_vADCConfiguration                   0x08005adc   Section        0  user_peripheralinit.o(i.UP_vADCConfiguration)
-    i.UP_vBreakEnable                        0x08005bd8   Section        0  user_peripheralinit.o(i.UP_vBreakEnable)
-    i.UP_vDAC1_5_Config                      0x08005be8   Section        0  user_peripheralinit.o(i.UP_vDAC1_5_Config)
-    i.UP_vDeviceInit                         0x08005c4c   Section        0  user_peripheralinit.o(i.UP_vDeviceInit)
-    i.UP_vGPIOConfiguration                  0x08005cec   Section        0  user_peripheralinit.o(i.UP_vGPIOConfiguration)
-    i.UP_vOPA012Config                       0x08005da4   Section        0  user_peripheralinit.o(i.UP_vOPA012Config)
-    i.UP_vOpa0_config                        0x08005dcc   Section        0  user_peripheralinit.o(i.UP_vOpa0_config)
-    i.UP_vOpa1_config                        0x08005e3c   Section        0  user_peripheralinit.o(i.UP_vOpa1_config)
-    i.UP_vOpa2_config                        0x08005eac   Section        0  user_peripheralinit.o(i.UP_vOpa2_config)
-    i.UP_vPeriphClockCmdInit                 0x08005f18   Section        0  user_peripheralinit.o(i.UP_vPeriphClockCmdInit)
-    i.UP_vTimerConfiguration                 0x08005f64   Section        0  user_peripheralinit.o(i.UP_vTimerConfiguration)
-    i.US_vGlobalVariablesInit                0x0800616c   Section        0  user_sysparainit.o(i.US_vGlobalVariablesInit)
-    i.US_vHardwareOverCurCalcAMP             0x08006274   Section        0  user_syserrorprocess.o(i.US_vHardwareOverCurCalcAMP)
-    i.US_vSysErrorCheck                      0x080062cc   Section        0  user_syserrorprocess.o(i.US_vSysErrorCheck)
-    i.US_vSysFaultProcess                    0x08006674   Section        0  user_syserrorprocess.o(i.US_vSysFaultProcess)
-    i.US_vSystParaInit                       0x08006718   Section        0  user_sysparainit.o(i.US_vSystParaInit)
-    i.US_vSystParaInitPowerup                0x080067c8   Section        0  user_sysparainit.o(i.US_vSystParaInitPowerup)
-    i.US_vSystStateInit                      0x0800680c   Section        0  user_sysparainit.o(i.US_vSystStateInit)
-    i.US_vUserAppInit                        0x08006894   Section        0  user_sysparainit.o(i.US_vUserAppInit)
-    i.User_vNVICConfiguration                0x080068b8   Section        0  user_nvic.o(i.User_vNVICConfiguration)
-    i.__ARM_common_ll_mulss                  0x08006920   Section        0  user_datatransform.o(i.__ARM_common_ll_mulss)
-    i.__ARM_common_ll_muluu                  0x08006950   Section        0  user_sysparainit.o(i.__ARM_common_ll_muluu)
-    i.__ARM_common_switch8                   0x08006980   Section        0  user_interrupt.o(i.__ARM_common_switch8)
-    i.delay10us                              0x0800699c   Section        0  lcm32f037_rcc.o(i.delay10us)
-    i.get_opa0_trim                          0x080069dc   Section        0  lcm32f037_opa.o(i.get_opa0_trim)
-    i.get_opa1_trim                          0x080069ec   Section        0  lcm32f037_opa.o(i.get_opa1_trim)
-    i.get_opa2_trim                          0x080069fc   Section        0  lcm32f037_opa.o(i.get_opa2_trim)
-    i.iic_ack                                0x08006a0c   Section        0  hy_softiic.o(i.iic_ack)
-    i.iic_delay                              0x08006a44   Section        0  hy_softiic.o(i.iic_delay)
-    i.iic_readByte                           0x08006a54   Section        0  hy_softiic.o(i.iic_readByte)
-    i.iic_sendByte                           0x08006a96   Section        0  hy_softiic.o(i.iic_sendByte)
-    i.iic_start                              0x08006aec   Section        0  hy_softiic.o(i.iic_start)
-    i.iic_stop                               0x08006b20   Section        0  hy_softiic.o(i.iic_stop)
-    i.iic_waitAck                            0x08006b54   Section        0  hy_softiic.o(i.iic_waitAck)
-    i.main                                   0x08006b96   Section        0  user_main.o(i.main)
-    i.opa0_trim                              0x08006bb4   Section        0  lcm32f037_opa.o(i.opa0_trim)
-    i.opa0_trim_FLAG                         0x08006bcc   Section        0  lcm32f037_opa.o(i.opa0_trim_FLAG)
-    i.opa1_trim                              0x08006bd8   Section        0  lcm32f037_opa.o(i.opa1_trim)
-    i.opa1_trim_FLAG                         0x08006bf0   Section        0  lcm32f037_opa.o(i.opa1_trim_FLAG)
-    i.opa2_trim                              0x08006bfc   Section        0  lcm32f037_opa.o(i.opa2_trim)
-    i.opa2_trim_FLAG                         0x08006c14   Section        0  lcm32f037_opa.o(i.opa2_trim_FLAG)
-    i.sda_input                              0x08006c20   Section        0  hy_softiic.o(i.sda_input)
-    i.sda_ouput                              0x08006c38   Section        0  hy_softiic.o(i.sda_ouput)
-    x$fpl$fadd                               0x08006c54   Section      140  faddsub.o(x$fpl$fadd)
-    _fadd1                                   0x08006c61   Thumb Code     0  faddsub.o(x$fpl$fadd)
-    x$fpl$fmul                               0x08006ce0   Section      176  fmul.o(x$fpl$fmul)
-    x$fpl$frsb                               0x08006d90   Section       24  faddsub.o(x$fpl$frsb)
-    x$fpl$fsub                               0x08006da8   Section      208  faddsub.o(x$fpl$fsub)
-    _fsub1                                   0x08006db5   Thumb Code     0  faddsub.o(x$fpl$fsub)
-    .constdata                               0x08006e78   Section     1024  user_syserrorprocess.o(.constdata)
-    x$fpl$usenofp                            0x08006e78   Section        0  usenofp.o(x$fpl$usenofp)
-    sqrt_table                               0x08006e78   Data        1024  user_syserrorprocess.o(.constdata)
-    .constdata                               0x08007278   Section      654  mds_clarkpark.o(.constdata)
-    circle_limit_table                       0x08007278   Data         142  mds_clarkpark.o(.constdata)
-    .constdata                               0x08007508   Section       80  mds_cordic.o(.constdata)
-    .constdata                               0x08007558   Section     1024  mds_fluxweakeningpowercontrol.o(.constdata)
-    sqrt_table                               0x08007558   Data        1024  mds_fluxweakeningpowercontrol.o(.constdata)
-    .constdata                               0x08007958   Section      128  ddiv.o(.constdata)
-    ddiv_reciptbl                            0x08007958   Data         128  ddiv.o(.constdata)
-    .constdata                               0x080079d8   Section       64  fdiv.o(.constdata)
-    fdiv_tab                                 0x080079d8   Data          64  fdiv.o(.constdata)
+    i.ADC_ChannelConfig                      0x08001374   Section        0  lcm32f037_adc.o(i.ADC_ChannelConfig)
+    i.ADC_Cmd                                0x08001390   Section        0  lcm32f037_adc.o(i.ADC_Cmd)
+    i.ADC_Init                               0x080013e8   Section        0  lcm32f037_adc.o(i.ADC_Init)
+    i.ADC_StartOfConversion                  0x08001534   Section        0  lcm32f037_adc.o(i.ADC_StartOfConversion)
+    i.ADC_StructInit                         0x08001554   Section        0  lcm32f037_adc.o(i.ADC_StructInit)
+    i.ADC_VrefintSelect                      0x08001578   Section        0  lcm32f037_adc.o(i.ADC_VrefintSelect)
+    i.DAC_Cmd                                0x08001624   Section        0  lcm32f037_dac.o(i.DAC_Cmd)
+    i.DAC_Init                               0x0800163c   Section        0  lcm32f037_dac.o(i.DAC_Init)
+    i.DAC_SetDac_10B_Data                    0x0800175c   Section        0  lcm32f037_dac.o(i.DAC_SetDac_10B_Data)
+    i.DAC_SoftwareTriggerCmd                 0x08001776   Section        0  lcm32f037_dac.o(i.DAC_SoftwareTriggerCmd)
+    i.DMAC_CH1_2_Handler                     0x08001790   Section        0  user_interrupt.o(i.DMAC_CH1_2_Handler)
+    i.DMA_ClearITPendingBit                  0x08001818   Section        0  lcm32f037_dma.o(i.DMA_ClearITPendingBit)
+    i.DMA_Cmd                                0x0800183c   Section        0  lcm32f037_dma.o(i.DMA_Cmd)
+    i.DMA_DeInit                             0x080018a8   Section        0  lcm32f037_dma.o(i.DMA_DeInit)
+    i.DMA_ITConfig                           0x08001970   Section        0  lcm32f037_dma.o(i.DMA_ITConfig)
+    i.DMA_Init                               0x080019b0   Section        0  lcm32f037_dma.o(i.DMA_Init)
+    i.DMA_RemapConfig                        0x08001a98   Section        0  lcm32f037_dma.o(i.DMA_RemapConfig)
+    i.DMA_SetCurrDataCounter                 0x08001af4   Section        0  lcm32f037_dma.o(i.DMA_SetCurrDataCounter)
+    i.FLASH_LATENCY                          0x08001afc   Section        0  lcm32f037_rcc.o(i.FLASH_LATENCY)
+    i.GPIO_Init                              0x08001b20   Section        0  lcm32f037_gpio.o(i.GPIO_Init)
+    i.GPIO_PinAFConfig                       0x08001bee   Section        0  lcm32f037_gpio.o(i.GPIO_PinAFConfig)
+    i.GPIO_ReadInputDataBit                  0x08001c18   Section        0  lcm32f037_gpio.o(i.GPIO_ReadInputDataBit)
+    i.GPIO_ResetBits                         0x08001c26   Section        0  lcm32f037_gpio.o(i.GPIO_ResetBits)
+    i.GPIO_SetBits                           0x08001c2c   Section        0  lcm32f037_gpio.o(i.GPIO_SetBits)
+    i.HSI_SetSysClockTo96                    0x08001c30   Section        0  lcm32f037_rcc.o(i.HSI_SetSysClockTo96)
+    i.HY_GpioInit                            0x08001cc0   Section        0  hy_hal.o(i.HY_GpioInit)
+    HY_GpioInit                              0x08001cc1   Thumb Code    62  hy_hal.o(i.HY_GpioInit)
+    i.HY_HalInit                             0x08001cfe   Section        0  hy_hal.o(i.HY_HalInit)
+    i.HY_SetPumpMechanicalSpeed              0x08001d10   Section        0  hy_application.o(i.HY_SetPumpMechanicalSpeed)
+    i.HY_TM1650_Clear                        0x08001d50   Section        0  hy_display.o(i.HY_TM1650_Clear)
+    i.HY_TM1650_Read                         0x08001d68   Section        0  hy_display.o(i.HY_TM1650_Read)
+    i.HY_TM1650_ScanKey                      0x08001d8c   Section        0  hy_display.o(i.HY_TM1650_ScanKey)
+    i.HY_TM1650_SetDisplay                   0x08001d96   Section        0  hy_display.o(i.HY_TM1650_SetDisplay)
+    i.HY_TM1650_SetFloat                     0x08001dc8   Section        0  hy_display.o(i.HY_TM1650_SetFloat)
+    i.HY_TM1650_SetIndexLetter               0x08001e60   Section        0  hy_display.o(i.HY_TM1650_SetIndexLetter)
+    i.HY_TM1650_SetIndexNumber               0x08001eb8   Section        0  hy_display.o(i.HY_TM1650_SetIndexNumber)
+    i.HY_TM1650_SetNumber                    0x08001f04   Section        0  hy_display.o(i.HY_TM1650_SetNumber)
+    i.HY_TM1650_ShowFault                    0x08001f34   Section        0  hy_display.o(i.HY_TM1650_ShowFault)
+    i.HY_TM1650_Write                        0x08001fc8   Section        0  hy_display.o(i.HY_TM1650_Write)
+    i.HY_TaskLoop                            0x08001fec   Section        0  hy_application.o(i.HY_TaskLoop)
+    i.HY_Task_100MS_Entry                    0x08002030   Section        0  hy_application.o(i.HY_Task_100MS_Entry)
+    HY_Task_100MS_Entry                      0x08002031   Thumb Code     2  hy_application.o(i.HY_Task_100MS_Entry)
+    i.HY_Task_1S_Entry                       0x08002034   Section        0  hy_application.o(i.HY_Task_1S_Entry)
+    HY_Task_1S_Entry                         0x08002035   Thumb Code    66  hy_application.o(i.HY_Task_1S_Entry)
+    i.HY_Task_50MS_Entry                     0x08002094   Section        0  hy_application.o(i.HY_Task_50MS_Entry)
+    HY_Task_50MS_Entry                       0x08002095   Thumb Code   100  hy_application.o(i.HY_Task_50MS_Entry)
+    i.HY_VariableInit                        0x08002108   Section        0  hy_variable.o(i.HY_VariableInit)
+    i.IncreaseSpeed                          0x08002138   Section        0  hy_application.o(i.IncreaseSpeed)
+    i.LimitSpeed                             0x08002164   Section        0  hy_application.o(i.LimitSpeed)
+    LimitSpeed                               0x08002165   Thumb Code    18  hy_application.o(i.LimitSpeed)
+    i.MDS_s32Atan2                           0x08002178   Section        0  mds_cordic.o(i.MDS_s32Atan2)
+    i.MDS_vAlignment                         0x080021fc   Section        0  mds_motorcontrol.o(i.MDS_vAlignment)
+    i.MDS_vBreak                             0x08002200   Section        0  mds_motorcontrol.o(i.MDS_vBreak)
+    i.MDS_vClosedloop                        0x08002260   Section        0  mds_motorcontrol.o(i.MDS_vClosedloop)
+    i.MDS_vConstantPowerDQ                   0x08002420   Section        0  mds_fluxweakeningpowercontrol.o(i.MDS_vConstantPowerDQ)
+    i.MDS_vConstantPowerInit                 0x08002460   Section        0  mds_fluxweakeningpowercontrol.o(i.MDS_vConstantPowerInit)
+    i.MDS_vCurLimit                          0x080024ec   Section        0  mds_observer.o(i.MDS_vCurLimit)
+    i.MDS_vCurLimitInit                      0x08002548   Section        0  user_sysparainit.o(i.MDS_vCurLimitInit)
+    i.MDS_vCurPIRegulatorIQ24Init            0x0800256c   Section        0  mds_pidregulators.o(i.MDS_vCurPIRegulatorIQ24Init)
+    i.MDS_vCurrClarke                        0x080025c4   Section        0  mds_clarkpark.o(i.MDS_vCurrClarke)
+    i.MDS_vCurrPark                          0x080025e8   Section        0  mds_clarkpark.o(i.MDS_vCurrPark)
+    i.MDS_vCurrentControllerCalc             0x08002620   Section        0  mds_observer.o(i.MDS_vCurrentControllerCalc)
+    i.MDS_vDeadTimeComp                      0x08002714   Section        0  mds_observer.o(i.MDS_vDeadTimeComp)
+    i.MDS_vFOC                               0x08002804   Section        0  mds_svpwm.o(i.MDS_vFOC)
+    i.MDS_vFault                             0x08002980   Section        0  mds_motorcontrol.o(i.MDS_vFault)
+    i.MDS_vFluxWeakening                     0x08002998   Section        0  mds_fluxweakeningpowercontrol.o(i.MDS_vFluxWeakening)
+    i.MDS_vFluxWeakeningInit                 0x08002a00   Section        0  mds_fluxweakeningpowercontrol.o(i.MDS_vFluxWeakeningInit)
+    i.MDS_vIPDInit                           0x08002a8c   Section        0  user_sysparainit.o(i.MDS_vIPDInit)
+    i.MDS_vIdentify                          0x08002ad0   Section        0  mds_motorcontrol.o(i.MDS_vIdentify)
+    i.MDS_vIdle                              0x08002c64   Section        0  mds_motorcontrol.o(i.MDS_vIdle)
+    i.MDS_vInit                              0x08002c78   Section        0  mds_motorcontrol.o(i.MDS_vInit)
+    i.MDS_vInitPosDeter                      0x08002c90   Section        0  mds_observer.o(i.MDS_vInitPosDeter)
+    i.MDS_vMTPAInit                          0x08002e74   Section        0  mds_fluxweakeningpowercontrol.o(i.MDS_vMTPAInit)
+    i.MDS_vMotorAppCommand                   0x08002e90   Section        0  mds_motorcontrol.o(i.MDS_vMotorAppCommand)
+    i.MDS_vMotorControlState                 0x08002f00   Section        0  mds_motorcontrol.o(i.MDS_vMotorControlState)
+    i.MDS_vMotorParaCalc                     0x08002f48   Section        0  user_sysparainit.o(i.MDS_vMotorParaCalc)
+    i.MDS_vMotorParaReadFromHfile            0x08003334   Section        0  user_sysparainit.o(i.MDS_vMotorParaReadFromHfile)
+    i.MDS_vNoWaterCal                        0x080034a8   Section        0  mds_fluxweakeningpowercontrol.o(i.MDS_vNoWaterCal)
+    i.MDS_vOBPosObserver                     0x080034f8   Section        0  mds_observer.o(i.MDS_vOBPosObserver)
+    i.MDS_vOBPosObserverInit                 0x08003620   Section        0  user_sysparainit.o(i.MDS_vOBPosObserverInit)
+    i.MDS_vOBRestarting                      0x08003688   Section        0  mds_observer.o(i.MDS_vOBRestarting)
+    i.MDS_vOpenloop                          0x08003b5c   Section        0  mds_motorcontrol.o(i.MDS_vOpenloop)
+    i.MDS_vOtherInitFromUserSetting          0x08003d30   Section        0  user_sysparainit.o(i.MDS_vOtherInitFromUserSetting)
+    i.MDS_vPIRegulatorIQ24                   0x080040d4   Section        0  mds_pidregulators.o(i.MDS_vPIRegulatorIQ24)
+    i.MDS_vPWMSwitchImmediate                0x08004158   Section        0  mds_motorcontrol.o(i.MDS_vPWMSwitchImmediate)
+    i.MDS_vPWMSwitchNextPeriod               0x080041c0   Section        0  mds_motorcontrol.o(i.MDS_vPWMSwitchNextPeriod)
+    i.MDS_vPWMUpdate                         0x08004258   Section        0  mds_svpwm.o(i.MDS_vPWMUpdate)
+    i.MDS_vPrecharge                         0x080042b4   Section        0  mds_motorcontrol.o(i.MDS_vPrecharge)
+    i.MDS_vRampGen                           0x080042b6   Section        0  mds_thetagenerate.o(i.MDS_vRampGen)
+    i.MDS_vRampInit                          0x08004300   Section        0  mds_thetagenerate.o(i.MDS_vRampInit)
+    i.MDS_vSVPWM                             0x08004334   Section        0  mds_observer.o(i.MDS_vSVPWM)
+    i.MDS_vSpdPIRegulatorIQ24Init            0x0800444c   Section        0  mds_pidregulators.o(i.MDS_vSpdPIRegulatorIQ24Init)
+    i.MDS_vStart                             0x080044b8   Section        0  mds_motorcontrol.o(i.MDS_vStart)
+    i.MDS_vStop                              0x08004564   Section        0  mds_motorcontrol.o(i.MDS_vStop)
+    i.MDS_vTIMInit                           0x080045a0   Section        0  user_sysparainit.o(i.MDS_vTIMInit)
+    i.MDS_vThetaGen                          0x080045c8   Section        0  mds_thetagenerate.o(i.MDS_vThetaGen)
+    i.MDS_vThetaInit                         0x080045fc   Section        0  mds_thetagenerate.o(i.MDS_vThetaInit)
+    i.MDS_vTrack                             0x08004620   Section        0  mds_motorcontrol.o(i.MDS_vTrack)
+    i.MDS_vTrigFunctions                     0x08004644   Section        0  mds_clarkpark.o(i.MDS_vTrigFunctions)
+    i.MDS_vUdcPIRegulatorIQ24Init            0x080046b4   Section        0  mds_pidregulators.o(i.MDS_vUdcPIRegulatorIQ24Init)
+    i.MDS_vUdcSwitchCheck                    0x080046e8   Section        0  mds_motorcontrol.o(i.MDS_vUdcSwitchCheck)
+    i.MDS_vVSPCheck                          0x0800479c   Section        0  mds_motorcontrol.o(i.MDS_vVSPCheck)
+    i.MDS_vVoltClarke                        0x0800486c   Section        0  mds_clarkpark.o(i.MDS_vVoltClarke)
+    i.MDS_vVoltPark                          0x08004890   Section        0  mds_clarkpark.o(i.MDS_vVoltPark)
+    i.MDS_vVoltRevParkCircleLimit            0x080048c8   Section        0  mds_clarkpark.o(i.MDS_vVoltRevParkCircleLimit)
+    i.MDS_vVoltageCalc                       0x08004900   Section        0  mds_calcvoltage.o(i.MDS_vVoltageCalc)
+    i.MDS_vWait                              0x08004944   Section        0  mds_motorcontrol.o(i.MDS_vWait)
+    i.MDS_vWriteFlash                        0x08004970   Section        0  mds_motorcontrol.o(i.MDS_vWriteFlash)
+    i.ModeUi                                 0x08004974   Section        0  hy_application.o(i.ModeUi)
+    i.ModeUiPageProcess                      0x08004a4c   Section        0  hy_application.o(i.ModeUiPageProcess)
+    i.NVIC_Init                              0x08004a68   Section        0  lcm32f037_tim.o(i.NVIC_Init)
+    i.OPA0_TRIM                              0x08004ab8   Section        0  lcm32f037_opa.o(i.OPA0_TRIM)
+    i.OPA1_TRIM                              0x08004b54   Section        0  lcm32f037_opa.o(i.OPA1_TRIM)
+    i.OPA2_TRIM                              0x08004bf0   Section        0  lcm32f037_opa.o(i.OPA2_TRIM)
+    i.OPA_Cmd                                0x08004c8c   Section        0  lcm32f037_opa.o(i.OPA_Cmd)
+    i.OPA_Init                               0x08004ca4   Section        0  lcm32f037_opa.o(i.OPA_Init)
+    i.PWR_LDODriverLevel                     0x08004d10   Section        0  lcm32f037_pwr.o(i.PWR_LDODriverLevel)
+    i.PWR_LVRCmd                             0x08004d44   Section        0  lcm32f037_pwr.o(i.PWR_LVRCmd)
+    i.RCC_AHBPeriphClockCmd                  0x08004d8c   Section        0  lcm32f037_rcc.o(i.RCC_AHBPeriphClockCmd)
+    i.RCC_APB1PeriphClockCmd                 0x08004dd8   Section        0  lcm32f037_rcc.o(i.RCC_APB1PeriphClockCmd)
+    i.RCC_DeInit                             0x08004e60   Section        0  lcm32f037_rcc.o(i.RCC_DeInit)
+    i.RCC_GetClockFreq                       0x08004f0c   Section        0  lcm32f037_rcc.o(i.RCC_GetClockFreq)
+    i.ReduceSpeed                            0x080050b4   Section        0  hy_application.o(i.ReduceSpeed)
+    i.SATRT_OFACMP1                          0x080050e0   Section        0  lcm32f037_acmp.o(i.SATRT_OFACMP1)
+    i.SetSysClock                            0x080050f0   Section        0  lcm32f037_rcc.o(i.SetSysClock)
+    i.SysTick_Handler                        0x08005108   Section        0  user_interrupt.o(i.SysTick_Handler)
+    i.SystemInit                             0x0800530c   Section        0  lcm32f037_rcc.o(i.SystemInit)
+    i.TIM1_NON_CC_Handler                    0x08005314   Section        0  user_interrupt.o(i.TIM1_NON_CC_Handler)
+    i.TIM_ARRPreloadConfig                   0x08005350   Section        0  lcm32f037_tim.o(i.TIM_ARRPreloadConfig)
+    i.TIM_BDTRConfig                         0x0800536c   Section        0  lcm32f037_tim.o(i.TIM_BDTRConfig)
+    i.TIM_CCxCmd                             0x08005390   Section        0  lcm32f037_tim.o(i.TIM_CCxCmd)
+    i.TIM_CCxNCmd                            0x080053ac   Section        0  lcm32f037_tim.o(i.TIM_CCxNCmd)
+    i.TIM_ClearITPendingBit                  0x080053c8   Section        0  lcm32f037_tim.o(i.TIM_ClearITPendingBit)
+    i.TIM_Cmd                                0x080053d4   Section        0  lcm32f037_tim.o(i.TIM_Cmd)
+    i.TIM_CtrlPWMOutputs                     0x080053f0   Section        0  lcm32f037_tim.o(i.TIM_CtrlPWMOutputs)
+    i.TIM_ITConfig                           0x0800540a   Section        0  lcm32f037_tim.o(i.TIM_ITConfig)
+    i.TIM_OC1Init                            0x08005424   Section        0  lcm32f037_tim.o(i.TIM_OC1Init)
+    i.TIM_OC1PreloadConfig                   0x080054b0   Section        0  lcm32f037_tim.o(i.TIM_OC1PreloadConfig)
+    i.TIM_OC2Init                            0x080054c0   Section        0  lcm32f037_tim.o(i.TIM_OC2Init)
+    i.TIM_OC2PreloadConfig                   0x08005568   Section        0  lcm32f037_tim.o(i.TIM_OC2PreloadConfig)
+    i.TIM_OC3Init                            0x08005580   Section        0  lcm32f037_tim.o(i.TIM_OC3Init)
+    i.TIM_OC3PreloadConfig                   0x08005614   Section        0  lcm32f037_tim.o(i.TIM_OC3PreloadConfig)
+    i.TIM_OC4Init                            0x08005624   Section        0  lcm32f037_tim.o(i.TIM_OC4Init)
+    i.TIM_OC4PreloadConfig                   0x08005694   Section        0  lcm32f037_tim.o(i.TIM_OC4PreloadConfig)
+    i.TIM_TimeBaseInit                       0x080056ac   Section        0  lcm32f037_tim.o(i.TIM_TimeBaseInit)
+    i.UART0_Handler                          0x0800571c   Section        0  user_interrupt.o(i.UART0_Handler)
+    i.UA_u8CurrSampleOffest                  0x08005720   Section        0  user_adsample.o(i.UA_u8CurrSampleOffest)
+    i.UA_vADSampleAll                        0x08005838   Section        0  user_adsample.o(i.UA_vADSampleAll)
+    i.UA_vIABCConstruct                      0x0800592c   Section        0  user_adsample.o(i.UA_vIABCConstruct)
+    i.UA_vVoltageConstruct                   0x08005948   Section        0  user_adsample.o(i.UA_vVoltageConstruct)
+    i.UP_vADCConfiguration                   0x080059b0   Section        0  user_peripheralinit.o(i.UP_vADCConfiguration)
+    i.UP_vBreakEnable                        0x08005ad8   Section        0  user_peripheralinit.o(i.UP_vBreakEnable)
+    i.UP_vDAC1_5_Config                      0x08005ae8   Section        0  user_peripheralinit.o(i.UP_vDAC1_5_Config)
+    i.UP_vDeviceInit                         0x08005b4c   Section        0  user_peripheralinit.o(i.UP_vDeviceInit)
+    i.UP_vGPIOConfiguration                  0x08005be8   Section        0  user_peripheralinit.o(i.UP_vGPIOConfiguration)
+    i.UP_vOPA012Config                       0x08005cdc   Section        0  user_peripheralinit.o(i.UP_vOPA012Config)
+    i.UP_vOpa0_config                        0x08005cec   Section        0  user_peripheralinit.o(i.UP_vOpa0_config)
+    i.UP_vOpa1_config                        0x08005d5c   Section        0  user_peripheralinit.o(i.UP_vOpa1_config)
+    i.UP_vOpa2_config                        0x08005dcc   Section        0  user_peripheralinit.o(i.UP_vOpa2_config)
+    i.UP_vPeriphClockCmdInit                 0x08005e38   Section        0  user_peripheralinit.o(i.UP_vPeriphClockCmdInit)
+    i.UP_vTimerConfiguration                 0x08005e84   Section        0  user_peripheralinit.o(i.UP_vTimerConfiguration)
+    i.US_vGlobalVariablesInit                0x0800608c   Section        0  user_sysparainit.o(i.US_vGlobalVariablesInit)
+    i.US_vHardwareOverCurCalcAMP             0x08006194   Section        0  user_syserrorprocess.o(i.US_vHardwareOverCurCalcAMP)
+    i.US_vSysErrorCheck                      0x080061ec   Section        0  user_syserrorprocess.o(i.US_vSysErrorCheck)
+    i.US_vSysFaultProcess                    0x08006594   Section        0  user_syserrorprocess.o(i.US_vSysFaultProcess)
+    i.US_vSystParaInit                       0x08006638   Section        0  user_sysparainit.o(i.US_vSystParaInit)
+    i.US_vSystParaInitPowerup                0x080066e8   Section        0  user_sysparainit.o(i.US_vSystParaInitPowerup)
+    i.US_vSystStateInit                      0x0800672c   Section        0  user_sysparainit.o(i.US_vSystStateInit)
+    i.US_vUserAppInit                        0x080067b4   Section        0  user_sysparainit.o(i.US_vUserAppInit)
+    i.User_vNVICConfiguration                0x080067d8   Section        0  user_nvic.o(i.User_vNVICConfiguration)
+    i.__ARM_common_ll_mulss                  0x08006840   Section        0  user_datatransform.o(i.__ARM_common_ll_mulss)
+    i.__ARM_common_ll_muluu                  0x08006870   Section        0  user_sysparainit.o(i.__ARM_common_ll_muluu)
+    i.__ARM_common_switch8                   0x080068a0   Section        0  user_interrupt.o(i.__ARM_common_switch8)
+    i.delay10us                              0x080068bc   Section        0  lcm32f037_rcc.o(i.delay10us)
+    i.get_opa0_trim                          0x080068fc   Section        0  lcm32f037_opa.o(i.get_opa0_trim)
+    i.get_opa1_trim                          0x0800690c   Section        0  lcm32f037_opa.o(i.get_opa1_trim)
+    i.get_opa2_trim                          0x0800691c   Section        0  lcm32f037_opa.o(i.get_opa2_trim)
+    i.iic_ack                                0x0800692c   Section        0  hy_softiic.o(i.iic_ack)
+    i.iic_delay                              0x08006964   Section        0  hy_softiic.o(i.iic_delay)
+    i.iic_readByte                           0x08006974   Section        0  hy_softiic.o(i.iic_readByte)
+    i.iic_sendByte                           0x080069b6   Section        0  hy_softiic.o(i.iic_sendByte)
+    i.iic_start                              0x08006a0c   Section        0  hy_softiic.o(i.iic_start)
+    i.iic_stop                               0x08006a40   Section        0  hy_softiic.o(i.iic_stop)
+    i.iic_waitAck                            0x08006a74   Section        0  hy_softiic.o(i.iic_waitAck)
+    i.main                                   0x08006ab6   Section        0  user_main.o(i.main)
+    i.opa0_trim                              0x08006ad4   Section        0  lcm32f037_opa.o(i.opa0_trim)
+    i.opa0_trim_FLAG                         0x08006aec   Section        0  lcm32f037_opa.o(i.opa0_trim_FLAG)
+    i.opa1_trim                              0x08006af8   Section        0  lcm32f037_opa.o(i.opa1_trim)
+    i.opa1_trim_FLAG                         0x08006b10   Section        0  lcm32f037_opa.o(i.opa1_trim_FLAG)
+    i.opa2_trim                              0x08006b1c   Section        0  lcm32f037_opa.o(i.opa2_trim)
+    i.opa2_trim_FLAG                         0x08006b34   Section        0  lcm32f037_opa.o(i.opa2_trim_FLAG)
+    i.sda_input                              0x08006b40   Section        0  hy_softiic.o(i.sda_input)
+    i.sda_ouput                              0x08006b58   Section        0  hy_softiic.o(i.sda_ouput)
+    x$fpl$fadd                               0x08006b74   Section      140  faddsub.o(x$fpl$fadd)
+    _fadd1                                   0x08006b81   Thumb Code     0  faddsub.o(x$fpl$fadd)
+    x$fpl$fmul                               0x08006c00   Section      176  fmul.o(x$fpl$fmul)
+    x$fpl$frsb                               0x08006cb0   Section       24  faddsub.o(x$fpl$frsb)
+    x$fpl$fsub                               0x08006cc8   Section      208  faddsub.o(x$fpl$fsub)
+    _fsub1                                   0x08006cd5   Thumb Code     0  faddsub.o(x$fpl$fsub)
+    .constdata                               0x08006d98   Section     1024  user_syserrorprocess.o(.constdata)
+    x$fpl$usenofp                            0x08006d98   Section        0  usenofp.o(x$fpl$usenofp)
+    sqrt_table                               0x08006d98   Data        1024  user_syserrorprocess.o(.constdata)
+    .constdata                               0x08007198   Section      654  mds_clarkpark.o(.constdata)
+    circle_limit_table                       0x08007198   Data         142  mds_clarkpark.o(.constdata)
+    .constdata                               0x08007428   Section       80  mds_cordic.o(.constdata)
+    .constdata                               0x08007478   Section     1024  mds_fluxweakeningpowercontrol.o(.constdata)
+    sqrt_table                               0x08007478   Data        1024  mds_fluxweakeningpowercontrol.o(.constdata)
+    .constdata                               0x08007878   Section      128  ddiv.o(.constdata)
+    ddiv_reciptbl                            0x08007878   Data         128  ddiv.o(.constdata)
+    .constdata                               0x080078f8   Section       64  fdiv.o(.constdata)
+    fdiv_tab                                 0x080078f8   Data          64  fdiv.o(.constdata)
     .data                                    0x20000000   Section        8  user_adsample.o(.data)
     ls_u16CurrSampleOffestIndex              0x20000000   Data           2  user_adsample.o(.data)
     ls_UdcMeasLpf                            0x20000004   Data           4  user_adsample.o(.data)
@@ -1940,13 +1938,14 @@ Image Symbol Table
     .bss                                     0x20000788   Section       24  mds_fluxweakeningpowercontrol.o(.bss)
     .bss                                     0x200007a0   Section       24  mds_fluxweakeningpowercontrol.o(.bss)
     .bss                                     0x200007b8   Section       20  hy_variable.o(.bss)
-    .bss                                     0x200007cc   Section      252  mds_observer.o(.bss)
-    .bss                                     0x200008c8   Section       96  libspace.o(.bss)
-    HEAP                                     0x20000928   Section      512  lcm32f037_startup.o(HEAP)
-    Heap_Mem                                 0x20000928   Data         512  lcm32f037_startup.o(HEAP)
-    STACK                                    0x20000b28   Section      512  lcm32f037_startup.o(STACK)
-    Stack_Mem                                0x20000b28   Data         512  lcm32f037_startup.o(STACK)
-    __initial_sp                             0x20000d28   Data           0  lcm32f037_startup.o(STACK)
+    .bss                                     0x200007cc   Section       12  hy_variable.o(.bss)
+    .bss                                     0x200007d8   Section      252  mds_observer.o(.bss)
+    .bss                                     0x200008d4   Section       96  libspace.o(.bss)
+    HEAP                                     0x20000938   Section      512  lcm32f037_startup.o(HEAP)
+    Heap_Mem                                 0x20000938   Data         512  lcm32f037_startup.o(HEAP)
+    STACK                                    0x20000b38   Section      512  lcm32f037_startup.o(STACK)
+    Stack_Mem                                0x20000b38   Data         512  lcm32f037_startup.o(STACK)
+    __initial_sp                             0x20000d38   Data           0  lcm32f037_startup.o(STACK)
 
     Global Symbols
 
@@ -2128,206 +2127,202 @@ Image Symbol Table
     __I$use$semihosting                      0x08001371   Thumb Code     0  use_no_semi.o(.text)
     __use_no_semihosting_swi                 0x08001371   Thumb Code     2  use_no_semi.o(.text)
     __semihosting_library_function           0x08001373   Thumb Code     0  indicate_semi.o(.text)
-    ACMP1_Cmd                                0x08001375   Thumb Code    26  lcm32f037_acmp.o(i.ACMP1_Cmd)
-    ACMP1_Init                               0x08001395   Thumb Code   122  lcm32f037_acmp.o(i.ACMP1_Init)
-    ACMP1_SEQ_INPUT_SELECT                   0x0800141d   Thumb Code    44  lcm32f037_acmp.o(i.ACMP1_SEQ_INPUT_SELECT)
-    ADC_ChannelConfig                        0x0800144d   Thumb Code    24  lcm32f037_adc.o(i.ADC_ChannelConfig)
-    ADC_Cmd                                  0x08001469   Thumb Code    84  lcm32f037_adc.o(i.ADC_Cmd)
-    ADC_Init                                 0x080014c1   Thumb Code   306  lcm32f037_adc.o(i.ADC_Init)
-    ADC_StartOfConversion                    0x0800160d   Thumb Code    26  lcm32f037_adc.o(i.ADC_StartOfConversion)
-    ADC_StructInit                           0x0800162d   Thumb Code    36  lcm32f037_adc.o(i.ADC_StructInit)
-    ADC_VrefintSelect                        0x08001651   Thumb Code   146  lcm32f037_adc.o(i.ADC_VrefintSelect)
-    DAC_Cmd                                  0x080016fd   Thumb Code    24  lcm32f037_dac.o(i.DAC_Cmd)
-    DAC_Init                                 0x08001715   Thumb Code   270  lcm32f037_dac.o(i.DAC_Init)
-    DAC_SetDac_10B_Data                      0x08001835   Thumb Code    26  lcm32f037_dac.o(i.DAC_SetDac_10B_Data)
-    DAC_SoftwareTriggerCmd                   0x0800184f   Thumb Code    24  lcm32f037_dac.o(i.DAC_SoftwareTriggerCmd)
-    DMAC_CH1_2_Handler                       0x08001869   Thumb Code   118  user_interrupt.o(i.DMAC_CH1_2_Handler)
-    DMA_ClearITPendingBit                    0x080018f1   Thumb Code    30  lcm32f037_dma.o(i.DMA_ClearITPendingBit)
-    DMA_Cmd                                  0x08001915   Thumb Code    94  lcm32f037_dma.o(i.DMA_Cmd)
-    DMA_DeInit                               0x08001981   Thumb Code   188  lcm32f037_dma.o(i.DMA_DeInit)
-    DMA_ITConfig                             0x08001a49   Thumb Code    58  lcm32f037_dma.o(i.DMA_ITConfig)
-    DMA_Init                                 0x08001a89   Thumb Code   230  lcm32f037_dma.o(i.DMA_Init)
-    DMA_RemapConfig                          0x08001b71   Thumb Code    78  lcm32f037_dma.o(i.DMA_RemapConfig)
-    DMA_SetCurrDataCounter                   0x08001bcd   Thumb Code     8  lcm32f037_dma.o(i.DMA_SetCurrDataCounter)
-    FLASH_LATENCY                            0x08001bd5   Thumb Code    32  lcm32f037_rcc.o(i.FLASH_LATENCY)
-    GPIO_Init                                0x08001bf9   Thumb Code   206  lcm32f037_gpio.o(i.GPIO_Init)
-    GPIO_PinAFConfig                         0x08001cc7   Thumb Code    42  lcm32f037_gpio.o(i.GPIO_PinAFConfig)
-    GPIO_ReadInputDataBit                    0x08001cf1   Thumb Code    14  lcm32f037_gpio.o(i.GPIO_ReadInputDataBit)
-    GPIO_ResetBits                           0x08001cff   Thumb Code     6  lcm32f037_gpio.o(i.GPIO_ResetBits)
-    GPIO_SetBits                             0x08001d05   Thumb Code     4  lcm32f037_gpio.o(i.GPIO_SetBits)
-    HSI_SetSysClockTo96                      0x08001d09   Thumb Code   128  lcm32f037_rcc.o(i.HSI_SetSysClockTo96)
-    HY_HalInit                               0x08001dd7   Thumb Code    18  hy_hal.o(i.HY_HalInit)
-    HY_SetPumpMechanicalSpeed                0x08001de9   Thumb Code    50  hy_application.o(i.HY_SetPumpMechanicalSpeed)
-    HY_TM1650_Clear                          0x08001e29   Thumb Code    24  hy_display.o(i.HY_TM1650_Clear)
-    HY_TM1650_Read                           0x08001e41   Thumb Code    36  hy_display.o(i.HY_TM1650_Read)
-    HY_TM1650_ScanKey                        0x08001e65   Thumb Code    10  hy_display.o(i.HY_TM1650_ScanKey)
-    HY_TM1650_SetDisplay                     0x08001e6f   Thumb Code    50  hy_display.o(i.HY_TM1650_SetDisplay)
-    HY_TM1650_SetFloat                       0x08001ea1   Thumb Code   140  hy_display.o(i.HY_TM1650_SetFloat)
-    HY_TM1650_SetIndexLetter                 0x08001f39   Thumb Code    86  hy_display.o(i.HY_TM1650_SetIndexLetter)
-    HY_TM1650_SetIndexNumber                 0x08001f91   Thumb Code    70  hy_display.o(i.HY_TM1650_SetIndexNumber)
-    HY_TM1650_SetNumber                      0x08001fdd   Thumb Code    42  hy_display.o(i.HY_TM1650_SetNumber)
-    HY_TM1650_ShowFault                      0x0800200d   Thumb Code   142  hy_display.o(i.HY_TM1650_ShowFault)
-    HY_TM1650_Write                          0x080020a1   Thumb Code    36  hy_display.o(i.HY_TM1650_Write)
-    HY_TaskLoop                              0x080020c5   Thumb Code    64  hy_application.o(i.HY_TaskLoop)
-    HY_VariableInit                          0x080021f5   Thumb Code    38  hy_variable.o(i.HY_VariableInit)
-    IncreaseSpeed                            0x08002225   Thumb Code    36  hy_application.o(i.IncreaseSpeed)
-    MDS_s32Atan2                             0x08002265   Thumb Code   116  mds_cordic.o(i.MDS_s32Atan2)
-    MDS_vAlignment                           0x080022e9   Thumb Code     4  mds_motorcontrol.o(i.MDS_vAlignment)
-    MDS_vBreak                               0x080022ed   Thumb Code    84  mds_motorcontrol.o(i.MDS_vBreak)
-    MDS_vClosedloop                          0x0800234d   Thumb Code   394  mds_motorcontrol.o(i.MDS_vClosedloop)
-    MDS_vConstantPowerDQ                     0x0800250d   Thumb Code    64  mds_fluxweakeningpowercontrol.o(i.MDS_vConstantPowerDQ)
-    MDS_vConstantPowerInit                   0x0800254d   Thumb Code   128  mds_fluxweakeningpowercontrol.o(i.MDS_vConstantPowerInit)
-    MDS_vCurLimit                            0x080025d9   Thumb Code    84  mds_observer.o(i.MDS_vCurLimit)
-    MDS_vCurLimitInit                        0x08002635   Thumb Code    24  user_sysparainit.o(i.MDS_vCurLimitInit)
-    MDS_vCurPIRegulatorIQ24Init              0x08002659   Thumb Code    78  mds_pidregulators.o(i.MDS_vCurPIRegulatorIQ24Init)
-    MDS_vCurrClarke                          0x080026b1   Thumb Code    32  mds_clarkpark.o(i.MDS_vCurrClarke)
-    MDS_vCurrPark                            0x080026d5   Thumb Code    54  mds_clarkpark.o(i.MDS_vCurrPark)
-    MDS_vCurrentControllerCalc               0x0800270d   Thumb Code   234  mds_observer.o(i.MDS_vCurrentControllerCalc)
-    MDS_vDeadTimeComp                        0x08002801   Thumb Code   234  mds_observer.o(i.MDS_vDeadTimeComp)
-    MDS_vFOC                                 0x080028f1   Thumb Code   340  mds_svpwm.o(i.MDS_vFOC)
-    MDS_vFault                               0x08002a6d   Thumb Code    18  mds_motorcontrol.o(i.MDS_vFault)
-    MDS_vFluxWeakening                       0x08002a85   Thumb Code    94  mds_fluxweakeningpowercontrol.o(i.MDS_vFluxWeakening)
-    MDS_vFluxWeakeningInit                   0x08002aed   Thumb Code   124  mds_fluxweakeningpowercontrol.o(i.MDS_vFluxWeakeningInit)
-    MDS_vIPDInit                             0x08002b79   Thumb Code    58  user_sysparainit.o(i.MDS_vIPDInit)
-    MDS_vIdentify                            0x08002bbd   Thumb Code   352  mds_motorcontrol.o(i.MDS_vIdentify)
-    MDS_vIdle                                0x08002d51   Thumb Code    14  mds_motorcontrol.o(i.MDS_vIdle)
-    MDS_vInit                                0x08002d65   Thumb Code    20  mds_motorcontrol.o(i.MDS_vInit)
-    MDS_vInitPosDeter                        0x08002d7d   Thumb Code   452  mds_observer.o(i.MDS_vInitPosDeter)
-    MDS_vMTPAInit                            0x08002f61   Thumb Code    20  mds_fluxweakeningpowercontrol.o(i.MDS_vMTPAInit)
-    MDS_vMotorAppCommand                     0x08002f7d   Thumb Code    92  mds_motorcontrol.o(i.MDS_vMotorAppCommand)
-    MDS_vMotorControlState                   0x08002fed   Thumb Code    68  mds_motorcontrol.o(i.MDS_vMotorControlState)
-    MDS_vMotorParaCalc                       0x08003035   Thumb Code   948  user_sysparainit.o(i.MDS_vMotorParaCalc)
-    MDS_vMotorParaReadFromHfile              0x08003421   Thumb Code   266  user_sysparainit.o(i.MDS_vMotorParaReadFromHfile)
-    MDS_vNoWaterCal                          0x08003595   Thumb Code    76  mds_fluxweakeningpowercontrol.o(i.MDS_vNoWaterCal)
-    MDS_vOBPosObserver                       0x080035e5   Thumb Code   290  mds_observer.o(i.MDS_vOBPosObserver)
-    MDS_vOBPosObserverInit                   0x0800370d   Thumb Code   100  user_sysparainit.o(i.MDS_vOBPosObserverInit)
-    MDS_vOBRestarting                        0x08003775   Thumb Code  1226  mds_observer.o(i.MDS_vOBRestarting)
-    MDS_vOpenloop                            0x08003c49   Thumb Code   400  mds_motorcontrol.o(i.MDS_vOpenloop)
-    MDS_vOtherInitFromUserSetting            0x08003e1d   Thumb Code   896  user_sysparainit.o(i.MDS_vOtherInitFromUserSetting)
-    MDS_vPIRegulatorIQ24                     0x080041c1   Thumb Code   132  mds_pidregulators.o(i.MDS_vPIRegulatorIQ24)
-    MDS_vPWMSwitchImmediate                  0x08004245   Thumb Code    88  mds_motorcontrol.o(i.MDS_vPWMSwitchImmediate)
-    MDS_vPWMSwitchNextPeriod                 0x080042ad   Thumb Code   138  mds_motorcontrol.o(i.MDS_vPWMSwitchNextPeriod)
-    MDS_vPWMUpdate                           0x08004345   Thumb Code    76  mds_svpwm.o(i.MDS_vPWMUpdate)
-    MDS_vPrecharge                           0x080043a1   Thumb Code     2  mds_motorcontrol.o(i.MDS_vPrecharge)
-    MDS_vRampGen                             0x080043a3   Thumb Code    74  mds_thetagenerate.o(i.MDS_vRampGen)
-    MDS_vRampInit                            0x080043ed   Thumb Code    44  mds_thetagenerate.o(i.MDS_vRampInit)
-    MDS_vSVPWM                               0x08004421   Thumb Code   266  mds_observer.o(i.MDS_vSVPWM)
-    MDS_vSpdPIRegulatorIQ24Init              0x08004539   Thumb Code    90  mds_pidregulators.o(i.MDS_vSpdPIRegulatorIQ24Init)
-    MDS_vStart                               0x080045a5   Thumb Code   138  mds_motorcontrol.o(i.MDS_vStart)
-    MDS_vStop                                0x08004651   Thumb Code    40  mds_motorcontrol.o(i.MDS_vStop)
-    MDS_vTIMInit                             0x0800468d   Thumb Code    26  user_sysparainit.o(i.MDS_vTIMInit)
-    MDS_vThetaGen                            0x080046b5   Thumb Code    46  mds_thetagenerate.o(i.MDS_vThetaGen)
-    MDS_vThetaInit                           0x080046e9   Thumb Code    26  mds_thetagenerate.o(i.MDS_vThetaInit)
-    MDS_vTrack                               0x0800470d   Thumb Code    32  mds_motorcontrol.o(i.MDS_vTrack)
-    MDS_vTrigFunctions                       0x08004731   Thumb Code   108  mds_clarkpark.o(i.MDS_vTrigFunctions)
-    MDS_vUdcPIRegulatorIQ24Init              0x080047a1   Thumb Code    42  mds_pidregulators.o(i.MDS_vUdcPIRegulatorIQ24Init)
-    MDS_vUdcSwitchCheck                      0x080047d5   Thumb Code   118  mds_motorcontrol.o(i.MDS_vUdcSwitchCheck)
-    MDS_vVSPCheck                            0x08004889   Thumb Code   180  mds_motorcontrol.o(i.MDS_vVSPCheck)
-    MDS_vVoltClarke                          0x08004959   Thumb Code    30  mds_clarkpark.o(i.MDS_vVoltClarke)
-    MDS_vVoltPark                            0x0800497d   Thumb Code    54  mds_clarkpark.o(i.MDS_vVoltPark)
-    MDS_vVoltRevParkCircleLimit              0x080049b5   Thumb Code    48  mds_clarkpark.o(i.MDS_vVoltRevParkCircleLimit)
-    MDS_vVoltageCalc                         0x080049ed   Thumb Code    64  mds_calcvoltage.o(i.MDS_vVoltageCalc)
-    MDS_vWait                                0x08004a31   Thumb Code    34  mds_motorcontrol.o(i.MDS_vWait)
-    MDS_vWriteFlash                          0x08004a5d   Thumb Code     4  mds_motorcontrol.o(i.MDS_vWriteFlash)
-    ModeUi                                   0x08004a61   Thumb Code   200  hy_application.o(i.ModeUi)
-    ModeUiPageProcess                        0x08004b39   Thumb Code    24  hy_application.o(i.ModeUiPageProcess)
-    NVIC_Init                                0x08004b55   Thumb Code    72  lcm32f037_tim.o(i.NVIC_Init)
-    OPA0_TRIM                                0x08004ba5   Thumb Code   148  lcm32f037_opa.o(i.OPA0_TRIM)
-    OPA1_TRIM                                0x08004c41   Thumb Code   148  lcm32f037_opa.o(i.OPA1_TRIM)
-    OPA2_TRIM                                0x08004cdd   Thumb Code   148  lcm32f037_opa.o(i.OPA2_TRIM)
-    OPA_Cmd                                  0x08004d79   Thumb Code    24  lcm32f037_opa.o(i.OPA_Cmd)
-    OPA_Init                                 0x08004d91   Thumb Code   104  lcm32f037_opa.o(i.OPA_Init)
-    PWR_LDODriverLevel                       0x08004dfd   Thumb Code    38  lcm32f037_pwr.o(i.PWR_LDODriverLevel)
-    PWR_LVRCmd                               0x08004e31   Thumb Code    60  lcm32f037_pwr.o(i.PWR_LVRCmd)
-    RCC_AHBPeriphClockCmd                    0x08004e79   Thumb Code    64  lcm32f037_rcc.o(i.RCC_AHBPeriphClockCmd)
-    RCC_APB1PeriphClockCmd                   0x08004ec5   Thumb Code   124  lcm32f037_rcc.o(i.RCC_APB1PeriphClockCmd)
-    RCC_DeInit                               0x08004f4d   Thumb Code   148  lcm32f037_rcc.o(i.RCC_DeInit)
-    RCC_GetClockFreq                         0x08004ff9   Thumb Code   410  lcm32f037_rcc.o(i.RCC_GetClockFreq)
-    ReduceSpeed                              0x080051a1   Thumb Code    36  hy_application.o(i.ReduceSpeed)
-    SATRT_OFACMP1                            0x080051cd   Thumb Code    12  lcm32f037_acmp.o(i.SATRT_OFACMP1)
-    SetSysClock                              0x080051dd   Thumb Code    22  lcm32f037_rcc.o(i.SetSysClock)
-    SysTick_Handler                          0x080051f5   Thumb Code   468  user_interrupt.o(i.SysTick_Handler)
-    SystemInit                               0x080053f9   Thumb Code     8  lcm32f037_rcc.o(i.SystemInit)
-    TIM1_NON_CC_Handler                      0x08005401   Thumb Code    50  user_interrupt.o(i.TIM1_NON_CC_Handler)
-    TIM_ARRPreloadConfig                     0x0800543d   Thumb Code    24  lcm32f037_tim.o(i.TIM_ARRPreloadConfig)
-    TIM_BDTRConfig                           0x08005459   Thumb Code    36  lcm32f037_tim.o(i.TIM_BDTRConfig)
-    TIM_CCxCmd                               0x0800547d   Thumb Code    28  lcm32f037_tim.o(i.TIM_CCxCmd)
-    TIM_CCxNCmd                              0x08005499   Thumb Code    28  lcm32f037_tim.o(i.TIM_CCxNCmd)
-    TIM_ClearITPendingBit                    0x080054b5   Thumb Code    12  lcm32f037_tim.o(i.TIM_ClearITPendingBit)
-    TIM_Cmd                                  0x080054c1   Thumb Code    24  lcm32f037_tim.o(i.TIM_Cmd)
-    TIM_CtrlPWMOutputs                       0x080054dd   Thumb Code    26  lcm32f037_tim.o(i.TIM_CtrlPWMOutputs)
-    TIM_ITConfig                             0x080054f7   Thumb Code    24  lcm32f037_tim.o(i.TIM_ITConfig)
-    TIM_OC1Init                              0x08005511   Thumb Code   116  lcm32f037_tim.o(i.TIM_OC1Init)
-    TIM_OC1PreloadConfig                     0x0800559d   Thumb Code    14  lcm32f037_tim.o(i.TIM_OC1PreloadConfig)
-    TIM_OC2Init                              0x080055ad   Thumb Code   138  lcm32f037_tim.o(i.TIM_OC2Init)
-    TIM_OC2PreloadConfig                     0x08005655   Thumb Code    18  lcm32f037_tim.o(i.TIM_OC2PreloadConfig)
-    TIM_OC3Init                              0x0800566d   Thumb Code   120  lcm32f037_tim.o(i.TIM_OC3Init)
-    TIM_OC3PreloadConfig                     0x08005701   Thumb Code    14  lcm32f037_tim.o(i.TIM_OC3PreloadConfig)
-    TIM_OC4Init                              0x08005711   Thumb Code    88  lcm32f037_tim.o(i.TIM_OC4Init)
-    TIM_OC4PreloadConfig                     0x08005781   Thumb Code    18  lcm32f037_tim.o(i.TIM_OC4PreloadConfig)
-    TIM_TimeBaseInit                         0x08005799   Thumb Code    84  lcm32f037_tim.o(i.TIM_TimeBaseInit)
-    UART0_Handler                            0x08005809   Thumb Code     2  user_interrupt.o(i.UART0_Handler)
-    UA_u8CurrSampleOffest                    0x0800580d   Thumb Code   262  user_adsample.o(i.UA_u8CurrSampleOffest)
-    UA_vADSampleAll                          0x08005925   Thumb Code   228  user_adsample.o(i.UA_vADSampleAll)
-    UA_vIABCConstruct                        0x08005a15   Thumb Code    28  user_adsample.o(i.UA_vIABCConstruct)
-    UA_vVoltageConstruct                     0x08005a31   Thumb Code    78  user_adsample.o(i.UA_vVoltageConstruct)
-    UP_vACMPconfiguration                    0x08005a99   Thumb Code    66  user_peripheralinit.o(i.UP_vACMPconfiguration)
-    UP_vADCConfiguration                     0x08005add   Thumb Code   240  user_peripheralinit.o(i.UP_vADCConfiguration)
-    UP_vBreakEnable                          0x08005bd9   Thumb Code    12  user_peripheralinit.o(i.UP_vBreakEnable)
-    UP_vDAC1_5_Config                        0x08005be9   Thumb Code    96  user_peripheralinit.o(i.UP_vDAC1_5_Config)
-    UP_vDeviceInit                           0x08005c4d   Thumb Code   128  user_peripheralinit.o(i.UP_vDeviceInit)
-    UP_vGPIOConfiguration                    0x08005ced   Thumb Code   170  user_peripheralinit.o(i.UP_vGPIOConfiguration)
-    UP_vOPA012Config                         0x08005da5   Thumb Code    34  user_peripheralinit.o(i.UP_vOPA012Config)
-    UP_vOpa0_config                          0x08005dcd   Thumb Code   106  user_peripheralinit.o(i.UP_vOpa0_config)
-    UP_vOpa1_config                          0x08005e3d   Thumb Code   104  user_peripheralinit.o(i.UP_vOpa1_config)
-    UP_vOpa2_config                          0x08005ead   Thumb Code   104  user_peripheralinit.o(i.UP_vOpa2_config)
-    UP_vPeriphClockCmdInit                   0x08005f19   Thumb Code    72  user_peripheralinit.o(i.UP_vPeriphClockCmdInit)
-    UP_vTimerConfiguration                   0x08005f65   Thumb Code   490  user_peripheralinit.o(i.UP_vTimerConfiguration)
-    US_vGlobalVariablesInit                  0x0800616d   Thumb Code   222  user_sysparainit.o(i.US_vGlobalVariablesInit)
-    US_vHardwareOverCurCalcAMP               0x08006275   Thumb Code    68  user_syserrorprocess.o(i.US_vHardwareOverCurCalcAMP)
-    US_vSysErrorCheck                        0x080062cd   Thumb Code   898  user_syserrorprocess.o(i.US_vSysErrorCheck)
-    US_vSysFaultProcess                      0x08006675   Thumb Code   140  user_syserrorprocess.o(i.US_vSysFaultProcess)
-    US_vSystParaInit                         0x08006719   Thumb Code   132  user_sysparainit.o(i.US_vSystParaInit)
-    US_vSystParaInitPowerup                  0x080067c9   Thumb Code    56  user_sysparainit.o(i.US_vSystParaInitPowerup)
-    US_vSystStateInit                        0x0800680d   Thumb Code   108  user_sysparainit.o(i.US_vSystStateInit)
-    US_vUserAppInit                          0x08006895   Thumb Code    26  user_sysparainit.o(i.US_vUserAppInit)
-    User_vNVICConfiguration                  0x080068b9   Thumb Code    96  user_nvic.o(i.User_vNVICConfiguration)
-    __ARM_common_ll_mulss                    0x08006921   Thumb Code    48  user_datatransform.o(i.__ARM_common_ll_mulss)
-    __ARM_common_ll_muluu                    0x08006951   Thumb Code    48  user_sysparainit.o(i.__ARM_common_ll_muluu)
-    __ARM_common_switch8                     0x08006981   Thumb Code    26  user_interrupt.o(i.__ARM_common_switch8)
-    delay10us                                0x0800699d   Thumb Code    50  lcm32f037_rcc.o(i.delay10us)
-    get_opa0_trim                            0x080069dd   Thumb Code    10  lcm32f037_opa.o(i.get_opa0_trim)
-    get_opa1_trim                            0x080069ed   Thumb Code    10  lcm32f037_opa.o(i.get_opa1_trim)
-    get_opa2_trim                            0x080069fd   Thumb Code    10  lcm32f037_opa.o(i.get_opa2_trim)
-    iic_ack                                  0x08006a0d   Thumb Code    56  hy_softiic.o(i.iic_ack)
-    iic_delay                                0x08006a45   Thumb Code    16  hy_softiic.o(i.iic_delay)
-    iic_readByte                             0x08006a55   Thumb Code    66  hy_softiic.o(i.iic_readByte)
-    iic_sendByte                             0x08006a97   Thumb Code    86  hy_softiic.o(i.iic_sendByte)
-    iic_start                                0x08006aed   Thumb Code    52  hy_softiic.o(i.iic_start)
-    iic_stop                                 0x08006b21   Thumb Code    52  hy_softiic.o(i.iic_stop)
-    iic_waitAck                              0x08006b55   Thumb Code    66  hy_softiic.o(i.iic_waitAck)
-    main                                     0x08006b97   Thumb Code    30  user_main.o(i.main)
-    opa0_trim                                0x08006bb5   Thumb Code    18  lcm32f037_opa.o(i.opa0_trim)
-    opa0_trim_FLAG                           0x08006bcd   Thumb Code     8  lcm32f037_opa.o(i.opa0_trim_FLAG)
-    opa1_trim                                0x08006bd9   Thumb Code    18  lcm32f037_opa.o(i.opa1_trim)
-    opa1_trim_FLAG                           0x08006bf1   Thumb Code     8  lcm32f037_opa.o(i.opa1_trim_FLAG)
-    opa2_trim                                0x08006bfd   Thumb Code    18  lcm32f037_opa.o(i.opa2_trim)
-    opa2_trim_FLAG                           0x08006c15   Thumb Code     8  lcm32f037_opa.o(i.opa2_trim_FLAG)
-    sda_input                                0x08006c21   Thumb Code    24  hy_softiic.o(i.sda_input)
-    sda_ouput                                0x08006c39   Thumb Code    28  hy_softiic.o(i.sda_ouput)
-    __aeabi_fadd                             0x08006c55   Thumb Code     0  faddsub.o(x$fpl$fadd)
-    _fadd                                    0x08006c55   Thumb Code   134  faddsub.o(x$fpl$fadd)
-    __aeabi_fmul                             0x08006ce1   Thumb Code     0  fmul.o(x$fpl$fmul)
-    _fmul                                    0x08006ce1   Thumb Code   172  fmul.o(x$fpl$fmul)
-    __aeabi_frsub                            0x08006d91   Thumb Code     0  faddsub.o(x$fpl$frsb)
-    _frsb                                    0x08006d91   Thumb Code    24  faddsub.o(x$fpl$frsb)
-    __aeabi_fsub                             0x08006da9   Thumb Code     0  faddsub.o(x$fpl$fsub)
-    _fsub                                    0x08006da9   Thumb Code   204  faddsub.o(x$fpl$fsub)
-    __I$use$fp                               0x08006e78   Number         0  usenofp.o(x$fpl$usenofp)
-    CP_cSinCosTable                          0x08007306   Data         512  mds_clarkpark.o(.constdata)
-    atanLUT                                  0x08007508   Data          80  mds_cordic.o(.constdata)
-    Region$$Table$$Base                      0x08007a18   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08007a38   Number         0  anon$$obj.o(Region$$Table)
+    ADC_ChannelConfig                        0x08001375   Thumb Code    24  lcm32f037_adc.o(i.ADC_ChannelConfig)
+    ADC_Cmd                                  0x08001391   Thumb Code    84  lcm32f037_adc.o(i.ADC_Cmd)
+    ADC_Init                                 0x080013e9   Thumb Code   306  lcm32f037_adc.o(i.ADC_Init)
+    ADC_StartOfConversion                    0x08001535   Thumb Code    26  lcm32f037_adc.o(i.ADC_StartOfConversion)
+    ADC_StructInit                           0x08001555   Thumb Code    36  lcm32f037_adc.o(i.ADC_StructInit)
+    ADC_VrefintSelect                        0x08001579   Thumb Code   146  lcm32f037_adc.o(i.ADC_VrefintSelect)
+    DAC_Cmd                                  0x08001625   Thumb Code    24  lcm32f037_dac.o(i.DAC_Cmd)
+    DAC_Init                                 0x0800163d   Thumb Code   270  lcm32f037_dac.o(i.DAC_Init)
+    DAC_SetDac_10B_Data                      0x0800175d   Thumb Code    26  lcm32f037_dac.o(i.DAC_SetDac_10B_Data)
+    DAC_SoftwareTriggerCmd                   0x08001777   Thumb Code    24  lcm32f037_dac.o(i.DAC_SoftwareTriggerCmd)
+    DMAC_CH1_2_Handler                       0x08001791   Thumb Code   118  user_interrupt.o(i.DMAC_CH1_2_Handler)
+    DMA_ClearITPendingBit                    0x08001819   Thumb Code    30  lcm32f037_dma.o(i.DMA_ClearITPendingBit)
+    DMA_Cmd                                  0x0800183d   Thumb Code    94  lcm32f037_dma.o(i.DMA_Cmd)
+    DMA_DeInit                               0x080018a9   Thumb Code   188  lcm32f037_dma.o(i.DMA_DeInit)
+    DMA_ITConfig                             0x08001971   Thumb Code    58  lcm32f037_dma.o(i.DMA_ITConfig)
+    DMA_Init                                 0x080019b1   Thumb Code   230  lcm32f037_dma.o(i.DMA_Init)
+    DMA_RemapConfig                          0x08001a99   Thumb Code    78  lcm32f037_dma.o(i.DMA_RemapConfig)
+    DMA_SetCurrDataCounter                   0x08001af5   Thumb Code     8  lcm32f037_dma.o(i.DMA_SetCurrDataCounter)
+    FLASH_LATENCY                            0x08001afd   Thumb Code    32  lcm32f037_rcc.o(i.FLASH_LATENCY)
+    GPIO_Init                                0x08001b21   Thumb Code   206  lcm32f037_gpio.o(i.GPIO_Init)
+    GPIO_PinAFConfig                         0x08001bef   Thumb Code    42  lcm32f037_gpio.o(i.GPIO_PinAFConfig)
+    GPIO_ReadInputDataBit                    0x08001c19   Thumb Code    14  lcm32f037_gpio.o(i.GPIO_ReadInputDataBit)
+    GPIO_ResetBits                           0x08001c27   Thumb Code     6  lcm32f037_gpio.o(i.GPIO_ResetBits)
+    GPIO_SetBits                             0x08001c2d   Thumb Code     4  lcm32f037_gpio.o(i.GPIO_SetBits)
+    HSI_SetSysClockTo96                      0x08001c31   Thumb Code   128  lcm32f037_rcc.o(i.HSI_SetSysClockTo96)
+    HY_HalInit                               0x08001cff   Thumb Code    18  hy_hal.o(i.HY_HalInit)
+    HY_SetPumpMechanicalSpeed                0x08001d11   Thumb Code    50  hy_application.o(i.HY_SetPumpMechanicalSpeed)
+    HY_TM1650_Clear                          0x08001d51   Thumb Code    24  hy_display.o(i.HY_TM1650_Clear)
+    HY_TM1650_Read                           0x08001d69   Thumb Code    36  hy_display.o(i.HY_TM1650_Read)
+    HY_TM1650_ScanKey                        0x08001d8d   Thumb Code    10  hy_display.o(i.HY_TM1650_ScanKey)
+    HY_TM1650_SetDisplay                     0x08001d97   Thumb Code    50  hy_display.o(i.HY_TM1650_SetDisplay)
+    HY_TM1650_SetFloat                       0x08001dc9   Thumb Code   140  hy_display.o(i.HY_TM1650_SetFloat)
+    HY_TM1650_SetIndexLetter                 0x08001e61   Thumb Code    86  hy_display.o(i.HY_TM1650_SetIndexLetter)
+    HY_TM1650_SetIndexNumber                 0x08001eb9   Thumb Code    70  hy_display.o(i.HY_TM1650_SetIndexNumber)
+    HY_TM1650_SetNumber                      0x08001f05   Thumb Code    42  hy_display.o(i.HY_TM1650_SetNumber)
+    HY_TM1650_ShowFault                      0x08001f35   Thumb Code   142  hy_display.o(i.HY_TM1650_ShowFault)
+    HY_TM1650_Write                          0x08001fc9   Thumb Code    36  hy_display.o(i.HY_TM1650_Write)
+    HY_TaskLoop                              0x08001fed   Thumb Code    64  hy_application.o(i.HY_TaskLoop)
+    HY_VariableInit                          0x08002109   Thumb Code    38  hy_variable.o(i.HY_VariableInit)
+    IncreaseSpeed                            0x08002139   Thumb Code    36  hy_application.o(i.IncreaseSpeed)
+    MDS_s32Atan2                             0x08002179   Thumb Code   116  mds_cordic.o(i.MDS_s32Atan2)
+    MDS_vAlignment                           0x080021fd   Thumb Code     4  mds_motorcontrol.o(i.MDS_vAlignment)
+    MDS_vBreak                               0x08002201   Thumb Code    84  mds_motorcontrol.o(i.MDS_vBreak)
+    MDS_vClosedloop                          0x08002261   Thumb Code   394  mds_motorcontrol.o(i.MDS_vClosedloop)
+    MDS_vConstantPowerDQ                     0x08002421   Thumb Code    64  mds_fluxweakeningpowercontrol.o(i.MDS_vConstantPowerDQ)
+    MDS_vConstantPowerInit                   0x08002461   Thumb Code   128  mds_fluxweakeningpowercontrol.o(i.MDS_vConstantPowerInit)
+    MDS_vCurLimit                            0x080024ed   Thumb Code    84  mds_observer.o(i.MDS_vCurLimit)
+    MDS_vCurLimitInit                        0x08002549   Thumb Code    24  user_sysparainit.o(i.MDS_vCurLimitInit)
+    MDS_vCurPIRegulatorIQ24Init              0x0800256d   Thumb Code    78  mds_pidregulators.o(i.MDS_vCurPIRegulatorIQ24Init)
+    MDS_vCurrClarke                          0x080025c5   Thumb Code    32  mds_clarkpark.o(i.MDS_vCurrClarke)
+    MDS_vCurrPark                            0x080025e9   Thumb Code    54  mds_clarkpark.o(i.MDS_vCurrPark)
+    MDS_vCurrentControllerCalc               0x08002621   Thumb Code   234  mds_observer.o(i.MDS_vCurrentControllerCalc)
+    MDS_vDeadTimeComp                        0x08002715   Thumb Code   234  mds_observer.o(i.MDS_vDeadTimeComp)
+    MDS_vFOC                                 0x08002805   Thumb Code   340  mds_svpwm.o(i.MDS_vFOC)
+    MDS_vFault                               0x08002981   Thumb Code    18  mds_motorcontrol.o(i.MDS_vFault)
+    MDS_vFluxWeakening                       0x08002999   Thumb Code    94  mds_fluxweakeningpowercontrol.o(i.MDS_vFluxWeakening)
+    MDS_vFluxWeakeningInit                   0x08002a01   Thumb Code   124  mds_fluxweakeningpowercontrol.o(i.MDS_vFluxWeakeningInit)
+    MDS_vIPDInit                             0x08002a8d   Thumb Code    58  user_sysparainit.o(i.MDS_vIPDInit)
+    MDS_vIdentify                            0x08002ad1   Thumb Code   352  mds_motorcontrol.o(i.MDS_vIdentify)
+    MDS_vIdle                                0x08002c65   Thumb Code    14  mds_motorcontrol.o(i.MDS_vIdle)
+    MDS_vInit                                0x08002c79   Thumb Code    20  mds_motorcontrol.o(i.MDS_vInit)
+    MDS_vInitPosDeter                        0x08002c91   Thumb Code   452  mds_observer.o(i.MDS_vInitPosDeter)
+    MDS_vMTPAInit                            0x08002e75   Thumb Code    20  mds_fluxweakeningpowercontrol.o(i.MDS_vMTPAInit)
+    MDS_vMotorAppCommand                     0x08002e91   Thumb Code    92  mds_motorcontrol.o(i.MDS_vMotorAppCommand)
+    MDS_vMotorControlState                   0x08002f01   Thumb Code    68  mds_motorcontrol.o(i.MDS_vMotorControlState)
+    MDS_vMotorParaCalc                       0x08002f49   Thumb Code   948  user_sysparainit.o(i.MDS_vMotorParaCalc)
+    MDS_vMotorParaReadFromHfile              0x08003335   Thumb Code   266  user_sysparainit.o(i.MDS_vMotorParaReadFromHfile)
+    MDS_vNoWaterCal                          0x080034a9   Thumb Code    76  mds_fluxweakeningpowercontrol.o(i.MDS_vNoWaterCal)
+    MDS_vOBPosObserver                       0x080034f9   Thumb Code   290  mds_observer.o(i.MDS_vOBPosObserver)
+    MDS_vOBPosObserverInit                   0x08003621   Thumb Code   100  user_sysparainit.o(i.MDS_vOBPosObserverInit)
+    MDS_vOBRestarting                        0x08003689   Thumb Code  1226  mds_observer.o(i.MDS_vOBRestarting)
+    MDS_vOpenloop                            0x08003b5d   Thumb Code   400  mds_motorcontrol.o(i.MDS_vOpenloop)
+    MDS_vOtherInitFromUserSetting            0x08003d31   Thumb Code   896  user_sysparainit.o(i.MDS_vOtherInitFromUserSetting)
+    MDS_vPIRegulatorIQ24                     0x080040d5   Thumb Code   132  mds_pidregulators.o(i.MDS_vPIRegulatorIQ24)
+    MDS_vPWMSwitchImmediate                  0x08004159   Thumb Code    88  mds_motorcontrol.o(i.MDS_vPWMSwitchImmediate)
+    MDS_vPWMSwitchNextPeriod                 0x080041c1   Thumb Code   138  mds_motorcontrol.o(i.MDS_vPWMSwitchNextPeriod)
+    MDS_vPWMUpdate                           0x08004259   Thumb Code    76  mds_svpwm.o(i.MDS_vPWMUpdate)
+    MDS_vPrecharge                           0x080042b5   Thumb Code     2  mds_motorcontrol.o(i.MDS_vPrecharge)
+    MDS_vRampGen                             0x080042b7   Thumb Code    74  mds_thetagenerate.o(i.MDS_vRampGen)
+    MDS_vRampInit                            0x08004301   Thumb Code    44  mds_thetagenerate.o(i.MDS_vRampInit)
+    MDS_vSVPWM                               0x08004335   Thumb Code   266  mds_observer.o(i.MDS_vSVPWM)
+    MDS_vSpdPIRegulatorIQ24Init              0x0800444d   Thumb Code    90  mds_pidregulators.o(i.MDS_vSpdPIRegulatorIQ24Init)
+    MDS_vStart                               0x080044b9   Thumb Code   138  mds_motorcontrol.o(i.MDS_vStart)
+    MDS_vStop                                0x08004565   Thumb Code    40  mds_motorcontrol.o(i.MDS_vStop)
+    MDS_vTIMInit                             0x080045a1   Thumb Code    26  user_sysparainit.o(i.MDS_vTIMInit)
+    MDS_vThetaGen                            0x080045c9   Thumb Code    46  mds_thetagenerate.o(i.MDS_vThetaGen)
+    MDS_vThetaInit                           0x080045fd   Thumb Code    26  mds_thetagenerate.o(i.MDS_vThetaInit)
+    MDS_vTrack                               0x08004621   Thumb Code    32  mds_motorcontrol.o(i.MDS_vTrack)
+    MDS_vTrigFunctions                       0x08004645   Thumb Code   108  mds_clarkpark.o(i.MDS_vTrigFunctions)
+    MDS_vUdcPIRegulatorIQ24Init              0x080046b5   Thumb Code    42  mds_pidregulators.o(i.MDS_vUdcPIRegulatorIQ24Init)
+    MDS_vUdcSwitchCheck                      0x080046e9   Thumb Code   118  mds_motorcontrol.o(i.MDS_vUdcSwitchCheck)
+    MDS_vVSPCheck                            0x0800479d   Thumb Code   180  mds_motorcontrol.o(i.MDS_vVSPCheck)
+    MDS_vVoltClarke                          0x0800486d   Thumb Code    30  mds_clarkpark.o(i.MDS_vVoltClarke)
+    MDS_vVoltPark                            0x08004891   Thumb Code    54  mds_clarkpark.o(i.MDS_vVoltPark)
+    MDS_vVoltRevParkCircleLimit              0x080048c9   Thumb Code    48  mds_clarkpark.o(i.MDS_vVoltRevParkCircleLimit)
+    MDS_vVoltageCalc                         0x08004901   Thumb Code    64  mds_calcvoltage.o(i.MDS_vVoltageCalc)
+    MDS_vWait                                0x08004945   Thumb Code    34  mds_motorcontrol.o(i.MDS_vWait)
+    MDS_vWriteFlash                          0x08004971   Thumb Code     4  mds_motorcontrol.o(i.MDS_vWriteFlash)
+    ModeUi                                   0x08004975   Thumb Code   200  hy_application.o(i.ModeUi)
+    ModeUiPageProcess                        0x08004a4d   Thumb Code    24  hy_application.o(i.ModeUiPageProcess)
+    NVIC_Init                                0x08004a69   Thumb Code    72  lcm32f037_tim.o(i.NVIC_Init)
+    OPA0_TRIM                                0x08004ab9   Thumb Code   148  lcm32f037_opa.o(i.OPA0_TRIM)
+    OPA1_TRIM                                0x08004b55   Thumb Code   148  lcm32f037_opa.o(i.OPA1_TRIM)
+    OPA2_TRIM                                0x08004bf1   Thumb Code   148  lcm32f037_opa.o(i.OPA2_TRIM)
+    OPA_Cmd                                  0x08004c8d   Thumb Code    24  lcm32f037_opa.o(i.OPA_Cmd)
+    OPA_Init                                 0x08004ca5   Thumb Code   104  lcm32f037_opa.o(i.OPA_Init)
+    PWR_LDODriverLevel                       0x08004d11   Thumb Code    38  lcm32f037_pwr.o(i.PWR_LDODriverLevel)
+    PWR_LVRCmd                               0x08004d45   Thumb Code    60  lcm32f037_pwr.o(i.PWR_LVRCmd)
+    RCC_AHBPeriphClockCmd                    0x08004d8d   Thumb Code    64  lcm32f037_rcc.o(i.RCC_AHBPeriphClockCmd)
+    RCC_APB1PeriphClockCmd                   0x08004dd9   Thumb Code   124  lcm32f037_rcc.o(i.RCC_APB1PeriphClockCmd)
+    RCC_DeInit                               0x08004e61   Thumb Code   148  lcm32f037_rcc.o(i.RCC_DeInit)
+    RCC_GetClockFreq                         0x08004f0d   Thumb Code   410  lcm32f037_rcc.o(i.RCC_GetClockFreq)
+    ReduceSpeed                              0x080050b5   Thumb Code    36  hy_application.o(i.ReduceSpeed)
+    SATRT_OFACMP1                            0x080050e1   Thumb Code    12  lcm32f037_acmp.o(i.SATRT_OFACMP1)
+    SetSysClock                              0x080050f1   Thumb Code    22  lcm32f037_rcc.o(i.SetSysClock)
+    SysTick_Handler                          0x08005109   Thumb Code   468  user_interrupt.o(i.SysTick_Handler)
+    SystemInit                               0x0800530d   Thumb Code     8  lcm32f037_rcc.o(i.SystemInit)
+    TIM1_NON_CC_Handler                      0x08005315   Thumb Code    50  user_interrupt.o(i.TIM1_NON_CC_Handler)
+    TIM_ARRPreloadConfig                     0x08005351   Thumb Code    24  lcm32f037_tim.o(i.TIM_ARRPreloadConfig)
+    TIM_BDTRConfig                           0x0800536d   Thumb Code    36  lcm32f037_tim.o(i.TIM_BDTRConfig)
+    TIM_CCxCmd                               0x08005391   Thumb Code    28  lcm32f037_tim.o(i.TIM_CCxCmd)
+    TIM_CCxNCmd                              0x080053ad   Thumb Code    28  lcm32f037_tim.o(i.TIM_CCxNCmd)
+    TIM_ClearITPendingBit                    0x080053c9   Thumb Code    12  lcm32f037_tim.o(i.TIM_ClearITPendingBit)
+    TIM_Cmd                                  0x080053d5   Thumb Code    24  lcm32f037_tim.o(i.TIM_Cmd)
+    TIM_CtrlPWMOutputs                       0x080053f1   Thumb Code    26  lcm32f037_tim.o(i.TIM_CtrlPWMOutputs)
+    TIM_ITConfig                             0x0800540b   Thumb Code    24  lcm32f037_tim.o(i.TIM_ITConfig)
+    TIM_OC1Init                              0x08005425   Thumb Code   116  lcm32f037_tim.o(i.TIM_OC1Init)
+    TIM_OC1PreloadConfig                     0x080054b1   Thumb Code    14  lcm32f037_tim.o(i.TIM_OC1PreloadConfig)
+    TIM_OC2Init                              0x080054c1   Thumb Code   138  lcm32f037_tim.o(i.TIM_OC2Init)
+    TIM_OC2PreloadConfig                     0x08005569   Thumb Code    18  lcm32f037_tim.o(i.TIM_OC2PreloadConfig)
+    TIM_OC3Init                              0x08005581   Thumb Code   120  lcm32f037_tim.o(i.TIM_OC3Init)
+    TIM_OC3PreloadConfig                     0x08005615   Thumb Code    14  lcm32f037_tim.o(i.TIM_OC3PreloadConfig)
+    TIM_OC4Init                              0x08005625   Thumb Code    88  lcm32f037_tim.o(i.TIM_OC4Init)
+    TIM_OC4PreloadConfig                     0x08005695   Thumb Code    18  lcm32f037_tim.o(i.TIM_OC4PreloadConfig)
+    TIM_TimeBaseInit                         0x080056ad   Thumb Code    84  lcm32f037_tim.o(i.TIM_TimeBaseInit)
+    UART0_Handler                            0x0800571d   Thumb Code     2  user_interrupt.o(i.UART0_Handler)
+    UA_u8CurrSampleOffest                    0x08005721   Thumb Code   262  user_adsample.o(i.UA_u8CurrSampleOffest)
+    UA_vADSampleAll                          0x08005839   Thumb Code   230  user_adsample.o(i.UA_vADSampleAll)
+    UA_vIABCConstruct                        0x0800592d   Thumb Code    28  user_adsample.o(i.UA_vIABCConstruct)
+    UA_vVoltageConstruct                     0x08005949   Thumb Code    78  user_adsample.o(i.UA_vVoltageConstruct)
+    UP_vADCConfiguration                     0x080059b1   Thumb Code   284  user_peripheralinit.o(i.UP_vADCConfiguration)
+    UP_vBreakEnable                          0x08005ad9   Thumb Code    12  user_peripheralinit.o(i.UP_vBreakEnable)
+    UP_vDAC1_5_Config                        0x08005ae9   Thumb Code    96  user_peripheralinit.o(i.UP_vDAC1_5_Config)
+    UP_vDeviceInit                           0x08005b4d   Thumb Code   124  user_peripheralinit.o(i.UP_vDeviceInit)
+    UP_vGPIOConfiguration                    0x08005be9   Thumb Code   232  user_peripheralinit.o(i.UP_vGPIOConfiguration)
+    UP_vOPA012Config                         0x08005cdd   Thumb Code    16  user_peripheralinit.o(i.UP_vOPA012Config)
+    UP_vOpa0_config                          0x08005ced   Thumb Code   106  user_peripheralinit.o(i.UP_vOpa0_config)
+    UP_vOpa1_config                          0x08005d5d   Thumb Code   104  user_peripheralinit.o(i.UP_vOpa1_config)
+    UP_vOpa2_config                          0x08005dcd   Thumb Code   104  user_peripheralinit.o(i.UP_vOpa2_config)
+    UP_vPeriphClockCmdInit                   0x08005e39   Thumb Code    72  user_peripheralinit.o(i.UP_vPeriphClockCmdInit)
+    UP_vTimerConfiguration                   0x08005e85   Thumb Code   490  user_peripheralinit.o(i.UP_vTimerConfiguration)
+    US_vGlobalVariablesInit                  0x0800608d   Thumb Code   222  user_sysparainit.o(i.US_vGlobalVariablesInit)
+    US_vHardwareOverCurCalcAMP               0x08006195   Thumb Code    68  user_syserrorprocess.o(i.US_vHardwareOverCurCalcAMP)
+    US_vSysErrorCheck                        0x080061ed   Thumb Code   898  user_syserrorprocess.o(i.US_vSysErrorCheck)
+    US_vSysFaultProcess                      0x08006595   Thumb Code   140  user_syserrorprocess.o(i.US_vSysFaultProcess)
+    US_vSystParaInit                         0x08006639   Thumb Code   132  user_sysparainit.o(i.US_vSystParaInit)
+    US_vSystParaInitPowerup                  0x080066e9   Thumb Code    56  user_sysparainit.o(i.US_vSystParaInitPowerup)
+    US_vSystStateInit                        0x0800672d   Thumb Code   108  user_sysparainit.o(i.US_vSystStateInit)
+    US_vUserAppInit                          0x080067b5   Thumb Code    26  user_sysparainit.o(i.US_vUserAppInit)
+    User_vNVICConfiguration                  0x080067d9   Thumb Code    96  user_nvic.o(i.User_vNVICConfiguration)
+    __ARM_common_ll_mulss                    0x08006841   Thumb Code    48  user_datatransform.o(i.__ARM_common_ll_mulss)
+    __ARM_common_ll_muluu                    0x08006871   Thumb Code    48  user_sysparainit.o(i.__ARM_common_ll_muluu)
+    __ARM_common_switch8                     0x080068a1   Thumb Code    26  user_interrupt.o(i.__ARM_common_switch8)
+    delay10us                                0x080068bd   Thumb Code    50  lcm32f037_rcc.o(i.delay10us)
+    get_opa0_trim                            0x080068fd   Thumb Code    10  lcm32f037_opa.o(i.get_opa0_trim)
+    get_opa1_trim                            0x0800690d   Thumb Code    10  lcm32f037_opa.o(i.get_opa1_trim)
+    get_opa2_trim                            0x0800691d   Thumb Code    10  lcm32f037_opa.o(i.get_opa2_trim)
+    iic_ack                                  0x0800692d   Thumb Code    56  hy_softiic.o(i.iic_ack)
+    iic_delay                                0x08006965   Thumb Code    16  hy_softiic.o(i.iic_delay)
+    iic_readByte                             0x08006975   Thumb Code    66  hy_softiic.o(i.iic_readByte)
+    iic_sendByte                             0x080069b7   Thumb Code    86  hy_softiic.o(i.iic_sendByte)
+    iic_start                                0x08006a0d   Thumb Code    52  hy_softiic.o(i.iic_start)
+    iic_stop                                 0x08006a41   Thumb Code    52  hy_softiic.o(i.iic_stop)
+    iic_waitAck                              0x08006a75   Thumb Code    66  hy_softiic.o(i.iic_waitAck)
+    main                                     0x08006ab7   Thumb Code    30  user_main.o(i.main)
+    opa0_trim                                0x08006ad5   Thumb Code    18  lcm32f037_opa.o(i.opa0_trim)
+    opa0_trim_FLAG                           0x08006aed   Thumb Code     8  lcm32f037_opa.o(i.opa0_trim_FLAG)
+    opa1_trim                                0x08006af9   Thumb Code    18  lcm32f037_opa.o(i.opa1_trim)
+    opa1_trim_FLAG                           0x08006b11   Thumb Code     8  lcm32f037_opa.o(i.opa1_trim_FLAG)
+    opa2_trim                                0x08006b1d   Thumb Code    18  lcm32f037_opa.o(i.opa2_trim)
+    opa2_trim_FLAG                           0x08006b35   Thumb Code     8  lcm32f037_opa.o(i.opa2_trim_FLAG)
+    sda_input                                0x08006b41   Thumb Code    24  hy_softiic.o(i.sda_input)
+    sda_ouput                                0x08006b59   Thumb Code    28  hy_softiic.o(i.sda_ouput)
+    __aeabi_fadd                             0x08006b75   Thumb Code     0  faddsub.o(x$fpl$fadd)
+    _fadd                                    0x08006b75   Thumb Code   134  faddsub.o(x$fpl$fadd)
+    __aeabi_fmul                             0x08006c01   Thumb Code     0  fmul.o(x$fpl$fmul)
+    _fmul                                    0x08006c01   Thumb Code   172  fmul.o(x$fpl$fmul)
+    __aeabi_frsub                            0x08006cb1   Thumb Code     0  faddsub.o(x$fpl$frsb)
+    _frsb                                    0x08006cb1   Thumb Code    24  faddsub.o(x$fpl$frsb)
+    __aeabi_fsub                             0x08006cc9   Thumb Code     0  faddsub.o(x$fpl$fsub)
+    _fsub                                    0x08006cc9   Thumb Code   204  faddsub.o(x$fpl$fsub)
+    __I$use$fp                               0x08006d98   Number         0  usenofp.o(x$fpl$usenofp)
+    CP_cSinCosTable                          0x08007226   Data         512  mds_clarkpark.o(.constdata)
+    atanLUT                                  0x08007428   Data          80  mds_cordic.o(.constdata)
+    Region$$Table$$Base                      0x08007938   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08007958   Number         0  anon$$obj.o(Region$$Table)
     lg_u32WaitCount                          0x20000010   Data           4  mds_motorcontrol.o(.data)
     keyValue                                 0x20000020   Data           1  hy_application.o(.data)
     keyValuePrev                             0x20000021   Data           1  hy_application.o(.data)
@@ -2348,10 +2343,11 @@ Image Symbol Table
     MDS_sNW                                  0x20000788   Data          24  mds_fluxweakeningpowercontrol.o(.bss)
     MDS_sMTPA                                0x200007a0   Data          24  mds_fluxweakeningpowercontrol.o(.bss)
     motor                                    0x200007b8   Data          20  hy_variable.o(.bss)
-    MDS_sPosObserver                         0x200007cc   Data         180  mds_observer.o(.bss)
-    MDS_sPosObserverShort                    0x20000880   Data          72  mds_observer.o(.bss)
-    __libspace_start                         0x200008c8   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x20000928   Data           0  libspace.o(.bss)
+    mpptAdc                                  0x200007cc   Data          12  hy_variable.o(.bss)
+    MDS_sPosObserver                         0x200007d8   Data         180  mds_observer.o(.bss)
+    MDS_sPosObserverShort                    0x2000088c   Data          72  mds_observer.o(.bss)
+    __libspace_start                         0x200008d4   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x20000934   Data           0  libspace.o(.bss)
 
 
 
@@ -2361,329 +2357,324 @@ Memory Map of the image
 
   Image Entry point : 0x080000c1
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00007a84, Max: 0x00008000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000079a4, Max: 0x00008000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00007a38, Max: 0x00008000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00007958, Max: 0x00008000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x08000000   0x08000000   0x000000c0   Data   RO         3901    RESET               lcm32f037_startup.o
-    0x080000c0   0x080000c0   0x00000008   Code   RO         4454  * !!!main             c_p.l(__main.o)
-    0x080000c8   0x080000c8   0x0000003c   Code   RO         4666    !!!scatter          c_p.l(__scatter.o)
-    0x08000104   0x08000104   0x0000001a   Code   RO         4668    !!handler_copy      c_p.l(__scatter_copy.o)
+    0x080000c0   0x080000c0   0x00000008   Code   RO         4455  * !!!main             c_p.l(__main.o)
+    0x080000c8   0x080000c8   0x0000003c   Code   RO         4667    !!!scatter          c_p.l(__scatter.o)
+    0x08000104   0x08000104   0x0000001a   Code   RO         4669    !!handler_copy      c_p.l(__scatter_copy.o)
     0x0800011e   0x0800011e   0x00000002   PAD
-    0x08000120   0x08000120   0x0000001c   Code   RO         4670    !!handler_zi        c_p.l(__scatter_zi.o)
-    0x0800013c   0x0800013c   0x00000002   Code   RO         4535    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4549    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4551    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4554    .ARM.Collect$$libinit$$0000000A  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4556    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4558    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4561    .ARM.Collect$$libinit$$00000011  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4563    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4565    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4567    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4569    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4571    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4573    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4575    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4577    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4579    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4581    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4585    .ARM.Collect$$libinit$$0000002C  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4587    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4589    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         4591    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000002   Code   RO         4592    .ARM.Collect$$libinit$$00000033  c_p.l(libinit2.o)
-    0x08000140   0x08000140   0x00000002   Code   RO         4623    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
-    0x08000142   0x08000142   0x00000000   Code   RO         4649    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
-    0x08000142   0x08000142   0x00000000   Code   RO         4651    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
-    0x08000142   0x08000142   0x00000000   Code   RO         4654    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
-    0x08000142   0x08000142   0x00000000   Code   RO         4657    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
-    0x08000142   0x08000142   0x00000000   Code   RO         4659    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
-    0x08000142   0x08000142   0x00000000   Code   RO         4662    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
-    0x08000142   0x08000142   0x00000002   Code   RO         4663    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
-    0x08000144   0x08000144   0x00000000   Code   RO         4494    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
-    0x08000144   0x08000144   0x00000000   Code   RO         4505    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
-    0x08000144   0x08000144   0x00000006   Code   RO         4517    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
-    0x0800014a   0x0800014a   0x00000000   Code   RO         4507    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
-    0x0800014a   0x0800014a   0x00000004   Code   RO         4508    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
-    0x0800014e   0x0800014e   0x00000000   Code   RO         4510    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
-    0x0800014e   0x0800014e   0x00000008   Code   RO         4511    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
-    0x08000156   0x08000156   0x00000002   Code   RO         4540    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
-    0x08000158   0x08000158   0x00000000   Code   RO         4596    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
-    0x08000158   0x08000158   0x00000004   Code   RO         4597    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
-    0x0800015c   0x0800015c   0x00000006   Code   RO         4598    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
+    0x08000120   0x08000120   0x0000001c   Code   RO         4671    !!handler_zi        c_p.l(__scatter_zi.o)
+    0x0800013c   0x0800013c   0x00000002   Code   RO         4536    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4550    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4552    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4555    .ARM.Collect$$libinit$$0000000A  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4557    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4559    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4562    .ARM.Collect$$libinit$$00000011  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4564    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4566    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4568    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4570    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4572    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4574    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4576    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4578    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4580    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4582    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4586    .ARM.Collect$$libinit$$0000002C  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4588    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4590    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         4592    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000002   Code   RO         4593    .ARM.Collect$$libinit$$00000033  c_p.l(libinit2.o)
+    0x08000140   0x08000140   0x00000002   Code   RO         4624    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
+    0x08000142   0x08000142   0x00000000   Code   RO         4650    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000000   Code   RO         4652    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000000   Code   RO         4655    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000000   Code   RO         4658    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000000   Code   RO         4660    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000000   Code   RO         4663    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000002   Code   RO         4664    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
+    0x08000144   0x08000144   0x00000000   Code   RO         4495    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
+    0x08000144   0x08000144   0x00000000   Code   RO         4506    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
+    0x08000144   0x08000144   0x00000006   Code   RO         4518    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
+    0x0800014a   0x0800014a   0x00000000   Code   RO         4508    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
+    0x0800014a   0x0800014a   0x00000004   Code   RO         4509    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
+    0x0800014e   0x0800014e   0x00000000   Code   RO         4511    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
+    0x0800014e   0x0800014e   0x00000008   Code   RO         4512    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
+    0x08000156   0x08000156   0x00000002   Code   RO         4541    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
+    0x08000158   0x08000158   0x00000000   Code   RO         4597    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
+    0x08000158   0x08000158   0x00000004   Code   RO         4598    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
+    0x0800015c   0x0800015c   0x00000006   Code   RO         4599    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
     0x08000162   0x08000162   0x00000002   PAD
-    0x08000164   0x08000164   0x00000038   Code   RO         4444    .emb_text           c_p.l(rt_memcpy.o)
+    0x08000164   0x08000164   0x00000038   Code   RO         4445    .emb_text           c_p.l(rt_memcpy.o)
     0x0800019c   0x0800019c   0x00000038   Code   RO         3902    .text               lcm32f037_startup.o
-    0x080001d4   0x080001d4   0x00000030   Code   RO         4440    .text               c_p.l(llmul.o)
-    0x08000204   0x08000204   0x00000102   Code   RO         4442    .text               c_p.l(lludiv.o)
-    0x08000306   0x08000306   0x0000015a   Code   RO         4448    .text               c_p.l(aeabi_sdiv.o)
-    0x08000460   0x08000460   0x00000006   Code   RO         4452    .text               c_p.l(heapauxi.o)
+    0x080001d4   0x080001d4   0x00000030   Code   RO         4441    .text               c_p.l(llmul.o)
+    0x08000204   0x08000204   0x00000102   Code   RO         4443    .text               c_p.l(lludiv.o)
+    0x08000306   0x08000306   0x0000015a   Code   RO         4449    .text               c_p.l(aeabi_sdiv.o)
+    0x08000460   0x08000460   0x00000006   Code   RO         4453    .text               c_p.l(heapauxi.o)
     0x08000466   0x08000466   0x00000002   PAD
-    0x08000468   0x08000468   0x0000007c   Code   RO         4456    .text               fz_ps.l(d2f.o)
-    0x080004e4   0x080004e4   0x00000358   Code   RO         4458    .text               fz_ps.l(daddsub.o)
-    0x0800083c   0x0800083c   0x00000448   Code   RO         4460    .text               fz_ps.l(ddiv.o)
-    0x08000c84   0x08000c84   0x0000006c   Code   RO         4463    .text               fz_ps.l(dfixi.o)
-    0x08000cf0   0x08000cf0   0x00000048   Code   RO         4465    .text               fz_ps.l(dfixui.o)
-    0x08000d38   0x08000d38   0x00000058   Code   RO         4467    .text               fz_ps.l(dflti.o)
-    0x08000d90   0x08000d90   0x00000248   Code   RO         4469    .text               fz_ps.l(dmul.o)
-    0x08000fd8   0x08000fd8   0x00000060   Code   RO         4471    .text               fz_ps.l(dscalbn.o)
-    0x08001038   0x08001038   0x00000054   Code   RO         4473    .text               fz_ps.l(f2d.o)
-    0x0800108c   0x0800108c   0x00000160   Code   RO         4481    .text               fz_ps.l(fdiv.o)
-    0x080011ec   0x080011ec   0x0000004c   Code   RO         4484    .text               fz_ps.l(ffixi.o)
-    0x08001238   0x08001238   0x00000030   Code   RO         4486    .text               fz_ps.l(ffixui.o)
-    0x08001268   0x08001268   0x0000005e   Code   RO         4488    .text               fz_ps.l(fflti.o)
+    0x08000468   0x08000468   0x0000007c   Code   RO         4457    .text               fz_ps.l(d2f.o)
+    0x080004e4   0x080004e4   0x00000358   Code   RO         4459    .text               fz_ps.l(daddsub.o)
+    0x0800083c   0x0800083c   0x00000448   Code   RO         4461    .text               fz_ps.l(ddiv.o)
+    0x08000c84   0x08000c84   0x0000006c   Code   RO         4464    .text               fz_ps.l(dfixi.o)
+    0x08000cf0   0x08000cf0   0x00000048   Code   RO         4466    .text               fz_ps.l(dfixui.o)
+    0x08000d38   0x08000d38   0x00000058   Code   RO         4468    .text               fz_ps.l(dflti.o)
+    0x08000d90   0x08000d90   0x00000248   Code   RO         4470    .text               fz_ps.l(dmul.o)
+    0x08000fd8   0x08000fd8   0x00000060   Code   RO         4472    .text               fz_ps.l(dscalbn.o)
+    0x08001038   0x08001038   0x00000054   Code   RO         4474    .text               fz_ps.l(f2d.o)
+    0x0800108c   0x0800108c   0x00000160   Code   RO         4482    .text               fz_ps.l(fdiv.o)
+    0x080011ec   0x080011ec   0x0000004c   Code   RO         4485    .text               fz_ps.l(ffixi.o)
+    0x08001238   0x08001238   0x00000030   Code   RO         4487    .text               fz_ps.l(ffixui.o)
+    0x08001268   0x08001268   0x0000005e   Code   RO         4489    .text               fz_ps.l(fflti.o)
     0x080012c6   0x080012c6   0x00000002   PAD
-    0x080012c8   0x080012c8   0x00000044   Code   RO         4492    .text               fz_ps.l(fscalbn.o)
-    0x0800130c   0x0800130c   0x0000003e   Code   RO         4521    .text               c_p.l(sys_stackheap_outer.o)
-    0x0800134a   0x0800134a   0x00000010   Code   RO         4524    .text               c_p.l(exit.o)
+    0x080012c8   0x080012c8   0x00000044   Code   RO         4493    .text               fz_ps.l(fscalbn.o)
+    0x0800130c   0x0800130c   0x0000003e   Code   RO         4522    .text               c_p.l(sys_stackheap_outer.o)
+    0x0800134a   0x0800134a   0x00000010   Code   RO         4525    .text               c_p.l(exit.o)
     0x0800135a   0x0800135a   0x00000002   PAD
-    0x0800135c   0x0800135c   0x00000008   Code   RO         4536    .text               c_p.l(libspace.o)
-    0x08001364   0x08001364   0x0000000c   Code   RO         4593    .text               c_p.l(sys_exit.o)
-    0x08001370   0x08001370   0x00000002   Code   RO         4612    .text               c_p.l(use_no_semi.o)
-    0x08001372   0x08001372   0x00000000   Code   RO         4614    .text               c_p.l(indicate_semi.o)
+    0x0800135c   0x0800135c   0x00000008   Code   RO         4537    .text               c_p.l(libspace.o)
+    0x08001364   0x08001364   0x0000000c   Code   RO         4594    .text               c_p.l(sys_exit.o)
+    0x08001370   0x08001370   0x00000002   Code   RO         4613    .text               c_p.l(use_no_semi.o)
+    0x08001372   0x08001372   0x00000000   Code   RO         4615    .text               c_p.l(indicate_semi.o)
     0x08001372   0x08001372   0x00000002   PAD
-    0x08001374   0x08001374   0x00000020   Code   RO         2447    i.ACMP1_Cmd         lcm32f037_acmp.o
-    0x08001394   0x08001394   0x00000088   Code   RO         2448    i.ACMP1_Init        lcm32f037_acmp.o
-    0x0800141c   0x0800141c   0x00000030   Code   RO         2449    i.ACMP1_SEQ_INPUT_SELECT  lcm32f037_acmp.o
-    0x0800144c   0x0800144c   0x0000001c   Code   RO         1479    i.ADC_ChannelConfig  lcm32f037_adc.o
-    0x08001468   0x08001468   0x00000058   Code   RO         1483    i.ADC_Cmd           lcm32f037_adc.o
-    0x080014c0   0x080014c0   0x0000014c   Code   RO         1489    i.ADC_Init          lcm32f037_adc.o
-    0x0800160c   0x0800160c   0x00000020   Code   RO         1490    i.ADC_StartOfConversion  lcm32f037_adc.o
-    0x0800162c   0x0800162c   0x00000024   Code   RO         1492    i.ADC_StructInit    lcm32f037_adc.o
-    0x08001650   0x08001650   0x000000ac   Code   RO         1495    i.ADC_VrefintSelect  lcm32f037_adc.o
-    0x080016fc   0x080016fc   0x00000018   Code   RO         2609    i.DAC_Cmd           lcm32f037_dac.o
-    0x08001714   0x08001714   0x00000120   Code   RO         2613    i.DAC_Init          lcm32f037_dac.o
-    0x08001834   0x08001834   0x0000001a   Code   RO         2614    i.DAC_SetDac_10B_Data  lcm32f037_dac.o
-    0x0800184e   0x0800184e   0x00000018   Code   RO         2615    i.DAC_SoftwareTriggerCmd  lcm32f037_dac.o
-    0x08001866   0x08001866   0x00000002   PAD
-    0x08001868   0x08001868   0x00000088   Code   RO          289    i.DMAC_CH1_2_Handler  user_interrupt.o
-    0x080018f0   0x080018f0   0x00000024   Code   RO         1328    i.DMA_ClearITPendingBit  lcm32f037_dma.o
-    0x08001914   0x08001914   0x0000006c   Code   RO         1329    i.DMA_Cmd           lcm32f037_dma.o
-    0x08001980   0x08001980   0x000000c8   Code   RO         1330    i.DMA_DeInit        lcm32f037_dma.o
-    0x08001a48   0x08001a48   0x00000040   Code   RO         1334    i.DMA_ITConfig      lcm32f037_dma.o
-    0x08001a88   0x08001a88   0x000000e6   Code   RO         1335    i.DMA_Init          lcm32f037_dma.o
-    0x08001b6e   0x08001b6e   0x00000002   PAD
-    0x08001b70   0x08001b70   0x0000005c   Code   RO         1336    i.DMA_RemapConfig   lcm32f037_dma.o
-    0x08001bcc   0x08001bcc   0x00000008   Code   RO         1337    i.DMA_SetCurrDataCounter  lcm32f037_dma.o
-    0x08001bd4   0x08001bd4   0x00000024   Code   RO         3460    i.FLASH_LATENCY     lcm32f037_rcc.o
-    0x08001bf8   0x08001bf8   0x000000ce   Code   RO         1214    i.GPIO_Init         lcm32f037_gpio.o
-    0x08001cc6   0x08001cc6   0x0000002a   Code   RO         1216    i.GPIO_PinAFConfig  lcm32f037_gpio.o
-    0x08001cf0   0x08001cf0   0x0000000e   Code   RO         1219    i.GPIO_ReadInputDataBit  lcm32f037_gpio.o
-    0x08001cfe   0x08001cfe   0x00000006   Code   RO         1222    i.GPIO_ResetBits    lcm32f037_gpio.o
-    0x08001d04   0x08001d04   0x00000004   Code   RO         1223    i.GPIO_SetBits      lcm32f037_gpio.o
-    0x08001d08   0x08001d08   0x00000090   Code   RO         3486    i.HSI_SetSysClockTo96  lcm32f037_rcc.o
-    0x08001d98   0x08001d98   0x0000003e   Code   RO         4100    i.HY_GpioInit       hy_hal.o
-    0x08001dd6   0x08001dd6   0x00000012   Code   RO         4102    i.HY_HalInit        hy_hal.o
-    0x08001de8   0x08001de8   0x00000040   Code   RO         3925    i.HY_SetPumpMechanicalSpeed  hy_application.o
-    0x08001e28   0x08001e28   0x00000018   Code   RO         4131    i.HY_TM1650_Clear   hy_display.o
-    0x08001e40   0x08001e40   0x00000024   Code   RO         4132    i.HY_TM1650_Read    hy_display.o
-    0x08001e64   0x08001e64   0x0000000a   Code   RO         4133    i.HY_TM1650_ScanKey  hy_display.o
-    0x08001e6e   0x08001e6e   0x00000032   Code   RO         4134    i.HY_TM1650_SetDisplay  hy_display.o
-    0x08001ea0   0x08001ea0   0x00000098   Code   RO         4135    i.HY_TM1650_SetFloat  hy_display.o
-    0x08001f38   0x08001f38   0x00000056   Code   RO         4136    i.HY_TM1650_SetIndexLetter  hy_display.o
-    0x08001f8e   0x08001f8e   0x00000002   PAD
-    0x08001f90   0x08001f90   0x0000004c   Code   RO         4137    i.HY_TM1650_SetIndexNumber  hy_display.o
-    0x08001fdc   0x08001fdc   0x00000030   Code   RO         4138    i.HY_TM1650_SetNumber  hy_display.o
-    0x0800200c   0x0800200c   0x00000094   Code   RO         4139    i.HY_TM1650_ShowFault  hy_display.o
-    0x080020a0   0x080020a0   0x00000024   Code   RO         4140    i.HY_TM1650_Write   hy_display.o
-    0x080020c4   0x080020c4   0x00000044   Code   RO         3927    i.HY_TaskLoop       hy_application.o
-    0x08002108   0x08002108   0x00000002   Code   RO         3928    i.HY_Task_100MS_Entry  hy_application.o
-    0x0800210a   0x0800210a   0x00000002   PAD
-    0x0800210c   0x0800210c   0x00000074   Code   RO         3929    i.HY_Task_1S_Entry  hy_application.o
-    0x08002180   0x08002180   0x00000074   Code   RO         3930    i.HY_Task_50MS_Entry  hy_application.o
-    0x080021f4   0x080021f4   0x00000030   Code   RO         4005    i.HY_VariableInit   hy_variable.o
-    0x08002224   0x08002224   0x0000002c   Code   RO         3931    i.IncreaseSpeed     hy_application.o
-    0x08002250   0x08002250   0x00000012   Code   RO         3932    i.LimitSpeed        hy_application.o
-    0x08002262   0x08002262   0x00000002   PAD
-    0x08002264   0x08002264   0x00000084   Code   RO         1104    i.MDS_s32Atan2      mds_cordic.o
-    0x080022e8   0x080022e8   0x00000004   Code   RO          957    i.MDS_vAlignment    mds_motorcontrol.o
-    0x080022ec   0x080022ec   0x00000060   Code   RO          958    i.MDS_vBreak        mds_motorcontrol.o
-    0x0800234c   0x0800234c   0x000001c0   Code   RO          959    i.MDS_vClosedloop   mds_motorcontrol.o
-    0x0800250c   0x0800250c   0x00000040   Code   RO         1139    i.MDS_vConstantPowerDQ  mds_fluxweakeningpowercontrol.o
-    0x0800254c   0x0800254c   0x0000008c   Code   RO         1140    i.MDS_vConstantPowerInit  mds_fluxweakeningpowercontrol.o
-    0x080025d8   0x080025d8   0x0000005c   Code   RO         4207    i.MDS_vCurLimit     LCM_FOC_V374.lib(mds_observer.o)
-    0x08002634   0x08002634   0x00000024   Code   RO          522    i.MDS_vCurLimitInit  user_sysparainit.o
-    0x08002658   0x08002658   0x00000058   Code   RO          831    i.MDS_vCurPIRegulatorIQ24Init  mds_pidregulators.o
-    0x080026b0   0x080026b0   0x00000024   Code   RO          750    i.MDS_vCurrClarke   mds_clarkpark.o
-    0x080026d4   0x080026d4   0x00000036   Code   RO          751    i.MDS_vCurrPark     mds_clarkpark.o
-    0x0800270a   0x0800270a   0x00000002   PAD
-    0x0800270c   0x0800270c   0x000000f4   Code   RO         4208    i.MDS_vCurrentControllerCalc  LCM_FOC_V374.lib(mds_observer.o)
-    0x08002800   0x08002800   0x000000f0   Code   RO         4209    i.MDS_vDeadTimeComp  LCM_FOC_V374.lib(mds_observer.o)
-    0x080028f0   0x080028f0   0x0000017c   Code   RO          883    i.MDS_vFOC          mds_svpwm.o
-    0x08002a6c   0x08002a6c   0x00000018   Code   RO          961    i.MDS_vFault        mds_motorcontrol.o
-    0x08002a84   0x08002a84   0x00000068   Code   RO         1141    i.MDS_vFluxWeakening  mds_fluxweakeningpowercontrol.o
-    0x08002aec   0x08002aec   0x0000008c   Code   RO         1142    i.MDS_vFluxWeakeningInit  mds_fluxweakeningpowercontrol.o
-    0x08002b78   0x08002b78   0x00000044   Code   RO          523    i.MDS_vIPDInit      user_sysparainit.o
-    0x08002bbc   0x08002bbc   0x00000194   Code   RO          962    i.MDS_vIdentify     mds_motorcontrol.o
-    0x08002d50   0x08002d50   0x00000014   Code   RO          963    i.MDS_vIdle         mds_motorcontrol.o
-    0x08002d64   0x08002d64   0x00000018   Code   RO          964    i.MDS_vInit         mds_motorcontrol.o
-    0x08002d7c   0x08002d7c   0x000001e4   Code   RO         4210    i.MDS_vInitPosDeter  LCM_FOC_V374.lib(mds_observer.o)
-    0x08002f60   0x08002f60   0x0000001c   Code   RO         1144    i.MDS_vMTPAInit     mds_fluxweakeningpowercontrol.o
-    0x08002f7c   0x08002f7c   0x00000070   Code   RO          965    i.MDS_vMotorAppCommand  mds_motorcontrol.o
-    0x08002fec   0x08002fec   0x00000048   Code   RO          966    i.MDS_vMotorControlState  mds_motorcontrol.o
-    0x08003034   0x08003034   0x000003ec   Code   RO          524    i.MDS_vMotorParaCalc  user_sysparainit.o
-    0x08003420   0x08003420   0x00000174   Code   RO          526    i.MDS_vMotorParaReadFromHfile  user_sysparainit.o
-    0x08003594   0x08003594   0x00000050   Code   RO         1145    i.MDS_vNoWaterCal   mds_fluxweakeningpowercontrol.o
-    0x080035e4   0x080035e4   0x00000128   Code   RO         4211    i.MDS_vOBPosObserver  LCM_FOC_V374.lib(mds_observer.o)
-    0x0800370c   0x0800370c   0x00000068   Code   RO          527    i.MDS_vOBPosObserverInit  user_sysparainit.o
-    0x08003774   0x08003774   0x000004d4   Code   RO         4213    i.MDS_vOBRestarting  LCM_FOC_V374.lib(mds_observer.o)
-    0x08003c48   0x08003c48   0x000001d4   Code   RO          967    i.MDS_vOpenloop     mds_motorcontrol.o
-    0x08003e1c   0x08003e1c   0x000003a4   Code   RO          529    i.MDS_vOtherInitFromUserSetting  user_sysparainit.o
-    0x080041c0   0x080041c0   0x00000084   Code   RO          833    i.MDS_vPIRegulatorIQ24  mds_pidregulators.o
-    0x08004244   0x08004244   0x00000068   Code   RO          968    i.MDS_vPWMSwitchImmediate  mds_motorcontrol.o
-    0x080042ac   0x080042ac   0x00000098   Code   RO          969    i.MDS_vPWMSwitchNextPeriod  mds_motorcontrol.o
-    0x08004344   0x08004344   0x0000005c   Code   RO          884    i.MDS_vPWMUpdate    mds_svpwm.o
-    0x080043a0   0x080043a0   0x00000002   Code   RO          970    i.MDS_vPrecharge    mds_motorcontrol.o
-    0x080043a2   0x080043a2   0x0000004a   Code   RO          912    i.MDS_vRampGen      mds_thetagenerate.o
-    0x080043ec   0x080043ec   0x00000034   Code   RO          913    i.MDS_vRampInit     mds_thetagenerate.o
-    0x08004420   0x08004420   0x00000118   Code   RO         4214    i.MDS_vSVPWM        LCM_FOC_V374.lib(mds_observer.o)
-    0x08004538   0x08004538   0x0000006c   Code   RO          834    i.MDS_vSpdPIRegulatorIQ24Init  mds_pidregulators.o
-    0x080045a4   0x080045a4   0x000000ac   Code   RO          971    i.MDS_vStart        mds_motorcontrol.o
-    0x08004650   0x08004650   0x0000003c   Code   RO          972    i.MDS_vStop         mds_motorcontrol.o
-    0x0800468c   0x0800468c   0x00000028   Code   RO          530    i.MDS_vTIMInit      user_sysparainit.o
-    0x080046b4   0x080046b4   0x00000034   Code   RO          914    i.MDS_vThetaGen     mds_thetagenerate.o
-    0x080046e8   0x080046e8   0x00000024   Code   RO          915    i.MDS_vThetaInit    mds_thetagenerate.o
-    0x0800470c   0x0800470c   0x00000024   Code   RO          973    i.MDS_vTrack        mds_motorcontrol.o
-    0x08004730   0x08004730   0x00000070   Code   RO          754    i.MDS_vTrigFunctions  mds_clarkpark.o
-    0x080047a0   0x080047a0   0x00000034   Code   RO          835    i.MDS_vUdcPIRegulatorIQ24Init  mds_pidregulators.o
-    0x080047d4   0x080047d4   0x000000b4   Code   RO          974    i.MDS_vUdcSwitchCheck  mds_motorcontrol.o
-    0x08004888   0x08004888   0x000000d0   Code   RO          975    i.MDS_vVSPCheck     mds_motorcontrol.o
-    0x08004958   0x08004958   0x00000024   Code   RO          755    i.MDS_vVoltClarke   mds_clarkpark.o
-    0x0800497c   0x0800497c   0x00000036   Code   RO          757    i.MDS_vVoltPark     mds_clarkpark.o
-    0x080049b2   0x080049b2   0x00000002   PAD
-    0x080049b4   0x080049b4   0x00000038   Code   RO          759    i.MDS_vVoltRevParkCircleLimit  mds_clarkpark.o
-    0x080049ec   0x080049ec   0x00000044   Code   RO          727    i.MDS_vVoltageCalc  mds_calcvoltage.o
-    0x08004a30   0x08004a30   0x0000002c   Code   RO          976    i.MDS_vWait         mds_motorcontrol.o
-    0x08004a5c   0x08004a5c   0x00000004   Code   RO          977    i.MDS_vWriteFlash   mds_motorcontrol.o
-    0x08004a60   0x08004a60   0x000000d8   Code   RO         3933    i.ModeUi            hy_application.o
-    0x08004b38   0x08004b38   0x0000001c   Code   RO         3934    i.ModeUiPageProcess  hy_application.o
-    0x08004b54   0x08004b54   0x00000050   Code   RO         2867    i.NVIC_Init         lcm32f037_tim.o
-    0x08004ba4   0x08004ba4   0x0000009c   Code   RO         2327    i.OPA0_TRIM         lcm32f037_opa.o
-    0x08004c40   0x08004c40   0x0000009c   Code   RO         2328    i.OPA1_TRIM         lcm32f037_opa.o
-    0x08004cdc   0x08004cdc   0x0000009c   Code   RO         2329    i.OPA2_TRIM         lcm32f037_opa.o
-    0x08004d78   0x08004d78   0x00000018   Code   RO         2330    i.OPA_Cmd           lcm32f037_opa.o
-    0x08004d90   0x08004d90   0x0000006c   Code   RO         2332    i.OPA_Init          lcm32f037_opa.o
-    0x08004dfc   0x08004dfc   0x00000034   Code   RO         2698    i.PWR_LDODriverLevel  lcm32f037_pwr.o
-    0x08004e30   0x08004e30   0x00000048   Code   RO         2704    i.PWR_LVRCmd        lcm32f037_pwr.o
-    0x08004e78   0x08004e78   0x0000004c   Code   RO         3489    i.RCC_AHBPeriphClockCmd  lcm32f037_rcc.o
-    0x08004ec4   0x08004ec4   0x00000088   Code   RO         3493    i.RCC_APB1PeriphClockCmd  lcm32f037_rcc.o
-    0x08004f4c   0x08004f4c   0x000000ac   Code   RO         3499    i.RCC_DeInit        lcm32f037_rcc.o
-    0x08004ff8   0x08004ff8   0x000001a8   Code   RO         3500    i.RCC_GetClockFreq  lcm32f037_rcc.o
-    0x080051a0   0x080051a0   0x0000002c   Code   RO         3935    i.ReduceSpeed       hy_application.o
-    0x080051cc   0x080051cc   0x00000010   Code   RO         2460    i.SATRT_OFACMP1     lcm32f037_acmp.o
-    0x080051dc   0x080051dc   0x00000016   Code   RO         3523    i.SetSysClock       lcm32f037_rcc.o
-    0x080051f2   0x080051f2   0x00000002   PAD
-    0x080051f4   0x080051f4   0x00000204   Code   RO          290    i.SysTick_Handler   user_interrupt.o
-    0x080053f8   0x080053f8   0x00000008   Code   RO         3525    i.SystemInit        lcm32f037_rcc.o
-    0x08005400   0x08005400   0x0000003c   Code   RO          291    i.TIM1_NON_CC_Handler  user_interrupt.o
-    0x0800543c   0x0800543c   0x0000001c   Code   RO         2872    i.TIM_ARRPreloadConfig  lcm32f037_tim.o
-    0x08005458   0x08005458   0x00000024   Code   RO         2873    i.TIM_BDTRConfig    lcm32f037_tim.o
-    0x0800547c   0x0800547c   0x0000001c   Code   RO         2876    i.TIM_CCxCmd        lcm32f037_tim.o
-    0x08005498   0x08005498   0x0000001c   Code   RO         2877    i.TIM_CCxNCmd       lcm32f037_tim.o
-    0x080054b4   0x080054b4   0x0000000c   Code   RO         2879    i.TIM_ClearITPendingBit  lcm32f037_tim.o
-    0x080054c0   0x080054c0   0x0000001c   Code   RO         2884    i.TIM_Cmd           lcm32f037_tim.o
-    0x080054dc   0x080054dc   0x0000001a   Code   RO         2886    i.TIM_CtrlPWMOutputs  lcm32f037_tim.o
-    0x080054f6   0x080054f6   0x00000018   Code   RO         2910    i.TIM_ITConfig      lcm32f037_tim.o
-    0x0800550e   0x0800550e   0x00000002   PAD
-    0x08005510   0x08005510   0x0000008c   Code   RO         2914    i.TIM_OC1Init       lcm32f037_tim.o
-    0x0800559c   0x0800559c   0x0000000e   Code   RO         2917    i.TIM_OC1PreloadConfig  lcm32f037_tim.o
-    0x080055aa   0x080055aa   0x00000002   PAD
-    0x080055ac   0x080055ac   0x000000a8   Code   RO         2919    i.TIM_OC2Init       lcm32f037_tim.o
-    0x08005654   0x08005654   0x00000018   Code   RO         2922    i.TIM_OC2PreloadConfig  lcm32f037_tim.o
-    0x0800566c   0x0800566c   0x00000094   Code   RO         2924    i.TIM_OC3Init       lcm32f037_tim.o
-    0x08005700   0x08005700   0x0000000e   Code   RO         2927    i.TIM_OC3PreloadConfig  lcm32f037_tim.o
-    0x0800570e   0x0800570e   0x00000002   PAD
-    0x08005710   0x08005710   0x00000070   Code   RO         2929    i.TIM_OC4Init       lcm32f037_tim.o
-    0x08005780   0x08005780   0x00000018   Code   RO         2931    i.TIM_OC4PreloadConfig  lcm32f037_tim.o
-    0x08005798   0x08005798   0x00000070   Code   RO         2960    i.TIM_TimeBaseInit  lcm32f037_tim.o
-    0x08005808   0x08005808   0x00000002   Code   RO          292    i.UART0_Handler     user_interrupt.o
-    0x0800580a   0x0800580a   0x00000002   PAD
-    0x0800580c   0x0800580c   0x00000118   Code   RO          247    i.UA_u8CurrSampleOffest  user_adsample.o
-    0x08005924   0x08005924   0x000000f0   Code   RO          248    i.UA_vADSampleAll   user_adsample.o
-    0x08005a14   0x08005a14   0x0000001c   Code   RO          249    i.UA_vIABCConstruct  user_adsample.o
-    0x08005a30   0x08005a30   0x00000068   Code   RO          250    i.UA_vVoltageConstruct  user_adsample.o
-    0x08005a98   0x08005a98   0x00000042   Code   RO          350    i.UP_vACMPconfiguration  user_peripheralinit.o
-    0x08005ada   0x08005ada   0x00000002   PAD
-    0x08005adc   0x08005adc   0x000000fc   Code   RO          351    i.UP_vADCConfiguration  user_peripheralinit.o
-    0x08005bd8   0x08005bd8   0x00000010   Code   RO          353    i.UP_vBreakEnable   user_peripheralinit.o
-    0x08005be8   0x08005be8   0x00000064   Code   RO          354    i.UP_vDAC1_5_Config  user_peripheralinit.o
-    0x08005c4c   0x08005c4c   0x000000a0   Code   RO          355    i.UP_vDeviceInit    user_peripheralinit.o
-    0x08005cec   0x08005cec   0x000000b8   Code   RO          356    i.UP_vGPIOConfiguration  user_peripheralinit.o
-    0x08005da4   0x08005da4   0x00000028   Code   RO          357    i.UP_vOPA012Config  user_peripheralinit.o
-    0x08005dcc   0x08005dcc   0x00000070   Code   RO          358    i.UP_vOpa0_config   user_peripheralinit.o
-    0x08005e3c   0x08005e3c   0x00000070   Code   RO          359    i.UP_vOpa1_config   user_peripheralinit.o
-    0x08005eac   0x08005eac   0x0000006c   Code   RO          360    i.UP_vOpa2_config   user_peripheralinit.o
-    0x08005f18   0x08005f18   0x0000004c   Code   RO          361    i.UP_vPeriphClockCmdInit  user_peripheralinit.o
-    0x08005f64   0x08005f64   0x00000208   Code   RO          362    i.UP_vTimerConfiguration  user_peripheralinit.o
-    0x0800616c   0x0800616c   0x00000108   Code   RO          531    i.US_vGlobalVariablesInit  user_sysparainit.o
-    0x08006274   0x08006274   0x00000058   Code   RO          482    i.US_vHardwareOverCurCalcAMP  user_syserrorprocess.o
-    0x080062cc   0x080062cc   0x000003a8   Code   RO          483    i.US_vSysErrorCheck  user_syserrorprocess.o
-    0x08006674   0x08006674   0x000000a4   Code   RO          484    i.US_vSysFaultProcess  user_syserrorprocess.o
-    0x08006718   0x08006718   0x000000b0   Code   RO          532    i.US_vSystParaInit  user_sysparainit.o
-    0x080067c8   0x080067c8   0x00000044   Code   RO          533    i.US_vSystParaInitPowerup  user_sysparainit.o
-    0x0800680c   0x0800680c   0x00000088   Code   RO          534    i.US_vSystStateInit  user_sysparainit.o
-    0x08006894   0x08006894   0x00000024   Code   RO          535    i.US_vUserAppInit   user_sysparainit.o
-    0x080068b8   0x080068b8   0x00000068   Code   RO          217    i.User_vNVICConfiguration  user_nvic.o
-    0x08006920   0x08006920   0x00000030   Code   RO          717    i.__ARM_common_ll_mulss  user_datatransform.o
-    0x08006950   0x08006950   0x00000030   Code   RO          615    i.__ARM_common_ll_muluu  user_sysparainit.o
-    0x08006980   0x08006980   0x0000001a   Code   RO          337    i.__ARM_common_switch8  user_interrupt.o
-    0x0800699a   0x0800699a   0x00000002   PAD
-    0x0800699c   0x0800699c   0x00000040   Code   RO         3526    i.delay10us         lcm32f037_rcc.o
-    0x080069dc   0x080069dc   0x00000010   Code   RO         2335    i.get_opa0_trim     lcm32f037_opa.o
-    0x080069ec   0x080069ec   0x00000010   Code   RO         2336    i.get_opa1_trim     lcm32f037_opa.o
-    0x080069fc   0x080069fc   0x00000010   Code   RO         2337    i.get_opa2_trim     lcm32f037_opa.o
-    0x08006a0c   0x08006a0c   0x00000038   Code   RO         4032    i.iic_ack           hy_softiic.o
-    0x08006a44   0x08006a44   0x00000010   Code   RO         4033    i.iic_delay         hy_softiic.o
-    0x08006a54   0x08006a54   0x00000042   Code   RO         4034    i.iic_readByte      hy_softiic.o
-    0x08006a96   0x08006a96   0x00000056   Code   RO         4035    i.iic_sendByte      hy_softiic.o
-    0x08006aec   0x08006aec   0x00000034   Code   RO         4036    i.iic_start         hy_softiic.o
-    0x08006b20   0x08006b20   0x00000034   Code   RO         4037    i.iic_stop          hy_softiic.o
-    0x08006b54   0x08006b54   0x00000042   Code   RO         4038    i.iic_waitAck       hy_softiic.o
-    0x08006b96   0x08006b96   0x0000001e   Code   RO            3    i.main              user_main.o
-    0x08006bb4   0x08006bb4   0x00000018   Code   RO         2338    i.opa0_trim         lcm32f037_opa.o
-    0x08006bcc   0x08006bcc   0x0000000c   Code   RO         2339    i.opa0_trim_FLAG    lcm32f037_opa.o
-    0x08006bd8   0x08006bd8   0x00000018   Code   RO         2340    i.opa1_trim         lcm32f037_opa.o
-    0x08006bf0   0x08006bf0   0x0000000c   Code   RO         2341    i.opa1_trim_FLAG    lcm32f037_opa.o
-    0x08006bfc   0x08006bfc   0x00000018   Code   RO         2342    i.opa2_trim         lcm32f037_opa.o
-    0x08006c14   0x08006c14   0x0000000c   Code   RO         2343    i.opa2_trim_FLAG    lcm32f037_opa.o
-    0x08006c20   0x08006c20   0x00000018   Code   RO         4039    i.sda_input         hy_softiic.o
-    0x08006c38   0x08006c38   0x0000001c   Code   RO         4040    i.sda_ouput         hy_softiic.o
-    0x08006c54   0x08006c54   0x0000008c   Code   RO         4475    x$fpl$fadd          fz_ps.l(faddsub.o)
-    0x08006ce0   0x08006ce0   0x000000b0   Code   RO         4490    x$fpl$fmul          fz_ps.l(fmul.o)
-    0x08006d90   0x08006d90   0x00000018   Code   RO         4476    x$fpl$frsb          fz_ps.l(faddsub.o)
-    0x08006da8   0x08006da8   0x000000d0   Code   RO         4477    x$fpl$fsub          fz_ps.l(faddsub.o)
-    0x08006e78   0x08006e78   0x00000000   Code   RO         4503    x$fpl$usenofp       fz_ps.l(usenofp.o)
-    0x08006e78   0x08006e78   0x00000400   Data   RO          485    .constdata          user_syserrorprocess.o
-    0x08007278   0x08007278   0x0000028e   Data   RO          760    .constdata          mds_clarkpark.o
-    0x08007506   0x08007506   0x00000002   PAD
-    0x08007508   0x08007508   0x00000050   Data   RO         1107    .constdata          mds_cordic.o
-    0x08007558   0x08007558   0x00000400   Data   RO         1151    .constdata          mds_fluxweakeningpowercontrol.o
-    0x08007958   0x08007958   0x00000080   Data   RO         4461    .constdata          fz_ps.l(ddiv.o)
-    0x080079d8   0x080079d8   0x00000040   Data   RO         4482    .constdata          fz_ps.l(fdiv.o)
-    0x08007a18   0x08007a18   0x00000020   Data   RO         4664    Region$$Table       anon$$obj.o
+    0x08001374   0x08001374   0x0000001c   Code   RO         1479    i.ADC_ChannelConfig  lcm32f037_adc.o
+    0x08001390   0x08001390   0x00000058   Code   RO         1483    i.ADC_Cmd           lcm32f037_adc.o
+    0x080013e8   0x080013e8   0x0000014c   Code   RO         1489    i.ADC_Init          lcm32f037_adc.o
+    0x08001534   0x08001534   0x00000020   Code   RO         1490    i.ADC_StartOfConversion  lcm32f037_adc.o
+    0x08001554   0x08001554   0x00000024   Code   RO         1492    i.ADC_StructInit    lcm32f037_adc.o
+    0x08001578   0x08001578   0x000000ac   Code   RO         1495    i.ADC_VrefintSelect  lcm32f037_adc.o
+    0x08001624   0x08001624   0x00000018   Code   RO         2609    i.DAC_Cmd           lcm32f037_dac.o
+    0x0800163c   0x0800163c   0x00000120   Code   RO         2613    i.DAC_Init          lcm32f037_dac.o
+    0x0800175c   0x0800175c   0x0000001a   Code   RO         2614    i.DAC_SetDac_10B_Data  lcm32f037_dac.o
+    0x08001776   0x08001776   0x00000018   Code   RO         2615    i.DAC_SoftwareTriggerCmd  lcm32f037_dac.o
+    0x0800178e   0x0800178e   0x00000002   PAD
+    0x08001790   0x08001790   0x00000088   Code   RO          289    i.DMAC_CH1_2_Handler  user_interrupt.o
+    0x08001818   0x08001818   0x00000024   Code   RO         1328    i.DMA_ClearITPendingBit  lcm32f037_dma.o
+    0x0800183c   0x0800183c   0x0000006c   Code   RO         1329    i.DMA_Cmd           lcm32f037_dma.o
+    0x080018a8   0x080018a8   0x000000c8   Code   RO         1330    i.DMA_DeInit        lcm32f037_dma.o
+    0x08001970   0x08001970   0x00000040   Code   RO         1334    i.DMA_ITConfig      lcm32f037_dma.o
+    0x080019b0   0x080019b0   0x000000e6   Code   RO         1335    i.DMA_Init          lcm32f037_dma.o
+    0x08001a96   0x08001a96   0x00000002   PAD
+    0x08001a98   0x08001a98   0x0000005c   Code   RO         1336    i.DMA_RemapConfig   lcm32f037_dma.o
+    0x08001af4   0x08001af4   0x00000008   Code   RO         1337    i.DMA_SetCurrDataCounter  lcm32f037_dma.o
+    0x08001afc   0x08001afc   0x00000024   Code   RO         3460    i.FLASH_LATENCY     lcm32f037_rcc.o
+    0x08001b20   0x08001b20   0x000000ce   Code   RO         1214    i.GPIO_Init         lcm32f037_gpio.o
+    0x08001bee   0x08001bee   0x0000002a   Code   RO         1216    i.GPIO_PinAFConfig  lcm32f037_gpio.o
+    0x08001c18   0x08001c18   0x0000000e   Code   RO         1219    i.GPIO_ReadInputDataBit  lcm32f037_gpio.o
+    0x08001c26   0x08001c26   0x00000006   Code   RO         1222    i.GPIO_ResetBits    lcm32f037_gpio.o
+    0x08001c2c   0x08001c2c   0x00000004   Code   RO         1223    i.GPIO_SetBits      lcm32f037_gpio.o
+    0x08001c30   0x08001c30   0x00000090   Code   RO         3486    i.HSI_SetSysClockTo96  lcm32f037_rcc.o
+    0x08001cc0   0x08001cc0   0x0000003e   Code   RO         4101    i.HY_GpioInit       hy_hal.o
+    0x08001cfe   0x08001cfe   0x00000012   Code   RO         4103    i.HY_HalInit        hy_hal.o
+    0x08001d10   0x08001d10   0x00000040   Code   RO         3925    i.HY_SetPumpMechanicalSpeed  hy_application.o
+    0x08001d50   0x08001d50   0x00000018   Code   RO         4132    i.HY_TM1650_Clear   hy_display.o
+    0x08001d68   0x08001d68   0x00000024   Code   RO         4133    i.HY_TM1650_Read    hy_display.o
+    0x08001d8c   0x08001d8c   0x0000000a   Code   RO         4134    i.HY_TM1650_ScanKey  hy_display.o
+    0x08001d96   0x08001d96   0x00000032   Code   RO         4135    i.HY_TM1650_SetDisplay  hy_display.o
+    0x08001dc8   0x08001dc8   0x00000098   Code   RO         4136    i.HY_TM1650_SetFloat  hy_display.o
+    0x08001e60   0x08001e60   0x00000056   Code   RO         4137    i.HY_TM1650_SetIndexLetter  hy_display.o
+    0x08001eb6   0x08001eb6   0x00000002   PAD
+    0x08001eb8   0x08001eb8   0x0000004c   Code   RO         4138    i.HY_TM1650_SetIndexNumber  hy_display.o
+    0x08001f04   0x08001f04   0x00000030   Code   RO         4139    i.HY_TM1650_SetNumber  hy_display.o
+    0x08001f34   0x08001f34   0x00000094   Code   RO         4140    i.HY_TM1650_ShowFault  hy_display.o
+    0x08001fc8   0x08001fc8   0x00000024   Code   RO         4141    i.HY_TM1650_Write   hy_display.o
+    0x08001fec   0x08001fec   0x00000044   Code   RO         3927    i.HY_TaskLoop       hy_application.o
+    0x08002030   0x08002030   0x00000002   Code   RO         3928    i.HY_Task_100MS_Entry  hy_application.o
+    0x08002032   0x08002032   0x00000002   PAD
+    0x08002034   0x08002034   0x00000060   Code   RO         3929    i.HY_Task_1S_Entry  hy_application.o
+    0x08002094   0x08002094   0x00000074   Code   RO         3930    i.HY_Task_50MS_Entry  hy_application.o
+    0x08002108   0x08002108   0x00000030   Code   RO         4005    i.HY_VariableInit   hy_variable.o
+    0x08002138   0x08002138   0x0000002c   Code   RO         3931    i.IncreaseSpeed     hy_application.o
+    0x08002164   0x08002164   0x00000012   Code   RO         3932    i.LimitSpeed        hy_application.o
+    0x08002176   0x08002176   0x00000002   PAD
+    0x08002178   0x08002178   0x00000084   Code   RO         1104    i.MDS_s32Atan2      mds_cordic.o
+    0x080021fc   0x080021fc   0x00000004   Code   RO          957    i.MDS_vAlignment    mds_motorcontrol.o
+    0x08002200   0x08002200   0x00000060   Code   RO          958    i.MDS_vBreak        mds_motorcontrol.o
+    0x08002260   0x08002260   0x000001c0   Code   RO          959    i.MDS_vClosedloop   mds_motorcontrol.o
+    0x08002420   0x08002420   0x00000040   Code   RO         1139    i.MDS_vConstantPowerDQ  mds_fluxweakeningpowercontrol.o
+    0x08002460   0x08002460   0x0000008c   Code   RO         1140    i.MDS_vConstantPowerInit  mds_fluxweakeningpowercontrol.o
+    0x080024ec   0x080024ec   0x0000005c   Code   RO         4208    i.MDS_vCurLimit     LCM_FOC_V374.lib(mds_observer.o)
+    0x08002548   0x08002548   0x00000024   Code   RO          522    i.MDS_vCurLimitInit  user_sysparainit.o
+    0x0800256c   0x0800256c   0x00000058   Code   RO          831    i.MDS_vCurPIRegulatorIQ24Init  mds_pidregulators.o
+    0x080025c4   0x080025c4   0x00000024   Code   RO          750    i.MDS_vCurrClarke   mds_clarkpark.o
+    0x080025e8   0x080025e8   0x00000036   Code   RO          751    i.MDS_vCurrPark     mds_clarkpark.o
+    0x0800261e   0x0800261e   0x00000002   PAD
+    0x08002620   0x08002620   0x000000f4   Code   RO         4209    i.MDS_vCurrentControllerCalc  LCM_FOC_V374.lib(mds_observer.o)
+    0x08002714   0x08002714   0x000000f0   Code   RO         4210    i.MDS_vDeadTimeComp  LCM_FOC_V374.lib(mds_observer.o)
+    0x08002804   0x08002804   0x0000017c   Code   RO          883    i.MDS_vFOC          mds_svpwm.o
+    0x08002980   0x08002980   0x00000018   Code   RO          961    i.MDS_vFault        mds_motorcontrol.o
+    0x08002998   0x08002998   0x00000068   Code   RO         1141    i.MDS_vFluxWeakening  mds_fluxweakeningpowercontrol.o
+    0x08002a00   0x08002a00   0x0000008c   Code   RO         1142    i.MDS_vFluxWeakeningInit  mds_fluxweakeningpowercontrol.o
+    0x08002a8c   0x08002a8c   0x00000044   Code   RO          523    i.MDS_vIPDInit      user_sysparainit.o
+    0x08002ad0   0x08002ad0   0x00000194   Code   RO          962    i.MDS_vIdentify     mds_motorcontrol.o
+    0x08002c64   0x08002c64   0x00000014   Code   RO          963    i.MDS_vIdle         mds_motorcontrol.o
+    0x08002c78   0x08002c78   0x00000018   Code   RO          964    i.MDS_vInit         mds_motorcontrol.o
+    0x08002c90   0x08002c90   0x000001e4   Code   RO         4211    i.MDS_vInitPosDeter  LCM_FOC_V374.lib(mds_observer.o)
+    0x08002e74   0x08002e74   0x0000001c   Code   RO         1144    i.MDS_vMTPAInit     mds_fluxweakeningpowercontrol.o
+    0x08002e90   0x08002e90   0x00000070   Code   RO          965    i.MDS_vMotorAppCommand  mds_motorcontrol.o
+    0x08002f00   0x08002f00   0x00000048   Code   RO          966    i.MDS_vMotorControlState  mds_motorcontrol.o
+    0x08002f48   0x08002f48   0x000003ec   Code   RO          524    i.MDS_vMotorParaCalc  user_sysparainit.o
+    0x08003334   0x08003334   0x00000174   Code   RO          526    i.MDS_vMotorParaReadFromHfile  user_sysparainit.o
+    0x080034a8   0x080034a8   0x00000050   Code   RO         1145    i.MDS_vNoWaterCal   mds_fluxweakeningpowercontrol.o
+    0x080034f8   0x080034f8   0x00000128   Code   RO         4212    i.MDS_vOBPosObserver  LCM_FOC_V374.lib(mds_observer.o)
+    0x08003620   0x08003620   0x00000068   Code   RO          527    i.MDS_vOBPosObserverInit  user_sysparainit.o
+    0x08003688   0x08003688   0x000004d4   Code   RO         4214    i.MDS_vOBRestarting  LCM_FOC_V374.lib(mds_observer.o)
+    0x08003b5c   0x08003b5c   0x000001d4   Code   RO          967    i.MDS_vOpenloop     mds_motorcontrol.o
+    0x08003d30   0x08003d30   0x000003a4   Code   RO          529    i.MDS_vOtherInitFromUserSetting  user_sysparainit.o
+    0x080040d4   0x080040d4   0x00000084   Code   RO          833    i.MDS_vPIRegulatorIQ24  mds_pidregulators.o
+    0x08004158   0x08004158   0x00000068   Code   RO          968    i.MDS_vPWMSwitchImmediate  mds_motorcontrol.o
+    0x080041c0   0x080041c0   0x00000098   Code   RO          969    i.MDS_vPWMSwitchNextPeriod  mds_motorcontrol.o
+    0x08004258   0x08004258   0x0000005c   Code   RO          884    i.MDS_vPWMUpdate    mds_svpwm.o
+    0x080042b4   0x080042b4   0x00000002   Code   RO          970    i.MDS_vPrecharge    mds_motorcontrol.o
+    0x080042b6   0x080042b6   0x0000004a   Code   RO          912    i.MDS_vRampGen      mds_thetagenerate.o
+    0x08004300   0x08004300   0x00000034   Code   RO          913    i.MDS_vRampInit     mds_thetagenerate.o
+    0x08004334   0x08004334   0x00000118   Code   RO         4215    i.MDS_vSVPWM        LCM_FOC_V374.lib(mds_observer.o)
+    0x0800444c   0x0800444c   0x0000006c   Code   RO          834    i.MDS_vSpdPIRegulatorIQ24Init  mds_pidregulators.o
+    0x080044b8   0x080044b8   0x000000ac   Code   RO          971    i.MDS_vStart        mds_motorcontrol.o
+    0x08004564   0x08004564   0x0000003c   Code   RO          972    i.MDS_vStop         mds_motorcontrol.o
+    0x080045a0   0x080045a0   0x00000028   Code   RO          530    i.MDS_vTIMInit      user_sysparainit.o
+    0x080045c8   0x080045c8   0x00000034   Code   RO          914    i.MDS_vThetaGen     mds_thetagenerate.o
+    0x080045fc   0x080045fc   0x00000024   Code   RO          915    i.MDS_vThetaInit    mds_thetagenerate.o
+    0x08004620   0x08004620   0x00000024   Code   RO          973    i.MDS_vTrack        mds_motorcontrol.o
+    0x08004644   0x08004644   0x00000070   Code   RO          754    i.MDS_vTrigFunctions  mds_clarkpark.o
+    0x080046b4   0x080046b4   0x00000034   Code   RO          835    i.MDS_vUdcPIRegulatorIQ24Init  mds_pidregulators.o
+    0x080046e8   0x080046e8   0x000000b4   Code   RO          974    i.MDS_vUdcSwitchCheck  mds_motorcontrol.o
+    0x0800479c   0x0800479c   0x000000d0   Code   RO          975    i.MDS_vVSPCheck     mds_motorcontrol.o
+    0x0800486c   0x0800486c   0x00000024   Code   RO          755    i.MDS_vVoltClarke   mds_clarkpark.o
+    0x08004890   0x08004890   0x00000036   Code   RO          757    i.MDS_vVoltPark     mds_clarkpark.o
+    0x080048c6   0x080048c6   0x00000002   PAD
+    0x080048c8   0x080048c8   0x00000038   Code   RO          759    i.MDS_vVoltRevParkCircleLimit  mds_clarkpark.o
+    0x08004900   0x08004900   0x00000044   Code   RO          727    i.MDS_vVoltageCalc  mds_calcvoltage.o
+    0x08004944   0x08004944   0x0000002c   Code   RO          976    i.MDS_vWait         mds_motorcontrol.o
+    0x08004970   0x08004970   0x00000004   Code   RO          977    i.MDS_vWriteFlash   mds_motorcontrol.o
+    0x08004974   0x08004974   0x000000d8   Code   RO         3933    i.ModeUi            hy_application.o
+    0x08004a4c   0x08004a4c   0x0000001c   Code   RO         3934    i.ModeUiPageProcess  hy_application.o
+    0x08004a68   0x08004a68   0x00000050   Code   RO         2867    i.NVIC_Init         lcm32f037_tim.o
+    0x08004ab8   0x08004ab8   0x0000009c   Code   RO         2327    i.OPA0_TRIM         lcm32f037_opa.o
+    0x08004b54   0x08004b54   0x0000009c   Code   RO         2328    i.OPA1_TRIM         lcm32f037_opa.o
+    0x08004bf0   0x08004bf0   0x0000009c   Code   RO         2329    i.OPA2_TRIM         lcm32f037_opa.o
+    0x08004c8c   0x08004c8c   0x00000018   Code   RO         2330    i.OPA_Cmd           lcm32f037_opa.o
+    0x08004ca4   0x08004ca4   0x0000006c   Code   RO         2332    i.OPA_Init          lcm32f037_opa.o
+    0x08004d10   0x08004d10   0x00000034   Code   RO         2698    i.PWR_LDODriverLevel  lcm32f037_pwr.o
+    0x08004d44   0x08004d44   0x00000048   Code   RO         2704    i.PWR_LVRCmd        lcm32f037_pwr.o
+    0x08004d8c   0x08004d8c   0x0000004c   Code   RO         3489    i.RCC_AHBPeriphClockCmd  lcm32f037_rcc.o
+    0x08004dd8   0x08004dd8   0x00000088   Code   RO         3493    i.RCC_APB1PeriphClockCmd  lcm32f037_rcc.o
+    0x08004e60   0x08004e60   0x000000ac   Code   RO         3499    i.RCC_DeInit        lcm32f037_rcc.o
+    0x08004f0c   0x08004f0c   0x000001a8   Code   RO         3500    i.RCC_GetClockFreq  lcm32f037_rcc.o
+    0x080050b4   0x080050b4   0x0000002c   Code   RO         3935    i.ReduceSpeed       hy_application.o
+    0x080050e0   0x080050e0   0x00000010   Code   RO         2460    i.SATRT_OFACMP1     lcm32f037_acmp.o
+    0x080050f0   0x080050f0   0x00000016   Code   RO         3523    i.SetSysClock       lcm32f037_rcc.o
+    0x08005106   0x08005106   0x00000002   PAD
+    0x08005108   0x08005108   0x00000204   Code   RO          290    i.SysTick_Handler   user_interrupt.o
+    0x0800530c   0x0800530c   0x00000008   Code   RO         3525    i.SystemInit        lcm32f037_rcc.o
+    0x08005314   0x08005314   0x0000003c   Code   RO          291    i.TIM1_NON_CC_Handler  user_interrupt.o
+    0x08005350   0x08005350   0x0000001c   Code   RO         2872    i.TIM_ARRPreloadConfig  lcm32f037_tim.o
+    0x0800536c   0x0800536c   0x00000024   Code   RO         2873    i.TIM_BDTRConfig    lcm32f037_tim.o
+    0x08005390   0x08005390   0x0000001c   Code   RO         2876    i.TIM_CCxCmd        lcm32f037_tim.o
+    0x080053ac   0x080053ac   0x0000001c   Code   RO         2877    i.TIM_CCxNCmd       lcm32f037_tim.o
+    0x080053c8   0x080053c8   0x0000000c   Code   RO         2879    i.TIM_ClearITPendingBit  lcm32f037_tim.o
+    0x080053d4   0x080053d4   0x0000001c   Code   RO         2884    i.TIM_Cmd           lcm32f037_tim.o
+    0x080053f0   0x080053f0   0x0000001a   Code   RO         2886    i.TIM_CtrlPWMOutputs  lcm32f037_tim.o
+    0x0800540a   0x0800540a   0x00000018   Code   RO         2910    i.TIM_ITConfig      lcm32f037_tim.o
+    0x08005422   0x08005422   0x00000002   PAD
+    0x08005424   0x08005424   0x0000008c   Code   RO         2914    i.TIM_OC1Init       lcm32f037_tim.o
+    0x080054b0   0x080054b0   0x0000000e   Code   RO         2917    i.TIM_OC1PreloadConfig  lcm32f037_tim.o
+    0x080054be   0x080054be   0x00000002   PAD
+    0x080054c0   0x080054c0   0x000000a8   Code   RO         2919    i.TIM_OC2Init       lcm32f037_tim.o
+    0x08005568   0x08005568   0x00000018   Code   RO         2922    i.TIM_OC2PreloadConfig  lcm32f037_tim.o
+    0x08005580   0x08005580   0x00000094   Code   RO         2924    i.TIM_OC3Init       lcm32f037_tim.o
+    0x08005614   0x08005614   0x0000000e   Code   RO         2927    i.TIM_OC3PreloadConfig  lcm32f037_tim.o
+    0x08005622   0x08005622   0x00000002   PAD
+    0x08005624   0x08005624   0x00000070   Code   RO         2929    i.TIM_OC4Init       lcm32f037_tim.o
+    0x08005694   0x08005694   0x00000018   Code   RO         2931    i.TIM_OC4PreloadConfig  lcm32f037_tim.o
+    0x080056ac   0x080056ac   0x00000070   Code   RO         2960    i.TIM_TimeBaseInit  lcm32f037_tim.o
+    0x0800571c   0x0800571c   0x00000002   Code   RO          292    i.UART0_Handler     user_interrupt.o
+    0x0800571e   0x0800571e   0x00000002   PAD
+    0x08005720   0x08005720   0x00000118   Code   RO          247    i.UA_u8CurrSampleOffest  user_adsample.o
+    0x08005838   0x08005838   0x000000f4   Code   RO          248    i.UA_vADSampleAll   user_adsample.o
+    0x0800592c   0x0800592c   0x0000001c   Code   RO          249    i.UA_vIABCConstruct  user_adsample.o
+    0x08005948   0x08005948   0x00000068   Code   RO          250    i.UA_vVoltageConstruct  user_adsample.o
+    0x080059b0   0x080059b0   0x00000128   Code   RO          351    i.UP_vADCConfiguration  user_peripheralinit.o
+    0x08005ad8   0x08005ad8   0x00000010   Code   RO          353    i.UP_vBreakEnable   user_peripheralinit.o
+    0x08005ae8   0x08005ae8   0x00000064   Code   RO          354    i.UP_vDAC1_5_Config  user_peripheralinit.o
+    0x08005b4c   0x08005b4c   0x0000009c   Code   RO          355    i.UP_vDeviceInit    user_peripheralinit.o
+    0x08005be8   0x08005be8   0x000000f4   Code   RO          356    i.UP_vGPIOConfiguration  user_peripheralinit.o
+    0x08005cdc   0x08005cdc   0x00000010   Code   RO          357    i.UP_vOPA012Config  user_peripheralinit.o
+    0x08005cec   0x08005cec   0x00000070   Code   RO          358    i.UP_vOpa0_config   user_peripheralinit.o
+    0x08005d5c   0x08005d5c   0x00000070   Code   RO          359    i.UP_vOpa1_config   user_peripheralinit.o
+    0x08005dcc   0x08005dcc   0x0000006c   Code   RO          360    i.UP_vOpa2_config   user_peripheralinit.o
+    0x08005e38   0x08005e38   0x0000004c   Code   RO          361    i.UP_vPeriphClockCmdInit  user_peripheralinit.o
+    0x08005e84   0x08005e84   0x00000208   Code   RO          362    i.UP_vTimerConfiguration  user_peripheralinit.o
+    0x0800608c   0x0800608c   0x00000108   Code   RO          531    i.US_vGlobalVariablesInit  user_sysparainit.o
+    0x08006194   0x08006194   0x00000058   Code   RO          482    i.US_vHardwareOverCurCalcAMP  user_syserrorprocess.o
+    0x080061ec   0x080061ec   0x000003a8   Code   RO          483    i.US_vSysErrorCheck  user_syserrorprocess.o
+    0x08006594   0x08006594   0x000000a4   Code   RO          484    i.US_vSysFaultProcess  user_syserrorprocess.o
+    0x08006638   0x08006638   0x000000b0   Code   RO          532    i.US_vSystParaInit  user_sysparainit.o
+    0x080066e8   0x080066e8   0x00000044   Code   RO          533    i.US_vSystParaInitPowerup  user_sysparainit.o
+    0x0800672c   0x0800672c   0x00000088   Code   RO          534    i.US_vSystStateInit  user_sysparainit.o
+    0x080067b4   0x080067b4   0x00000024   Code   RO          535    i.US_vUserAppInit   user_sysparainit.o
+    0x080067d8   0x080067d8   0x00000068   Code   RO          217    i.User_vNVICConfiguration  user_nvic.o
+    0x08006840   0x08006840   0x00000030   Code   RO          717    i.__ARM_common_ll_mulss  user_datatransform.o
+    0x08006870   0x08006870   0x00000030   Code   RO          615    i.__ARM_common_ll_muluu  user_sysparainit.o
+    0x080068a0   0x080068a0   0x0000001a   Code   RO          337    i.__ARM_common_switch8  user_interrupt.o
+    0x080068ba   0x080068ba   0x00000002   PAD
+    0x080068bc   0x080068bc   0x00000040   Code   RO         3526    i.delay10us         lcm32f037_rcc.o
+    0x080068fc   0x080068fc   0x00000010   Code   RO         2335    i.get_opa0_trim     lcm32f037_opa.o
+    0x0800690c   0x0800690c   0x00000010   Code   RO         2336    i.get_opa1_trim     lcm32f037_opa.o
+    0x0800691c   0x0800691c   0x00000010   Code   RO         2337    i.get_opa2_trim     lcm32f037_opa.o
+    0x0800692c   0x0800692c   0x00000038   Code   RO         4033    i.iic_ack           hy_softiic.o
+    0x08006964   0x08006964   0x00000010   Code   RO         4034    i.iic_delay         hy_softiic.o
+    0x08006974   0x08006974   0x00000042   Code   RO         4035    i.iic_readByte      hy_softiic.o
+    0x080069b6   0x080069b6   0x00000056   Code   RO         4036    i.iic_sendByte      hy_softiic.o
+    0x08006a0c   0x08006a0c   0x00000034   Code   RO         4037    i.iic_start         hy_softiic.o
+    0x08006a40   0x08006a40   0x00000034   Code   RO         4038    i.iic_stop          hy_softiic.o
+    0x08006a74   0x08006a74   0x00000042   Code   RO         4039    i.iic_waitAck       hy_softiic.o
+    0x08006ab6   0x08006ab6   0x0000001e   Code   RO            3    i.main              user_main.o
+    0x08006ad4   0x08006ad4   0x00000018   Code   RO         2338    i.opa0_trim         lcm32f037_opa.o
+    0x08006aec   0x08006aec   0x0000000c   Code   RO         2339    i.opa0_trim_FLAG    lcm32f037_opa.o
+    0x08006af8   0x08006af8   0x00000018   Code   RO         2340    i.opa1_trim         lcm32f037_opa.o
+    0x08006b10   0x08006b10   0x0000000c   Code   RO         2341    i.opa1_trim_FLAG    lcm32f037_opa.o
+    0x08006b1c   0x08006b1c   0x00000018   Code   RO         2342    i.opa2_trim         lcm32f037_opa.o
+    0x08006b34   0x08006b34   0x0000000c   Code   RO         2343    i.opa2_trim_FLAG    lcm32f037_opa.o
+    0x08006b40   0x08006b40   0x00000018   Code   RO         4040    i.sda_input         hy_softiic.o
+    0x08006b58   0x08006b58   0x0000001c   Code   RO         4041    i.sda_ouput         hy_softiic.o
+    0x08006b74   0x08006b74   0x0000008c   Code   RO         4476    x$fpl$fadd          fz_ps.l(faddsub.o)
+    0x08006c00   0x08006c00   0x000000b0   Code   RO         4491    x$fpl$fmul          fz_ps.l(fmul.o)
+    0x08006cb0   0x08006cb0   0x00000018   Code   RO         4477    x$fpl$frsb          fz_ps.l(faddsub.o)
+    0x08006cc8   0x08006cc8   0x000000d0   Code   RO         4478    x$fpl$fsub          fz_ps.l(faddsub.o)
+    0x08006d98   0x08006d98   0x00000000   Code   RO         4504    x$fpl$usenofp       fz_ps.l(usenofp.o)
+    0x08006d98   0x08006d98   0x00000400   Data   RO          485    .constdata          user_syserrorprocess.o
+    0x08007198   0x08007198   0x0000028e   Data   RO          760    .constdata          mds_clarkpark.o
+    0x08007426   0x08007426   0x00000002   PAD
+    0x08007428   0x08007428   0x00000050   Data   RO         1107    .constdata          mds_cordic.o
+    0x08007478   0x08007478   0x00000400   Data   RO         1151    .constdata          mds_fluxweakeningpowercontrol.o
+    0x08007878   0x08007878   0x00000080   Data   RO         4462    .constdata          fz_ps.l(ddiv.o)
+    0x080078f8   0x080078f8   0x00000040   Data   RO         4483    .constdata          fz_ps.l(fdiv.o)
+    0x08007938   0x08007938   0x00000020   Data   RO         4665    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08007a38, Size: 0x00000d28, Max: 0x00001000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08007958, Size: 0x00000d38, Max: 0x00001000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08007a38   0x00000008   Data   RW          251    .data               user_adsample.o
-    0x20000008   0x08007a40   0x00000001   Data   RW          368    .data               user_peripheralinit.o
-    0x20000009   0x08007a41   0x00000003   PAD
-    0x2000000c   0x08007a44   0x0000000c   Data   RW          978    .data               mds_motorcontrol.o
-    0x20000018   0x08007a50   0x00000001   Data   RW         1339    .data               lcm32f037_dma.o
-    0x20000019   0x08007a51   0x00000001   Data   RW         1496    .data               lcm32f037_adc.o
-    0x2000001a   0x08007a52   0x00000001   Data   RW         2618    .data               lcm32f037_dac.o
-    0x2000001b   0x08007a53   0x00000001   Data   RW         2716    .data               lcm32f037_pwr.o
-    0x2000001c   0x08007a54   0x00000001   Data   RW         3527    .data               lcm32f037_rcc.o
-    0x2000001d   0x08007a55   0x00000003   PAD
-    0x20000020   0x08007a58   0x00000010   Data   RW         3936    .data               hy_application.o
-    0x20000030   0x08007a68   0x00000004   Data   RW         4007    .data               hy_variable.o
-    0x20000034   0x08007a6c   0x00000016   Data   RW         4141    .data               hy_display.o
-    0x2000004a   0x08007a82   0x00000002   PAD
+    0x20000000   0x08007958   0x00000008   Data   RW          251    .data               user_adsample.o
+    0x20000008   0x08007960   0x00000001   Data   RW          368    .data               user_peripheralinit.o
+    0x20000009   0x08007961   0x00000003   PAD
+    0x2000000c   0x08007964   0x0000000c   Data   RW          978    .data               mds_motorcontrol.o
+    0x20000018   0x08007970   0x00000001   Data   RW         1339    .data               lcm32f037_dma.o
+    0x20000019   0x08007971   0x00000001   Data   RW         1496    .data               lcm32f037_adc.o
+    0x2000001a   0x08007972   0x00000001   Data   RW         2618    .data               lcm32f037_dac.o
+    0x2000001b   0x08007973   0x00000001   Data   RW         2716    .data               lcm32f037_pwr.o
+    0x2000001c   0x08007974   0x00000001   Data   RW         3527    .data               lcm32f037_rcc.o
+    0x2000001d   0x08007975   0x00000003   PAD
+    0x20000020   0x08007978   0x00000010   Data   RW         3936    .data               hy_application.o
+    0x20000030   0x08007988   0x00000004   Data   RW         4008    .data               hy_variable.o
+    0x20000034   0x0800798c   0x00000016   Data   RW         4142    .data               hy_display.o
+    0x2000004a   0x080079a2   0x00000002   PAD
     0x2000004c        -       0x00000048   Zero   RW            4    .bss                user_main.o
     0x20000094        -       0x000000a8   Zero   RW            5    .bss                user_main.o
     0x2000013c        -       0x00000094   Zero   RW            6    .bss                user_main.o
@@ -2700,10 +2691,12 @@ Memory Map of the image
     0x20000788        -       0x00000018   Zero   RW         1149    .bss                mds_fluxweakeningpowercontrol.o
     0x200007a0        -       0x00000018   Zero   RW         1150    .bss                mds_fluxweakeningpowercontrol.o
     0x200007b8        -       0x00000014   Zero   RW         4006    .bss                hy_variable.o
-    0x200007cc        -       0x000000fc   Zero   RW         4215    .bss                LCM_FOC_V374.lib(mds_observer.o)
-    0x200008c8        -       0x00000060   Zero   RW         4537    .bss                c_p.l(libspace.o)
-    0x20000928        -       0x00000200   Zero   RW         3900    HEAP                lcm32f037_startup.o
-    0x20000b28        -       0x00000200   Zero   RW         3899    STACK               lcm32f037_startup.o
+    0x200007cc        -       0x0000000c   Zero   RW         4007    .bss                hy_variable.o
+    0x200007d8        -       0x000000fc   Zero   RW         4216    .bss                LCM_FOC_V374.lib(mds_observer.o)
+    0x200008d4        -       0x00000060   Zero   RW         4538    .bss                c_p.l(libspace.o)
+    0x20000934   0x080079a2   0x00000004   PAD
+    0x20000938        -       0x00000200   Zero   RW         3900    HEAP                lcm32f037_startup.o
+    0x20000b38        -       0x00000200   Zero   RW         3899    STACK               lcm32f037_startup.o
 
 
 ==============================================================================
@@ -2713,12 +2706,12 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       716        114          0         16          0       6278   hy_application.o
+       696        112          0         16          0       6282   hy_application.o
        666         30          0         22          0       7163   hy_display.o
         80          0          0          0          0        969   hy_hal.o
        446          0          0          0          0       4705   hy_softiic.o
-        48         10          0          4         20       1453   hy_variable.o
-       232         28          0          0          0       2806   lcm32f037_acmp.o
+        48         10          0          4         32       1569   hy_variable.o
+        16          4          0          0          0        472   lcm32f037_acmp.o
        688         66          0          1          0       5418   lcm32f037_adc.o
        362         18          0          1          0       3572   lcm32f037_dac.o
        738         52          0          1          0       5368   lcm32f037_dma.o
@@ -2736,19 +2729,19 @@ Image component sizes
        380         38          0          0          0       2961   mds_pidregulators.o
        472         56          0          0          0       1836   mds_svpwm.o
        214         24          0          0         44       5610   mds_thetagenerate.o
-       652         56          0          8          0       3961   user_adsample.o
+       656         58          0          8          0       3957   user_adsample.o
         48          0          0          0          0         76   user_datatransform.o
        740        114          0          0          0       2569   user_interrupt.o
-        30          0          0          0       1640     301531   user_main.o
+        30          0          0          0       1640     296423   user_main.o
        104          8          0          0          0       7190   user_nvic.o
-      1746        124          0          1         40     182075   user_peripheralinit.o
+      1756        116          0          1         40     176403   user_peripheralinit.o
       1188         82       1024          0          0       3827   user_syserrorprocess.o
       3284        374          0          0          0       7803   user_sysparainit.o
 
     ----------------------------------------------------------------------
-     19936       2110       3008         76       2944     620321   Object Totals
+     19712       2078       3008         76       2956     607323   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        28          0          2          8          0          0   (incl. Padding)
+        26          0          2          8          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -2798,8 +2791,8 @@ Image component sizes
          0          0          0          0          0          0   usenofp.o
 
     ----------------------------------------------------------------------
-      8152        322        192          0        348      59576   Library Totals
-        12          0          0          0          0          0   (incl. Padding)
+      8152        322        192          0        352      59576   Library Totals
+        12          0          0          0          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -2810,7 +2803,7 @@ Image component sizes
       4294        132        192          0          0       1540   fz_ps.l
 
     ----------------------------------------------------------------------
-      8152        322        192          0        348      59576   Library Totals
+      8152        322        192          0        352      59576   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -2819,15 +2812,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     28088       2432       3200         76       3292     670517   Grand Totals
-     28088       2432       3200         76       3292     670517   ELF Image Totals
-     28088       2432       3200         76          0          0   ROM Totals
+     27864       2400       3200         76       3308     657695   Grand Totals
+     27864       2400       3200         76       3308     657695   ELF Image Totals
+     27864       2400       3200         76          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                31288 (  30.55kB)
-    Total RW  Size (RW Data + ZI Data)              3368 (   3.29kB)
-    Total ROM Size (Code + RO Data + RW Data)      31364 (  30.63kB)
+    Total RO  Size (Code + RO Data)                31064 (  30.34kB)
+    Total RW  Size (RW Data + ZI Data)              3384 (   3.30kB)
+    Total ROM Size (Code + RO Data + RW Data)      31140 (  30.41kB)
 
 ==============================================================================
 

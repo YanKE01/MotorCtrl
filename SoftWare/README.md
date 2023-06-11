@@ -5,6 +5,7 @@
 * Matlab：存放Matlab仿真实验代码
 * Fortior: 存放基于FU6861Q的无感FOC相关代码
 * LCM_FOC:存放领芯控制方案
+* test:临时测试代码，误动
 
 
 

@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.hex": "hex",
+        "lcm32f037.h": "c",
+        "lcm32f037_div.h": "c",
+        "lcm32f037_uart.h": "c",
+        "lcm32f037_crc.h": "c",
+        "lcm32f037_eeprom.h": "c"
+    }
+}

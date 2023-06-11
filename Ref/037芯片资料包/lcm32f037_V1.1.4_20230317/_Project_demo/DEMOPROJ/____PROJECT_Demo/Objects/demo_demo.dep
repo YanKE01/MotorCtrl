@@ -1,0 +1,328 @@
+Dependencies for Project 'demo', Target 'demo': (DO NOT MODIFY !)
+F (.\ReadME.txt)(0x60C1D92F)()
+F (..\..\..\TIM1\TIM1_Brake_LVD\main.c)(0x63EDA443)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599EDB3C)
+I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (d:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (..\..\Driver\inc\lcm32f037_div.h)(0x62FDCFD4)
+I (..\..\Driver\inc\lcm32f037_tim.h)(0x6317FDE5)
+I (..\..\Driver\inc\lcm32f037_acmp.h)(0x61E7DC9F)
+I (..\..\Driver\inc\lcm32f037_dac.h)(0x6129FDC2)
+I (..\..\Driver\inc\lcm32f037_exti.h)(0x6129FDC2)
+I (..\..\Driver\inc\lcm32f037_pwr.h)(0x62E2066B)
+F (..\..\Device\Source\ARM\lcm32f037_startup.s)(0x6298170A)(--cpu Cortex-M0 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 526" --pd "LCM32F037 SETA 1"--list .\listings\lcm32f037_startup.lst --xref -o .\objects\lcm32f037_startup.o --depend .\objects\lcm32f037_startup.d)
+F (..\..\Driver\src\lcm32f037_acmp.c)(0x62C58E79)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_acmp.o --omf_browse .\objects\lcm32f037_acmp.crf --depend .\objects\lcm32f037_acmp.d)
+I (..\..\Driver\inc\lcm32f037_acmp.h)(0x61E7DC9F)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+F (..\..\Driver\src\lcm32f037_adc.c)(0x636227E3)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_adc.o --omf_browse .\objects\lcm32f037_adc.crf --depend .\objects\lcm32f037_adc.d)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+F (..\..\Driver\src\lcm32f037_dac.c)(0x6129FE0E)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_dac.o --omf_browse .\objects\lcm32f037_dac.crf --depend .\objects\lcm32f037_dac.d)
+I (..\..\Driver\inc\lcm32f037_dac.h)(0x6129FDC2)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+F (..\..\Driver\src\lcm32f037_dbgmcu.c)(0x6129FE0E)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_dbgmcu.o --omf_browse .\objects\lcm32f037_dbgmcu.crf --depend .\objects\lcm32f037_dbgmcu.d)
+I (..\..\Driver\inc\lcm32f037_dbgmcu.h)(0x6129FDC2)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+F (..\..\Driver\src\lcm32f037_div.c)(0x62FDCFFD)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_div.o --omf_browse .\objects\lcm32f037_div.crf --depend .\objects\lcm32f037_div.d)
+I (..\..\Driver\inc\lcm32f037_div.h)(0x62FDCFD4)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+F (..\..\Driver\src\lcm32f037_dma.c)(0x6362280B)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_dma.o --omf_browse .\objects\lcm32f037_dma.crf --depend .\objects\lcm32f037_dma.d)
+I (..\..\Driver\inc\lcm32f037_dma.h)(0x6364A9E3)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+F (..\..\Driver\src\lcm32f037_eeprom.c)(0x63ECAA85)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_eeprom.o --omf_browse .\objects\lcm32f037_eeprom.crf --depend .\objects\lcm32f037_eeprom.d)
+I (..\..\Driver\inc\lcm32f037_eeprom.h)(0x63ECAA82)
+I (..\..\Device\Include\LCM32F037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+I (..\..\Driver\inc\lcm32f037_flash.h)(0x6129FDC2)
+F (..\..\Driver\src\lcm32f037_exti.c)(0x619B6279)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_exti.o --omf_browse .\objects\lcm32f037_exti.crf --depend .\objects\lcm32f037_exti.d)
+I (..\..\Driver\inc\lcm32f037_exti.h)(0x6129FDC2)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+F (..\..\Driver\src\lcm32f037_flash.c)(0x63058691)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_flash.o --omf_browse .\objects\lcm32f037_flash.crf --depend .\objects\lcm32f037_flash.d)
+I (..\..\Driver\inc\lcm32f037_flash.h)(0x6129FDC2)
+I (..\..\Device\Include\LCM32F037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+F (..\..\Driver\src\lcm32f037_gpio.c)(0x63B66F34)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_gpio.o --omf_browse .\objects\lcm32f037_gpio.crf --depend .\objects\lcm32f037_gpio.d)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+F (..\..\Driver\src\lcm32f037_i2c.c)(0x61E50529)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_i2c.o --omf_browse .\objects\lcm32f037_i2c.crf --depend .\objects\lcm32f037_i2c.d)
+I (..\..\Driver\inc\lcm32f037_i2c.h)(0x61E8E3F0)
+I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599EDB3C)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+F (..\..\Driver\src\lcm32f037_iwdg.c)(0x6129FE0D)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_iwdg.o --omf_browse .\objects\lcm32f037_iwdg.crf --depend .\objects\lcm32f037_iwdg.d)
+I (..\..\Driver\inc\lcm32f037_iwdg.h)(0x6129FDC2)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+F (..\..\Driver\src\lcm32f037_opa.c)(0x613AF453)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_opa.o --omf_browse .\objects\lcm32f037_opa.crf --depend .\objects\lcm32f037_opa.d)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+I (..\..\Driver\inc\lcm32f037_opa.h)(0x613AF505)
+F (..\..\Driver\src\lcm32f037_pwr.c)(0x61E7A7AE)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_pwr.o --omf_browse .\objects\lcm32f037_pwr.crf --depend .\objects\lcm32f037_pwr.d)
+I (..\..\Driver\inc\lcm32f037_pwr.h)(0x62E2066B)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+F (..\..\Driver\src\lcm32f037_rcc.c)(0x637DBB44)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_rcc.o --omf_browse .\objects\lcm32f037_rcc.crf --depend .\objects\lcm32f037_rcc.d)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+I (..\..\Driver\inc\lcm32f037_flash.h)(0x6129FDC2)
+I (..\..\Driver\inc\lcm32f037_pwr.h)(0x62E2066B)
+F (..\..\Driver\src\lcm32f037_ssp.c)(0x6129FE0E)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_ssp.o --omf_browse .\objects\lcm32f037_ssp.crf --depend .\objects\lcm32f037_ssp.d)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+I (..\..\Driver\inc\lcm32f037_ssp.h)(0x61E5304C)
+I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599EDB3C)
+F (..\..\Driver\src\lcm32f037_tim.c)(0x62E232EC)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_tim.o --omf_browse .\objects\lcm32f037_tim.crf --depend .\objects\lcm32f037_tim.d)
+I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599EDB3C)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+I (..\..\Driver\inc\lcm32f037_tim.h)(0x6317FDE5)
+F (..\..\Driver\src\lcm32f037_uart.c)(0x61E5325F)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_uart.o --omf_browse .\objects\lcm32f037_uart.crf --depend .\objects\lcm32f037_uart.d)
+I (..\..\Device\Include\LCM32F037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+F (..\..\Driver\src\lcm32f037_wwdg.c)(0x6129FE0D)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_wwdg.o --omf_browse .\objects\lcm32f037_wwdg.crf --depend .\objects\lcm32f037_wwdg.d)
+I (..\..\Driver\inc\lcm32f037_wwdg.h)(0x6129FDC2)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+F (..\..\Device\Source\lcm32f037_system.c)(0x612D9DB4)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_system.o --omf_browse .\objects\lcm32f037_system.crf --depend .\objects\lcm32f037_system.d)
+I (..\..\Device\Include\system_lcm32f037.h)(0x612D9D95)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+I (..\..\Driver\inc\lcm32f037_flash.h)(0x6129FDC2)
+F (..\..\Driver\src\lcm32f037_I2cEmulation.c)(0x61D3F48C)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_i2cemulation.o --omf_browse .\objects\lcm32f037_i2cemulation.crf --depend .\objects\lcm32f037_i2cemulation.d)
+I (..\..\Device\Include\LCM32F037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+I (..\..\Driver\inc\lcm32f037_i2c.h)(0x61E8E3F0)
+I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599EDB3C)
+F (..\..\Driver\src\lcm32f037_wt.c)(0x62959001)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_wt.o --omf_browse .\objects\lcm32f037_wt.crf --depend .\objects\lcm32f037_wt.d)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)
+I (..\..\Driver\inc\lcm32f037_wt.h)(0x6295ADA8)
+I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599EDB3C)
+F (..\..\Driver\src\lcm32f037_crc.c)(0x62FDB668)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Device\Include -I ..\..\Driver\inc -I "G:\客户问题汇总\新建文件夹 (2)"-I.\RTE\_demo-Id:\Keil_v5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.55\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_crc.o --omf_browse .\objects\lcm32f037_crc.crf --depend .\objects\lcm32f037_crc.d)
+I (..\..\Driver\inc\lcm32f037_crc.h)(0x62FDD039)
+I (..\..\Device\Include\lcm32f037.h)(0x639C05D8)
+I (..\..\Device\Include\core_cm0.h)(0x612D9D68)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\Device\Include\core_cmInstr.h)(0x612D9D7F)
+I (..\..\Device\Include\cmsis_armcc.h)(0x612D9D56)
+I (..\..\Device\Include\core_cmFunc.h)(0x612D9D7A)
+I (..\..\Device\Include\lcm32f037_conf.h)(0x612D9D8D)
+I (..\..\Driver\inc\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\..\Driver\inc\lcm32f037_uart.h)(0x61E52FDA)
+I (..\..\Driver\inc\lcm32f037_gpio.h)(0x61E8CAF6)
+I (..\..\Driver\inc\lcm32f037_adc.h)(0x62F25736)

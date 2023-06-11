@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-05-16 08:59:03
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-05-17 14:11:31
+ * @LastEditTime: 2023-06-09 17:22:19
  * @FilePath: \LCM_FOC\Headers\User_Sources\HY_Variable.h
  */
 #ifndef _HY_VARIABLE_H
@@ -33,6 +33,15 @@ typedef struct _UI
   uint8_t keyValue_Prev;
 } UI;
 
+
+typedef struct _MMPTADC
+{
+  uint32_t a7_Value;   
+  uint32_t b0_Value;   
+  uint32_t b1_Value;   
+
+} MPPTADC;
+
 enum ModePage
 {
   SpeedPage = 0,
@@ -42,7 +51,7 @@ enum ModePage
 
 extern Motor motor;
 extern UI ui;
-
+extern MPPTADC mpptAdc;
 void HY_VariableInit(void);
 
 #endif

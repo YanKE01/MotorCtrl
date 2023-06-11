@@ -1,0 +1,1476 @@
+Dependencies for Project 'LX_FOC', Target 'PMSM_FOC': (DO NOT MODIFY !)
+F (..\Sources\User_Main\User_Main.c)(0x64644583)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\user_main.o --omf_browse .\objects\user_main.crf --depend .\objects\user_main.d)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+I (..\Headers\User_Sources\HY_Hal.h)(0x6462E75B)
+I (..\Headers\User_Sources\HY_Variable.h)(0x6464703D)
+I (..\Headers\User_Sources\HY_Display.h)(0x64646870)
+I (..\Headers\User_Sources\HY_SoftIIC.h)(0x64634343)
+F (..\Sources\User_Soruces\User_NVIC.c)(0x6313249E)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\user_nvic.o --omf_browse .\objects\user_nvic.crf --depend .\objects\user_nvic.d)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+F (..\Sources\User_Soruces\User_ADSample.c)(0x63FDB0D6)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\user_adsample.o --omf_browse .\objects\user_adsample.crf --depend .\objects\user_adsample.d)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+F (..\Sources\User_Soruces\User_Interrupt.c)(0x6465A8D6)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\user_interrupt.o --omf_browse .\objects\user_interrupt.crf --depend .\objects\user_interrupt.d)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+I (..\Headers\User_Sources\HY_Hal.h)(0x6462E75B)
+I (..\Headers\User_Sources\HY_Application.h)(0x6462F7B8)
+I (..\Headers\User_Sources\HY_Display.h)(0x64646870)
+F (..\Sources\User_Soruces\User_PeripheralInit.c)(0x6485730F)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\user_peripheralinit.o --omf_browse .\objects\user_peripheralinit.crf --depend .\objects\user_peripheralinit.d)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+F (..\Sources\User_Soruces\User_SysErrorProcess.c)(0x6465A093)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\user_syserrorprocess.o --omf_browse .\objects\user_syserrorprocess.crf --depend .\objects\user_syserrorprocess.d)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+I (..\Headers\User_Sources\HY_Variable.h)(0x6464703D)
+F (..\Sources\User_Soruces\User_SysParaInit.c)(0x6465A9E0)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\user_sysparainit.o --omf_browse .\objects\user_sysparainit.crf --depend .\objects\user_sysparainit.d)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+F (..\Sources\User_Soruces\User_Usart.c)(0x63087B41)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\user_usart.o --omf_browse .\objects\user_usart.crf --depend .\objects\user_usart.d)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+F (..\Sources\User_Soruces\User_DataTransform.c)(0x630C43D5)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\user_datatransform.o --omf_browse .\objects\user_datatransform.crf --depend .\objects\user_datatransform.d)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+F (..\Sources\Motor_Drivers\Basic\MDS_CalcVoltage.c)(0x61C9B68C)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\mds_calcvoltage.o --omf_browse .\objects\mds_calcvoltage.crf --depend .\objects\mds_calcvoltage.d)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+F (..\Sources\Motor_Drivers\Basic\MDS_ClarkPark.c)(0x630CE0F0)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\mds_clarkpark.o --omf_browse .\objects\mds_clarkpark.crf --depend .\objects\mds_clarkpark.d)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+F (..\Sources\Motor_Drivers\Basic\MDS_PIDRegulators.c)(0x633167BE)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\mds_pidregulators.o --omf_browse .\objects\mds_pidregulators.crf --depend .\objects\mds_pidregulators.d)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+F (..\Sources\Motor_Drivers\Basic\MDS_SVPWM.c)(0x63214846)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\mds_svpwm.o --omf_browse .\objects\mds_svpwm.crf --depend .\objects\mds_svpwm.d)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+F (..\Sources\Motor_Drivers\Basic\MDS_ThetaGenerate.c)(0x63072362)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\mds_thetagenerate.o --omf_browse .\objects\mds_thetagenerate.crf --depend .\objects\mds_thetagenerate.d)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+F (..\Sources\Motor_Drivers\Algorithm\MDS_MotorControl.c)(0x646439A3)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\mds_motorcontrol.o --omf_browse .\objects\mds_motorcontrol.crf --depend .\objects\mds_motorcontrol.d)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+I (..\Headers\User_Sources\HY_Application.h)(0x6462F7B8)
+I (..\Headers\User_Sources\HY_Variable.h)(0x6464703D)
+F (..\Sources\Motor_Drivers\Sensorless\MDS_CORDIC.c)(0x61E61770)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\mds_cordic.o --omf_browse .\objects\mds_cordic.crf --depend .\objects\mds_cordic.d)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+F (..\Sources\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.c)(0x6353A404)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\mds_fluxweakeningpowercontrol.o --omf_browse .\objects\mds_fluxweakeningpowercontrol.crf --depend .\objects\mds_fluxweakeningpowercontrol.d)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+F (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)()
+F (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)()
+F (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)()
+F (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)()
+F (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)()
+F (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)()
+F (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)()
+F (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)()
+F (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)()
+F (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)()
+F (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)()
+F (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)()
+F (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)()
+F (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)()
+F (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)()
+F (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)()
+F (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)()
+F (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)()
+F (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)()
+F (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)()
+F (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)()
+F (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)()
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_gpio.c)(0x61528468)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_gpio.o --omf_browse .\objects\lcm32f037_gpio.crf --depend .\objects\lcm32f037_gpio.d)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_dma.c)(0x612D9DD4)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_dma.o --omf_browse .\objects\lcm32f037_dma.crf --depend .\objects\lcm32f037_dma.d)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_iwdg.c)(0x6129FE0D)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_iwdg.o --omf_browse .\objects\lcm32f037_iwdg.crf --depend .\objects\lcm32f037_iwdg.d)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_adc.c)(0x61528468)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_adc.o --omf_browse .\objects\lcm32f037_adc.crf --depend .\objects\lcm32f037_adc.d)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_ssp.c)(0x62A5D0C3)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_ssp.o --omf_browse .\objects\lcm32f037_ssp.crf --depend .\objects\lcm32f037_ssp.d)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdio.h)(0x599EDB3C)
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_wwdg.c)(0x61528468)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_wwdg.o --omf_browse .\objects\lcm32f037_wwdg.crf --depend .\objects\lcm32f037_wwdg.d)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_flash.c)(0x6129FE0E)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_flash.o --omf_browse .\objects\lcm32f037_flash.crf --depend .\objects\lcm32f037_flash.d)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\ARM_Include\LCM32F037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_exti.c)(0x6129FE0E)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_exti.o --omf_browse .\objects\lcm32f037_exti.crf --depend .\objects\lcm32f037_exti.d)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_eeprom.c)(0x62A5E4F3)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_eeprom.o --omf_browse .\objects\lcm32f037_eeprom.crf --depend .\objects\lcm32f037_eeprom.d)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\ARM_Include\LCM32F037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_uart.c)(0x61E5325F)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_uart.o --omf_browse .\objects\lcm32f037_uart.crf --depend .\objects\lcm32f037_uart.d)
+I (..\Headers\ARM_Include\LCM32F037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_opa.c)(0x61C9A621)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_opa.o --omf_browse .\objects\lcm32f037_opa.crf --depend .\objects\lcm32f037_opa.d)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_acmp.c)(0x61529305)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_acmp.o --omf_browse .\objects\lcm32f037_acmp.crf --depend .\objects\lcm32f037_acmp.d)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_dac.c)(0x619F6DAF)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_dac.o --omf_browse .\objects\lcm32f037_dac.crf --depend .\objects\lcm32f037_dac.d)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_pwr.c)(0x61E7A7AE)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_pwr.o --omf_browse .\objects\lcm32f037_pwr.crf --depend .\objects\lcm32f037_pwr.d)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_tim.c)(0x6319BD87)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_tim.o --omf_browse .\objects\lcm32f037_tim.crf --depend .\objects\lcm32f037_tim.d)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdio.h)(0x599EDB3C)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_rcc.c)(0x63185B55)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_rcc.o --omf_browse .\objects\lcm32f037_rcc.crf --depend .\objects\lcm32f037_rcc.d)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_timebase.c)(0x61C9BAD4)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_timebase.o --omf_browse .\objects\lcm32f037_timebase.crf --depend .\objects\lcm32f037_timebase.d)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_startup.s)(0x63285E2F)(--cpu Cortex-M0 -g --apcs=interwork -I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 526" --pd "LCM32F037 SETA 1"--list .\listings\lcm32f037_startup.lst --xref -o .\objects\lcm32f037_startup.o --depend .\objects\lcm32f037_startup.d)
+F (..\Sources\LCM32F03x_Drivers\lcm32f037_system.c)(0x61A05A69)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\lcm32f037_system.o --omf_browse .\objects\lcm32f037_system.crf --depend .\objects\lcm32f037_system.d)
+I (..\Headers\ARM_Include\system_lcm32f037.h)(0x61A05A76)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+F (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)()
+F (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)()
+F (..\Headers\ARM_Include\anactrl.h)(0x61372531)()
+F (..\Headers\ARM_Include\arm_common_tables.h)(0x61372531)()
+F (..\Headers\ARM_Include\arm_const_structs.h)(0x61372531)()
+F (..\Headers\ARM_Include\arm_math.h)(0x61372531)()
+F (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)()
+F (..\Headers\ARM_Include\cmsis_armcc_V6.h)(0x61372531)()
+F (..\Headers\ARM_Include\cmsis_gcc.h)(0x61372531)()
+F (..\Headers\ARM_Include\coproc.h)(0x61372531)()
+F (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)()
+F (..\Headers\ARM_Include\core_cm0plus.h)(0x61372531)()
+F (..\Headers\ARM_Include\core_cm3.h)(0x61372531)()
+F (..\Headers\ARM_Include\core_cm4.h)(0x61372531)()
+F (..\Headers\ARM_Include\core_cm7.h)(0x61372531)()
+F (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)()
+F (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)()
+F (..\Headers\ARM_Include\core_cmSimd.h)(0x61372531)()
+F (..\Headers\ARM_Include\core_sc000.h)(0x61372531)()
+F (..\Headers\ARM_Include\core_sc300.h)(0x61372531)()
+F (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)()
+F (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)()
+F (..\Headers\ARM_Include\system_lcm32f037.h)(0x61A05A76)()
+F (..\Sources\User_Lib\LCM_FOC_V374.lib)(0x637ED52D)()
+F (..\Sources\User_Soruces\HY_Application.c)(0x6485736D)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\hy_application.o --omf_browse .\objects\hy_application.crf --depend .\objects\hy_application.d)
+I (..\Headers\User_Sources\HY_Application.h)(0x6462F7B8)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+I (..\Headers\User_Sources\HY_Variable.h)(0x6464703D)
+I (..\Headers\User_Sources\HY_Hal.h)(0x6462E75B)
+I (..\Headers\User_Sources\HY_Display.h)(0x64646870)
+F (..\Sources\User_Soruces\HY_Variable.c)(0x64856F87)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\hy_variable.o --omf_browse .\objects\hy_variable.crf --depend .\objects\hy_variable.d)
+I (..\Headers\User_Sources\HY_Variable.h)(0x6464703D)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+F (..\Sources\User_Soruces\HY_SoftIIC.c)(0x64658F45)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\hy_softiic.o --omf_browse .\objects\hy_softiic.crf --depend .\objects\hy_softiic.d)
+I (..\Headers\User_Sources\HY_SoftIIC.h)(0x64634343)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+F (..\Sources\User_Soruces\HY_Hal.c)(0x64659046)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\hy_hal.o --omf_browse .\objects\hy_hal.crf --depend .\objects\hy_hal.d)
+I (..\Headers\User_Sources\HY_Hal.h)(0x6462E75B)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\User_Sources\HY_Display.h)(0x64646870)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+F (..\Sources\User_Soruces\HY_Display.c)(0x6465A05C)(-c --cpu Cortex-M0 -g -W -O1 --apcs=interwork --split_sections -I ..\Headers\User_Includes -I ..\Headers\LCM32F03x_Drivers -I ..\Headers\User_Sources -I ..\Headers\Motor_Drivers\Basic -I ..\Headers\Motor_Drivers\Sensorless -I ..\Headers\Motor_Drivers\Algorithm -I ..\Headers\ARM_Include-I.\RTE\_PMSM_FOC-ID:\IDE\keil5\ARM\PACK\Keil\LCM32F0xx_DFP\0.4.58\Device\Include-ID:\IDE\keil5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DLCM32F037-o .\objects\hy_display.o --omf_browse .\objects\hy_display.crf --depend .\objects\hy_display.d)
+I (..\Headers\User_Sources\HY_Display.h)(0x64646870)
+I (..\Headers\ARM_Include\lcm32f037.h)(0x62E226D1)
+I (..\Headers\ARM_Include\core_cm0.h)(0x63076FC4)
+I (D:\IDE\keil5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\Headers\ARM_Include\core_cmInstr.h)(0x61372531)
+I (..\Headers\ARM_Include\cmsis_armcc.h)(0x61372531)
+I (..\Headers\ARM_Include\core_cmFunc.h)(0x61372531)
+I (..\Headers\ARM_Include\lcm32f037_conf.h)(0x61528961)
+I (..\Headers\User_Includes\UserGlobals.h)(0x630CE416)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_lib.h)(0x62FB031C)
+I (..\Headers\LCM32F03x_Drivers\define.h)(0x61372531)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_div.h)(0x62FB0390)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_type.h)(0x63043488)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_adc.h)(0x64857319)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dma.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_eeprom.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_exti.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_flash.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_iwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_pwr.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h)(0x62F5FC97)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_ssp.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_tim.h)(0x6311DE93)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_uart.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_wwdg.h)(0x61529304)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_acmp.h)(0x61529305)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_dac.h)(0x6152BC8E)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_opa.h)(0x61D45528)
+I (..\Headers\LCM32F03x_Drivers\lcm32f037_it.h)(0x61A05AA4)
+I (..\Headers\User_Includes\UserIncludes.h)(0x62A88340)
+I (..\Headers\Motor_Drivers\Basic\IQmathLib.h)(0x6273B01C)
+I (D:\IDE\keil5\ARM\ARMCC\include\limits.h)(0x599EDB3A)
+I (..\Headers\User_Includes\UserParaSetDefine.h)(0x6465A18D)
+I (..\Headers\User_Includes\UserParaSetDefineTemp.h)(0x6465A977)
+I (..\Headers\User_Includes\UserGlobalsType.h)(0x64646761)
+I (..\Headers\User_Sources\User_NVIC.h)(0x61C9B68C)
+I (..\Headers\User_Sources\User_Interrupt.h)(0x61CAD2E5)
+I (..\Headers\User_Sources\User_PeripheralInit.h)(0x630778D4)
+I (..\Headers\User_Sources\User_ADSample.h)(0x630976D1)
+I (..\Headers\User_Sources\User_SysParaInit.h)(0x63082F1B)
+I (..\Headers\User_Sources\User_SysErrorProcess.h)(0x63298F35)
+I (..\Headers\User_Sources\User_Usart.h)(0x630CE60A)
+I (..\Headers\User_Sources\User_DataTransform.h)(0x63077552)
+I (..\Headers\Motor_Drivers\Basic\MotorDriveBasicInclude.h)(0x61D56A2E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ClarkePark.h)(0x62FC4F3C)
+I (..\Headers\Motor_Drivers\Basic\MDS_SVPWM.h)(0x6405AE45)
+I (..\Headers\Motor_Drivers\Basic\MDS_CalcVoltage.h)(0x63071597)
+I (..\Headers\Motor_Drivers\Basic\MDS_PIDRegulators.h)(0x63316049)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_Observer.h)(0x62FDC0E5)
+I (D:\IDE\keil5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (..\Headers\Motor_Drivers\Basic\MDS_ThetaGenerate.h)(0x63071B26)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_MotorControl.h)(0x6386AE53)
+I (..\Headers\Motor_Drivers\Sensorless\MDS_CORDIC.h)(0x61AF026E)
+I (..\Headers\Motor_Drivers\Algorithm\MDS_FluxWeakeningPowerControl.h)(0x63898DE7)
+I (..\Headers\User_Sources\HY_Variable.h)(0x6464703D)
+I (..\Headers\User_Sources\HY_SoftIIC.h)(0x64634343)

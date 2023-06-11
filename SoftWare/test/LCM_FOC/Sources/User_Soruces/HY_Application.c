@@ -254,8 +254,11 @@ static void HY_Task_100MS_Entry()
  */
 static void HY_Task_1S_Entry()
 {
-    motor.currentVbus = (uint16_t)((1.0 * ADCConvertedRawData[0] / 4096.0) * 4.1 * 25.0 + 1.0); // 采集当前母线电压，ADC基准为4.0V，但是校准是在4.1V下进行，1.0为手动偏移母线压降
-    motor.busCurrent = 1.0 * UG_sADSampleAll.s16IdcLPFTem / 4096.0 * UPDS_IB;                   // 采集当前母线电流
+    motor.currentVbus = (uint16_t)((1.0 * ADCConvertedRawData[2] / 4096.0) * 4.1 * 25.0 + 1.0); // 采集当前母线电压，ADC基准为4.0V，但是校准是在4.1V下进行，1.0为手动偏移母线压降
+    //motor.busCurrent = 1.0 * UG_sADSampleAll.s16IdcLPFTem / 4096.0 * UPDS_IB;                   // 采集当前母线电流
+    mpptAdc.a7_Value=ADCConvertedRawData[0];
+    mpptAdc.b0_Value=ADCConvertedRawData[7];
+    mpptAdc.b1_Value=ADCConvertedRawData[5];
 }
 
 /**

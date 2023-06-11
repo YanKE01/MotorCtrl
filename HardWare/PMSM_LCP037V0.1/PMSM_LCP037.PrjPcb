@@ -190,6 +190,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=RPWXHPVQ
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for PMSM_LCP037\Design Rule Check - PMSM_LCP037_V0.html
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Sources
 ParameterCount=0

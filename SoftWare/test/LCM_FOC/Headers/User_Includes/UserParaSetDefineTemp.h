@@ -287,7 +287,7 @@
 #if(UPDS_UABC_MEAS_SEL == UPDS_UABC_MEAS_DISABLE)
 	#define UPDS_MOS_TEMP_ADC 		(ADCConvertedRawData[2])
 
-	#define UPDS_UDC_ADC					(ADCConvertedRawData[0])
+	#define UPDS_UDC_ADC					(ADCConvertedRawData[2])
 	#define UPDS_IB_ADC						(ADCConvertedRawData[2])
 	#define UPDS_EMPTY2_ADC				(ADCConvertedRawData[4])
 	
@@ -295,7 +295,7 @@
 
 	#define UPDS_IDC_ADC					(ADCConvertedRawData[1])
 	#define UPDS_IA_ADC						(ADCConvertedRawData[3])	
-	#define UPDS_IDC_LPF_ADC			2048//(ADCConvertedRawData[5])
+	#define UPDS_IDC_LPF_ADC			(ADCConvertedRawData[5])
 
 	#define UPDS_VSP_ADC					(4095)
 #elif(UPDS_UABC_MEAS_SEL == UPDS_UABC_MEAS_ENABLE)	

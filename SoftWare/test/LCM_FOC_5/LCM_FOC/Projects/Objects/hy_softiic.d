@@ -1,0 +1,11 @@
+.\objects\hy_softiic.o: ..\Sources\User_Soruces\HY_SoftIIC.c
+.\objects\hy_softiic.o: ..\Headers\User_Sources\HY_SoftIIC.h
+.\objects\hy_softiic.o: ..\Headers\ARM_Include\lcm32f037_conf.h
+.\objects\hy_softiic.o: ..\Headers\LCM32F03x_Drivers\lcm32f037_gpio.h
+.\objects\hy_softiic.o: ..\Headers\ARM_Include\lcm32f037.h
+.\objects\hy_softiic.o: ..\Headers\ARM_Include\core_cm0.h
+.\objects\hy_softiic.o: D:\IDE\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\hy_softiic.o: ..\Headers\ARM_Include\core_cmInstr.h
+.\objects\hy_softiic.o: ..\Headers\ARM_Include\cmsis_armcc.h
+.\objects\hy_softiic.o: ..\Headers\ARM_Include\core_cmFunc.h
+.\objects\hy_softiic.o: ..\Headers\LCM32F03x_Drivers\lcm32f037_rcc.h

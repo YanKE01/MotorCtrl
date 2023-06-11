@@ -2,7 +2,7 @@
  * @Author: Yanke@zjut.edu.cn
  * @Date: 2023-05-16 08:58:15
  * @LastEditors: LINKEEE 1435020085@qq.com
- * @LastEditTime: 2023-05-16 12:50:53
+ * @LastEditTime: 2023-06-09 17:21:21
  * @FilePath: \LCM_FOC\Sources\User_Soruces\HY_Variable.c
  */
 #include "HY_Variable.h"
@@ -10,6 +10,7 @@
 
 Motor motor;
 UI ui;
+MPPTADC mpptAdc;
 /**
  * @description: 系统变量初始化
  * @return {*}

@@ -10,7 +10,7 @@ extern "C"
 #define ADC1_DR_Address    ((u32)0x4001A020)
 #define ADC_SIZE				10
 #if(UPDS_UABC_MEAS_SEL == UPDS_UABC_MEAS_DISABLE)
-	#define ADC_SAMPLE_NUM 	4
+	#define ADC_SAMPLE_NUM 	8
 #elif(UPDS_UABC_MEAS_SEL == UPDS_UABC_MEAS_ENABLE)	
 	#define ADC_SAMPLE_NUM 	10
 #endif
