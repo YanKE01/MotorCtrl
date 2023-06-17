@@ -1,0 +1,17 @@
+Removed Pin From Net: NetName=5V Pin=P201-1
+Removed Pin From Net: NetName=DGND Pin=P201-2
+Removed Pin From Net: NetName=PE Pin=T101-6
+Added Pin To Net: NetName=DGND Pin=P201-4
+Added Pin To Net: NetName=5V Pin=P201-5
+Added Pin To Net: NetName=PA0-DIO Pin=P201-3
+Added Pin To Net: NetName=PA0-DIO Pin=U200-7
+Added Net: Name=PA0-DIO
+Added Pin To Net: NetName=PA1-CLK Pin=P201-2
+Added Pin To Net: NetName=PA1-CLK Pin=U200-8
+Added Net: Name=PA1-CLK
+Added Pin To Net: NetName=PB0-STB Pin=P201-1
+Added Pin To Net: NetName=PB0-STB Pin=U200-14
+Added Net: Name=PB0-STB
+Added Room: Name=01_Power
+Added Room: Name=02_MCU
+Added Room: Name=03_Mos

@@ -1,0 +1,24 @@
+Removed Pin From Net: NetName=MOTOR-A Pin=J101-1
+Removed Pin From Net: NetName=MOTOR-B Pin=J101-2
+Removed Pin From Net: NetName=MOTOR-C Pin=J101-3
+Removed Pin From Net: NetName=GND Pin=J101-4
+Removed Pin From Net: NetName=POWER Pin=J101-5
+Added Component: Designator=C302(1206_C)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "供应商链接"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.szlcsc.com/product/details_25237.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Notepad"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "1206"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "LC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SuppliersPartNumber"; Value = "C24497"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=IU Pin=C302-1
+Added Pin To Net: NetName=POWER Pin=C302-2
+Added Pin To Net: NetName=POWER Pin=J101-1
+Added Pin To Net: NetName=GND Pin=J101-2
+Added Pin To Net: NetName=MOTOR-A Pin=J101-3
+Added Pin To Net: NetName=MOTOR-B Pin=J101-4
+Added Pin To Net: NetName=MOTOR-C Pin=J101-5
+Added Member To Class: ClassName=03_Mos Member=Component C300 100nF (104) 10% 100V
+Added Member To Class: ClassName=03_Mos Member=Component C302 100nF (104) 10% 100V
+Added Room: Name=01_Power
+Added Room: Name=02_MCU
+Added Room: Name=03_Mos

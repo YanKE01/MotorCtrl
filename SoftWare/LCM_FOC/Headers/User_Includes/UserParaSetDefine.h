@@ -132,7 +132,7 @@
 #define UPDS_OVERVOLTAGE_V (55.000000f)          // 母线过压保护，V
 #define UPDS_OVERVOLTAGE_V_TIME_MS (100.000000f) // 触发母线过压保护时间，ms
 
-#define UPDS_UNDERVOLTAGE_V (36.000000f)          // 母线欠压保护，V
+#define UPDS_UNDERVOLTAGE_V (26.000000f)          // 母线欠压保护，V
 #define UPDS_UNDERVOLTAGE_V_TIME_MS (100.000000f) // 触发母线欠压保护时间，ms
 
 #define UPDS_MOTOROVERTEMPERATURE_DEGREE (150.000000f) // 电机过温保护值
@@ -149,7 +149,7 @@
 
 //==========================水泵========================
 #define UPDS_IQDIVSPD_GAIN (5.000000f) // 缺水保护值
-#define UPDS_NOWATER_TIME_S (30.0000f)  // 触发缺水保护时间  unit：s
+#define UPDS_NOWATER_TIME_S (60.0000f)  // 触发缺水保护时间  unit：s
 // 电机档位判断
 // 48v
 #define UPDS_NWONE_VOLLOW_V (30.0f)                     // unit；V

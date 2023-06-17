@@ -1,0 +1,26 @@
+Removed Pin From Net: NetName=PE Pin=T101-6
+Added Component: Designator=R412(0603_R)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "供应商链接"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.szlcsc.com/product/details_21903.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Notepad"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "LC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SuppliersPartNumber"; Value = "C21189"; VariantName = "[No Variations]"
+Added Component: Designator=R413(0603_R)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "供应商链接"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.szlcsc.com/product/details_21903.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Notepad"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "LC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SuppliersPartNumber"; Value = "C21189"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC401_1 Pin=R412-1
+Added Pin To Net: NetName=12VDD Pin=R412-2
+Added Pin To Net: NetName=NetC408_1 Pin=R413-1
+Added Pin To Net: NetName=12VDD Pin=R413-2
+Added Member To Class: ClassName=04_AD623 Member=Component J400 CON4
+Added Member To Class: ClassName=04_AD623 Member=Component R412 0Ω (0R0) ±1%
+Added Member To Class: ClassName=04_AD623 Member=Component R413 0Ω (0R0) ±1%
+Added Room: Name=01_Power
+Added Room: Name=02_MCU
+Added Room: Name=03_Mos
+Added Room: Name=04_AD623

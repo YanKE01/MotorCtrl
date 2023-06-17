@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=PE Pin=T101-6
+Added Component: Designator=T400(Testpoint)
+Added Pin To Net: NetName=VCC1.25REF Pin=T400-1
+Added Member To Class: ClassName=04_AD623 Member=Component T400 Test

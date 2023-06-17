@@ -64,5 +64,5 @@ void HY_HalInit(void)
     HY_GpioInit();
 
     HY_TM1650_SetDisplay(1, 7, 1);
-    //HY_TM1650_Clear();
+    HY_TM1650_Clear();
 }

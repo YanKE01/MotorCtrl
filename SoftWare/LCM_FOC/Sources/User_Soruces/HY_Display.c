@@ -149,6 +149,12 @@ void HY_TM1650_SetNumber(uint16_t num)
         index--;
         num /= 10;
     }
+		
+		//如果数字的位数只有3
+		if(index == 1)
+		{
+		    HY_TM1650_SetIndexNumber(0, 7, 0);
+		}
 }
 
 /**
