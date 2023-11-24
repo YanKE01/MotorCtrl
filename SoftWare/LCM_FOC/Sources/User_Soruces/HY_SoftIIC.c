@@ -17,7 +17,7 @@
  */
 void iic_delay(void)
 {
-    uint16_t j = 500; //500
+    uint16_t j = 500; // 500
     while (j--)
     {
     }
@@ -32,8 +32,8 @@ void sda_ouput()
     GPIO_InitTypeDef GPIO_InitStructure;
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-		GPIO_InitStructure.GPIO_OType 	= GPIO_OType_OD;
-		GPIO_InitStructure.GPIO_PuPd 	= GPIO_PuPd_NOPULL;		
+    GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
+    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_Level_2;
     GPIO_Init(GPIOA, &GPIO_InitStructure); // 初始化
 }
@@ -119,7 +119,7 @@ void iic_sendByte(uint8_t ucByte)
  */
 uint8_t iic_readByte()
 {
-    uint8_t i, rekey=0;
+    uint8_t i, rekey = 0;
     sda_input();
 
     for (i = 0; i < 8; i++)
@@ -164,7 +164,7 @@ uint8_t iic_waitAck(void)
  */
 void iic_ack()
 {
-	sda_ouput(); // SDA线输出模式
+    sda_ouput(); // SDA线输出模式
 
     IIC_SDA_0(); // CPU驱动SDA = 0
     iic_delay();

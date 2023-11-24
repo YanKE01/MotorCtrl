@@ -120,7 +120,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>ST-LINKIII-KEIL_SWO</Key>
-          <Name>-U170033001600004E32414D4E -O8398 -SF1800 -C0 -A0 -I0 -HNlocalhost -HP7184 -P1 -N00("ARM CoreSight SW-DP") -D00(0BB11477) -L00(0) -TO18 -TC10000000 -TP21 -TDS8004 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO31 -FD20000000 -FC1000 -FN1 -FF0LCM32F037_32K.FLM -FS08000000 -FL08000 -FP0($$Device:LCM32F037$Flash\LCM32F037_32K.FLM)</Name>
+          <Name>-U38FF6E064155313217541657 -O8398 -SF1800 -C0 -A0 -I0 -HNlocalhost -HP7184 -P1 -N00("ARM CoreSight SW-DP") -D00(0BB11477) -L00(0) -TO18 -TC10000000 -TP21 -TDS8004 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO31 -FD20000000 -FC1000 -FN1 -FF0LCM32F037_32K.FLM -FS08000000 -FL08000 -FP0($$Device:LCM32F037$Flash\LCM32F037_32K.FLM)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -304,6 +304,16 @@
           <count>29</count>
           <WinNumber>1</WinNumber>
           <ItemText>pd</ItemText>
+        </Ww>
+        <Ww>
+          <count>30</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>tm1638key</ItemText>
+        </Ww>
+        <Ww>
+          <count>31</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>tm1638_data</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>
@@ -1745,6 +1755,18 @@
       <bDave2>0</bDave2>
       <PathWithFileName>..\Sources\User_Soruces\HY_Display.c</PathWithFileName>
       <FilenameWithoutPath>HY_Display.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>12</GroupNumber>
+      <FileNumber>106</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\Sources\User_Soruces\HY_Display2.c</PathWithFileName>
+      <FilenameWithoutPath>HY_Display2.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

@@ -10,6 +10,7 @@
 #include "HY_Variable.h"
 #include "HY_Hal.h"
 #include "HY_Display.h"
+#include "HY_Display2.h"
 
 #define LIMIT(x, min, max) ((x) < (min) ? (min) : ((x) > (max) ? (max) : (x)))
 
@@ -25,6 +26,7 @@ float vbus_array[5] = {0};
 uint16_t max_speed = 0;
 uint16_t speed_array[20] = {0};
 uint16_t speed_count = 0;
+uint8_t tm1638key = 0;
 
 /**
  * @description: 速度限幅，传址
@@ -477,21 +479,27 @@ static void HY_Task_1S_Entry()
 void HY_TaskLoop()
 {
     static int count = 0;
+    static uint8_t flag = 0;
     count++;
 
     if (count % 50 == 0)
     {
-        HY_Task_50MS_Entry();
+        // HY_Task_50MS_Entry();
+			tm1638key = HY_TM1638_ScanKey();
     }
 
     if (count % 100 == 0)
     {
-        HY_Task_100MS_Entry();
+        // HY_Task_100MS_Entry();
     }
 
     if (count % 1000 == 0)
     {
-        HY_Task_1S_Entry();
+        // HY_Task_1S_Entry();
+//        flag = !flag;
+//        HY_TM1638_SetLedState(0, flag);
+			        
+
         count = 0;
     }
 }

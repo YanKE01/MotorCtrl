@@ -11,7 +11,7 @@
 #include "lcm32f037.h"
 
 void HY_HalInit(void);
-void HY_GpioTest(uint8_t status);
+void HY_GpioTest();
 
 
 #endif

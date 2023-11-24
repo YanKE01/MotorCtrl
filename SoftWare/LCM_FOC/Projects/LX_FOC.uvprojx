@@ -963,6 +963,11 @@
               <FileType>1</FileType>
               <FilePath>..\Sources\User_Soruces\HY_Display.c</FilePath>
             </File>
+            <File>
+              <FileName>HY_Display2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Sources\User_Soruces\HY_Display2.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

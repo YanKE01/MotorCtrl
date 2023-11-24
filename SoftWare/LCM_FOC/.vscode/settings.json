@@ -10,6 +10,7 @@
         "hy_softiic.h": "c",
         "hy_hal.h": "c",
         "lcm32f037_tim.h": "c",
-        "user_syserrorprocess.h": "c"
+        "user_syserrorprocess.h": "c",
+        "hy_display2.h": "c"
     }
 }

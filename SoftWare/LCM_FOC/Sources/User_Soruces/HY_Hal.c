@@ -7,10 +7,12 @@
  */
 #include "HY_Hal.h"
 #include "HY_Display.h"
+#include "HY_Display2.h"
 #include "lcm32f037_conf.h"
 #include "lcm32f037_rcc.h"
 #include "lcm32f037_gpio.h"
 #include "lcm32f037_tim.h"
+
 
 /**
  * @description: PA0_IIC_SDA PA1_IIC_SCL PB0_INT
@@ -18,22 +20,30 @@
  */
 static void HY_GpioInit(void)
 {
-    GPIO_InitTypeDef GPIO_InitStructure;
-    RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-		GPIO_InitStructure.GPIO_OType 	= GPIO_OType_OD;
-		GPIO_InitStructure.GPIO_PuPd 	= GPIO_PuPd_NOPULL;	
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_Level_2;
-    GPIO_Init(GPIOA, &GPIO_InitStructure); // 初始化
-	
-	
-	  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-		GPIO_InitStructure.GPIO_OType 	= GPIO_OType_PP;
-		GPIO_InitStructure.GPIO_PuPd 	= GPIO_PuPd_NOPULL;	
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_Level_2;
-    GPIO_Init(GPIOA, &GPIO_InitStructure); // 初始化
+  GPIO_InitTypeDef GPIO_InitStructure;
+  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
+  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB, ENABLE);
+
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+  GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
+  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_Level_2;
+  GPIO_Init(GPIOA, &GPIO_InitStructure); // 初始化
+
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_Level_2;
+  GPIO_Init(GPIOA, &GPIO_InitStructure); // 初始化
+
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_Level_2;
+   GPIO_Init(GPIOB, &GPIO_InitStructure); // 初始化
 }
 
 /**
@@ -41,18 +51,22 @@ static void HY_GpioInit(void)
  * @param {uint8_t} status
  * @return {*}
  */
-void HY_GpioTest(uint8_t status)
+void HY_GpioTest()
 {
-    if (status == 0)
-    {
-        GPIO_ResetBits(GPIOA, GPIO_Pin_0);
-        GPIO_ResetBits(GPIOA, GPIO_Pin_1);
-    }
-    else
-    {
-        GPIO_SetBits(GPIOA, GPIO_Pin_0);
-        GPIO_SetBits(GPIOA, GPIO_Pin_1);
-    }
+  static uint8_t status = 0;
+  status = !status;
+  if (status == 0)
+  {
+    GPIO_ResetBits(GPIOA, GPIO_Pin_0);
+    GPIO_ResetBits(GPIOA, GPIO_Pin_1);
+    GPIO_ResetBits(GPIOB, GPIO_Pin_0);
+  }
+  else
+  {
+    GPIO_SetBits(GPIOA, GPIO_Pin_0);
+    GPIO_SetBits(GPIOA, GPIO_Pin_1);
+    GPIO_SetBits(GPIOB, GPIO_Pin_0);
+  }
 }
 
 /**
@@ -61,8 +75,11 @@ void HY_GpioTest(uint8_t status)
  */
 void HY_HalInit(void)
 {
-    HY_GpioInit();
+  HY_GpioInit();
 
-    HY_TM1650_SetDisplay(1, 7, 1);
-    HY_TM1650_Clear();
+  HY_TM1638_Init();
+  // HY_TM1650_SetDisplay(1, 7, 1);
+  // HY_TM1650_Clear();
+  // tm1638_test();
+
 }
