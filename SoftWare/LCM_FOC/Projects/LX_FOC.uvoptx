@@ -313,7 +313,12 @@
         <Ww>
           <count>31</count>
           <WinNumber>1</WinNumber>
-          <ItemText>tm1638_data</ItemText>
+          <ItemText>ui</ItemText>
+        </Ww>
+        <Ww>
+          <count>32</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>max_speed</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>

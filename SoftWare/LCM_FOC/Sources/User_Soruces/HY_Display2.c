@@ -197,6 +197,18 @@ void HY_TM1638_SetNumAuto(uint16_t num)
     }
 }
 
+void HY_TM1638_Clear()
+{
+    uint8_t j = 0;
+    for (j = 0; j < 4; j++)
+    {
+        GPIO_ResetBits(GPIOB, GPIO_Pin_0);
+        HY_TM1638_Write(digital_tube_addr[j]);
+        HY_TM1638_Write(s_7number[10]);
+        GPIO_SetBits(GPIOB, GPIO_Pin_0);
+    }
+}
+
 /**
  * @brief TM1638单独设置LED状态
  *
@@ -216,14 +228,56 @@ void HY_TM1638_SetLedState(uint8_t index, uint8_t status)
     GPIO_SetBits(GPIOB, GPIO_Pin_0);
 }
 
+
+/**
+ * @brief TM1638显示故障
+ * 
+ * @param fault 
+ */
+void HY_TM1638_SetFault(UGT_S_SYSTEMSTATE_STRU fault)
+{
+
+    GPIO_ResetBits(GPIOB, GPIO_Pin_0);
+    HY_TM1638_Write(digital_tube_addr[0]);
+    HY_TM1638_Write(0x73);
+    GPIO_SetBits(GPIOB, GPIO_Pin_0);
+    if (fault.uSystemError.Bits.OverVoltage)
+    {
+        HY_TM1638_SetNumAuto(0);
+    }
+    else if (fault.uSystemError.Bits.LosePhase)
+    {
+        HY_TM1638_SetNumAuto(43);
+    }
+    else if (fault.uSystemError.Bits.StartupFail)
+    {
+        HY_TM1638_SetNumAuto(44);
+    }
+    else if (fault.uSystemError.Bits.OverCurrent)
+    {
+        HY_TM1638_SetNumAuto(49);
+    }
+    else if (fault.uSystemError.Bits.UnderVoltage)
+    {
+        HY_TM1638_SetNumAuto(50);
+    }
+    else if (fault.uSystemError.Bits.OverVoltage)
+    {
+        HY_TM1638_SetNumAuto(51);
+    }
+    else if (fault.uSystemError.Bits.NoWater)
+    {
+        HY_TM1638_SetNumAuto(48);
+    }
+}
+
 /**
  * @brief TM1638初始化
  *
  */
 void HY_TM1638_Init()
 {
-    HY_TM1638_SetBrightness(7);
+    HY_TM1638_SetBrightness(2);
     HY_TM1638_Reset();
-
-    HY_TM1638_SetNumAuto(1111);
+    HY_TM1638_SetLedState(POWER, 1); // 电源灯
 }

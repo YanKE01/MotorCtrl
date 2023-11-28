@@ -1,4 +1,0 @@
-Removed Pin From Net: NetName=12VDD Pin=C113-1
-Removed Pin From Net: NetName=DGND Pin=C113-2
-Removed Pin From Net: NetName=PE Pin=T101-6
-Removed Member From Class: ClassName=01_Power Member=C113

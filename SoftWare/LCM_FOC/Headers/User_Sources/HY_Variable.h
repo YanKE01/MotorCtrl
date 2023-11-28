@@ -13,6 +13,7 @@
 typedef struct _Motor
 {
   /* data */
+  uint8_t mode;             // 0为电源模式 1为MPPT模式
   uint8_t state;            // 电机运行状态 0:停止 1:启动
   uint8_t fault;            // 电机故障状态 用户状态，需手动置位清零
   uint16_t minSpeed;        // 最低转速
@@ -20,6 +21,7 @@ typedef struct _Motor
   uint16_t targetSpeed;     // 目标转速,需要限制在最低与最高转速
   uint16_t targetSpeedTemp; // 临时转速
   uint16_t speedChangeStep; // 速度调节步距
+  uint16_t mpptSpeed;       // mppt速度
   float currentVbus;        // 当前总线电压
   uint16_t targetSpeedPrev; // 目标转速的前一个转速
   float busCurrent;         // 当前母线电流
@@ -50,12 +52,11 @@ typedef struct PD
   float error_last;
   float kp;
   float kd;
-}Pd;
-
+} Pd;
 
 enum ModePage
 {
-  VbusPage=0,
+  VbusPage = 0,
   SpeedPage,
   CurrentPage,
 };

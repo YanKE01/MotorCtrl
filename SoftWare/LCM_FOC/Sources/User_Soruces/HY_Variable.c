@@ -30,15 +30,18 @@ void HY_VariableInit(void)
     motor.fault = 0;                           // 无故障状态
     motor.targetSpeedPrev = motor.targetSpeed; // 前一个转速
     motor.minVbus = 34.0f;                     // 最低母线电压为34v
+    motor.mode = 0;                            // 默认电源模式
 
     strategy.changeCount = 0;
     strategy.lowVbusChangeCount = 0;
     pd.error = 0;
     pd.error_last = 0;
-    pd.kd = 500.0f; //450
-    pd.kp = 1000.0f; //1300
+    pd.kd = 500.0f;  // 450
+    pd.kp = 1000.0f; // 1300
 
     /*UI*/
     ui.modePage = 0;   // 速度,电流,故障灯页面
     ui.isSetSpeed = 0; // 按下增减速成立
+    ui.keyValue = 0;
+    ui.keyValue_Prev = 0;
 }
