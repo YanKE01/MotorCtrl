@@ -228,11 +228,10 @@ void HY_TM1638_SetLedState(uint8_t index, uint8_t status)
     GPIO_SetBits(GPIOB, GPIO_Pin_0);
 }
 
-
 /**
  * @brief TM1638显示故障
- * 
- * @param fault 
+ *
+ * @param fault
  */
 void HY_TM1638_SetFault(UGT_S_SYSTEMSTATE_STRU fault)
 {
@@ -277,7 +276,7 @@ void HY_TM1638_SetFault(UGT_S_SYSTEMSTATE_STRU fault)
  */
 void HY_TM1638_Init()
 {
-    HY_TM1638_SetBrightness(2);
+    HY_TM1638_SetBrightness(3);
     HY_TM1638_Reset();
     HY_TM1638_SetLedState(POWER, 1); // 电源灯
 }

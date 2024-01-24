@@ -1,0 +1,47 @@
+Removed Pin From Net: NetName=DGND Pin=C200-1
+Removed Pin From Net: NetName=DGND Pin=C309-1
+Removed Pin From Net: NetName=POWER Pin=C309-2
+Removed Pin From Net: NetName=PE Pin=T101-6
+Removed Member From Class: ClassName=02_MCU Member=C200
+Removed Member From Class: ClassName=03_Mos Member=C309
+Removed Member From Class: ClassName=02_MCU Member=R202
+Change Component Footprint: Designator=D103 Old Footprint=1N4746A New Footprint=SMBJ18A
+Change Component Footprint: Designator=R200 Old Footprint=0805_R New Footprint=0603_R
+Change Component Footprint: Designator=R201 Old Footprint=0805_R New Footprint=0603_R
+Change Component Footprint: Designator=Q100 Old Footprint=IRFB4127 New Footprint=NCEP1570
+Change Component Footprint: Designator=Q300 Old Footprint=IRFB4127 New Footprint=NCEP1570
+Change Component Footprint: Designator=Q301 Old Footprint=IRFB4127 New Footprint=NCEP1570
+Change Component Footprint: Designator=Q302 Old Footprint=IRFB4127 New Footprint=NCEP1570
+Change Component Footprint: Designator=Q303 Old Footprint=IRFB4127 New Footprint=NCEP1570
+Change Component Footprint: Designator=Q304 Old Footprint=IRFB4127 New Footprint=NCEP1570
+Change Component Footprint: Designator=Q305 Old Footprint=IRFB4127 New Footprint=NCEP1570
+Change Component Footprint: Designator=J200 Old Footprint=XH2.54-5P New Footprint=2.54_5P_PHI
+Change Component Comment : Designator=D103 Old Comment=1N4746A New Comment=SMBJ18A
+Change Component Comment : Designator=Q100 Old Comment=IRFB4127PBF New Comment=NCEP1570
+Change Component Comment : Designator=Q300 Old Comment=IRFB4127PBF New Comment=NCEP1570
+Change Component Comment : Designator=Q301 Old Comment=IRFB4127PBF New Comment=NCEP1570
+Change Component Comment : Designator=Q302 Old Comment=IRFB4127PBF New Comment=NCEP1570
+Change Component Comment : Designator=Q303 Old Comment=IRFB4127PBF New Comment=NCEP1570
+Change Component Comment : Designator=Q304 Old Comment=IRFB4127PBF New Comment=NCEP1570
+Change Component Comment : Designator=Q305 Old Comment=IRFB4127PBF New Comment=NCEP1570
+Change component parameters: Designator = "R200" ("R200"); Footprint = "0805_R"; UniqueID = "\ESWERIQS" ("\ESWERIQS")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "供应商链接"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.szlcsc.com/product/details_21904.html"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Notepad"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "LC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SuppliersPartNumber"; Value = "C21190"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R201" ("R201"); Footprint = "0805_R"; UniqueID = "\BHJVUMJB" ("\BHJVUMJB")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "供应商链接"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.szlcsc.com/product/details_21904.html"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Notepad"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "LC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SuppliersPartNumber"; Value = "C21190"; VariantName = "[No Variations]"
+Change Net Name : Old Net Name=FG New Net Name=NetR200_1
+Change Net Name : Old Net Name=PB0-STB New Net Name=STB_PB0
+Added Pin To Net: NetName=ADC2-I Pin=U200-15
+Added Net: Name=ADC2-I
+Added Room: Name=01_Power
+Added Room: Name=02_MCU
+Added Room: Name=03_Mos

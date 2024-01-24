@@ -300,11 +300,17 @@ static void HY_Task_50MS_Entry()
             break;
         case 3:
             // UP
-            IncreaseSpeed();
+            if (motor.mode == 0)
+            {
+                IncreaseSpeed();
+            }
             break;
         case 4:
             // DOWN
-            ReduceSpeed();
+            if (motor.mode == 0)
+            {
+                ReduceSpeed();
+            }
             break;
         case 5:
             // SWITCH
@@ -348,6 +354,10 @@ static void HY_Task_50MS_Entry()
  */
 static void HY_Task_100MS_Entry()
 {
+    HY_TM1638_SetLedState(A, 0);
+    HY_TM1638_SetLedState(WELL, 0);
+    HY_TM1638_SetLedState(TANK, 0);
+    HY_TM1638_SetLedState(W, 0);
 }
 
 /**
