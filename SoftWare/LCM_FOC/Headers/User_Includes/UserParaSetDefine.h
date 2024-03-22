@@ -27,7 +27,7 @@
 #define UPDS_MOTOR_HIGH_SPEED (1) // 高转速电机，电频率大于1000Hz，吸尘器、扫地机等
 #define UPDS_MOTOR_SPEED (UPDS_MOTOR_LOW_SPEED)
 
-// 七五段式SVPWM切换使能,可以提高调制度，即提高转速，但是会引入稍大的电流谐波和噪声
+// 七五段式SVPWM切换使能,可以提高调制度，即----提高转速，但是会引入稍大的电流谐波和噪声
 #define UPDS_5_7STAGE_SWITCHING_DISABLE (0) // 七五段式SVPWM切换关闭
 #define UPDS_5_7STAGE_SWITCHING_ENABLE (1)  // 七五段式SVPWM切换使能
 #define UPDS_5_7STAGE_SWITCHING_SEL (UPDS_5_7STAGE_SWITCHING_ENABLE)
@@ -77,13 +77,13 @@
 
 //====================电机参数设置=======================
 #define UPDS_MOTOR_J (0.000100f)        // 电机系统转动惯量，暂时没用，可以用默认值
-#define UPDS_RS_REAL (0.1159076f)       // 定子相电阻，欧姆
-#define UPDS_LD_REAL (0.0002850f)       // d轴电感，H
-#define UPDS_LQ_REAL (0.0004590f)       // q轴电感，H
-#define UPDS_PSI_REAL (0.018379f)       // 永磁体磁链幅值，V/(rad/s)
-#define UPDS_PAIRS (3u)                 // 极对数
-#define UPDS_RATED_CURRENT (28.000000f) // 额定电流，A   <=2*IN
-#define UPDS_RATED_SPEED (3600.000000f) // 额定转速，rpm
+#define UPDS_RS_REAL (0.102000f)       // 定子相电阻，欧姆
+#define UPDS_LD_REAL (0.000078f)       // d轴电感，H
+#define UPDS_LQ_REAL (0.000098f)       // q轴电感，H
+#define UPDS_PSI_REAL (0.004207)       // 永磁体磁链幅值，V/(rad/s)
+#define UPDS_PAIRS (5u)                 // 极对数
+#define UPDS_RATED_CURRENT (25.000000f) // 额定电流，A   <=2*IN
+#define UPDS_RATED_SPEED (2400.000000f) // 额定转速，rpm
 
 //====================硬件参数===========================
 #define UPDS_SAMPLE_CURR_R_REAL (0.01000f)    // 相电流采样电阻
@@ -95,7 +95,7 @@
 #define UPDS_DEADTIME_NS ((u16)1500)          // 死区时间,单位ns，0~3500ns
 
 //=====================控制参数==========================
-#define UPDS_COMMAND_TIME_IQ1_S (1.000000f)     // 指令从0-1PU，所需时间
+#define UPDS_COMMAND_TIME_IQ1_S (3.000000f)     // 指令从0-1PU，所需时间
 #define UPDS_INJECT_D_CURRENT_A_PU (0.000000f)  // 启动电流参数，增强启动能力，0-0.5, 可靠启动参数，大扇叶可是适当增大（标幺）
 #define UPDS_PWM_FREQ2 ((u16)16000)             // 第二频率，高速运行用，单位：Hz，fpwm2,//PWM开关频率（主中断），频率切换使能后起作用。否则按照PWM2配置
 #define UPDS_PWM_FREQ ((u16)UPDS_PWM_FREQ2 / 2) // 第一频率，低速运行用，单位：Hz，fpwm1
@@ -129,10 +129,10 @@
 #define UPDS_OVERCURRENT_A (33.300000f)        // 过流保护，定子电流模值，Mag(Is)，A
 #define UPDS_OVERCURRENT_A_TIME_MS (1.000000f) // 触发过流保护所需时间，ms
 
-#define UPDS_OVERVOLTAGE_V (90.000000f)          // 母线过压保护，V
+#define UPDS_OVERVOLTAGE_V (20.000000f)          // 母线过压保护，V
 #define UPDS_OVERVOLTAGE_V_TIME_MS (100.000000f) // 触发母线过压保护时间，ms
 
-#define UPDS_UNDERVOLTAGE_V (26.000000f)          // 母线欠压保护，V
+#define UPDS_UNDERVOLTAGE_V (9.000000f)          // 母线欠压保护，V
 #define UPDS_UNDERVOLTAGE_V_TIME_MS (100.000000f) // 触发母线欠压保护时间，ms
 
 #define UPDS_MOTOROVERTEMPERATURE_DEGREE (150.000000f) // 电机过温保护值

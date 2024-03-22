@@ -30,7 +30,7 @@ void HY_VariableInit(void)
     motor.fault = 0;                           // 无故障状态
     motor.targetSpeedPrev = motor.targetSpeed; // 前一个转速
     motor.minVbus = 34.0f;                     // 最低母线电压为34v
-    motor.mode = 1;                            // 默认电源模式
+    motor.mode = 0;                            // 默认电源模式
 
     strategy.changeCount = 0;
     strategy.lowVbusChangeCount = 0;

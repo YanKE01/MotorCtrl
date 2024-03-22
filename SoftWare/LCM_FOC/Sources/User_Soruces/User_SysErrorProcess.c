@@ -133,10 +133,10 @@ void US_vSysErrorCheck(void)
 			UG_sSysStateErr.sSysTime.OVCount++;
 			if (UG_sSysStateErr.sSysTime.OVCount > UG_sSystemControllers.sMotorPara.s32OVJudgeTimeTotal)
 			{
-				UG_sSysStateErr.uSystemError.Bits.OverVoltage = TRUE;
-				motor.fault = 1;
+//				UG_sSysStateErr.uSystemError.Bits.OverVoltage = TRUE;
+//				motor.fault = 1;
 
-				UG_sSysStateErr.sSysTime.OVCount = 0;
+//				UG_sSysStateErr.sSysTime.OVCount = 0;
 			}
 		}
 		else if (UG_sVoltageAll.sVoltageAbc.s16UdcMeas < (UG_sSystemControllers.sMotorPara.s16UnderVoltage))

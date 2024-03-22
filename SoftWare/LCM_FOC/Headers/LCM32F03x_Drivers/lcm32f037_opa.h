@@ -15,7 +15,7 @@ typedef struct
   uint32_t OPA_Gain;
   uint32_t OPA_BiasVoltage;
   uint32_t OPA_FeedbackRes;
-  uint32_t OPA_Opoto_Gpio; //¿ª¹Ø OPOE
+  uint32_t OPA_Opoto_Gpio; //ï¿½ï¿½ï¿½ï¿½ OPOE
   uint32_t OPA_OppRES_short;
   uint32_t OPA_OpnRES_short;
   uint32_t OPA_BiasVoltageSource;
