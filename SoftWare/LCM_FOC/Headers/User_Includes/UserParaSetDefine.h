@@ -129,7 +129,7 @@
 #define UPDS_OVERCURRENT_A (33.300000f)        // 过流保护，定子电流模值，Mag(Is)，A
 #define UPDS_OVERCURRENT_A_TIME_MS (1.000000f) // 触发过流保护所需时间，ms
 
-#define UPDS_OVERVOLTAGE_V (55.000000f)          // 母线过压保护，V
+#define UPDS_OVERVOLTAGE_V (90.000000f)          // 母线过压保护，V
 #define UPDS_OVERVOLTAGE_V_TIME_MS (100.000000f) // 触发母线过压保护时间，ms
 
 #define UPDS_UNDERVOLTAGE_V (26.000000f)          // 母线欠压保护，V
